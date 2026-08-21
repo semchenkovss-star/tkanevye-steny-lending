@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { formatPhone, isPhoneValid } from '@/lib/lead';
 
@@ -101,8 +102,11 @@ const LeadForm = ({ source = 'Форма на странице', compact = false
       </button>
 
       <p className="mt-4 text-xs leading-[1.55] text-muted-foreground">
-        Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных. Только два поля —
-        имя и телефон, ничего лишнего не спрашиваем.
+        Нажимая кнопку, вы соглашаетесь с{' '}
+        <Link to="/privacy" className="underline underline-offset-2 hover:text-foreground">
+          политикой обработки персональных данных
+        </Link>
+        . Только два поля — имя и телефон, ничего лишнего не спрашиваем.
       </p>
     </form>
   );

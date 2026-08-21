@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 
@@ -96,7 +96,12 @@ const Footer = () => {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-8 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
           <span>Тканевые стены</span>
-          <span>Информация на сайте не является публичной офертой.</span>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link to="/privacy" className="transition-colors hover:text-primary">
+              Политика конфиденциальности
+            </Link>
+            <span>Информация на сайте не является публичной офертой.</span>
+          </div>
         </div>
       </div>
     </footer>
