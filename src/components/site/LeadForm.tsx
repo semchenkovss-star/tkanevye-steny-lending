@@ -12,19 +12,21 @@ interface LeadFormProps {
 const LeadForm = ({ source = 'Форма на странице', compact = false, onDone }: LeadFormProps) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
+  const [agree, setAgree] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; agree?: string }>({});
   const [sent, setSent] = useState(false);
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    const next: { name?: string; phone?: string } = {};
+    const next: { name?: string; phone?: string; agree?: string } = {};
     if (name.trim().length < 2) next.name = 'Напишите, как к вам обращаться';
     if (!isPhoneValid(phone)) next.phone = 'Нужен полный номер телефона';
+    if (!agree) next.agree = 'Без согласия мы не можем принять заявку';
     setErrors(next);
     if (Object.keys(next).length) return;
 
     // eslint-disable-next-line no-console
-    console.log('lead', { name, phone, source });
+    console.log('lead', { name, phone, source, agree, agreedAt: new Date().toISOString() });
     setSent(true);
     onDone?.();
   };
@@ -94,20 +96,45 @@ const LeadForm = ({ source = 'Форма на странице', compact = false
         </div>
       </div>
 
+      <div className="mt-6">
+        <label
+          htmlFor={`agree-${source}`}
+          className="flex cursor-pointer items-start gap-3 text-xs leading-[1.55] text-muted-foreground"
+        >
+          <input
+            id={`agree-${source}`}
+            type="checkbox"
+            checked={agree}
+            onChange={(e) => {
+              setAgree(e.target.checked);
+              if (errors.agree) setErrors((p) => ({ ...p, agree: undefined }));
+            }}
+            aria-invalid={Boolean(errors.agree)}
+            className={`mt-0.5 h-5 w-5 shrink-0 cursor-pointer appearance-none border bg-card transition-colors checked:border-primary checked:bg-primary ${
+              errors.agree ? 'border-destructive' : 'border-border'
+            } bg-[length:14px_14px] bg-center bg-no-repeat checked:bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%223%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%2220 6 9 17 4 12%22/></svg>')]`}
+          />
+          <span>
+            Я согласен на обработку персональных данных и принимаю{' '}
+            <Link
+              to="/privacy"
+              onClick={(e) => e.stopPropagation()}
+              className="underline underline-offset-2 hover:text-foreground"
+            >
+              политику конфиденциальности
+            </Link>
+            . Только два поля — имя и телефон, ничего лишнего не спрашиваем.
+          </span>
+        </label>
+        {errors.agree && <p className="mt-2 text-sm text-destructive">{errors.agree}</p>}
+      </div>
+
       <button
         type="submit"
         className="mt-6 w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
       >
         Записаться на бесплатный замер
       </button>
-
-      <p className="mt-4 text-xs leading-[1.55] text-muted-foreground">
-        Нажимая кнопку, вы соглашаетесь с{' '}
-        <Link to="/privacy" className="underline underline-offset-2 hover:text-foreground">
-          политикой обработки персональных данных
-        </Link>
-        . Только два поля — имя и телефон, ничего лишнего не спрашиваем.
-      </p>
     </form>
   );
 };
