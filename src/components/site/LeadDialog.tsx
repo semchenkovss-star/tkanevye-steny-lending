@@ -6,11 +6,13 @@ import { LEAD_EVENT } from '@/lib/lead';
 const LeadDialog = () => {
   const [open, setOpen] = useState(false);
   const [source, setSource] = useState('Кнопка');
+  const [summary, setSummary] = useState<string | undefined>();
 
   useEffect(() => {
     const handler = (e: Event) => {
-      const detail = (e as CustomEvent<{ source?: string }>).detail;
+      const detail = (e as CustomEvent<{ source?: string; summary?: string }>).detail;
       setSource(detail?.source ?? 'Кнопка');
+      setSummary(detail?.summary);
       setOpen(true);
     };
     window.addEventListener(LEAD_EVENT, handler);
@@ -61,8 +63,20 @@ const LeadDialog = () => {
           Оставьте имя и телефон — перезвоним в течение 15 минут и подберём удобное время.
         </p>
 
+        {summary && (
+          <div className="mt-5 flex gap-3 border border-border bg-secondary p-4">
+            <Icon name="Calculator" size={18} className="mt-0.5 shrink-0 text-primary" />
+            <p className="text-sm leading-[1.5] text-foreground">
+              <span className="block text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                Ваш расчёт
+              </span>
+              {summary}
+            </p>
+          </div>
+        )}
+
         <div className="mt-7">
-          <LeadForm source={source} compact />
+          <LeadForm source={source} summary={summary} compact />
         </div>
       </div>
     </div>

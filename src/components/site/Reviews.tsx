@@ -35,7 +35,7 @@ const Reviews = () => {
   const move = (d: number) => setI((prev) => (prev + d + REVIEWS.length) % REVIEWS.length);
 
   return (
-    <Section id="reviews" index="08" eyebrow="Отзывы" title={<>Говорят заказчики</>}>
+    <Section id="reviews" index="09" eyebrow="Отзывы" title={<>Говорят заказчики</>}>
       <div className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <blockquote className="border-l-2 border-primary pl-6 lg:pl-10">

@@ -1,5 +1,4 @@
 import Icon from '@/components/ui/icon';
-import { openLead } from '@/lib/lead';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const NAV = [
@@ -92,13 +91,12 @@ const Hero = () => {
           className="rule-top flex flex-col items-start gap-5 pt-6 animate-fade-in sm:flex-row sm:items-end sm:gap-8"
           style={{ animationDelay: '360ms' }}
         >
-          <button
-            type="button"
-            onClick={() => openLead('Первый экран')}
+          <a
+            href="#calc"
             className="whitespace-nowrap bg-primary px-[30px] py-[17px] font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
           >
             Рассчитать стену по размерам
-          </button>
+          </a>
           <div className="max-w-[22em]">
             <a
               href={PHONE_HREF}

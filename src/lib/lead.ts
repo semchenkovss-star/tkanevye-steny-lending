@@ -1,8 +1,8 @@
 export const LEAD_EVENT = 'polotno:lead';
 
 /** Открыть модальное окно заявки из любой точки страницы */
-export function openLead(source = 'Кнопка') {
-  window.dispatchEvent(new CustomEvent(LEAD_EVENT, { detail: { source } }));
+export function openLead(source = 'Кнопка', summary?: string) {
+  window.dispatchEvent(new CustomEvent(LEAD_EVENT, { detail: { source, summary } }));
 }
 
 /** Приведение телефона к маске +7 (___) ___-__-__ */

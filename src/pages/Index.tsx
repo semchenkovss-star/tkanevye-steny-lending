@@ -9,6 +9,7 @@ import HowItWorks from '@/components/site/HowItWorks';
 import Fabrics from '@/components/site/Fabrics';
 import Cases from '@/components/site/Cases';
 import Pricing from '@/components/site/Pricing';
+import Calculator from '@/components/site/Calculator';
 import Reviews from '@/components/site/Reviews';
 import About from '@/components/site/About';
 import Faq from '@/components/site/Faq';
@@ -79,6 +80,7 @@ const Index = () => {
         <Fabrics />
         <Cases />
         <Pricing />
+        <Calculator />
         <Reviews />
         <About />
         <Faq />

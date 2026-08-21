@@ -10,6 +10,7 @@ const LINKS = [
   { href: '#fabrics', label: 'Ткани' },
   { href: '#cases', label: 'Объекты' },
   { href: '#price', label: 'Цены' },
+  { href: '#calc', label: 'Калькулятор' },
   { href: '#faq', label: 'Вопросы' },
   { href: '#blog', label: 'Блог' },
 ];

@@ -5,11 +5,17 @@ import { formatPhone, isPhoneValid } from '@/lib/lead';
 
 interface LeadFormProps {
   source?: string;
+  summary?: string;
   compact?: boolean;
   onDone?: () => void;
 }
 
-const LeadForm = ({ source = 'Форма на странице', compact = false, onDone }: LeadFormProps) => {
+const LeadForm = ({
+  source = 'Форма на странице',
+  summary,
+  compact = false,
+  onDone,
+}: LeadFormProps) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [agree, setAgree] = useState(false);
@@ -26,7 +32,14 @@ const LeadForm = ({ source = 'Форма на странице', compact = false
     if (Object.keys(next).length) return;
 
     // eslint-disable-next-line no-console
-    console.log('lead', { name, phone, source, agree, agreedAt: new Date().toISOString() });
+    console.log('lead', {
+      name,
+      phone,
+      source,
+      summary,
+      agree,
+      agreedAt: new Date().toISOString(),
+    });
     setSent(true);
     onDone?.();
   };
