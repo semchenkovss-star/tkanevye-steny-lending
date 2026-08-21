@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 
@@ -17,12 +18,16 @@ const COLUMNS = [
       { href: '#price', label: 'Тарифы и цены' },
       { href: '#faq', label: 'Частые вопросы' },
       { href: '#reviews', label: 'Отзывы' },
+      { href: '#blog', label: 'Блог' },
       { href: '#about', label: 'О компании' },
     ],
   },
 ];
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  const prefix = pathname === '/' ? '' : '/';
+
   return (
     <footer className="border-t border-border bg-foreground text-background">
       <div className="mx-auto w-full max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
@@ -51,7 +56,7 @@ const Footer = () => {
                 {col.links.map((l) => (
                   <li key={l.href}>
                     <a
-                      href={l.href}
+                      href={prefix + l.href}
                       className="text-sm text-background/60 transition-colors hover:text-primary"
                     >
                       {l.label}

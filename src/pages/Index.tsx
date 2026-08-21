@@ -10,6 +10,7 @@ import Pricing from '@/components/site/Pricing';
 import Reviews from '@/components/site/Reviews';
 import About from '@/components/site/About';
 import Faq from '@/components/site/Faq';
+import Blog from '@/components/site/Blog';
 import CtaForm from '@/components/site/CtaForm';
 import Footer from '@/components/site/Footer';
 import FloatingCta from '@/components/site/FloatingCta';
@@ -31,6 +32,7 @@ const Index = () => {
         <Reviews />
         <About />
         <Faq />
+        <Blog />
         <CtaForm />
       </main>
       <Footer />

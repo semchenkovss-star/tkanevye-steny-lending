@@ -10,6 +10,7 @@ const LINKS = [
   { href: '#cases', label: 'Объекты' },
   { href: '#price', label: 'Цены' },
   { href: '#faq', label: 'Вопросы' },
+  { href: '#blog', label: 'Блог' },
 ];
 
 const StickyHeader = () => {
