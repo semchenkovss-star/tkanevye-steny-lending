@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-8 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} Полотно. Тканевые стены на скрытом каркасе.</span>
+          <span>Тканевые стены</span>
           <span>Информация на сайте не является публичной офертой.</span>
         </div>
       </div>
