@@ -40,7 +40,7 @@ const Hero = () => {
         className="weave-panel absolute inset-x-0 bottom-0 h-24 overflow-hidden md:hidden"
       />
 
-      <div className="relative z-[3] flex min-h-[100svh] w-full flex-col justify-between px-6 pb-32 pt-8 md:w-[57%] md:px-16 md:pb-14 md:pl-[4.5rem] md:pt-11">
+      <div className="shell-left relative z-[3] flex min-h-[100svh] w-full flex-col pb-28 pr-5 pt-7 sm:pr-8 md:w-[57%] md:pb-14 md:pr-14 md:pt-11">
         <header className="rule-bottom flex items-baseline justify-between gap-6 pb-4">
           <a
             href="#top"
@@ -64,7 +64,7 @@ const Hero = () => {
           </a>
         </header>
 
-        <div className="py-14 pr-2 md:py-0">
+        <div className="flex flex-1 flex-col justify-center py-10 md:py-0">
           <div
             className="mb-6 text-xs uppercase tracking-[0.14em] text-muted-foreground animate-fade-in"
             style={{ animationDelay: '80ms' }}
@@ -72,7 +72,7 @@ const Hero = () => {
             Стены из ткани на скрытом каркасе
           </div>
           <h1
-            className="max-w-[11.2em] font-display text-[3.25rem] uppercase leading-[0.98] tracking-[0.005em] text-foreground animate-fade-in sm:text-[4.5rem] lg:text-[5.4rem]"
+            className="max-w-[11.2em] font-display text-[clamp(2.4rem,8.5vw,3.25rem)] uppercase leading-[0.98] tracking-[0.005em] text-foreground animate-fade-in sm:text-[4.5rem] lg:text-[5.4rem]"
             style={{ animationDelay: '160ms' }}
           >
             Ровная стена

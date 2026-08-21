@@ -19,7 +19,7 @@ const FloatingCta = () => {
 
   return (
     <div
-      className={`fixed bottom-5 right-5 z-50 flex items-center gap-3 transition-all duration-300 ${
+      className={`fixed bottom-4 right-4 z-50 flex max-w-[calc(100vw-2rem)] items-center gap-2 sm:bottom-6 sm:right-6 sm:gap-3 transition-all duration-300 ${
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0'
       }`}
     >

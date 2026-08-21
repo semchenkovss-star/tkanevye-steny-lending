@@ -99,7 +99,7 @@ const Privacy = () => {
       />
 
       <header className="border-b border-border">
-        <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between gap-6 px-6 lg:px-10">
+        <div className="shell flex h-16 items-center justify-between gap-6">
           <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">
             Тканевые стены
           </Link>
@@ -113,7 +113,7 @@ const Privacy = () => {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-[1400px] px-6 py-16 lg:px-10 lg:py-24">
+      <main className="shell py-14 sm:py-16 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-10">
@@ -136,7 +136,7 @@ const Privacy = () => {
           </div>
 
           <div className="lg:col-span-8">
-            <h1 className="max-w-[15em] font-display text-[2.5rem] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
+            <h1 className="max-w-[15em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
               Политика обработки персональных данных
             </h1>
             <p className="mt-6 max-w-[38em] text-base leading-[1.6] text-muted-foreground">

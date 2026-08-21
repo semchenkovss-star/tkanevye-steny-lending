@@ -37,7 +37,7 @@ const Section = ({
       className={`w-full border-t border-border ${toneMap[tone]} ${className}`}
     >
       <div
-        className={`mx-auto w-full max-w-[1400px] px-6 py-20 lg:px-10 lg:py-28 ${
+        className={`shell py-16 sm:py-20 lg:py-28 ${
           shown ? 'animate-rise' : 'opacity-0'
         }`}
       >
@@ -65,7 +65,7 @@ const Section = ({
             </div>
             <div className="lg:col-span-8">
               {title && (
-                <h2 className="max-w-[16em] font-display text-[2.5rem] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem] lg:text-[4rem]">
+                <h2 className="max-w-[16em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem] lg:text-[4rem]">
                   {title}
                 </h2>
               )}

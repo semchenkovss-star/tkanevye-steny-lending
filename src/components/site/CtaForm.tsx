@@ -21,14 +21,14 @@ const CtaForm = () => {
       />
 
       <div
-        className={`relative z-10 mx-auto w-full max-w-[1400px] px-6 py-20 lg:px-10 lg:py-28 ${
+        className={`relative z-10 shell py-16 sm:py-20 lg:py-28 ${
           shown ? 'animate-rise' : 'opacity-0'
         }`}
       >
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <span className="font-display text-sm tracking-[0.2em] text-primary">13</span>
-            <h2 className="mt-4 max-w-[12em] font-display text-[2.5rem] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
+            <h2 className="mt-4 max-w-[12em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
               Бесплатный замер и смета за 24 часа
             </h2>
             <ul className="mt-8 space-y-4">
@@ -56,7 +56,7 @@ const CtaForm = () => {
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7">
-            <div className="border border-border bg-card p-8 lg:p-10">
+            <div className="border border-border bg-card p-6 sm:p-8 lg:p-10">
               <LeadForm source="Форма внизу" />
             </div>
           </div>

@@ -40,7 +40,7 @@ const BlogPage = () => {
         jsonLd={JSON_LD}
       />
       <header className="border-b border-border">
-        <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between gap-6 px-6 lg:px-10">
+        <div className="shell flex h-16 items-center justify-between gap-6">
           <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">
             Полотно
           </Link>
@@ -54,9 +54,9 @@ const BlogPage = () => {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-[1400px] px-6 py-16 lg:px-10 lg:py-24">
+      <main className="shell py-14 sm:py-16 lg:py-24">
         <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Блог</div>
-        <h1 className="mt-3 max-w-[14em] font-display text-[2.75rem] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.5rem] lg:text-[4.5rem]">
+        <h1 className="mt-3 max-w-[14em] font-display text-[clamp(2.1rem,8vw,2.75rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.5rem] lg:text-[4.5rem]">
           О тканевых стенах по делу
         </h1>
         <p className="mt-6 max-w-[38em] text-base leading-[1.6] text-muted-foreground">
@@ -75,7 +75,7 @@ const BlogPage = () => {
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
           </div>
-          <div className="flex flex-col justify-center p-8 lg:p-12">
+          <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
             <div className="flex items-center gap-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
               <span className="text-primary">{lead.tag}</span>
               <span>{lead.dateLabel}</span>

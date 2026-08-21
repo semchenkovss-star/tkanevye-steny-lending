@@ -93,7 +93,7 @@ const Calculator = () => {
       lead="Введите размеры стены, выберите тариф — расчёт появится сразу. Это ориентир: точную смету считает замерщик бесплатно."
     >
       <div className="grid gap-px border border-border bg-border lg:grid-cols-12">
-        <div className="bg-card p-8 lg:col-span-7 lg:p-10">
+        <div className="bg-card p-6 sm:p-8 lg:col-span-7 lg:p-10">
           <div className="grid gap-6 sm:grid-cols-2">
             <NumberField
               id="calc-length"
@@ -196,7 +196,7 @@ const Calculator = () => {
           </div>
         </div>
 
-        <div className="flex flex-col bg-foreground p-8 text-background lg:col-span-5 lg:p-10">
+        <div className="flex flex-col bg-foreground p-6 text-background sm:p-8 lg:col-span-5 lg:p-10">
           <span className="text-xs uppercase tracking-[0.14em] text-background/55">
             Ориентировочная стоимость
           </span>

@@ -40,7 +40,7 @@ const StickyHeader = () => {
           visible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between gap-6 px-6 lg:px-10">
+        <div className="shell flex h-16 items-center justify-between gap-6">
           <a href="#top" className="font-display text-xl uppercase tracking-[0.16em]">
             Полотно
           </a>
@@ -89,7 +89,7 @@ const StickyHeader = () => {
 
       {open && (
         <div className="fixed inset-0 z-50 bg-background animate-fade-in lg:hidden">
-          <div className="flex h-16 items-center justify-between border-b border-border px-6">
+          <div className="flex h-16 items-center justify-between border-b border-border px-5 sm:px-8">
             <span className="font-display text-xl uppercase tracking-[0.16em]">Полотно</span>
             <button
               type="button"
@@ -100,7 +100,7 @@ const StickyHeader = () => {
               <Icon name="X" size={20} />
             </button>
           </div>
-          <nav className="flex flex-col px-6 py-4">
+          <nav className="flex flex-col px-5 py-4 sm:px-8">
             {LINKS.map((l) => (
               <a
                 key={l.href}

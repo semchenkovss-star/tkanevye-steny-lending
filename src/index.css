@@ -60,6 +60,26 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --shell-pad: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --shell-pad: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --shell-pad: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    :root {
+      --shell-pad: 3.5rem;
+    }
   }
 
   .dark {
@@ -122,6 +142,19 @@
 }
 
 @layer components {
+  /* Единая сетка полей: одинаковые края у всех блоков сайта */
+  .shell {
+    width: 100%;
+    max-width: calc(1400px + var(--shell-pad) * 2);
+    margin-inline: auto;
+    padding-inline: var(--shell-pad);
+  }
+
+  /* Левый край как у .shell — для полноширинных блоков (первый экран) */
+  .shell-left {
+    padding-left: max(var(--shell-pad), calc((100vw - 1400px) / 2));
+  }
+
   /* Плоскость ткани из hero-исходника */
   .weave-panel {
     background-color: var(--hero-accent);

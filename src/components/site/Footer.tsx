@@ -31,7 +31,7 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-border bg-foreground text-background">
-      <div className="mx-auto w-full max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
+      <div className="shell py-14 sm:py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="font-display text-3xl uppercase tracking-[0.16em]">Тканевые стены</div>
