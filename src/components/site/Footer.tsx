@@ -33,7 +33,7 @@ const Footer = () => {
       <div className="mx-auto w-full max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="font-display text-3xl uppercase tracking-[0.16em]">Полотно</div>
+            <div className="font-display text-3xl uppercase tracking-[0.16em]">Тканевые стены</div>
             <p className="mt-4 max-w-[26em] text-[0.95rem] leading-[1.6] text-background/60">
               Тканевые стены и потолки на скрытом каркасе. Москва и область, монтаж за один-два дня
               без пыли и мокрых работ.
