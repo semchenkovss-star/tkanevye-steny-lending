@@ -45,9 +45,8 @@ const Hero = () => {
           <a
             href="#top"
             className="font-display text-xl uppercase tracking-[0.16em] text-foreground"
-          >
-            Полотно
-          </a>
+          >Тканевые Стены
+</a>
           <nav className="hidden gap-7 md:flex">
             {NAV.map((item) => (
               <a key={item.href} href={item.href} className="nav-link">
@@ -79,15 +78,12 @@ const Hero = () => {
             <br />
             за один день.
             <br />
-            <span className="text-muted-foreground">Без штукатурки и просушки.</span>
+            <span className="text-muted-foreground">Без пыли и мокрых работ</span>
           </h1>
           <p
             className="mt-7 max-w-[30em] text-[1.05rem] leading-[1.55] text-muted-foreground animate-fade-in"
             style={{ animationDelay: '260ms' }}
-          >
-            Каркас выбирает перепад плоскости до&nbsp;60&nbsp;мм, полотно натягивается поверх. В
-            квартире не появляется ни мешка смеси, ни строительной пыли.
-          </p>
+          >Полотно натягивается поверх каркаса. Базовая толщина  до 13 мм. В квартире нет грязи и строительной пыли. </p>
         </div>
 
         <div
