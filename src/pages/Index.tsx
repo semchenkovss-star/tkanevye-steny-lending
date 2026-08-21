@@ -1,15 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import StickyHeader from '@/components/site/StickyHeader';
+import Hero from '@/components/site/Hero';
+import Pain from '@/components/site/Pain';
+import WhatIsIt from '@/components/site/WhatIsIt';
+import Benefits from '@/components/site/Benefits';
+import HowItWorks from '@/components/site/HowItWorks';
+import Fabrics from '@/components/site/Fabrics';
+import Cases from '@/components/site/Cases';
+import Pricing from '@/components/site/Pricing';
+import Reviews from '@/components/site/Reviews';
+import About from '@/components/site/About';
+import Faq from '@/components/site/Faq';
+import CtaForm from '@/components/site/CtaForm';
+import Footer from '@/components/site/Footer';
+import FloatingCta from '@/components/site/FloatingCta';
+import LeadDialog from '@/components/site/LeadDialog';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
-      <span className="absolute bottom-8 left-1/2 -translate-x-1/2 inline-block bg-[#FF6637] text-white text-sm px-4 py-2 rounded-full whitespace-nowrap">
-        Подождите 5 минут, Юра создает первую версию проекта с нуля
-      </span>
+    <div className="min-h-screen bg-background">
+      <StickyHeader />
+      <main>
+        <Hero />
+        <Pain />
+        <WhatIsIt />
+        <Benefits />
+        <HowItWorks />
+        <Fabrics />
+        <Cases />
+        <Pricing />
+        <Reviews />
+        <About />
+        <Faq />
+        <CtaForm />
+      </main>
+      <Footer />
+      <FloatingCta />
+      <LeadDialog />
     </div>
   );
 };

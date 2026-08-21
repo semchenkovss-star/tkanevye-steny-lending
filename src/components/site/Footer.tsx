@@ -1,0 +1,101 @@
+import Icon from '@/components/ui/icon';
+import { openLead } from '@/lib/lead';
+
+const COLUMNS = [
+  {
+    title: 'Разделы',
+    links: [
+      { href: '#what', label: 'Что это такое' },
+      { href: '#how', label: 'Как проходит монтаж' },
+      { href: '#fabrics', label: 'Каталог тканей' },
+      { href: '#cases', label: 'Объекты' },
+    ],
+  },
+  {
+    title: 'Помощь',
+    links: [
+      { href: '#price', label: 'Тарифы и цены' },
+      { href: '#faq', label: 'Частые вопросы' },
+      { href: '#reviews', label: 'Отзывы' },
+      { href: '#about', label: 'О компании' },
+    ],
+  },
+];
+
+const Footer = () => {
+  return (
+    <footer className="border-t border-border bg-foreground text-background">
+      <div className="mx-auto w-full max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <div className="font-display text-3xl uppercase tracking-[0.16em]">Полотно</div>
+            <p className="mt-4 max-w-[26em] text-[0.95rem] leading-[1.6] text-background/60">
+              Тканевые стены и потолки на скрытом каркасе. Москва и область, монтаж за один-два дня
+              без пыли и мокрых работ.
+            </p>
+            <button
+              type="button"
+              onClick={() => openLead('Футер')}
+              className="mt-8 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-background hover:text-foreground"
+            >
+              Вызвать замерщика
+            </button>
+          </div>
+
+          {COLUMNS.map((col) => (
+            <nav key={col.title} className="lg:col-span-2">
+              <h3 className="font-display text-xl uppercase tracking-wide text-background">
+                {col.title}
+              </h3>
+              <ul className="mt-5 space-y-3">
+                {col.links.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      className="text-sm text-background/60 transition-colors hover:text-primary"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+
+          <div className="lg:col-span-3">
+            <h3 className="font-display text-xl uppercase tracking-wide">Контакты</h3>
+            <ul className="mt-5 space-y-4 text-sm text-background/70">
+              <li className="flex items-center gap-3">
+                <Icon name="Phone" size={16} className="text-primary" />
+                <a href="tel:+74951234567" className="transition-colors hover:text-primary">
+                  +7 (495) 123-45-67
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Icon name="Mail" size={16} className="text-primary" />
+                <a href="mailto:hello@polotno.ru" className="transition-colors hover:text-primary">
+                  hello@polotno.ru
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Icon name="MapPin" size={16} className="mt-0.5 text-primary" />
+                <span>Москва, ул. Складочная, 1с18. Шоурум по записи.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Icon name="Clock" size={16} className="mt-0.5 text-primary" />
+                <span>Пн—Сб, 9:00—20:00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-8 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} Полотно. Тканевые стены на скрытом каркасе.</span>
+          <span>Информация на сайте не является публичной офертой.</span>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -4,35 +4,46 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* hero-токены выбранного варианта */
+    --hero-bg: #fafaf8;
+    --hero-surface: #ffffff;
+    --hero-text: #1c1c1a;
+    --hero-muted: #8a8a84;
+    --hero-accent: #ff6637;
+    --hero-accent-contrast: #ffffff;
+    --hero-x-weave: #f3ede6;
+    --hero-x-wave: #ffffff;
+    --hero-x-rule: #dcdad2;
+
+    --background: 60 17% 98%;
+    --foreground: 60 4% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 60 4% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 60 4% 11%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 14 100% 61%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 48 20% 94%;
+    --secondary-foreground: 60 4% 11%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 48 20% 94%;
+    --muted-foreground: 60 4% 53%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 14 100% 61%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 50 8% 86%;
+    --input: 50 8% 86%;
+    --ring: 14 100% 61%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -52,33 +63,33 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 60 4% 8%;
+    --foreground: 60 17% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 60 4% 12%;
+    --card-foreground: 60 17% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 60 4% 12%;
+    --popover-foreground: 60 17% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 14 100% 61%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 60 4% 16%;
+    --secondary-foreground: 60 17% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 60 4% 16%;
+    --muted-foreground: 60 4% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 14 100% 61%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 60 4% 20%;
+    --input: 60 4% 20%;
+    --ring: 14 100% 61%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -96,6 +107,115 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer components {
+  /* Плоскость ткани из hero-исходника */
+  .weave-panel {
+    background-color: var(--hero-accent);
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--hero-x-weave) 26%, transparent) 0 1px,
+        transparent 1px 9px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        color-mix(in srgb, var(--hero-x-weave) 16%, transparent) 0 1px,
+        transparent 1px 9px
+      ),
+      repeating-linear-gradient(
+        45deg,
+        color-mix(in srgb, var(--hero-x-weave) 7%, transparent) 0 2px,
+        transparent 2px 6px
+      );
+  }
+
+  .weave-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      color-mix(in srgb, var(--hero-text) 20%, transparent),
+      transparent 46%
+    );
+    pointer-events: none;
+  }
+
+  /* Тонкая текстура полотна на нейтральном фоне */
+  .weave-soft {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--hero-text) 5%, transparent) 0 1px,
+        transparent 1px 9px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        color-mix(in srgb, var(--hero-text) 4%, transparent) 0 1px,
+        transparent 1px 9px
+      );
+  }
+
+  .wave-ring {
+    position: absolute;
+    border: 1px solid var(--hero-x-wave);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.2);
+    animation: absorb 7.2s cubic-bezier(0.2, 0.55, 0.25, 1) infinite;
+  }
+
+  .rule-top {
+    border-top: 1px solid var(--hero-x-rule);
+  }
+
+  .rule-bottom {
+    border-bottom: 1px solid var(--hero-x-rule);
+  }
+
+  .nav-link {
+    @apply text-muted-foreground text-sm tracking-wide pb-0.5 transition-colors;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav-link:hover {
+    @apply text-foreground;
+    border-bottom-color: hsl(var(--foreground));
+  }
+}
+
+@keyframes absorb {
+  0% {
+    transform: scale(0.14);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(3.9);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-ring {
+    animation: none;
+    opacity: 0.5;
+    transform: scale(2.2);
   }
 }

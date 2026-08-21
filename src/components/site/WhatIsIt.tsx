@@ -1,0 +1,73 @@
+import Section from '@/components/site/Section';
+import Icon from '@/components/ui/icon';
+
+const LAYERS = [
+  {
+    n: '01',
+    title: 'Скрытый каркас',
+    text: 'Алюминиевый профиль по периметру. Выбирает перепад плоскости до 60 мм и прячет провода, трубы, короба.',
+  },
+  {
+    n: '02',
+    title: 'Акустический войлок',
+    text: 'Слой 20-40 мм между стеной и полотном. Гасит отражение звука и работает как дополнительный утеплитель.',
+  },
+  {
+    n: '03',
+    title: 'Полотно',
+    text: 'Ткань натягивается на каркас и фиксируется в замке. Идеальная плоскость без единого шва по всей стене.',
+  },
+];
+
+const WhatIsIt = () => {
+  return (
+    <Section
+      id="what"
+      index="02"
+      eyebrow="Технология"
+      title={<>Что такое тканевая стена</>}
+      lead="Это не обои и не декоративная драпировка. Это трёхслойная конструкция, которая ставится поверх существующей стены и полностью заменяет чистовую отделку."
+    >
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="lg:col-span-7">
+          <div className="relative overflow-hidden border border-border">
+            <img
+              src="https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/480a4f0c-d22e-493f-82ea-78305902d47c.jpg"
+              alt="Гостиная с тканевой стеной на скрытом каркасе"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div className="lg:col-span-5">
+          <div className="divide-y divide-border border-y border-border">
+            {LAYERS.map((l) => (
+              <div key={l.n} className="flex gap-6 py-7">
+                <span className="font-display text-2xl leading-none text-primary">{l.n}</span>
+                <div>
+                  <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
+                    {l.title}
+                  </h3>
+                  <p className="mt-3 text-[0.95rem] leading-[1.6] text-muted-foreground">
+                    {l.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex items-start gap-4 bg-secondary p-6">
+            <Icon name="Info" size={20} className="mt-0.5 shrink-0 text-primary" />
+            <p className="text-sm leading-[1.6] text-muted-foreground">
+              Конструкция разборная: полотно снимается и ставится обратно за пару часов — доступ к
+              коммуникациям остаётся навсегда.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+};
+
+export default WhatIsIt;
