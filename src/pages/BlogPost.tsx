@@ -4,6 +4,7 @@ import Icon from '@/components/ui/icon';
 import Footer from '@/components/site/Footer';
 import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
+import Seo from '@/components/Seo';
 import { BLOG_POSTS, getPost } from '@/data/blog';
 import { openLead } from '@/lib/lead';
 
@@ -31,8 +32,46 @@ const BlogPostPage = () => {
 
   const others = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      image: post.img,
+      datePublished: post.date,
+      author: { '@type': 'Organization', name: 'Полотно' },
+      publisher: { '@type': 'Organization', name: 'Полотно' },
+      articleSection: post.tag,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Главная', item: `${origin}/` },
+        { '@type': 'ListItem', position: 2, name: 'Блог', item: `${origin}/blog` },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: post.title,
+          item: `${origin}/blog/${post.slug}`,
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title={`${post.title} | Блог Полотно`}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        image={post.img}
+        type="article"
+        publishedAt={post.date}
+        jsonLd={jsonLd}
+      />
       <header className="border-b border-border">
         <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between gap-6 px-6 lg:px-10">
           <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">
@@ -49,6 +88,24 @@ const BlogPostPage = () => {
       </header>
 
       <main className="mx-auto w-full max-w-[1400px] px-6 py-16 lg:px-10 lg:py-24">
+        <nav aria-label="Хлебные крошки" className="mb-10 text-xs text-muted-foreground">
+          <ol className="flex flex-wrap items-center gap-2">
+            <li>
+              <Link to="/" className="transition-colors hover:text-foreground">
+                Главная
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <Link to="/blog" className="transition-colors hover:text-foreground">
+                Блог
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li className="text-foreground">{post.title}</li>
+          </ol>
+        </nav>
+
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-10">

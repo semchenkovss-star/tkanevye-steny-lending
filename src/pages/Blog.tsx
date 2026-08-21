@@ -4,8 +4,24 @@ import Icon from '@/components/ui/icon';
 import Footer from '@/components/site/Footer';
 import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
+import Seo from '@/components/Seo';
 import { BLOG_POSTS } from '@/data/blog';
 import { openLead } from '@/lib/lead';
+
+const JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Блог Полотно',
+  description: 'Статьи о тканевых стенах: технология, акустика, материалы и стоимость.',
+  blogPost: BLOG_POSTS.map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.title,
+    description: p.excerpt,
+    datePublished: p.date,
+    image: p.img,
+    url: `${typeof window !== 'undefined' ? window.location.origin : ''}/blog/${p.slug}`,
+  })),
+};
 
 const BlogPage = () => {
   const [lead, ...rest] = BLOG_POSTS;
@@ -16,6 +32,13 @@ const BlogPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Блог о тканевых стенах: технология, акустика, материалы | Полотно"
+        description="Как устроена тканевая стена, почему монтаж занимает один день, как убрать эхо в комнате, чем отличаются лён, рогожка и акустический фетр, из чего складывается смета."
+        path="/blog"
+        image={BLOG_POSTS[0].img}
+        jsonLd={JSON_LD}
+      />
       <header className="border-b border-border">
         <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between gap-6 px-6 lg:px-10">
           <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">
