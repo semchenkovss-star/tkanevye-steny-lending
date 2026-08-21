@@ -1,5 +1,6 @@
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const NAV = [
   { href: '#cases', label: 'Объекты' },
@@ -55,11 +56,12 @@ const Hero = () => {
             ))}
           </nav>
           <a
-            href="tel:+74951234567"
-            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            href={PHONE_HREF}
+            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Icon name="Phone" size={16} />
-            Позвонить
+            <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
+            <span className="sm:hidden">Позвонить</span>
           </a>
         </header>
 
@@ -97,9 +99,18 @@ const Hero = () => {
           >
             Рассчитать стену по размерам
           </button>
-          <p className="max-w-[22em] text-sm leading-[1.45] text-muted-foreground">
-            Замер и расчёт&nbsp;— бесплатно, смета приходит в течение 24&nbsp;часов после заявки.
-          </p>
+          <div className="max-w-[22em]">
+            <a
+              href={PHONE_HREF}
+              className="flex items-center gap-2 font-display text-2xl uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary"
+            >
+              <Icon name="Phone" size={20} className="text-primary" />
+              {PHONE_DISPLAY}
+            </a>
+            <p className="mt-2 text-sm leading-[1.45] text-muted-foreground">
+              {WORK_HOURS}. Замер и расчёт&nbsp;— бесплатно, смета в течение 24&nbsp;часов.
+            </p>
+          </div>
         </div>
       </div>
     </section>

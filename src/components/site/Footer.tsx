@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
 
 const COLUMNS = [
   {
@@ -72,8 +73,11 @@ const Footer = () => {
             <ul className="mt-5 space-y-4 text-sm text-background/70">
               <li className="flex items-center gap-3">
                 <Icon name="Phone" size={16} className="text-primary" />
-                <a href="tel:+74951234567" className="transition-colors hover:text-primary">
-                  +7 (495) 123-45-67
+                <a
+                  href={PHONE_HREF}
+                  className="font-display text-lg tracking-[0.02em] text-background transition-colors hover:text-primary"
+                >
+                  {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-3">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const LINKS = [
   { href: '#pain', label: 'Проблема' },
@@ -51,7 +52,21 @@ const StickyHeader = () => {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <a
+              href={PHONE_HREF}
+              className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary md:flex"
+            >
+              <Icon name="Phone" size={17} className="text-primary" />
+              {PHONE_DISPLAY}
+            </a>
+            <a
+              href={PHONE_HREF}
+              aria-label="Позвонить"
+              className="flex h-11 w-11 items-center justify-center border border-border text-foreground transition-colors hover:bg-secondary md:hidden"
+            >
+              <Icon name="Phone" size={18} />
+            </a>
             <button
               type="button"
               onClick={() => openLead('Шапка')}
@@ -106,11 +121,13 @@ const StickyHeader = () => {
               Бесплатный замер
             </button>
             <a
-              href="tel:+74951234567"
-              className="mt-4 text-center text-muted-foreground"
+              href={PHONE_HREF}
+              className="mt-6 flex items-center justify-center gap-2 border border-border py-4 font-display text-2xl uppercase tracking-[0.02em] text-foreground"
             >
-              +7 (495) 123-45-67
+              <Icon name="Phone" size={20} className="text-primary" />
+              {PHONE_DISPLAY}
             </a>
+            <span className="mt-3 text-center text-xs text-muted-foreground">{WORK_HOURS}</span>
           </nav>
         </div>
       )}

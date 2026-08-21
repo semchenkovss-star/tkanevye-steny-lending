@@ -1,6 +1,7 @@
 import Icon from '@/components/ui/icon';
 import LeadForm from '@/components/site/LeadForm';
 import useReveal from '@/hooks/use-reveal';
+import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const PROMISES = [
   'Замерщик приезжает бесплатно, даже если вы потом откажетесь',
@@ -38,6 +39,20 @@ const CtaForm = () => {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-10 border-t border-border pt-6">
+              <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                Или просто позвоните
+              </div>
+              <a
+                href={PHONE_HREF}
+                className="mt-3 flex items-center gap-3 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary sm:text-[2.5rem]"
+              >
+                <Icon name="Phone" size={26} className="text-primary" />
+                {PHONE_DISPLAY}
+              </a>
+              <p className="mt-3 text-sm text-muted-foreground">{WORK_HOURS}</p>
+            </div>
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7">
