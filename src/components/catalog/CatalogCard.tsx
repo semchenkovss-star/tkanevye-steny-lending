@@ -46,9 +46,12 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
             <dd className="mt-1 font-display text-lg tracking-wide">−{item.noise} дБ</dd>
           </div>
           <div className="bg-card px-2 py-3">
-            <dt className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">Ширина</dt>
-            <dd className="mt-1 font-display text-lg tracking-wide">300 см
-</dd>
+            <dt className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">
+              Ширина
+            </dt>
+            <dd className="mt-1 font-display text-lg tracking-wide">
+              {item.width ?? 300} см
+            </dd>
           </div>
           <div className="bg-card px-2 py-3">
             <dt className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">
