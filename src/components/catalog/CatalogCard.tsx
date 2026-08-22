@@ -51,7 +51,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
             <dt className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">
               Материал
             </dt>
-            <dd className="mt-1 font-display text-lg tracking-wide">Полиэстер</dd>
+            <dd className="mt-1 font-display text-lg tracking-wide">100% полиэстер</dd>
           </div>
         </dl>
 
