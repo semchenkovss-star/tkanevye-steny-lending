@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const LINKS = [
-  { href: '#pain', label: 'Проблема' },
+  { href: '/catalog', label: 'Каталог' },
   { href: '#what', label: 'Что это' },
   { href: '#how', label: 'Монтаж' },
-  { href: '#fabrics', label: 'Ткани' },
   { href: '#cases', label: 'Объекты' },
   { href: '#price', label: 'Цены' },
   { href: '#calc', label: 'Калькулятор' },
@@ -46,11 +46,17 @@ const StickyHeader = () => {
           </a>
 
           <nav className="hidden items-center gap-6 lg:flex">
-            {LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="nav-link">
-                {l.label}
-              </a>
-            ))}
+            {LINKS.map((l) =>
+              l.href.startsWith('/') ? (
+                <Link key={l.href} to={l.href} className="nav-link">
+                  {l.label}
+                </Link>
+              ) : (
+                <a key={l.href} href={l.href} className="nav-link">
+                  {l.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-4">
@@ -101,16 +107,27 @@ const StickyHeader = () => {
             </button>
           </div>
           <nav className="flex flex-col px-5 py-4 sm:px-8">
-            {LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-border py-4 font-display text-3xl uppercase tracking-wide text-foreground"
-              >
-                {l.label}
-              </a>
-            ))}
+            {LINKS.map((l) =>
+              l.href.startsWith('/') ? (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-4 font-display text-3xl uppercase tracking-wide text-foreground"
+                >
+                  {l.label}
+                </Link>
+              ) : (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-4 font-display text-3xl uppercase tracking-wide text-foreground"
+                >
+                  {l.label}
+                </a>
+              ),
+            )}
             <button
               type="button"
               onClick={() => {

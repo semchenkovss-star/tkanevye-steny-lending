@@ -9,7 +9,7 @@ const COLUMNS = [
     links: [
       { href: '#what', label: 'Что это такое' },
       { href: '#how', label: 'Как проходит монтаж' },
-      { href: '#fabrics', label: 'Каталог тканей' },
+      { href: '/catalog', label: 'Каталог' },
       { href: '#cases', label: 'Объекты' },
     ],
   },
@@ -54,16 +54,27 @@ const Footer = () => {
                 {col.title}
               </h3>
               <ul className="mt-5 space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.href}>
-                    <a
-                      href={prefix + l.href}
-                      className="text-sm text-background/60 transition-colors hover:text-primary"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((l) =>
+                  l.href.startsWith('/') ? (
+                    <li key={l.href}>
+                      <Link
+                        to={l.href}
+                        className="text-sm text-background/60 transition-colors hover:text-primary"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ) : (
+                    <li key={l.href}>
+                      <a
+                        href={prefix + l.href}
+                        className="text-sm text-background/60 transition-colors hover:text-primary"
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </nav>
           ))}
