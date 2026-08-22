@@ -1,5 +1,13 @@
 export type Concept = 'modern' | 'loft' | 'classic' | 'scandi' | 'minimal';
-export type Material = 'Лён' | 'Велюр' | 'Рогожка' | 'Акустический фетр' | 'Микрошенилл';
+export type Material =
+  | 'Марс'
+  | 'Луна'
+  | 'Комфорт'
+  | 'Штукатурка'
+  | 'Узор'
+  | 'Орбита'
+  | 'Акустик'
+  | 'Модерн';
 export type Room = 'Гостиная' | 'Спальня' | 'Кабинет' | 'Детская' | 'Переговорная';
 
 export interface CatalogItem {
@@ -30,11 +38,14 @@ export const CONCEPTS: { id: Concept; label: string }[] = [
 ];
 
 export const MATERIALS: Material[] = [
-  'Лён',
-  'Велюр',
-  'Рогожка',
-  'Акустический фетр',
-  'Микрошенилл',
+  'Марс',
+  'Луна',
+  'Комфорт',
+  'Штукатурка',
+  'Узор',
+  'Орбита',
+  'Акустик',
+  'Модерн',
 ];
 
 export const ROOMS: Room[] = ['Гостиная', 'Спальня', 'Кабинет', 'Детская', 'Переговорная'];
@@ -51,7 +62,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'natur-linen',
     name: 'Натур Лён',
     concept: 'modern',
-    material: 'Лён',
+    material: 'Марс',
     rooms: ['Гостиная', 'Спальня'],
     color: '#D9CFBC',
     colorName: 'Песочный',
@@ -69,7 +80,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'grafit-linen',
     name: 'Графит Лён',
     concept: 'minimal',
-    material: 'Лён',
+    material: 'Луна',
     rooms: ['Кабинет', 'Гостиная'],
     color: '#5A5A54',
     colorName: 'Тёмно-серый',
@@ -85,7 +96,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'terracotta-velour',
     name: 'Терракота Велюр',
     concept: 'classic',
-    material: 'Велюр',
+    material: 'Комфорт',
     rooms: ['Кабинет', 'Спальня'],
     color: '#B4532F',
     colorName: 'Терракотовый',
@@ -103,7 +114,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'milk-velour',
     name: 'Молоко Велюр',
     concept: 'scandi',
-    material: 'Велюр',
+    material: 'Штукатурка',
     rooms: ['Спальня', 'Детская'],
     color: '#EDE6DA',
     colorName: 'Молочный',
@@ -119,7 +130,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'dune-rogozhka',
     name: 'Дюна Рогожка',
     concept: 'scandi',
-    material: 'Рогожка',
+    material: 'Узор',
     rooms: ['Гостиная', 'Детская'],
     color: '#C8B79B',
     colorName: 'Бежевый',
@@ -136,7 +147,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'coal-rogozhka',
     name: 'Уголь Рогожка',
     concept: 'loft',
-    material: 'Рогожка',
+    material: 'Орбита',
     rooms: ['Гостиная', 'Кабинет'],
     color: '#3B3B38',
     colorName: 'Угольный',
@@ -152,7 +163,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'felt-acoustic',
     name: 'Фетр Акустик',
     concept: 'modern',
-    material: 'Акустический фетр',
+    material: 'Акустик',
     rooms: ['Переговорная', 'Кабинет'],
     color: '#8A8A84',
     colorName: 'Серый',
@@ -169,7 +180,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'orange-acoustic',
     name: 'Оранж Акустик',
     concept: 'modern',
-    material: 'Акустический фетр',
+    material: 'Акустик',
     rooms: ['Кабинет', 'Переговорная'],
     color: '#FF6637',
     colorName: 'Оранжевый',
@@ -185,7 +196,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'ivory-microchenille',
     name: 'Айвори Микрошенилл',
     concept: 'classic',
-    material: 'Микрошенилл',
+    material: 'Модерн',
     rooms: ['Спальня', 'Гостиная'],
     color: '#E4D8C4',
     colorName: 'Айвори',
@@ -201,7 +212,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'olive-microchenille',
     name: 'Олива Микрошенилл',
     concept: 'minimal',
-    material: 'Микрошенилл',
+    material: 'Модерн',
     rooms: ['Гостиная', 'Кабинет'],
     color: '#7C7F5E',
     colorName: 'Оливковый',
@@ -217,7 +228,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'blue-linen',
     name: 'Индиго Лён',
     concept: 'loft',
-    material: 'Лён',
+    material: 'Марс',
     rooms: ['Спальня', 'Кабинет'],
     color: '#3E4A5C',
     colorName: 'Синий',
@@ -233,7 +244,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'sand-acoustic',
     name: 'Дюна Акустик',
     concept: 'scandi',
-    material: 'Акустический фетр',
+    material: 'Акустик',
     rooms: ['Детская', 'Спальня'],
     color: '#CBBFA6',
     colorName: 'Светло-бежевый',
