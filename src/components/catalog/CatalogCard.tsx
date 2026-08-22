@@ -40,26 +40,18 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
         </h3>
         <p className="mt-2 text-sm leading-[1.5] text-muted-foreground">{item.description}</p>
 
-        <dl className="mt-5 grid grid-cols-3 gap-px border border-border bg-border text-center">
-          <div className="bg-card px-2 py-3">
-            <dt className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">Шум</dt>
-            <dd className="mt-1 font-display text-lg tracking-wide">−{item.noise} дБ</dd>
-          </div>
+        <dl className="mt-5 grid grid-cols-2 gap-px border border-border bg-border text-center">
           <div className="bg-card px-2 py-3">
             <dt className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">
               Ширина
             </dt>
-            <dd className="mt-1 font-display text-lg tracking-wide">
-              {item.width ?? 300} см
-            </dd>
+            <dd className="mt-1 font-display text-lg tracking-wide">{item.width ?? 300} см</dd>
           </div>
           <div className="bg-card px-2 py-3">
             <dt className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">
-              Гарантия
+              Материал
             </dt>
-            <dd className="mt-1 font-display text-lg tracking-wide">
-              {item.warranty} {item.warranty < 5 ? 'года' : 'лет'}
-            </dd>
+            <dd className="mt-1 font-display text-lg tracking-wide">Полиэстер</dd>
           </div>
         </dl>
 
