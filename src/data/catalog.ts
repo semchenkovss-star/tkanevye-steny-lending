@@ -59,8 +59,8 @@ const IMG_CLASSIC =
 
 export const CATALOG: CatalogItem[] = [
   {
-    slug: 'natur-linen',
-    name: 'Натур Лён',
+    slug: 'mars-sand',
+    name: 'Марс Песок',
     concept: 'modern',
     material: 'Марс',
     rooms: ['Гостиная', 'Спальня'],
@@ -74,11 +74,11 @@ export const CATALOG: CatalogItem[] = [
     badge: 'Хит',
     inStock: true,
     description:
-      'Живая фактура нити и тёплый песочный тон. Базовое решение для гостиной, где нужна ровная стена без ремонта.',
+      'Матовая поверхность с мелким зерном, как остывший марсианский грунт. Тёплый песочный тон для гостиной, где нужна ровная стена без ремонта.',
   },
   {
-    slug: 'grafit-linen',
-    name: 'Графит Лён',
+    slug: 'luna-grafit',
+    name: 'Луна Графит',
     concept: 'minimal',
     material: 'Луна',
     rooms: ['Кабинет', 'Гостиная'],
@@ -90,11 +90,12 @@ export const CATALOG: CatalogItem[] = [
     warranty: 3,
     img: IMG_LOFT,
     inStock: true,
-    description: 'Глубокий серый, не маркий. Держит форму на больших плоскостях без швов.',
+    description:
+      'Ровный лунный серый без бликов и разводов. Не маркий, держит форму на больших плоскостях без единого шва.',
   },
   {
-    slug: 'terracotta-velour',
-    name: 'Терракота Велюр',
+    slug: 'comfort-terracotta',
+    name: 'Комфорт Терракота',
     concept: 'classic',
     material: 'Комфорт',
     rooms: ['Кабинет', 'Спальня'],
@@ -108,11 +109,12 @@ export const CATALOG: CatalogItem[] = [
     img: IMG_CLASSIC,
     badge: 'Скидка',
     inStock: true,
-    description: 'Матовый ворс меняет тон при разном свете. Тёплая акустика для кабинета.',
+    description:
+      'Мягкая тёплая поверхность с плотным наполнением. Гасит эхо и приятна на ощупь — комфортная акустика для кабинета.',
   },
   {
-    slug: 'milk-velour',
-    name: 'Молоко Велюр',
+    slug: 'shtukaturka-moloko',
+    name: 'Штукатурка Молоко',
     concept: 'scandi',
     material: 'Штукатурка',
     rooms: ['Спальня', 'Детская'],
@@ -124,11 +126,12 @@ export const CATALOG: CatalogItem[] = [
     warranty: 5,
     img: IMG_MODERN,
     inStock: true,
-    description: 'Светлая база под любой интерьер. Визуально расширяет небольшую спальню.',
+    description:
+      'Повторяет фактуру венецианской штукатурки, но без пыли и мокрых работ. Светлая база под любой интерьер.',
   },
   {
-    slug: 'dune-rogozhka',
-    name: 'Дюна Рогожка',
+    slug: 'uzor-duna',
+    name: 'Узор Дюна',
     concept: 'scandi',
     material: 'Узор',
     rooms: ['Гостиная', 'Детская'],
@@ -141,11 +144,12 @@ export const CATALOG: CatalogItem[] = [
     img: IMG_MODERN,
     badge: 'Дешевле всех',
     inStock: true,
-    description: 'Плотное плетение, устойчивое к когтям животных. Самый доступный вариант.',
+    description:
+      'Рельефное плетение с чётким геометрическим рисунком. Устойчиво к когтям животных и самое доступное в линейке.',
   },
   {
-    slug: 'coal-rogozhka',
-    name: 'Уголь Рогожка',
+    slug: 'orbita-ugol',
+    name: 'Орбита Уголь',
     concept: 'loft',
     material: 'Орбита',
     rooms: ['Гостиная', 'Кабинет'],
@@ -157,11 +161,12 @@ export const CATALOG: CatalogItem[] = [
     warranty: 3,
     img: IMG_LOFT,
     inStock: true,
-    description: 'Контрастная акцентная стена под бетон и металл. Хорошо смотрится с подсветкой.',
+    description:
+      'Крупный концентрический рельеф, который раскрывается при боковом свете. Контрастная акцентная стена под бетон и металл.',
   },
   {
-    slug: 'felt-acoustic',
-    name: 'Фетр Акустик',
+    slug: 'akustik-seryy',
+    name: 'Акустик Серый',
     concept: 'modern',
     material: 'Акустик',
     rooms: ['Переговорная', 'Кабинет'],
@@ -174,11 +179,12 @@ export const CATALOG: CatalogItem[] = [
     img: IMG_LOFT,
     badge: 'Максимум тишины',
     inStock: true,
-    description: 'Максимальное поглощение звука −11 дБ. Для переговорных и домашних студий.',
+    description:
+      'Максимальное поглощение звука −11 дБ за счёт сорокамиллиметрового слоя. Для переговорных и домашних студий.',
   },
   {
-    slug: 'orange-acoustic',
-    name: 'Оранж Акустик',
+    slug: 'akustik-oranzh',
+    name: 'Акустик Оранж',
     concept: 'modern',
     material: 'Акустик',
     rooms: ['Кабинет', 'Переговорная'],
@@ -190,11 +196,12 @@ export const CATALOG: CatalogItem[] = [
     warranty: 5,
     img: IMG_CLASSIC,
     inStock: false,
-    description: 'Яркий акцент для рабочей зоны. Тот же фетр, что и в сером исполнении.',
+    description:
+      'Тот же акустический слой, что и в сером исполнении, но в ярком цвете. Живой акцент для рабочей зоны.',
   },
   {
-    slug: 'ivory-microchenille',
-    name: 'Айвори Микрошенилл',
+    slug: 'modern-ayvori',
+    name: 'Модерн Айвори',
     concept: 'classic',
     material: 'Модерн',
     rooms: ['Спальня', 'Гостиная'],
@@ -206,11 +213,12 @@ export const CATALOG: CatalogItem[] = [
     warranty: 5,
     img: IMG_CLASSIC,
     inStock: true,
-    description: 'Мягкий блеск и плотная поверхность. Подходит для классических интерьеров.',
+    description:
+      'Гладкая поверхность с мягким перламутровым отблеском. Спокойный светлый тон для классических интерьеров.',
   },
   {
-    slug: 'olive-microchenille',
-    name: 'Олива Микрошенилл',
+    slug: 'modern-oliva',
+    name: 'Модерн Олива',
     concept: 'minimal',
     material: 'Модерн',
     rooms: ['Гостиная', 'Кабинет'],
@@ -222,11 +230,12 @@ export const CATALOG: CatalogItem[] = [
     warranty: 5,
     img: IMG_MODERN,
     inStock: true,
-    description: 'Спокойный природный тон. Не даёт бликов при верхнем свете.',
+    description:
+      'Природный приглушённый оттенок без бликов при верхнем свете. Плотная гладкая поверхность держит цвет годами.',
   },
   {
-    slug: 'blue-linen',
-    name: 'Индиго Лён',
+    slug: 'mars-indigo',
+    name: 'Марс Индиго',
     concept: 'loft',
     material: 'Марс',
     rooms: ['Спальня', 'Кабинет'],
@@ -238,11 +247,12 @@ export const CATALOG: CatalogItem[] = [
     warranty: 3,
     img: IMG_LOFT,
     inStock: true,
-    description: 'Приглушённый синий с фактурой льна. Работает как тёмный акцент у изголовья.',
+    description:
+      'Тот же зернистый рельеф, что и в песочном варианте, в глубоком синем. Работает как тёмный акцент у изголовья кровати.',
   },
   {
-    slug: 'sand-acoustic',
-    name: 'Дюна Акустик',
+    slug: 'akustik-duna',
+    name: 'Акустик Дюна',
     concept: 'scandi',
     material: 'Акустик',
     rooms: ['Детская', 'Спальня'],
@@ -256,7 +266,8 @@ export const CATALOG: CatalogItem[] = [
     img: IMG_MODERN,
     badge: 'Скидка',
     inStock: true,
-    description: 'Тишина в детской без тёмных цветов. Безопасный состав без запаха.',
+    description:
+      'Тишина в детской без тёмных цветов: сорок миллиметров поглощения в светлом бежевом. Состав без запаха.',
   },
 ];
 
