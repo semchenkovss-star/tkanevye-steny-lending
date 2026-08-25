@@ -51,9 +51,7 @@ const StickyHeader = () => {
         }`}
       >
         <div className="shell flex h-16 items-center justify-between gap-6">
-          <a href="#top" className="font-display text-xl uppercase tracking-[0.16em]">
-            Полотно
-          </a>
+          <a href="#top" className="font-display text-xl uppercase tracking-[0.16em]">Архитекстурный текстиль</a>
 
           <nav className="hidden items-center gap-6 lg:flex">
             {LINKS.map((l) =>
