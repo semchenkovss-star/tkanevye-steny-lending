@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { openSamples } from '@/lib/samples';
 import { CONCEPTS, CatalogItem } from '@/data/catalog';
 import ImageZoom from '@/components/catalog/ImageZoom';
 
@@ -89,6 +90,15 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
             Замер
           </button>
         </div>
+
+        <button
+          type="button"
+          onClick={() => openSamples(item.slug)}
+          className="mt-3 flex w-full items-center justify-center gap-2 border border-border bg-card px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary"
+        >
+          <Icon name="Package" size={16} />
+          Заказать образцы
+        </button>
       </div>
 
       {zoom && (

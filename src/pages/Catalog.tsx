@@ -6,6 +6,8 @@ import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import CatalogCard from '@/components/catalog/CatalogCard';
+import SamplesDialog from '@/components/catalog/SamplesDialog';
+import { openSamples } from '@/lib/samples';
 import CatalogFilters, { EMPTY_FILTERS, Filters } from '@/components/catalog/CatalogFilters';
 import {
   CATALOG,
@@ -259,15 +261,24 @@ const CatalogPage = () => {
                   Не нашли нужный оттенок?
                 </h2>
                 <p className="mt-3 max-w-[34em] text-sm leading-[1.55] text-background/60">
-                  В наличии 180 оттенков — замерщик привезёт образцы к вам домой.
+                  В наличии 180 оттенков — привезём до 5 образцов к вам домой.
                 </p>
               </div>
-              <Link
-                to="/#calc"
-                className="whitespace-nowrap bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-background hover:text-foreground"
-              >
-                Рассчитать стоимость
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={() => openSamples()}
+                  className="whitespace-nowrap bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-background hover:text-foreground"
+                >
+                  Заказать образцы
+                </button>
+                <Link
+                  to="/#calc"
+                  className="whitespace-nowrap border border-background/40 px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-background hover:text-foreground"
+                >
+                  Рассчитать стоимость
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -276,6 +287,7 @@ const CatalogPage = () => {
       <Footer />
       <FloatingCta />
       <LeadDialog />
+      <SamplesDialog />
     </div>
   );
 };
