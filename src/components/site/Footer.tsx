@@ -99,7 +99,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <Icon name="MapPin" size={16} className="mt-0.5 text-primary" />
-                <span>Москва, ул. Складочная, 1с18. Шоурум по записи.</span>
+                <span>Москва, Переведеновский пер. 3</span>
               </li>
               <li className="flex items-start gap-3">
                 <Icon name="Clock" size={16} className="mt-0.5 text-primary" />
