@@ -45,7 +45,7 @@ const FloatingCta = () => {
         className="flex items-center gap-3 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground shadow-[0_10px_40px_-12px_rgba(28,28,26,0.6)] transition-colors hover:bg-foreground"
       >
         <Icon name="Ruler" size={20} />
-        <span className="hidden sm:inline">Бесплатный замер</span>
+        <span className="hidden sm:inline">Замер</span>
         <span className="sm:hidden">Замер</span>
       </button>
     </div>

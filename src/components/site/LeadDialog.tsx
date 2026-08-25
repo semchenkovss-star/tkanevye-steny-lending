@@ -42,7 +42,7 @@ const LeadDialog = () => {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Заявка на бесплатный замер"
+        aria-label="Заявка на замер"
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-[560px] border border-border bg-card p-7 animate-scale-in sm:p-10"
       >
@@ -57,7 +57,7 @@ const LeadDialog = () => {
 
         <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{source}</span>
         <h3 className="mt-3 max-w-[10em] font-display text-4xl uppercase leading-none tracking-wide">
-          Замер бесплатно, смета за 24 часа
+          Замер и смета за 24 часа
         </h3>
         <p className="mt-4 text-[0.95rem] leading-[1.6] text-muted-foreground">
           Оставьте имя и телефон — перезвоним в течение 15 минут и подберём удобное время.

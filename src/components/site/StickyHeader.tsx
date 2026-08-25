@@ -89,7 +89,7 @@ const StickyHeader = () => {
               onClick={() => openLead('Шапка')}
               className="hidden bg-primary px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground sm:block"
             >
-              Бесплатный замер
+              Замер
             </button>
             <button
               type="button"
@@ -146,7 +146,7 @@ const StickyHeader = () => {
               }}
               className="mt-8 bg-primary px-6 py-4 font-display text-2xl uppercase tracking-[0.04em] text-primary-foreground"
             >
-              Бесплатный замер
+              Замер
             </button>
             <a
               href={PHONE_HREF}

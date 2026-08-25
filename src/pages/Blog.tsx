@@ -134,7 +134,7 @@ const BlogPage = () => {
             </h2>
             <p className="mt-3 max-w-[34em] text-sm leading-[1.6] text-muted-foreground">
               Замерщик приедет с образцами тканей, посчитает бюджет и пришлёт смету в течение 24
-              часов. Бесплатно.
+              часов.
             </p>
           </div>
           <button
@@ -142,7 +142,7 @@ const BlogPage = () => {
             onClick={() => openLead('Блог')}
             className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
           >
-            Бесплатный замер
+            Замер
           </button>
         </div>
       </main>

@@ -4,7 +4,7 @@ import useReveal from '@/hooks/use-reveal';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const PROMISES = [
-  'Замерщик приезжает бесплатно, даже если вы потом откажетесь',
+  'Замерщик приезжает, даже если вы потом откажетесь',
   'Смета с фиксированной ценой — в течение 24 часов',
   'Образцы тканей привозим с собой, смотрите при своём свете',
   'Без навязчивых звонков: один разговор и письмо со сметой',
@@ -29,7 +29,7 @@ const CtaForm = () => {
           <div className="lg:col-span-5">
             <span className="font-display text-sm tracking-[0.2em] text-primary">13</span>
             <h2 className="mt-4 max-w-[12em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
-              Бесплатный замер и смета за 24 часа
+              Замер и смета за 24 часа
             </h2>
             <ul className="mt-8 space-y-4">
               {PROMISES.map((p) => (

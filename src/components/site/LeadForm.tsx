@@ -57,7 +57,7 @@ const LeadForm = ({
         </h3>
         <p className="text-[0.95rem] leading-[1.6] text-muted-foreground">
           {name.trim()}, спасибо. Перезвоним на {phone} в течение 15 минут в рабочее время и
-          согласуем дату бесплатного замера.
+          согласуем дату замера.
         </p>
       </div>
     );
@@ -146,7 +146,7 @@ const LeadForm = ({
         type="submit"
         className="mt-6 w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
       >
-        Записаться на бесплатный замер
+        Записаться на замер
       </button>
     </form>
   );

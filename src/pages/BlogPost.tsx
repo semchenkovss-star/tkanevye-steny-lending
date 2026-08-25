@@ -149,7 +149,7 @@ const BlogPostPage = () => {
 
             <div className="mt-4 flex flex-col items-start gap-6 border border-border bg-secondary p-8 sm:flex-row sm:items-center sm:justify-between">
               <p className="max-w-[26em] text-sm leading-[1.6] text-muted-foreground">
-                Хотите понять, сколько выйдет именно ваша стена? Замер и смета — бесплатно.
+                Хотите понять, сколько выйдет именно ваша стена? Замер и смета за 24 часа.
               </p>
               <button
                 type="button"

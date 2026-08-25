@@ -15,7 +15,7 @@ const STEPS = [
     n: '02',
     day: 'День 1',
     title: 'Замер и смета',
-    text: 'Замерщик приезжает бесплатно, снимает геометрию лазером, показывает образцы тканей. Смета с фиксированной ценой приходит в течение 24 часов.',
+    text: 'Замерщик снимает геометрию лазером, показывает образцы тканей. Смета с фиксированной ценой приходит в течение 24 часов.',
     icon: 'Ruler',
   },
   {
@@ -91,7 +91,7 @@ const HowItWorks = () => {
             onClick={() => openLead('Как это работает')}
             className="bg-foreground px-8 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
           >
-            Начать с бесплатного замера
+            Начать с замера
           </button>
         </div>
       </div>

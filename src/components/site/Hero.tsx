@@ -106,7 +106,7 @@ const Hero = () => {
               {PHONE_DISPLAY}
             </a>
             <p className="mt-2 text-sm leading-[1.45] text-muted-foreground">
-              {WORK_HOURS}. Замер и расчёт&nbsp;— бесплатно, смета в течение 24&nbsp;часов.
+              {WORK_HOURS}. Замер и расчёт — смета в течение 24&nbsp;часов.
             </p>
           </div>
         </div>
