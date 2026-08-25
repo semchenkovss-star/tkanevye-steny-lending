@@ -1,31 +1,44 @@
+import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { CONCEPTS, CatalogItem } from '@/data/catalog';
+import ImageZoom from '@/components/catalog/ImageZoom';
 
 const CatalogCard = ({ item }: { item: CatalogItem }) => {
   const concept = CONCEPTS.find((c) => c.id === item.concept)?.label ?? '';
+  const [zoom, setZoom] = useState(false);
 
   return (
     <article className="group flex flex-col bg-card animate-scale-in">
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
-        <img
-          src={item.img}
-          alt={item.name}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-        />
+        <button
+          type="button"
+          onClick={() => setZoom(true)}
+          aria-label={`Рассмотреть фактуру ткани ${item.name}`}
+          className="block h-full w-full cursor-zoom-in"
+        >
+          <img
+            src={item.img}
+            alt={item.name}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+          <span className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center bg-background/90 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <Icon name="ZoomIn" size={18} />
+          </span>
+        </button>
         <span
-          className="absolute bottom-3 left-3 h-9 w-9 border border-background/70 shadow-sm"
+          className="pointer-events-none absolute bottom-3 left-3 h-9 w-9 border border-background/70 shadow-sm"
           style={{ backgroundColor: item.color }}
           title={item.colorName}
         />
         {item.badge && (
-          <span className="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-primary-foreground">
+          <span className="pointer-events-none absolute left-3 top-3 bg-primary px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-primary-foreground">
             {item.badge}
           </span>
         )}
         {!item.inStock && (
-          <span className="absolute right-3 top-3 bg-foreground px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
+          <span className="pointer-events-none absolute right-3 top-3 bg-foreground px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
             Под заказ
           </span>
         )}
@@ -77,6 +90,15 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
           </button>
         </div>
       </div>
+
+      {zoom && (
+        <ImageZoom
+          src={item.img}
+          title={item.name}
+          caption={`${item.colorName} · ширина ${item.width ?? 300} см`}
+          onClose={() => setZoom(false)}
+        />
+      )}
     </article>
   );
 };
