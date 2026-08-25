@@ -82,7 +82,7 @@ const Hero = () => {
             <span className="text-muted-foreground">Без пыли и мокрых работ</span>
           </h1>
           <p
-            className="max-w-[30em] leading-[1.55] text-muted-foreground animate-fade-in text-base text-left my-3.5"
+            className="max-w-[30em] leading-[1.55] text-muted-foreground animate-fade-in text-base text-left my-3.5 py-0 px-1.5"
             style={{ animationDelay: '260ms' }}
           >Полотно натягивается поверх каркаса. Базовая толщина 13 мм. В квартире нет грязи и строительной пыли.</p>
         </div>
