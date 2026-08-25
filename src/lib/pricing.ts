@@ -28,8 +28,8 @@ export const PLANS: Plan[] = [
   {
     id: 'quiet',
     name: 'Тихо',
-    rate: 5400,
-    priceLabel: 'от 5 400',
+    rate: 5900,
+    priceLabel: 'от 5 900',
     unit: '₽ / м²',
     for: 'Когда мешает эхо и соседи',
     features: [
@@ -44,8 +44,8 @@ export const PLANS: Plan[] = [
   {
     id: 'project',
     name: 'Проект',
-    rate: 7800,
-    priceLabel: 'от 7 800',
+    rate: 7900,
+    priceLabel: 'от 7 900',
     unit: '₽ / м²',
     for: 'Дизайнерское решение под ключ',
     features: [
