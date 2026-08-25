@@ -84,7 +84,7 @@ const Hero = () => {
           <p
             className="max-w-[30em] leading-[1.55] text-muted-foreground animate-fade-in text-base text-left my-3.5"
             style={{ animationDelay: '260ms' }}
-          >Полотно натягивается поверх каркаса. Базовая толщина   13 мм. В квартире нет грязи и строительной пыли.</p>
+          >Полотно натягивается поверх каркаса. Базовая толщина 13 мм. В квартире нет грязи и строительной пыли.</p>
         </div>
 
         <div
