@@ -26,7 +26,7 @@ const JSON_LD = [
     name: 'Полотно',
     description:
       'Установка тканевых стен и потолков на скрытом каркасе в Москве и области. Монтаж за 1–2 дня без пыли и мокрых работ.',
-    telephone: '+7 (495) 123-45-67',
+    telephone: '+7 (495) 797-08-09',
     email: 'hello@polotno.ru',
     address: {
       '@type': 'PostalAddress',
