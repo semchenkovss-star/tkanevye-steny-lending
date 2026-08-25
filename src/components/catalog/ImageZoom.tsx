@@ -5,10 +5,11 @@ interface Props {
   src: string;
   title: string;
   caption?: string;
+  onLead?: () => void;
   onClose: () => void;
 }
 
-const ImageZoom = ({ src, title, caption, onClose }: Props) => {
+const ImageZoom = ({ src, title, caption, onLead, onClose }: Props) => {
   const [zoomed, setZoomed] = useState(false);
   const [origin, setOrigin] = useState('50% 50%');
 
@@ -78,6 +79,17 @@ const ImageZoom = ({ src, title, caption, onClose }: Props) => {
             {zoomed ? 'Нажмите, чтобы уменьшить' : 'Нажмите, чтобы приблизить'}
           </span>
         </div>
+
+        {onLead && (
+          <button
+            type="button"
+            onClick={onLead}
+            className="mt-5 flex items-center gap-3 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-background hover:text-foreground"
+          >
+            <Icon name="Ruler" size={20} />
+            Заказать бесплатный замер
+          </button>
+        )}
       </div>
     </div>
   );

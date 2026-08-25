@@ -96,6 +96,13 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
           src={item.img}
           title={item.name}
           caption={`${item.colorName} · ширина ${item.width ?? 300} см`}
+          onLead={() => {
+            setZoom(false);
+            openLead(
+              `Каталог: ${item.name}`,
+              `${item.name} — ${item.material}, ${item.price.toLocaleString('ru-RU')} ₽/м²`,
+            );
+          }}
           onClose={() => setZoom(false)}
         />
       )}
