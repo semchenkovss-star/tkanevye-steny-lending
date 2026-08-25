@@ -78,10 +78,7 @@ const Fabrics = () => {
       </div>
 
       <div className="mt-6 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
-        <p className="flex items-center gap-3 text-sm text-muted-foreground">
-          <Icon name="Palette" size={18} className="shrink-0 text-primary" />
-          Цена указана за квадратный метр готовой стены под ключ: каркас, войлок, полотно и монтаж.
-        </p>
+        <p className="flex items-center gap-3 text-sm text-muted-foreground">Цена указана за квадратный метр готовой стены под ключ: каркас, мембрана, полотно и монтаж.</p>
         <Link
           to="/catalog"
           className="flex shrink-0 items-center gap-2 whitespace-nowrap bg-foreground px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
