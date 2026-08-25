@@ -21,7 +21,7 @@ const STEPS = [
   {
     n: '03',
     day: 'День 3—10',
-    title: 'Раскрой полотна',
+    title: 'Раскрой текстиля',
     text: 'Ткань режется под ваши размеры на производстве, каркас комплектуется. Вы в это время ничего не делаете и живёте в квартире как обычно.',
     icon: 'Scissors',
   },
@@ -59,18 +59,18 @@ const HowItWorks = () => {
             }`}
           >
             <div className="flex w-full items-center justify-between">
-              <span className="font-display text-3xl leading-none">{s.n}</span>
+              <span className="font-display text-3xl leading-none">Шаг {s.n}</span>
               <Icon name={s.icon} fallback="Circle" size={20} />
             </div>
+            <span className="font-display text-xl uppercase leading-none tracking-wide">
+              {s.title}
+            </span>
             <span
               className={`text-xs uppercase tracking-[0.14em] ${
                 i === active ? 'text-primary-foreground/80' : 'text-muted-foreground'
               }`}
             >
               {s.day}
-            </span>
-            <span className="font-display text-xl uppercase leading-none tracking-wide">
-              {s.title}
             </span>
           </button>
         ))}
