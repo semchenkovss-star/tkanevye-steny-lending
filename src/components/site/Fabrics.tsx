@@ -1,35 +1,26 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
+import { CATALOG, Material } from '@/data/catalog';
 
-type Group = 'Все' | 'Лён' | 'Велюр' | 'Рогожка' | 'Акустика';
+type Group = 'Все' | Material;
 
-interface Fabric {
-  name: string;
-  code: string;
-  group: Exclude<Group, 'Все'>;
-  color: string;
-  note: string;
-  price: string;
-}
-
-const FABRICS: Fabric[] = [
-  { name: 'Лён Натур', code: 'LN-04', group: 'Лён', color: '#D9CFBC', note: 'Тёплый песочный, живая фактура нити', price: 'от 4 200 ₽/м²' },
-  { name: 'Лён Графит', code: 'LN-19', group: 'Лён', color: '#5A5A54', note: 'Глубокий серый, не маркий', price: 'от 4 400 ₽/м²' },
-  { name: 'Велюр Терракота', code: 'VL-07', group: 'Велюр', color: '#B4532F', note: 'Матовый ворс, меняет тон при свете', price: 'от 5 600 ₽/м²' },
-  { name: 'Велюр Молоко', code: 'VL-01', group: 'Велюр', color: '#EDE6DA', note: 'Светлая база под любой интерьер', price: 'от 5 400 ₽/м²' },
-  { name: 'Рогожка Дюна', code: 'RG-12', group: 'Рогожка', color: '#C8B79B', note: 'Плотное плетение, устойчива к когтям', price: 'от 3 900 ₽/м²' },
-  { name: 'Рогожка Уголь', code: 'RG-22', group: 'Рогожка', color: '#3B3B38', note: 'Контрастная акцентная стена', price: 'от 4 100 ₽/м²' },
-  { name: 'Акустик Фетр', code: 'AC-30', group: 'Акустика', color: '#8A8A84', note: 'Максимальное поглощение, −11 дБ', price: 'от 6 300 ₽/м²' },
-  { name: 'Акустик Оранж', code: 'AC-41', group: 'Акустика', color: '#FF6637', note: 'Для кабинета и студии, яркий акцент', price: 'от 6 500 ₽/м²' },
-];
-
-const GROUPS: Group[] = ['Все', 'Лён', 'Велюр', 'Рогожка', 'Акустика'];
+const GROUPS: Group[] = ['Все', 'Марс', 'Луна', 'Комфорт', 'Штукатурка', 'Узор', 'Акустик'];
 
 const Fabrics = () => {
   const [group, setGroup] = useState<Group>('Все');
-  const list = group === 'Все' ? FABRICS : FABRICS.filter((f) => f.group === group);
+
+  const list = useMemo(() => {
+    if (group !== 'Все') return CATALOG.filter((i) => i.material === group).slice(0, 8);
+    return GROUPS.filter((g) => g !== 'Все')
+      .map((g) => CATALOG.find((i) => i.material === g))
+      .filter(Boolean)
+      .slice(0, 8) as typeof CATALOG;
+  }, [group]);
+
+  const minPrice = (m: Material) =>
+    Math.min(...CATALOG.filter((i) => i.material === m).map((i) => i.price));
 
   return (
     <Section
@@ -37,7 +28,7 @@ const Fabrics = () => {
       index="05"
       eyebrow="Каталог"
       title={<>Ткани: 180 оттенков в наличии</>}
-      lead="Показываем восемь ходовых. Полную палитру замерщик привозит с собой — образцы можно приложить к мебели и посмотреть при своём свете."
+      lead="Шесть коллекций — от бюджетного «Узора» до акустического фетра. Полную палитру замерщик привозит с собой: образцы можно приложить к мебели и посмотреть при своём свете."
       tone="surface"
     >
       <div className="mb-8 flex flex-wrap gap-2">
@@ -57,23 +48,30 @@ const Fabrics = () => {
         ))}
       </div>
 
-      <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {list.map((f) => (
-          <article key={f.code} className="group bg-card animate-scale-in">
-            <div
-              className="weave-soft relative aspect-[4/3] w-full"
-              style={{ backgroundColor: f.color }}
-            >
+          <article key={f.slug} className="group bg-card animate-scale-in">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
+              <img
+                src={f.img}
+                alt={f.name}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
               <span className="absolute right-3 top-3 bg-foreground px-2 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
-                {f.code}
+                {f.material}
               </span>
             </div>
             <div className="p-6">
               <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
                 {f.name}
               </h3>
-              <p className="mt-2 text-sm leading-[1.55] text-muted-foreground">{f.note}</p>
-              <p className="mt-4 font-display text-lg tracking-wide text-primary">{f.price}</p>
+              <p className="mt-2 text-sm leading-[1.55] text-muted-foreground">
+                {f.colorName} · шумоизоляция до −{f.noise} дБ
+              </p>
+              <p className="mt-4 font-display text-lg tracking-wide text-primary">
+                от {minPrice(f.material).toLocaleString('ru-RU')} ₽/м²
+              </p>
             </div>
           </article>
         ))}
