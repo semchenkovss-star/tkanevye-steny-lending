@@ -1,10 +1,21 @@
 import Icon from '@/components/ui/icon';
-import { CONCEPTS, Concept, MATERIALS, Material, PRICE_MAX, ROOMS, Room } from '@/data/catalog';
+import {
+  CONCEPTS,
+  Concept,
+  MATERIALS,
+  Material,
+  PRICE_MAX,
+  ROOMS,
+  Room,
+  TONES,
+  Tone,
+} from '@/data/catalog';
 
 export interface Filters {
   concepts: Concept[];
   materials: Material[];
   rooms: Room[];
+  tones: Tone[];
   maxPrice: number;
   inStock: boolean;
 }
@@ -13,8 +24,17 @@ export const EMPTY_FILTERS: Filters = {
   concepts: [],
   materials: [],
   rooms: [],
+  tones: [],
   maxPrice: PRICE_MAX,
   inStock: false,
+};
+
+const TONE_SWATCH: Record<Tone, string> = {
+  light: '#EDE9E2',
+  beige: '#C9B49E',
+  grey: '#9C9C99',
+  dark: '#4A4744',
+  color: 'linear-gradient(135deg,#B7771C 0%,#49A3A4 50%,#6B244A 100%)',
 };
 
 const Check = ({
@@ -64,6 +84,7 @@ const CatalogFilters = ({ value, onChange, total }: Props) => {
     value.concepts.length > 0 ||
     value.materials.length > 0 ||
     value.rooms.length > 0 ||
+    value.tones.length > 0 ||
     value.inStock ||
     value.maxPrice < PRICE_MAX;
 
@@ -81,6 +102,33 @@ const CatalogFilters = ({ value, onChange, total }: Props) => {
           </button>
         )}
       </div>
+
+      <Group title="Цвет ткани">
+        <div className="flex flex-wrap gap-2">
+          {TONES.map((t) => {
+            const active = value.tones.includes(t.id);
+            return (
+              <button
+                key={t.id}
+                type="button"
+                aria-pressed={active}
+                onClick={() => onChange({ ...value, tones: toggle(value.tones, t.id) })}
+                className={`flex items-center gap-2 border px-3 py-2 text-sm transition-colors ${
+                  active
+                    ? 'border-primary text-primary'
+                    : 'border-border text-foreground hover:border-primary hover:text-primary'
+                }`}
+              >
+                <span
+                  className="h-4 w-4 shrink-0 border border-border"
+                  style={{ background: TONE_SWATCH[t.id] }}
+                />
+                {t.label}
+              </button>
+            );
+          })}
+        </div>
+      </Group>
 
       <Group title="Стиль интерьера">
         {CONCEPTS.map((c) => (

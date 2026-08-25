@@ -634,5 +634,41 @@ export const CATALOG: CatalogItem[] = [
   },
 ];
 
+export type Tone = 'light' | 'beige' | 'grey' | 'dark' | 'color';
+
+export const TONES: { id: Tone; label: string }[] = [
+  { id: 'light', label: 'Светлые' },
+  { id: 'beige', label: 'Бежевые' },
+  { id: 'grey', label: 'Серые' },
+  { id: 'dark', label: 'Тёмные' },
+  { id: 'color', label: 'Цветные' },
+];
+
+export const toneOf = (hex: string): Tone => {
+  const v = hex.replace('#', '');
+  const r = parseInt(v.slice(0, 2), 16) / 255;
+  const g = parseInt(v.slice(2, 4), 16) / 255;
+  const b = parseInt(v.slice(4, 6), 16) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const d = max - min;
+  const light = (max + min) / 2;
+  const sat = d === 0 ? 0 : d / (1 - Math.abs(2 * light - 1));
+
+  let hue = 0;
+  if (d !== 0) {
+    if (max === r) hue = ((g - b) / d) % 6;
+    else if (max === g) hue = (b - r) / d + 2;
+    else hue = (r - g) / d + 4;
+    hue = (hue * 60 + 360) % 360;
+  }
+
+  if (light < 0.35 && sat < 0.4) return 'dark';
+  if (sat < 0.13) return light > 0.82 ? 'light' : 'grey';
+  if (light > 0.85) return 'light';
+  if (hue >= 15 && hue <= 55 && sat < 0.5) return 'beige';
+  return 'color';
+};
+
 export const PRICE_MIN = Math.min(...CATALOG.map((i) => i.price));
 export const PRICE_MAX = Math.max(...CATALOG.map((i) => i.price));

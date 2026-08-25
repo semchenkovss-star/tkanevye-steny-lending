@@ -16,6 +16,9 @@ import {
   PRICE_MAX,
   ROOMS,
   Room,
+  TONES,
+  Tone,
+  toneOf,
 } from '@/data/catalog';
 
 type Sort = 'popular' | 'price-asc' | 'price-desc' | 'noise';
@@ -31,6 +34,7 @@ const readFilters = (params: URLSearchParams): Filters => ({
   concepts: params.getAll('concept[]').filter((c) => CONCEPTS.some((x) => x.id === c)) as Concept[],
   materials: params.getAll('material[]').filter((m) => MATERIALS.includes(m as Material)) as Material[],
   rooms: params.getAll('room[]').filter((r) => ROOMS.includes(r as Room)) as Room[],
+  tones: params.getAll('tone[]').filter((t) => TONES.some((x) => x.id === t)) as Tone[],
   maxPrice: Number(params.get('price')) || PRICE_MAX,
   inStock: params.get('stock') === '1',
 });
@@ -51,6 +55,7 @@ const CatalogPage = () => {
     f.concepts.forEach((c) => next.append('concept[]', c));
     f.materials.forEach((m) => next.append('material[]', m));
     f.rooms.forEach((r) => next.append('room[]', r));
+    f.tones.forEach((t) => next.append('tone[]', t));
     if (f.maxPrice < PRICE_MAX) next.set('price', String(f.maxPrice));
     if (f.inStock) next.set('stock', '1');
     setParams(next, { replace: true });
@@ -61,6 +66,7 @@ const CatalogPage = () => {
       if (filters.concepts.length && !filters.concepts.includes(i.concept)) return false;
       if (filters.materials.length && !filters.materials.includes(i.material)) return false;
       if (filters.rooms.length && !i.rooms.some((r) => filters.rooms.includes(r))) return false;
+      if (filters.tones.length && !filters.tones.includes(toneOf(i.color))) return false;
       if (i.price > filters.maxPrice) return false;
       if (filters.inStock && !i.inStock) return false;
       return true;
@@ -92,6 +98,11 @@ const CatalogPage = () => {
       key: `r-${r}`,
       label: r,
       remove: () => applyFilters({ ...filters, rooms: filters.rooms.filter((x) => x !== r) }),
+    })),
+    ...filters.tones.map((t) => ({
+      key: `t-${t}`,
+      label: TONES.find((x) => x.id === t)?.label ?? t,
+      remove: () => applyFilters({ ...filters, tones: filters.tones.filter((x) => x !== t) }),
     })),
   ];
 
