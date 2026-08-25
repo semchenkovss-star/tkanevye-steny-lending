@@ -65,13 +65,6 @@ const HowItWorks = () => {
             <span className="font-display text-xl uppercase leading-none tracking-wide">
               {s.title}
             </span>
-            <span
-              className={`text-xs uppercase tracking-[0.14em] ${
-                i === active ? 'text-primary-foreground/80' : 'text-muted-foreground'
-              }`}
-            >
-              {s.day}
-            </span>
           </button>
         ))}
       </div>
