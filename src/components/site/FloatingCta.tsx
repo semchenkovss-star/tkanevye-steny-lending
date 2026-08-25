@@ -7,14 +7,22 @@ const FloatingCta = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
       const lead = document.getElementById('lead');
       const nearForm = lead ? lead.getBoundingClientRect().top < window.innerHeight * 0.9 : false;
       setVisible(window.scrollY > window.innerHeight * 0.9 && !nearForm);
     };
-    onScroll();
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(measure);
+    };
+    measure();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (

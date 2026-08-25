@@ -42,7 +42,7 @@ const CatalogPage = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, []);
 
   const applyFilters = (f: Filters) => {
