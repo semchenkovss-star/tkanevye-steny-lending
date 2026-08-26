@@ -77,6 +77,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
               </div>
             )}
             <div className="font-display text-3xl leading-none text-foreground">
+              <span className="mr-1 text-base text-muted-foreground">от</span>
               {item.price.toLocaleString('ru-RU')} ₽
               <span className="ml-1 text-sm text-muted-foreground">/ м²</span>
             </div>
