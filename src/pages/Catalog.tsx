@@ -107,6 +107,24 @@ const CatalogPage = () => {
       label: TONES.find((x) => x.id === t)?.label ?? t,
       remove: () => applyFilters({ ...filters, tones: filters.tones.filter((x) => x !== t) }),
     })),
+    ...(filters.maxPrice < PRICE_MAX
+      ? [
+          {
+            key: 'price',
+            label: `до ${filters.maxPrice.toLocaleString('ru-RU')} ₽/м²`,
+            remove: () => applyFilters({ ...filters, maxPrice: PRICE_MAX }),
+          },
+        ]
+      : []),
+    ...(filters.inStock
+      ? [
+          {
+            key: 'stock',
+            label: 'В наличии',
+            remove: () => applyFilters({ ...filters, inStock: false }),
+          },
+        ]
+      : []),
   ];
 
   const jsonLd = {
