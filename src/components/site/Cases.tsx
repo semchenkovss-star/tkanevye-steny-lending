@@ -11,6 +11,7 @@ interface CaseItem {
   fabric: string;
   task: string;
   result: string;
+  tags: string[];
 }
 
 const CASES: CaseItem[] = [
@@ -23,6 +24,7 @@ const CASES: CaseItem[] = [
     fabric: 'Лён Натур LN-04',
     task: 'Перепад стены 47 мм, диван не вставал вплотную, по стене шёл стояк отопления.',
     result: 'Каркас выбрал кривизну, стояк ушёл внутрь конструкции, стена стала ровной по лазеру.',
+    tags: ['Гостиная', 'Выравнивание', 'Лён'],
   },
   {
     title: 'Спальня с гулким эхом',
@@ -33,6 +35,7 @@ const CASES: CaseItem[] = [
     fabric: 'Акустик Фетр AC-30',
     task: 'Соседей за стеной было слышно как в одной комнате, спать мешал каждый разговор.',
     result: 'Звукопоглощение αw = 0,30 (MH). Речь за стеной перестала различаться словами.',
+    tags: ['Спальня', 'Акустика', 'Фетр'],
   },
   {
     title: 'Домашний кабинет',
@@ -43,6 +46,7 @@ const CASES: CaseItem[] = [
     fabric: 'Акустик Оранж AC-41',
     task: 'Созвоны с эхом, микрофон ловил отражение от голых стен.',
     result: 'Полотно на двух стенах убрало отражение, звук в записи стал плотным и сухим.',
+    tags: ['Кабинет', 'Акустика', 'Цвет'],
   },
 ];
 
@@ -51,21 +55,26 @@ const Cases = () => {
   const [split, setSplit] = useState(50);
   const item = CASES[active];
 
+  const select = (i: number) => {
+    setActive(i);
+    setSplit(50);
+  };
+
   return (
     <Section
       id="cases"
       index="06"
-      eyebrow="Объекты"
-      title={<>Кейсы: до и после</>}
-      lead="Потяните ползунок, чтобы сравнить состояние стены до монтажа и после."
+      eyebrow="Проекты"
+      title={<>Проекты: до и после</>}
+      lead="Реальные квартиры наших клиентов. Потяните ползунок на большом фото, чтобы сравнить стену до монтажа и после."
     >
-      <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-        <div className="lg:col-span-7">
-          <div className="relative select-none overflow-hidden border border-border">
+      <div className="border border-border bg-card">
+        <div className="grid lg:grid-cols-12">
+          <div className="relative select-none overflow-hidden lg:col-span-7">
             <img
               src={item.img}
               alt={`${item.title} — после монтажа`}
-              className="block aspect-[4/3] w-full object-cover"
+              className="block aspect-[4/3] w-full object-cover lg:aspect-auto lg:h-full"
               loading="lazy"
             />
             <div
@@ -87,9 +96,13 @@ const Cases = () => {
               После
             </span>
             <div
-              className="pointer-events-none absolute inset-y-0 w-px bg-primary"
+              className="pointer-events-none absolute inset-y-0 flex w-px items-center justify-center bg-primary"
               style={{ left: `${split}%` }}
-            />
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
+                <Icon name="MoveHorizontal" size={20} />
+              </span>
+            </div>
             <input
               type="range"
               min={0}
@@ -101,56 +114,91 @@ const Cases = () => {
             />
           </div>
 
-          <div className="mt-px flex flex-wrap gap-px bg-border">
-            {CASES.map((c, i) => (
-              <button
-                key={c.title}
-                type="button"
-                onClick={() => {
-                  setActive(i);
-                  setSplit(50);
-                }}
-                className={`flex-1 px-4 py-3 text-sm transition-colors ${
-                  i === active
-                    ? 'bg-foreground text-background'
-                    : 'bg-card text-muted-foreground hover:text-foreground'
+          <div className="flex flex-col border-t border-border p-7 sm:p-9 lg:col-span-5 lg:border-l lg:border-t-0">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Icon name="MapPin" size={16} className="text-primary" />
+              {item.place}
+            </div>
+            <h3 className="mt-3 font-display text-3xl uppercase leading-none tracking-wide sm:text-4xl">
+              {item.title}
+            </h3>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {item.tags.map((t) => (
+                <span
+                  key={t}
+                  className="border border-border px-3 py-1.5 text-xs uppercase tracking-[0.1em] text-muted-foreground"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <dl className="mt-7 grid grid-cols-3 gap-px border border-border bg-border">
+              {[
+                { k: 'Площадь', v: item.area },
+                { k: 'Срок', v: item.days },
+                { k: 'Ткань', v: item.fabric.split(' ')[0] },
+              ].map((row) => (
+                <div key={row.k} className="bg-card p-4">
+                  <dt className="text-xs uppercase tracking-[0.1em] text-muted-foreground">
+                    {row.k}
+                  </dt>
+                  <dd className="mt-2 font-display text-xl leading-none tracking-wide">{row.v}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-7 space-y-5">
+              <div className="flex gap-4">
+                <Icon
+                  name="CircleAlert"
+                  size={20}
+                  className="mt-0.5 shrink-0 text-muted-foreground"
+                />
+                <p className="text-[0.95rem] leading-[1.6] text-muted-foreground">{item.task}</p>
+              </div>
+              <div className="flex gap-4">
+                <Icon name="CircleCheck" size={20} className="mt-0.5 shrink-0 text-primary" />
+                <p className="text-[0.95rem] leading-[1.6] text-foreground">{item.result}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-px grid gap-px bg-border sm:grid-cols-3">
+        {CASES.map((c, i) => (
+          <button
+            key={c.title}
+            type="button"
+            onClick={() => select(i)}
+            className={`group relative flex items-center gap-4 p-4 text-left transition-colors ${
+              i === active ? 'bg-foreground text-background' : 'bg-card hover:bg-secondary'
+            }`}
+          >
+            <span className="relative h-16 w-20 shrink-0 overflow-hidden">
+              <img
+                src={c.img}
+                alt={c.title}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+              />
+            </span>
+            <span className="min-w-0">
+              <span className="block truncate font-display text-lg uppercase leading-tight tracking-wide">
+                {c.title}
+              </span>
+              <span
+                className={`mt-1 block text-sm ${
+                  i === active ? 'text-background/70' : 'text-muted-foreground'
                 }`}
               >
-                {c.place}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="lg:col-span-5">
-          <h3 className="font-display text-3xl uppercase leading-none tracking-wide sm:text-4xl">
-            {item.title}
-          </h3>
-
-          <dl className="mt-8 divide-y divide-border border-y border-border">
-            {[
-              { k: 'Площадь стен', v: item.area },
-              { k: 'Срок монтажа', v: item.days },
-              { k: 'Ткань', v: item.fabric },
-            ].map((row) => (
-              <div key={row.k} className="flex items-baseline justify-between gap-6 py-4">
-                <dt className="text-sm text-muted-foreground">{row.k}</dt>
-                <dd className="font-display text-xl tracking-wide">{row.v}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-8 space-y-5">
-            <div className="flex gap-4">
-              <Icon name="CircleAlert" size={20} className="mt-0.5 shrink-0 text-muted-foreground" />
-              <p className="text-[0.95rem] leading-[1.6] text-muted-foreground">{item.task}</p>
-            </div>
-            <div className="flex gap-4">
-              <Icon name="CircleCheck" size={20} className="mt-0.5 shrink-0 text-primary" />
-              <p className="text-[0.95rem] leading-[1.6] text-foreground">{item.result}</p>
-            </div>
-          </div>
-        </div>
+                {c.place} · {c.area}
+              </span>
+            </span>
+          </button>
+        ))}
       </div>
     </Section>
   );

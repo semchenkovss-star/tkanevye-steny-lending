@@ -8,7 +8,7 @@ const LINKS = [
   { href: '/catalog', label: 'Каталог' },
   { href: '#what', label: 'Что это' },
   { href: '#how', label: 'Монтаж' },
-  { href: '#cases', label: 'Объекты' },
+  { href: '#cases', label: 'Проекты' },
   { href: '#price', label: 'Цены' },
   { href: '#calc', label: 'Калькулятор' },
   { href: '#faq', label: 'Вопросы' },

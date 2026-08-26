@@ -10,7 +10,7 @@ const COLUMNS = [
       { href: '#what', label: 'Что это такое' },
       { href: '#how', label: 'Как проходит монтаж' },
       { href: '/catalog', label: 'Каталог' },
-      { href: '#cases', label: 'Объекты' },
+      { href: '#cases', label: 'Проекты' },
     ],
   },
   {
