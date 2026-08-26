@@ -2,6 +2,7 @@ import Icon from '@/components/ui/icon';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const NAV = [
+  { href: '#services', label: 'Услуги' },
   { href: '#cases', label: 'Проекты' },
   { href: '#how', label: 'Монтаж' },
   { href: '#price', label: 'Цены' },
