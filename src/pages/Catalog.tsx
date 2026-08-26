@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import Footer from '@/components/site/Footer';
@@ -46,6 +46,7 @@ const CatalogPage = () => {
   const [filters, setFilters] = useState<Filters>(() => readFilters(params));
   const [sort, setSort] = useState<Sort>('popular');
   const [mobileOpen, setMobileOpen] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
@@ -185,9 +186,25 @@ const CatalogPage = () => {
             >
               <CatalogFilters value={filters} onChange={applyFilters} total={list.length} />
             </div>
+
+            {mobileOpen && (
+              <div className="sticky bottom-0 z-30 -mx-5 mt-4 border-t border-border bg-background/95 px-5 py-4 backdrop-blur lg:hidden">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    resultsRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+                  }}
+                  className="flex w-full items-center justify-center gap-2 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground"
+                >
+                  Показать результаты
+                  <span className="tabular-nums">({list.length})</span>
+                </button>
+              </div>
+            )}
           </aside>
 
-          <div className="lg:col-span-9">
+          <div className="lg:col-span-9" ref={resultsRef}>
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-5">
               <span className="text-sm text-muted-foreground">
                 Показано <b className="text-foreground">{list.length}</b> из {CATALOG.length}
