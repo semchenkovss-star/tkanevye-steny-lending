@@ -180,7 +180,9 @@ const CatalogPage = () => {
               <Icon name={mobileOpen ? 'ChevronUp' : 'ChevronDown'} size={18} />
             </button>
 
-            <div className={`${mobileOpen ? 'mt-4 block' : 'hidden'} lg:sticky lg:top-24 lg:block`}>
+            <div
+              className={`${mobileOpen ? 'mt-4 block' : 'hidden'} lg:sticky lg:top-24 lg:block lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-2`}
+            >
               <CatalogFilters value={filters} onChange={applyFilters} total={list.length} />
             </div>
           </aside>
