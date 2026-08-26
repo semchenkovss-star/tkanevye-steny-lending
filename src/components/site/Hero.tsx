@@ -26,7 +26,7 @@ const Hero = () => {
         />
 
         <div className="absolute bottom-10 left-10 z-[2] max-w-[15em] text-[0.8rem] leading-[1.45] tracking-[0.02em] text-primary-foreground">
-          <b className="mb-2.5 block font-display text-[2.4rem] leading-none tracking-[0.01em]">
+          <b className="mb-2.5 block font-display text-[2.4rem] leading-none tracking-[0.01em] font-semibold">
             αw&nbsp;=&nbsp;0,30 <span className="text-[1.2rem]">(MH)</span>
           </b>
           Слой акустического войлока под полотном: разговор в соседней комнате перестаёт
