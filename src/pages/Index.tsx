@@ -15,6 +15,7 @@ import Reviews from '@/components/site/Reviews';
 import About from '@/components/site/About';
 import Faq from '@/components/site/Faq';
 import Blog from '@/components/site/Blog';
+import WallsCross from '@/components/site/WallsCross';
 import CtaForm from '@/components/site/CtaForm';
 import Footer from '@/components/site/Footer';
 import FloatingCta from '@/components/site/FloatingCta';
@@ -87,6 +88,7 @@ const Index = () => {
         <About />
         <Faq />
         <Blog />
+        <WallsCross />
         <CtaForm />
       </main>
       <Footer />
