@@ -7,6 +7,8 @@ const COLUMNS = [
   {
     title: 'Разделы',
     links: [
+      { href: '#services', label: 'Услуги' },
+      { href: '/ceilings', label: 'Тканевые потолки' },
       { href: '#what', label: 'Что это такое' },
       { href: '#how', label: 'Как проходит монтаж' },
       { href: '/catalog', label: 'Каталог' },

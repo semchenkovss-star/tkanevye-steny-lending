@@ -3,6 +3,7 @@ import { QUESTIONS } from '@/components/site/Faq';
 import StickyHeader from '@/components/site/StickyHeader';
 import Hero from '@/components/site/Hero';
 import Pain from '@/components/site/Pain';
+import Services from '@/components/site/Services';
 import WhatIsIt from '@/components/site/WhatIsIt';
 import Benefits from '@/components/site/Benefits';
 import HowItWorks from '@/components/site/HowItWorks';
@@ -74,6 +75,7 @@ const Index = () => {
       <main>
         <Hero />
         <Pain />
+        <Services />
         <WhatIsIt />
         <Benefits />
         <HowItWorks />
