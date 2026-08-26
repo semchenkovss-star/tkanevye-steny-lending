@@ -47,7 +47,7 @@ const Services = () => (
     index="02"
     eyebrow="Услуги"
     title={<>Два направления работ</>}
-    lead="Две услуги — один подрядчик."
+    lead="Делаем только текстильные поверхности — стены и потолки. Можно заказать по отдельности или вместе, одной бригадой и одним счётом."
     tone="surface"
   >
     <div className="grid gap-px border border-border bg-border md:grid-cols-2">
