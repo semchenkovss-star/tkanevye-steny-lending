@@ -76,7 +76,6 @@ const Index = () => {
       <main>
         <Hero />
         <Pain />
-        <Services />
         <WhatIsIt />
         <Benefits />
         <HowItWorks />
@@ -86,6 +85,7 @@ const Index = () => {
         <Calculator />
         <Reviews />
         <About />
+        <Services />
         <Faq />
         <Blog />
         <WallsCross />
