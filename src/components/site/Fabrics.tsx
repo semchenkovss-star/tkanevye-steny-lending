@@ -50,7 +50,11 @@ const Fabrics = () => {
 
       <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {list.map((f) => (
-          <article key={f.slug} className="group bg-card animate-scale-in">
+          <Link
+            key={f.slug}
+            to={`/catalog?material[]=${encodeURIComponent(f.material)}`}
+            className="group block bg-card animate-scale-in"
+          >
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
               <img
                 src={f.img}
@@ -67,11 +71,16 @@ const Fabrics = () => {
                 {f.name}
               </h3>
               <p className="mt-2 text-sm leading-[1.55] text-muted-foreground">{f.description}</p>
-              <p className="mt-4 font-display text-lg tracking-wide text-primary">
+              <p className="mt-4 flex items-center gap-2 font-display text-lg tracking-wide text-primary">
                 от {minPrice(f.material).toLocaleString('ru-RU')} ₽/м²
+                <Icon
+                  name="ArrowRight"
+                  size={16}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </p>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
 
