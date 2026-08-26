@@ -66,7 +66,7 @@ const Fabrics = () => {
               <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
                 {f.name}
               </h3>
-              <p className="mt-2 text-sm leading-[1.55] text-muted-foreground">Кремовый · ширина 290 см</p>
+              <p className="mt-2 text-sm leading-[1.55] text-muted-foreground">{f.description}</p>
               <p className="mt-4 font-display text-lg tracking-wide text-primary">
                 от {minPrice(f.material).toLocaleString('ru-RU')} ₽/м²
               </p>
