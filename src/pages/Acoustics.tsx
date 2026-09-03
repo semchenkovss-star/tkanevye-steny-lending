@@ -8,6 +8,7 @@ import FloatingCta from '@/components/site/FloatingCta';
 import LeadDialog from '@/components/site/LeadDialog';
 import LeadForm from '@/components/site/LeadForm';
 import AcCalculator from '@/components/acoustics/AcCalculator';
+import AcHeader from '@/components/acoustics/AcHeader';
 import {
   Accordion,
   AccordionContent,
@@ -65,7 +66,9 @@ const AcousticsPage = () => {
         jsonLd={JSON_LD}
       />
 
-      <section className="relative w-full overflow-hidden bg-foreground text-background">
+      <AcHeader />
+
+      <section id="top" className="relative w-full overflow-hidden bg-foreground text-background">
         <img
           src={ACOUSTIC_IMG.hero}
           alt=""

@@ -1,0 +1,160 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Icon from '@/components/ui/icon';
+import { openLead } from '@/lib/lead';
+import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
+
+const LINKS = [
+  { href: '/', label: 'Стены' },
+  { href: '/ceilings', label: 'Потолки' },
+  { href: '#ac-pain', label: 'Задачи' },
+  { href: '#ac-how', label: 'Как работаем' },
+  { href: '#ac-cases', label: 'Применение' },
+  { href: '#ac-calc', label: 'Калькулятор' },
+  { href: '#ac-faq', label: 'Вопросы' },
+];
+
+const AcHeader = () => {
+  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
+      setVisible(window.scrollY > window.innerHeight * 0.6);
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(measure);
+    };
+    measure();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  return (
+    <>
+      <div
+        className={`fixed inset-x-0 top-0 z-40 border-b border-border bg-background/95 backdrop-blur transition-transform duration-300 ${
+          visible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="shell flex h-16 items-center justify-between gap-6">
+          <a href="#top" className="font-display text-xl uppercase tracking-[0.16em]">
+            Акустика
+          </a>
+
+          <nav className="hidden items-center gap-6 lg:flex">
+            {LINKS.map((l) =>
+              l.href.startsWith('/') ? (
+                <Link key={l.href} to={l.href} className="nav-link">
+                  {l.label}
+                </Link>
+              ) : (
+                <a key={l.href} href={l.href} className="nav-link">
+                  {l.label}
+                </a>
+              ),
+            )}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <a
+              href={PHONE_HREF}
+              className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary md:flex"
+            >
+              <Icon name="Phone" size={17} className="text-primary" />
+              {PHONE_DISPLAY}
+            </a>
+            <button
+              type="button"
+              onClick={() => openLead('Акустика — шапка')}
+              className="hidden bg-primary px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground sm:block"
+            >
+              Замер
+            </button>
+            <button
+              type="button"
+              aria-label="Меню"
+              onClick={() => setOpen(true)}
+              className="flex h-11 w-11 items-center justify-center border border-border text-foreground transition-colors hover:bg-secondary lg:hidden"
+            >
+              <Icon name="Menu" size={20} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {open && (
+        <div className="fixed inset-0 z-50 bg-background animate-fade-in lg:hidden">
+          <div className="flex h-16 items-center justify-between border-b border-border px-5 sm:px-8">
+            <span className="font-display text-xl uppercase tracking-[0.16em]">Акустика</span>
+            <button
+              type="button"
+              aria-label="Закрыть меню"
+              onClick={() => setOpen(false)}
+              className="flex h-11 w-11 items-center justify-center border border-border"
+            >
+              <Icon name="X" size={20} />
+            </button>
+          </div>
+          <nav className="flex flex-col overflow-y-auto px-5 py-4 sm:px-8">
+            {LINKS.map((l) =>
+              l.href.startsWith('/') ? (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-4 font-display text-3xl uppercase tracking-wide text-foreground"
+                >
+                  {l.label}
+                </Link>
+              ) : (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border py-4 font-display text-3xl uppercase tracking-wide text-foreground"
+                >
+                  {l.label}
+                </a>
+              ),
+            )}
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openLead('Акустика — мобильное меню');
+              }}
+              className="mt-8 bg-primary px-6 py-4 font-display text-2xl uppercase tracking-[0.04em] text-primary-foreground"
+            >
+              Замер
+            </button>
+            <a
+              href={PHONE_HREF}
+              className="mt-6 flex items-center justify-center gap-2 border border-border py-4 font-display text-2xl uppercase tracking-[0.02em] text-foreground"
+            >
+              <Icon name="Phone" size={20} className="text-primary" />
+              {PHONE_DISPLAY}
+            </a>
+            <span className="mt-3 pb-8 text-center text-xs text-muted-foreground">
+              {WORK_HOURS}
+            </span>
+          </nav>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default AcHeader;
