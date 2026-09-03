@@ -58,9 +58,9 @@ const CASES: CaseItem[] = [
   {
     title: 'Детская комната',
     place: 'Москва, Раменки',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/2422b2a3-8918-4804-87e2-559629f2b0aa.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e7e1fe2c-6525-4b17-ad95-c7910ac08485.jpg',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/a41f06e8-acf5-4604-8bc0-e2adb5262876.jpg',
+      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e8f89a76-0b60-4bfd-9c15-59a1ba979700.jpg',
     area: '12 м²',
     days: '1 день',
     fabric: 'Акустик Мята AC-22',
