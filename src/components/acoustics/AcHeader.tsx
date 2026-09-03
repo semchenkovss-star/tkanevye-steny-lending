@@ -9,7 +9,8 @@ const LINKS = [
   { href: '/ceilings', label: 'Потолки' },
   { href: '#ac-pain', label: 'Задачи' },
   { href: '#ac-how', label: 'Как работаем' },
-  { href: '#ac-cases', label: 'Применение' },
+  { href: '#ac-cases', label: 'Проекты' },
+  { href: '#ac-usage', label: 'Применение' },
   { href: '#ac-calc', label: 'Калькулятор' },
   { href: '#ac-faq', label: 'Вопросы' },
 ];

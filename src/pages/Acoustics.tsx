@@ -9,6 +9,7 @@ import LeadDialog from '@/components/site/LeadDialog';
 import LeadForm from '@/components/site/LeadForm';
 import AcCalculator from '@/components/acoustics/AcCalculator';
 import AcHeader from '@/components/acoustics/AcHeader';
+import AcCases from '@/components/acoustics/AcCases';
 import {
   Accordion,
   AccordionContent,
@@ -167,9 +168,11 @@ const AcousticsPage = () => {
           </div>
         </Section>
 
+        <AcCases />
+
         <Section
-          id="ac-cases"
-          index="03"
+          id="ac-usage"
+          index="04"
           eyebrow="Где применяем"
           title={<>Примеры применения</>}
           lead="Одинаковая технология, разные задачи: где-то нужно убрать эхо, где-то — закрыться от соседей или гостей зала."
@@ -227,7 +230,7 @@ const AcousticsPage = () => {
 
         <Section
           id="ac-faq"
-          index="05"
+          index="06"
           eyebrow="Частые вопросы"
           title={<>Что спрашивают перед замером</>}
           tone="surface"
@@ -254,7 +257,7 @@ const AcousticsPage = () => {
           <div className="shell py-16 sm:py-20 lg:py-28">
             <div className="grid gap-12 lg:grid-cols-12">
               <div className="lg:col-span-5">
-                <span className="font-display text-sm tracking-[0.2em] text-primary">06</span>
+                <span className="font-display text-sm tracking-[0.2em] text-primary">07</span>
                 <h2 className="mt-4 max-w-[12em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] sm:text-[3.25rem]">
                   Замер шума бесплатно
                 </h2>
