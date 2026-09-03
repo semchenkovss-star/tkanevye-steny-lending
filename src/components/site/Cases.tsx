@@ -18,7 +18,7 @@ const CASES: CaseItem[] = [
   {
     title: 'Гостиная в панельном доме',
     place: 'Москва, Митино',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/480a4f0c-d22e-493f-82ea-78305902d47c.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/293a57f7-0f38-469b-9902-803f225b736f.jpg',
     area: '18 м²',
     days: '2 дня',
     fabric: 'Лён Натур LN-04',
@@ -29,7 +29,7 @@ const CASES: CaseItem[] = [
   {
     title: 'Спальня с гулким эхом',
     place: 'Химки, ЖК «Парковый»',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/d01a16cf-63e7-4aa5-a7fb-a5789d779a26.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e4a3eb87-e3e1-4576-90f6-44ba3ae3d066.jpg',
     area: '14 м²',
     days: '1 день',
     fabric: 'Акустик Фетр AC-30',
@@ -40,7 +40,7 @@ const CASES: CaseItem[] = [
   {
     title: 'Домашний кабинет',
     place: 'Москва, Хамовники',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/d0638a88-0f03-4a73-b83d-1a6f013f121a.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/16c40be1-6ad4-4f0a-aed2-29c32c6f5c04.jpg',
     area: '11 м²',
     days: '1 день',
     fabric: 'Акустик Оранж AC-41',
