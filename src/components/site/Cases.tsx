@@ -73,6 +73,20 @@ const CASES: CaseItem[] = [
       'Мягкое полотно закрыло стену целиком: угол безопасен, поверхность моется, шум из комнаты стал тише.',
     tags: ['Детская', 'Безопасность', 'Акустика'],
   },
+  {
+    title: 'Переговорная в офисе',
+    place: 'Москва, Сити',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/cf88160e-efe3-43a2-8db4-08693ab60558.jpg',
+    imgBefore:
+      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/507aba46-1696-42b4-916c-d53b3203b068.jpg',
+    area: '24 м²',
+    days: '2 дня',
+    fabric: 'Акустик Графит',
+    task: 'Голые бетонные стены давали гул: на видеовстречах речь расплывалась, а переговоры было слышно в коридоре.',
+    result:
+      'Полотно на двух стенах убрало гул и скрыло кабель-каналы. Разборчивость речи выросла, за дверью разговор не читается.',
+    tags: ['Переговорная', 'Акустика', 'Графит'],
+  },
 ];
 
 const Cases = () => {
@@ -206,7 +220,7 @@ const Cases = () => {
         </div>
       </div>
 
-      <div className="mt-px grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-px grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
         {CASES.map((c, i) => (
           <button
             key={c.title}
