@@ -127,23 +127,32 @@ const BlogPage = () => {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col items-start gap-6 border border-border bg-secondary p-8 sm:flex-row sm:items-center sm:justify-between lg:p-12">
+        <div className="mt-16 flex flex-col items-start gap-8 border border-border bg-secondary p-8 lg:flex-row lg:items-center lg:justify-between lg:p-12">
           <div>
             <h2 className="font-display text-[2rem] uppercase leading-[1.02] tracking-wide">
               Остались вопросы по вашей стене?
             </h2>
             <p className="mt-3 max-w-[34em] text-sm leading-[1.6] text-muted-foreground">
-              Замерщик приедет с образцами тканей, посчитает бюджет и пришлёт смету в течение 24
-              часов.
+              Замерщик приедет с образцами тканей, замерит шум и кривизну стены, посчитает бюджет и
+              пришлёт смету в течение 24 часов. Замер бесплатный, даже если вы потом откажетесь.
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => openLead('Блог')}
-            className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
-          >
-            Замер
-          </button>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button
+              type="button"
+              onClick={() => openLead('Блог')}
+              className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+            >
+              Записаться на замер
+            </button>
+            <Link
+              to="/catalog"
+              className="flex items-center justify-center gap-2 whitespace-nowrap border border-border bg-card px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              Каталог тканей
+              <Icon name="ArrowRight" size={18} />
+            </Link>
+          </div>
         </div>
       </main>
 
