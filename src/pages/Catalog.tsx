@@ -7,6 +7,7 @@ import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import CatalogCard from '@/components/catalog/CatalogCard';
 import SamplesDialog from '@/components/catalog/SamplesDialog';
+import AcousticGuide from '@/components/catalog/AcousticGuide';
 import { openSamples } from '@/lib/samples';
 import CatalogFilters, { EMPTY_FILTERS, Filters } from '@/components/catalog/CatalogFilters';
 import {
@@ -296,6 +297,8 @@ const CatalogPage = () => {
                 ))}
               </div>
             )}
+
+            <AcousticGuide />
 
             <div className="mt-10 flex flex-col items-start justify-between gap-6 border border-border bg-foreground p-6 text-background sm:flex-row sm:items-center sm:p-8">
               <div>
