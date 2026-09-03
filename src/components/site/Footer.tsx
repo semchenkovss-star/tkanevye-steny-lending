@@ -39,8 +39,8 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <div className="font-display text-3xl uppercase tracking-[0.16em]">Тканевые стены</div>
             <p className="mt-4 max-w-[26em] text-[0.95rem] leading-[1.6] text-background/60">
-              Тканевые стены и потолки на скрытом каркасе. Москва и область, монтаж за один-два дня
-              без пыли и мокрых работ.
+              Натяжные тканевые стены и потолки на скрытом каркасе. Тихие стены, которые гасят эхо и
+              шум соседей. Москва и область, монтаж за один-два дня без пыли и мокрых работ.
             </p>
             <button
               type="button"

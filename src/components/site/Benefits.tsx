@@ -51,7 +51,7 @@ const Benefits = () => {
       index="03"
       eyebrow="Выгоды"
       title={<>Что вы получаете вместо ремонта</>}
-      lead="Восемь свойств тканевой стены, из-за которых её выбирают вместо штукатурки и краски."
+      lead="Восемь свойств натяжной тканевой стены, из-за которых тихие стены выбирают вместо штукатурки и краски."
       tone="dark"
     >
       <div className="grid gap-px border border-background/15 bg-background/15 sm:grid-cols-2 lg:grid-cols-4">

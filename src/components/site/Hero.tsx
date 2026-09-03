@@ -70,7 +70,7 @@ const Hero = () => {
             className="mb-6 text-xs uppercase tracking-[0.14em] text-muted-foreground animate-fade-in"
             style={{ animationDelay: '80ms' }}
           >
-            Стены из ткани на скрытом каркасе
+            Натяжные тканевые стены на скрытом каркасе
           </div>
           <h1
             className="max-w-[11.2em] font-display text-[clamp(2.4rem,8.5vw,3.25rem)] uppercase leading-[0.98] tracking-[0.005em] text-foreground animate-fade-in sm:text-[4.5rem] lg:text-[5.4rem]"
@@ -85,7 +85,7 @@ const Hero = () => {
           <p
             className="max-w-[30em] leading-[1.55] text-muted-foreground animate-fade-in text-base text-left my-3.5 py-0 px-1.5"
             style={{ animationDelay: '260ms' }}
-          >Полотно натягивается поверх каркаса. Базовая толщина 13 мм. В квартире нет грязи и строительной пыли.</p>
+          >Полотно натягивается поверх каркаса. Базовая толщина 13 мм. Тихие стены гасят эхо, а в квартире нет грязи и строительной пыли.</p>
         </div>
 
         <div
