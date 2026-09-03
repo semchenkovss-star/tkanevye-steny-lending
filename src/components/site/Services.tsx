@@ -44,7 +44,7 @@ export const SERVICES: ServiceItem[] = [
 const Services = () => (
   <Section
     id="services"
-    index="02"
+    index="11"
     eyebrow="Услуги"
     title={<>Две услуги — один подрядчик</>}
     lead="Делаем только текстильные поверхности — стены и потолки. Можно заказать по отдельности или вместе, одной бригадой и одним счётом."

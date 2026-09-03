@@ -40,7 +40,7 @@ const CASES: CaseItem[] = [
   {
     title: 'Домашний кабинет',
     place: 'Москва, Хамовники',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/c8a6ab77-99e3-41aa-8446-bf8992503a5b.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/d0638a88-0f03-4a73-b83d-1a6f013f121a.jpg',
     area: '11 м²',
     days: '1 день',
     fabric: 'Акустик Оранж AC-41',

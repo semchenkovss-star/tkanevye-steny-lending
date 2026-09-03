@@ -45,7 +45,7 @@ const Faq = () => {
   return (
     <Section
       id="faq"
-      index="11"
+      index="12"
       eyebrow="Частые вопросы"
       title={<>Что спрашивают перед замером</>}
       tone="surface"
