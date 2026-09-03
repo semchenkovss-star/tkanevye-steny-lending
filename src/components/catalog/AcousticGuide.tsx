@@ -30,12 +30,12 @@ const AcousticGuide = () => (
       <div>
         <div className="text-xs uppercase tracking-[0.14em] text-primary">Подсказка</div>
         <h2 className="mt-2 font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl">
-          Как выбрать акустическую ткань
+          Как выбрать акустическую ткань для стен
         </h2>
       </div>
       <p className="max-w-[30em] text-sm leading-[1.55] text-muted-foreground">
-        Четыре вопроса, на которые стоит ответить до заказа. Если сомневаетесь — замерим шум на
-        месте и подберём полотно бесплатно.
+        Четыре вопроса, на которые стоит ответить, прежде чем купить акустические ткани для стен. Если
+        сомневаетесь — замерим шум на месте и подберём полотно бесплатно.
       </p>
     </div>
 

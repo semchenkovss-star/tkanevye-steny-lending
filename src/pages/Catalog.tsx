@@ -138,7 +138,7 @@ const CatalogPage = () => {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Каталог тканевых стен',
+    name: 'Каталог тканевых панелей и акустических тканей для стен',
     itemListElement: list.map((i, n) => ({
       '@type': 'ListItem',
       position: n + 1,
@@ -162,8 +162,8 @@ const CatalogPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Каталог тканевых стен: 12 решений с ценами за м² | Полотно"
-        description="Каталог тканевых стен под ключ: лён, велюр, рогожка, акустический фетр и микрошенилл. Фильтр по стилю интерьера, помещению и цене. Шумоизоляция до −11 дБ, гарантия до 5 лет, выезд замерщика."
+        title="Панели для стен из ткани: купить акустические ткани для стен с ценами за м² | Полотно"
+        description="Звукопоглощающие панели в Москве под ключ: акустические ткани для стен, лён, велюр, рогожка и микрошенилл. Фильтр по стилю интерьера, помещению и цене. Шумоизоляция до −11 дБ, гарантия до 5 лет, выезд замерщика."
         path="/catalog"
         jsonLd={jsonLd}
       />
@@ -184,11 +184,12 @@ const CatalogPage = () => {
       <main className="shell py-14 sm:py-16 lg:py-20">
         <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Каталог</div>
         <h1 className="mt-3 max-w-[14em] font-display text-[clamp(2.1rem,8vw,2.75rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.5rem] lg:text-[4.5rem]">
-          Тканевые стены под ключ
+          Панели для стен из ткани
         </h1>
         <p className="mt-6 max-w-[42em] text-base leading-[1.6] text-muted-foreground">
-          Цена включает каркас, наполнение, полотно, монтаж и уборку. Подберите вариант по стилю
-          интерьера и бюджету — точную смету посчитает замерщик.
+          Акустические ткани для стен можно купить под ключ: цена включает каркас, наполнение, полотно,
+          монтаж и уборку. Подберите вариант по стилю интерьера и бюджету — точную смету посчитает
+          замерщик.
         </p>
 
         <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-10">
@@ -306,7 +307,7 @@ const CatalogPage = () => {
                   Не нашли нужный оттенок?
                 </h2>
                 <p className="mt-3 max-w-[34em] text-sm leading-[1.55] text-background/60">
-                  В наличии 180 оттенков — привезём до 5 образцов к вам домой.
+                  В наличии 180 оттенков звукопоглощающих панелей — привезём до 5 образцов к вам домой.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
