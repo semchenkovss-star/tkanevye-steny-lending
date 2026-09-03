@@ -43,9 +43,7 @@ const BlogPage = () => {
       <SiteSwitch />
       <header className="border-b border-border">
         <div className="shell flex h-16 items-center justify-between gap-6">
-          <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">
-            Полотно
-          </Link>
+          <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">Тканевые стены</Link>
           <Link
             to="/"
             className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
