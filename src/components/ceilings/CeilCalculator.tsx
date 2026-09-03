@@ -63,7 +63,7 @@ const NumberField = ({
 const CeilCalculator = () => {
   const [length, setLength] = useState(4.2);
   const [width, setWidth] = useState(3.4);
-  const [planId, setPlanId] = useState('satin');
+  const [planId, setPlanId] = useState('shadow');
   const [extras, setExtras] = useState<string[]>([]);
 
   const plan = CEIL_PLANS.find((p) => p.id === planId) ?? CEIL_PLANS[1];
