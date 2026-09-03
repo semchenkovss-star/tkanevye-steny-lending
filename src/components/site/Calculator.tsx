@@ -3,6 +3,7 @@ import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { EXTRAS, PLANS, formatMoney } from '@/lib/pricing';
+import { CATALOG, MATERIALS, PRICE_MIN } from '@/data/catalog';
 
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
@@ -69,18 +70,22 @@ const Calculator = () => {
   const [height, setHeight] = useState(2.7);
   const [planId, setPlanId] = useState('quiet');
   const [extras, setExtras] = useState<string[]>([]);
+  const [fabricSlug, setFabricSlug] = useState(CATALOG[0].slug);
 
   const plan = PLANS.find((p) => p.id === planId) ?? PLANS[1];
+  const fabric = CATALOG.find((f) => f.slug === fabricSlug) ?? CATALOG[0];
+  const fabricExtra = fabric.price - PRICE_MIN;
+  const rate = plan.rate + fabricExtra;
   const area = useMemo(() => Number((length * height).toFixed(2)), [length, height]);
 
-  const walls = area * plan.rate;
+  const walls = area * rate;
   const extrasSum = EXTRAS.filter((e) => extras.includes(e.id)).reduce((s, e) => s + e.price, 0);
   const total = walls + extrasSum;
 
   const toggleExtra = (id: string) =>
     setExtras((prev) => (prev.includes(id) ? prev.filter((e) => e !== id) : [...prev, id]));
 
-  const summary = `${length} × ${height} м (${area} м²), тариф «${plan.name}»${
+  const summary = `${length} × ${height} м (${area} м²), тариф «${plan.name}», ткань «${fabric.name}»${
     extras.length ? ', допы: ' + EXTRAS.filter((e) => extras.includes(e.id)).map((e) => e.label).join(', ') : ''
   } — ${formatMoney(total)}`;
 
@@ -163,6 +168,53 @@ const Calculator = () => {
           </div>
 
           <div className="mt-9">
+            <label htmlFor="calc-fabric" className="mb-3 block text-sm text-muted-foreground">
+              Ткань из каталога
+            </label>
+            <div className="border border-border bg-card">
+              <div className="flex items-center gap-4 border-b border-border p-4">
+                <span
+                  className="h-10 w-10 shrink-0 border border-border"
+                  style={{ backgroundColor: fabric.color }}
+                  aria-hidden="true"
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="font-display text-xl uppercase leading-none tracking-wide">
+                    {fabric.name}
+                  </div>
+                  <div className="mt-1.5 truncate text-xs text-muted-foreground">
+                    {fabric.material} · {fabric.colorName} ·{' '}
+                    {fabricExtra ? `+${fabricExtra.toLocaleString('ru-RU')} ₽/м²` : 'базовая цена'}
+                  </div>
+                </div>
+              </div>
+              <select
+                id="calc-fabric"
+                value={fabricSlug}
+                onChange={(e) => setFabricSlug(e.target.value)}
+                className="h-14 w-full bg-card px-4 text-[0.95rem] text-foreground outline-none"
+              >
+                {MATERIALS.map((m) => {
+                  const items = CATALOG.filter((f) => f.material === m);
+                  if (!items.length) return null;
+                  return (
+                    <optgroup key={m} label={m}>
+                      {items.map((f) => (
+                        <option key={f.slug} value={f.slug}>
+                          {f.name} · {f.price.toLocaleString('ru-RU')} ₽/м²
+                        </option>
+                      ))}
+                    </optgroup>
+                  );
+                })}
+              </select>
+            </div>
+            <p className="mt-3 text-xs leading-[1.5] text-muted-foreground">
+              {fabric.description}
+            </p>
+          </div>
+
+          <div className="mt-9">
             <div className="mb-3 text-sm text-muted-foreground">Дополнительно</div>
             <div className="space-y-px border border-border bg-border">
               {EXTRAS.map((e) => {
@@ -207,7 +259,7 @@ const Calculator = () => {
           <dl className="mt-8 space-y-3 border-t border-background/15 pt-6 text-sm">
             <div className="flex items-baseline justify-between gap-4">
               <dt className="text-background/60">
-                Полотно {area} м² × {plan.rate.toLocaleString('ru-RU')} ₽
+                {fabric.name} {area} м² × {rate.toLocaleString('ru-RU')} ₽
               </dt>
               <dd className="whitespace-nowrap">{formatMoney(walls)}</dd>
             </div>
