@@ -39,6 +39,19 @@ export const SERVICES: ServiceItem[] = [
     to: '/ceilings',
     cta: 'О потолках',
   },
+  {
+    title: 'Акустика под ключ',
+    lead: 'Считаем эхо и шум в комнате, подбираем полотно и площадь обработки, монтируем стены и потолок разом.',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/34f57fd2-ef90-4be0-814b-f6ac20dc8c26.jpg',
+    price: 'от 2 100 ₽ / м²',
+    features: [
+      'Замер эха и расчёт площади',
+      'Полотна с поглощением до αw 0,85',
+      'Кабинет, спальня, переговорная',
+    ],
+    to: '/catalog?material[]=Акустик',
+    cta: 'Акустические ткани',
+  },
 ];
 
 const Services = () => (
@@ -46,11 +59,11 @@ const Services = () => (
     id="services"
     index="11"
     eyebrow="Услуги"
-    title={<>Две услуги — один подрядчик</>}
+    title={<>Три услуги — один подрядчик</>}
     lead="Делаем только текстильные поверхности — стены и потолки. Можно заказать по отдельности или вместе, одной бригадой и одним счётом."
     tone="surface"
   >
-    <div className="grid gap-px border border-border bg-border md:grid-cols-2">
+    <div className="grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
       {SERVICES.map((s) => (
         <Link key={s.title} to={s.to} className="group flex flex-col bg-card">
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
