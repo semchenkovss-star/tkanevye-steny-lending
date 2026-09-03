@@ -147,17 +147,30 @@ const BlogPostPage = () => {
               ))}
             </div>
 
-            <div className="mt-4 flex flex-col items-start gap-6 border border-border bg-secondary p-8 sm:flex-row sm:items-center sm:justify-between">
-              <p className="max-w-[26em] text-sm leading-[1.6] text-muted-foreground">
-                Хотите понять, сколько выйдет именно ваша стена? Замер и смета за 24 часа.
+            <div className="mt-4 border border-border bg-secondary p-8">
+              <h2 className="font-display text-[1.75rem] uppercase leading-[1.05] tracking-wide">
+                Хотите так же тихо у себя?
+              </h2>
+              <p className="mt-3 max-w-[34em] text-sm leading-[1.6] text-muted-foreground">
+                Приедем с шумомером, замерим эхо и шум в вашей комнате, честно скажем, какой
+                результат достижим, и посчитаем смету за 24 часа. Замер бесплатный.
               </p>
-              <button
-                type="button"
-                onClick={() => openLead(`Статья: ${post.title}`)}
-                className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
-              >
-                Вызвать замерщика
-              </button>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <button
+                  type="button"
+                  onClick={() => openLead(`Статья: ${post.title}`)}
+                  className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+                >
+                  Записаться на замер
+                </button>
+                <Link
+                  to="/acoustics"
+                  className="flex items-center justify-center gap-2 whitespace-nowrap border border-border bg-card px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  Акустические решения
+                  <Icon name="ArrowRight" size={18} />
+                </Link>
+              </div>
             </div>
           </article>
         </div>
