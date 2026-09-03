@@ -8,7 +8,7 @@ const CeilBenefits = () => (
     index="03"
     eyebrow="Выгоды"
     title={<>Что вы получаете вместо ремонта потолка</>}
-    lead="Восемь причин, по которым натяжной потолок ставят вместо штукатурки и покраски плиты."
+    lead="Восемь причин, по которым натяжные потолки в Москве ставят вместо штукатурки и покраски плиты."
     tone="dark"
   >
     <div className="grid gap-px border border-background/15 bg-background/15 sm:grid-cols-2 lg:grid-cols-4">

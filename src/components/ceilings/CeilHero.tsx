@@ -65,7 +65,7 @@ const CeilHero = () => (
           className="mb-6 text-xs uppercase tracking-[0.14em] text-muted-foreground animate-fade-in"
           style={{ animationDelay: '80ms' }}
         >
-          Бесшовные натяжные потолки
+          Бесшовные натяжные потолки в Москве
         </div>
         <h1
           className="max-w-[11.2em] font-display text-[clamp(2.4rem,8.5vw,3.25rem)] uppercase leading-[0.98] tracking-[0.005em] text-foreground animate-fade-in sm:text-[4.5rem] lg:text-[5.4rem]"
@@ -81,8 +81,8 @@ const CeilHero = () => (
           className="my-3.5 max-w-[30em] px-1.5 text-left text-base leading-[1.55] text-muted-foreground animate-fade-in"
           style={{ animationDelay: '260ms' }}
         >
-          Полотно натягивается на скрытый багет по периметру. Трещины, стыки плит и перепады уходят,
-          свет ставим там, где нужно вам.
+          Бесшовное полотно натягивается на скрытый багет по периметру. Трещины, стыки плит и перепады
+          уходят за один день, свет ставим там, где нужно вам.
         </p>
       </div>
 

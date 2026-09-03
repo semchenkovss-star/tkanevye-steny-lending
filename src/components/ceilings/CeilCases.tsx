@@ -17,7 +17,7 @@ interface CeilCase {
 
 const CASES: CeilCase[] = [
   {
-    title: 'Теневой профиль',
+    title: 'Теневой потолок',
     place: 'Москва, Пресня',
     img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/969e988a-401d-4e5d-89bb-c3573d8b3838.jpg',
     imgBefore:
@@ -45,7 +45,7 @@ const CASES: CeilCase[] = [
     tags: ['Коридор', 'Световое окно', 'Транслюцент'],
   },
   {
-    title: 'Парящий контур',
+    title: 'Парящий потолок',
     place: 'Москва, Кунцево',
     img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5d93c289-d766-4fdd-bdfd-9320f7e4dcd8.jpg',
     imgBefore:
@@ -104,7 +104,7 @@ const CeilCases = () => {
       index="06"
       eyebrow="Проекты"
       title={<>Потолки: до и после</>}
-      lead="Реальные объекты наших клиентов. Потяните ползунок на большом фото, чтобы сравнить потолок до монтажа и после."
+      lead="Реальные объекты наших клиентов: теневой потолок, парящий контур, световые линии и трек. Потяните ползунок на большом фото, чтобы сравнить потолок до монтажа и после."
     >
       <div className="border border-border bg-card">
         <div className="grid lg:grid-cols-12">

@@ -13,7 +13,7 @@ const CeilHow = () => {
       id="ceil-how"
       index="04"
       eyebrow="Как это работает"
-      title={<>Четыре шага от заявки до готового потолка</>}
+      title={<>Четыре шага до готового потолка за один день</>}
       lead="Ваше участие — два разговора и выбор фактуры полотна. Всё остальное делаем мы."
     >
       <div className="grid gap-px border border-border bg-border lg:grid-cols-4">
