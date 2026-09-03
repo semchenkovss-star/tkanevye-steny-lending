@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
+import { CATALOG } from '@/data/catalog';
+
+const fabricSlug = (name: string) => CATALOG.find((i) => i.name === name)?.slug;
 
 interface CaseItem {
   title: string;
@@ -158,7 +162,6 @@ const Cases = () => {
               {[
                 { k: 'Площадь', v: item.area },
                 { k: 'Срок', v: item.days },
-                { k: 'Ткань', v: item.fabric },
               ].map((row) => (
                 <div key={row.k} className="bg-card p-4">
                   <dt className="text-xs uppercase tracking-[0.1em] text-muted-foreground">
@@ -167,6 +170,22 @@ const Cases = () => {
                   <dd className="mt-2 font-display text-xl leading-none tracking-wide">{row.v}</dd>
                 </div>
               ))}
+              <div className="bg-card p-4">
+                <dt className="text-xs uppercase tracking-[0.1em] text-muted-foreground">Ткань</dt>
+                <dd className="mt-2 font-display text-xl leading-none tracking-wide">
+                  {fabricSlug(item.fabric) ? (
+                    <Link
+                      to={`/catalog#fabric-${fabricSlug(item.fabric)}`}
+                      className="inline-flex items-center gap-1 text-primary underline-offset-4 transition-colors hover:underline"
+                    >
+                      {item.fabric}
+                      <Icon name="ArrowUpRight" size={16} />
+                    </Link>
+                  ) : (
+                    item.fabric
+                  )}
+                </dd>
+              </div>
             </dl>
 
             <div className="mt-7 space-y-5">

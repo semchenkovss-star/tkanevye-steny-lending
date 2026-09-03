@@ -49,6 +49,13 @@ const CatalogPage = () => {
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith('#fabric-')) {
+      const t = window.setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 250);
+      return () => window.clearTimeout(t);
+    }
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, []);
 
