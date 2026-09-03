@@ -19,9 +19,9 @@ const CASES: CeilCase[] = [
   {
     title: 'Теневой профиль',
     place: 'Москва, Пресня',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/d9589eab-1749-43cb-b29a-94cfe87860e7.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/55d4de80-3296-412c-bd26-660699f93f93.jpg',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/7ca99a78-d440-4d94-aee7-e888b0828275.jpg',
+      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/8d3c78c8-a990-4961-ae86-ff6b90738bbb.jpg',
     area: '22 м²',
     days: '1 день',
     fabric: 'Матовое полотно',
