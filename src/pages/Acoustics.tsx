@@ -9,6 +9,7 @@ import LeadDialog from '@/components/site/LeadDialog';
 import LeadForm from '@/components/site/LeadForm';
 import AcCalculator from '@/components/acoustics/AcCalculator';
 import AcHeader from '@/components/acoustics/AcHeader';
+import SiteSwitch from '@/components/site/SiteSwitch';
 import AcCases from '@/components/acoustics/AcCases';
 import {
   Accordion,
@@ -68,6 +69,7 @@ const AcousticsPage = () => {
       />
 
       <AcHeader />
+      <SiteSwitch />
 
       <section id="top" className="relative w-full overflow-hidden bg-foreground text-background">
         <img

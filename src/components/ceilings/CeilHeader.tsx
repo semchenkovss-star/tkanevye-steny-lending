@@ -6,6 +6,7 @@ import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const LINKS = [
   { href: '/', label: 'Стены' },
+  { href: '/acoustics', label: 'Акустика' },
   { href: '#ceil-what', label: 'Технология' },
   { href: '#ceil-textures', label: 'Полотна' },
   { href: '#ceil-cases', label: 'Проекты' },

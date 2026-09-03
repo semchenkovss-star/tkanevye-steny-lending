@@ -4,6 +4,7 @@ import Footer from '@/components/site/Footer';
 import FloatingCta from '@/components/site/FloatingCta';
 import LeadDialog from '@/components/site/LeadDialog';
 import CeilHeader from '@/components/ceilings/CeilHeader';
+import SiteSwitch from '@/components/site/SiteSwitch';
 import CeilHero from '@/components/ceilings/CeilHero';
 import { CeilPain, CeilWhat } from '@/components/ceilings/CeilIntro';
 import CeilBenefits from '@/components/ceilings/CeilBenefits';
@@ -57,6 +58,7 @@ const CeilingsPage = () => {
         jsonLd={JSON_LD}
       />
       <CeilHeader />
+      <SiteSwitch />
       <main>
         <CeilHero />
         <CeilPain />
