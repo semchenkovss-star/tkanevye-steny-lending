@@ -6,6 +6,7 @@ interface CaseItem {
   title: string;
   place: string;
   img: string;
+  imgBefore: string;
   area: string;
   days: string;
   fabric: string;
@@ -19,6 +20,8 @@ const CASES: CaseItem[] = [
     title: 'Гостиная в панельном доме',
     place: 'Москва, Митино',
     img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/293a57f7-0f38-469b-9902-803f225b736f.jpg',
+    imgBefore:
+      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/ad24ce56-100a-430e-b763-b535147b9b88.jpg',
     area: '18 м²',
     days: '2 дня',
     fabric: 'Лён Натур LN-04',
@@ -30,6 +33,8 @@ const CASES: CaseItem[] = [
     title: 'Спальня с гулким эхом',
     place: 'Химки, ЖК «Парковый»',
     img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e4a3eb87-e3e1-4576-90f6-44ba3ae3d066.jpg',
+    imgBefore:
+      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/04dcb2bc-5f79-41bf-8032-06f6a48771e6.jpg',
     area: '14 м²',
     days: '1 день',
     fabric: 'Акустик Фетр AC-30',
@@ -40,7 +45,9 @@ const CASES: CaseItem[] = [
   {
     title: 'Домашний кабинет',
     place: 'Москва, Хамовники',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/16c40be1-6ad4-4f0a-aed2-29c32c6f5c04.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/389e0d1a-3353-4763-9947-4c241424fa4c.jpg',
+    imgBefore:
+      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/16c40be1-6ad4-4f0a-aed2-29c32c6f5c04.jpg',
     area: '11 м²',
     days: '1 день',
     fabric: 'Акустик Оранж AC-41',
@@ -82,10 +89,9 @@ const Cases = () => {
               style={{ width: `${split}%` }}
             >
               <img
-                src={item.img}
+                src={item.imgBefore}
                 alt={`${item.title} — до монтажа`}
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ filter: 'grayscale(1) brightness(0.72) contrast(1.15)' }}
                 loading="lazy"
               />
               <span className="absolute left-4 top-4 bg-foreground px-3 py-1.5 font-display text-sm uppercase tracking-[0.14em] text-background">
