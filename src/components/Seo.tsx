@@ -7,6 +7,7 @@ interface SeoProps {
   image?: string;
   type?: 'website' | 'article';
   publishedAt?: string;
+  keywords?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
@@ -40,6 +41,7 @@ const Seo = ({
   image = DEFAULT_IMAGE,
   type = 'website',
   publishedAt,
+  keywords,
   jsonLd,
 }: SeoProps) => {
   useEffect(() => {
@@ -48,6 +50,7 @@ const Seo = ({
 
     document.title = title;
     setMeta('name', 'description', description);
+    if (keywords) setMeta('name', 'keywords', keywords);
     setMeta('name', 'robots', 'index, follow, max-image-preview:large');
     setLink('canonical', url);
 
@@ -77,7 +80,7 @@ const Seo = ({
     return () => {
       if (jsonLd && script.parentNode) script.parentNode.removeChild(script);
     };
-  }, [title, description, path, image, type, publishedAt, jsonLd]);
+  }, [title, description, path, image, type, publishedAt, keywords, jsonLd]);
 
   return null;
 };

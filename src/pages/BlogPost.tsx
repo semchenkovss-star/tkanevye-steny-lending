@@ -45,6 +45,7 @@ const BlogPostPage = () => {
       author: { '@type': 'Organization', name: 'Полотно' },
       publisher: { '@type': 'Organization', name: 'Полотно' },
       articleSection: post.tag,
+      keywords: post.keywords,
     },
     {
       '@context': 'https://schema.org',
@@ -71,6 +72,7 @@ const BlogPostPage = () => {
         image={post.img}
         type="article"
         publishedAt={post.date}
+        keywords={post.keywords}
         jsonLd={jsonLd}
       />
       <SiteSwitch />
