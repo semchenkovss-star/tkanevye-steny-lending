@@ -75,9 +75,9 @@ const CASES: CeilCase[] = [
   {
     title: 'Трековое освещение',
     place: 'Москва, Даниловский',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/37ef626c-7bc4-4bd0-a5f5-a1dfdc340a0a.jpg',
+    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b98887c5-81dc-4347-9042-25a641ad68f5.jpg',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/f96d9317-d341-4f61-a285-db77aedcc66f.jpg',
+      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5f76d32d-cc6c-4508-a6d4-e45fc317ec81.jpg',
     area: '34 м²',
     days: '2 дня',
     fabric: 'Матовое полотно',
