@@ -49,8 +49,8 @@ export const SERVICES: ServiceItem[] = [
       'Полотна с поглощением до αw 0,85',
       'Кабинет, спальня, переговорная',
     ],
-    to: '/catalog?material[]=Акустик',
-    cta: 'Акустические ткани',
+    to: '/acoustics',
+    cta: 'Об акустике',
   },
 ];
 

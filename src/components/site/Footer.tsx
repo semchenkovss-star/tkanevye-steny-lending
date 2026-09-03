@@ -9,6 +9,7 @@ const COLUMNS = [
     links: [
       { href: '#services', label: 'Услуги' },
       { href: '/ceilings', label: 'Тканевые потолки' },
+      { href: '/acoustics', label: 'Акустика под ключ' },
       { href: '#what', label: 'Что это такое' },
       { href: '#how', label: 'Как проходит монтаж' },
       { href: '/catalog', label: 'Каталог' },
