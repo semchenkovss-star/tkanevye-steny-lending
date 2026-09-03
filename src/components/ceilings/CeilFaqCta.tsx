@@ -21,7 +21,7 @@ const PROMISES = [
 export const CeilFaq = () => (
   <Section
     id="ceil-faq"
-    index="08"
+    index="09"
     eyebrow="Частые вопросы"
     title={<>Что спрашивают перед замером</>}
     tone="surface"
