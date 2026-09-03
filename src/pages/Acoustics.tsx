@@ -93,10 +93,7 @@ const AcousticsPage = () => {
           <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.3rem,8vw,3rem)] uppercase leading-[0.98] sm:text-[4rem] lg:text-[5rem]">
             Сделаем комнату тихой
           </h1>
-          <p className="mt-6 max-w-[36em] text-base leading-[1.6] text-background/70">
-            Шумоизоляция комнаты под ключ: считаем эхо и шум приборами, подбираем полотно и площадь
-            обработки, монтируем стены и потолок одной бригадой. От 2 100 ₽ / м².
-          </p>
+          <p className="mt-6 max-w-[36em] text-base leading-[1.6] text-background/70">Шумоизоляция комнаты под ключ: убираем  эхо и шум, подбираем материалы, делаем смету, монтируем стены и потолок. От 2 100 ₽ / м².</p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <button
