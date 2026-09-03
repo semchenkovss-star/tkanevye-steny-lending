@@ -5,6 +5,7 @@ import Footer from '@/components/site/Footer';
 import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
+import SiteSwitch from '@/components/site/SiteSwitch';
 import CatalogCard from '@/components/catalog/CatalogCard';
 import SamplesDialog from '@/components/catalog/SamplesDialog';
 import AcousticGuide from '@/components/catalog/AcousticGuide';
@@ -168,6 +169,7 @@ const CatalogPage = () => {
         jsonLd={jsonLd}
       />
 
+      <SiteSwitch />
       <header className="border-b border-border">
         <div className="shell flex h-16 items-center justify-between gap-6">
           <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">Архитектурный текстиль</Link>

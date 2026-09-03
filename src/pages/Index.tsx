@@ -1,6 +1,7 @@
 import Seo from '@/components/Seo';
 import { QUESTIONS } from '@/components/site/Faq';
 import StickyHeader from '@/components/site/StickyHeader';
+import SiteSwitch from '@/components/site/SiteSwitch';
 import Hero from '@/components/site/Hero';
 import Pain from '@/components/site/Pain';
 import Services from '@/components/site/Services';
@@ -73,6 +74,7 @@ const Index = () => {
         jsonLd={JSON_LD}
       />
       <StickyHeader />
+      <SiteSwitch />
       <main>
         <Hero />
         <Pain />
