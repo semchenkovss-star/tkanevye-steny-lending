@@ -6,7 +6,7 @@ import { CEIL_PLANS } from '@/lib/ceilings';
 const CeilPricing = () => (
   <Section
     id="ceil-price"
-    index="07"
+    index="08"
     eyebrow="Тарифы"
     title={<>Цена за квадратный метр под ключ</>}
     lead="В стоимость входит полотно, багет, работа бригады и уборка. Итог фиксируется в смете после замера и больше не меняется."

@@ -9,6 +9,7 @@ import { CeilPain, CeilWhat } from '@/components/ceilings/CeilIntro';
 import CeilBenefits from '@/components/ceilings/CeilBenefits';
 import CeilHow from '@/components/ceilings/CeilHow';
 import CeilTextures from '@/components/ceilings/CeilTextures';
+import CeilCases from '@/components/ceilings/CeilCases';
 import CeilGuide from '@/components/ceilings/CeilGuide';
 import CeilPricing from '@/components/ceilings/CeilPricing';
 import CeilCalculator from '@/components/ceilings/CeilCalculator';
@@ -63,6 +64,7 @@ const CeilingsPage = () => {
         <CeilBenefits />
         <CeilHow />
         <CeilTextures />
+        <CeilCases />
         <CeilGuide />
         <CeilPricing />
         <CeilCalculator />

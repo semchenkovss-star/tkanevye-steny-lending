@@ -8,6 +8,7 @@ const LINKS = [
   { href: '/', label: 'Стены' },
   { href: '#ceil-what', label: 'Технология' },
   { href: '#ceil-textures', label: 'Полотна' },
+  { href: '#ceil-cases', label: 'Проекты' },
   { href: '#ceil-how', label: 'Монтаж' },
   { href: '#ceil-price', label: 'Цены' },
   { href: '#ceil-calc', label: 'Калькулятор' },
