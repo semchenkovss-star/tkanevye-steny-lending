@@ -22,7 +22,7 @@ const CASES: CeilCase[] = [
     img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/969e988a-401d-4e5d-89bb-c3573d8b3838.jpg',
     imgBefore:
       'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/155dceee-04b6-48e8-8195-96cdb38ae3d0.jpg',
-    area: '22 м²',
+    area: '9 м²',
     days: '1 день',
     fabric: 'Матовое полотно',
     task: 'Узкий коридор с голой плитой и проводами из потолка. Обычная галтель по периметру визуально сжимала проход ещё сильнее.',
