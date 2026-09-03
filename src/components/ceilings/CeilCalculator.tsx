@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
-import { CEIL_EXTRAS, CEIL_PLANS, ceilMoney } from '@/lib/ceilings';
+import { CEIL_EXTRAS, CEIL_FABRICS, CEIL_PLANS, ceilMoney } from '@/lib/ceilings';
 
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
@@ -64,12 +64,15 @@ const CeilCalculator = () => {
   const [length, setLength] = useState(4.2);
   const [width, setWidth] = useState(3.4);
   const [planId, setPlanId] = useState('shadow');
+  const [fabricId, setFabricId] = useState('descor');
   const [extras, setExtras] = useState<string[]>([]);
 
   const plan = CEIL_PLANS.find((p) => p.id === planId) ?? CEIL_PLANS[1];
   const area = useMemo(() => Number((length * width).toFixed(2)), [length, width]);
 
-  const base = area * plan.rate;
+  const fabric = CEIL_FABRICS.find((f) => f.id === fabricId) ?? CEIL_FABRICS[0];
+  const rate = plan.rate + fabric.extra;
+  const base = area * rate;
   const extrasSum = CEIL_EXTRAS.filter((e) => extras.includes(e.id)).reduce(
     (s, e) => s + e.price,
     0,
@@ -79,7 +82,7 @@ const CeilCalculator = () => {
   const toggleExtra = (id: string) =>
     setExtras((prev) => (prev.includes(id) ? prev.filter((e) => e !== id) : [...prev, id]));
 
-  const summary = `Потолок ${length} × ${width} м (${area} м²), тариф «${plan.name}»${
+  const summary = `Потолок ${length} × ${width} м (${area} м²), тариф «${plan.name}», полотно «${fabric.name}»${
     extras.length
       ? ', допы: ' +
         CEIL_EXTRAS.filter((e) => extras.includes(e.id))
@@ -163,6 +166,46 @@ const CeilCalculator = () => {
           </div>
 
           <div className="mt-9">
+            <div className="mb-3 text-sm text-muted-foreground">Полотно</div>
+            <div className="grid gap-px border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
+              {CEIL_FABRICS.map((f) => {
+                const active = f.id === fabricId;
+                return (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => setFabricId(f.id)}
+                    aria-pressed={active}
+                    className={`p-4 text-left transition-colors ${
+                      active
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-card text-foreground hover:bg-secondary'
+                    }`}
+                  >
+                    <div className="font-display text-xl uppercase leading-none tracking-wide">
+                      {f.name}
+                    </div>
+                    <div
+                      className={`mt-2 text-sm ${
+                        active ? 'text-primary-foreground/80' : 'text-muted-foreground'
+                      }`}
+                    >
+                      {f.extra ? `+${f.extra.toLocaleString('ru-RU')} ₽/м²` : 'базовая цена'}
+                    </div>
+                    <div
+                      className={`mt-2 text-xs leading-[1.4] ${
+                        active ? 'text-primary-foreground/75' : 'text-muted-foreground'
+                      }`}
+                    >
+                      {f.hint}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-9">
             <div className="mb-3 text-sm text-muted-foreground">Дополнительно</div>
             <div className="space-y-px border border-border bg-border">
               {CEIL_EXTRAS.map((e) => {
@@ -209,7 +252,7 @@ const CeilCalculator = () => {
           <dl className="mt-8 space-y-3 border-t border-background/15 pt-6 text-sm">
             <div className="flex items-baseline justify-between gap-4">
               <dt className="text-background/60">
-                Полотно {area} м² × {plan.rate.toLocaleString('ru-RU')} ₽
+                {fabric.name} {area} м² × {rate.toLocaleString('ru-RU')} ₽
               </dt>
               <dd className="whitespace-nowrap">{ceilMoney(base)}</dd>
             </div>

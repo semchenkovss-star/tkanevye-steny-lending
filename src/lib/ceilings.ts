@@ -164,6 +164,20 @@ export const CEIL_PLANS: CeilPlan[] = [
   },
 ];
 
+export interface CeilFabric {
+  id: string;
+  name: string;
+  extra: number;
+  hint: string;
+}
+
+export const CEIL_FABRICS: CeilFabric[] = [
+  { id: 'matte', name: 'Матовый', extra: 0, hint: 'ПВХ без бликов, базовое полотно' },
+  { id: 'descor', name: 'Descor', extra: 700, hint: 'немецкая ткань, монтаж без нагрева' },
+  { id: 'jm', name: 'JM', extra: 900, hint: 'плотная ткань, не провисает' },
+  { id: 'clipso', name: 'Clipso', extra: 1200, hint: 'швейцарская, есть акустическая версия' },
+];
+
 export const CEIL_EXTRAS = [
   { id: 'niche', label: 'Ниша под карниз', hint: 'штора уходит в потолок', price: 4500 },
   { id: 'contour', label: 'Парящий контур', hint: 'светящаяся линия по периметру', price: 8900 },
