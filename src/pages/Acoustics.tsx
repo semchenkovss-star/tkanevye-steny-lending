@@ -23,6 +23,7 @@ import { openLead } from '@/lib/lead';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 import {
   ACOUSTIC_CASES,
+  ACOUSTIC_PLACES,
   ACOUSTIC_FAQ,
   ACOUSTIC_IMG,
   ACOUSTIC_PAINS,
@@ -212,6 +213,28 @@ const AcousticsPage = () => {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-12 sm:mt-14">
+            <h3 className="font-display text-xl uppercase leading-tight tracking-wide text-foreground sm:text-2xl">
+              Работаем и на других объектах
+            </h3>
+            <p className="mt-3 max-w-[46em] text-[0.95rem] leading-[1.6] text-muted-foreground">
+              Технология одна, меняются только площадь обработки и тип полотна — считаем на замере
+              под конкретное помещение.
+            </p>
+
+            <div className="mt-7 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+              {ACOUSTIC_PLACES.map((p) => (
+                <article key={p.title} className="flex flex-col bg-card p-6 sm:p-7">
+                  <Icon name={p.icon} size={24} className="shrink-0 text-primary-ink" />
+                  <h4 className="mt-4 font-display text-lg uppercase leading-tight tracking-wide text-foreground sm:text-xl">
+                    {p.title}
+                  </h4>
+                  <p className="mt-3 text-sm leading-[1.6] text-muted-foreground">{p.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-4">
