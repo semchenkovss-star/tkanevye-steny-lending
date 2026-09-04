@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
@@ -7,7 +7,7 @@ import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
-import { BLOG_POSTS } from '@/data/blog';
+import { BLOG_POSTS, BLOG_TOPICS, BlogTopicId, postsByTopic } from '@/data/blog';
 import { openLead } from '@/lib/lead';
 
 const JSON_LD = {
@@ -26,7 +26,9 @@ const JSON_LD = {
 };
 
 const BlogPage = () => {
-  const [lead, ...rest] = BLOG_POSTS;
+  const [topic, setTopic] = useState<BlogTopicId>('all');
+  const posts = postsByTopic(topic);
+  const [lead, ...rest] = posts;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -68,9 +70,27 @@ const BlogPage = () => {
           объектов.
         </p>
 
+        <div className="mt-10 flex flex-wrap gap-3">
+          {BLOG_TOPICS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setTopic(t.id)}
+              className={`border px-5 py-3 font-display text-base uppercase tracking-[0.06em] transition-colors ${
+                topic === t.id
+                  ? 'border-primary bg-primary text-primary-foreground'
+                  : 'border-border bg-background text-foreground hover:border-primary'
+              }`}
+            >
+              {t.label}
+              <span className="ml-2 text-xs opacity-60">{postsByTopic(t.id).length}</span>
+            </button>
+          ))}
+        </div>
+
         <Link
           to={`/blog/${lead.slug}`}
-          className="group mt-14 grid gap-0 border border-border transition-colors hover:border-primary lg:grid-cols-2"
+          className="group mt-10 grid gap-0 border border-border transition-colors hover:border-primary lg:grid-cols-2"
         >
           <div className="aspect-[16/10] overflow-hidden lg:aspect-auto">
             <img

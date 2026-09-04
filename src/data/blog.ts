@@ -1668,3 +1668,20 @@ const ACOUSTIC_SLUGS = [
 export const ACOUSTIC_POSTS = ACOUSTIC_SLUGS.map(
   (s) => BLOG_POSTS.find((p) => p.slug === s),
 ).filter((p): p is BlogPost => Boolean(p));
+
+export const BLOG_TOPICS = [
+  { id: 'all', label: 'Все' },
+  { id: 'walls', label: 'Стены' },
+  { id: 'ceilings', label: 'Потолки' },
+  { id: 'acoustics', label: 'Акустика' },
+] as const;
+
+export type BlogTopicId = (typeof BLOG_TOPICS)[number]['id'];
+
+export const postsByTopic = (topic: BlogTopicId): BlogPost[] => {
+  if (topic === 'ceilings') return CEILING_POSTS;
+  if (topic === 'acoustics') return ACOUSTIC_POSTS;
+  if (topic === 'walls')
+    return WALL_POSTS.filter((p) => !ACOUSTIC_POSTS.some((a) => a.slug === p.slug));
+  return BLOG_POSTS;
+};
