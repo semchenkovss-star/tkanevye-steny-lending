@@ -1,7 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
-import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
+import {
+  ADDRESS,
+  EMAIL,
+  EMAIL_HREF,
+  LEGAL_INN,
+  LEGAL_NAME,
+  LEGAL_OGRN,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+} from '@/lib/contacts';
 
 const COLUMNS = [
   {
@@ -96,13 +105,13 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Icon name="Mail" size={16} className="text-primary" />
-                <a href="mailto:hello@polotno.ru" className="transition-colors hover:text-primary">
-                  hello@polotno.ru
+                <a href={EMAIL_HREF} className="transition-colors hover:text-primary">
+                  {EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Icon name="MapPin" size={16} className="mt-0.5 text-primary" />
-                <span>Москва, Переведеновский пер. 3</span>
+                <span>{ADDRESS}</span>
               </li>
               <li className="flex items-start gap-3">
                 <Icon name="Clock" size={16} className="mt-0.5 text-primary" />
@@ -112,7 +121,37 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-8 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 grid gap-8 border-t border-background/15 pt-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <h4 className="font-display text-base uppercase tracking-[0.14em] text-background/80">
+              Адрес
+            </h4>
+            <p className="mt-3 text-xs leading-[1.7] text-background/55">{ADDRESS}</p>
+          </div>
+          <div>
+            <h4 className="font-display text-base uppercase tracking-[0.14em] text-background/80">
+              Реквизиты
+            </h4>
+            <ul className="mt-3 space-y-1 text-xs leading-[1.7] text-background/55">
+              <li>{LEGAL_NAME}</li>
+              <li>ИНН {LEGAL_INN}</li>
+              <li>ОГРН {LEGAL_OGRN}</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-display text-base uppercase tracking-[0.14em] text-background/80">
+              Почта
+            </h4>
+            <a
+              href={EMAIL_HREF}
+              className="mt-3 block text-xs leading-[1.7] text-background/55 transition-colors hover:text-primary"
+            >
+              {EMAIL}
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-background/15 pt-8 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
           <span>© Тканевыестены.рус 2026</span>
           <div className="flex flex-wrap items-center gap-4">
             <Link to="/privacy" className="transition-colors hover:text-primary">

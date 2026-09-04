@@ -31,10 +31,10 @@ const JSON_LD = [
     description:
       'Установка натяжных тканевых стен и потолков на скрытом каркасе в Москве и области. Тихие стены с звукопоглощением, монтаж за 1–2 дня без пыли и мокрых работ.',
     telephone: '+7 (495) 797-08-09',
-    email: 'hello@polotno.ru',
+    email: 'fabricwall@mail.ru',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'ул. Складочная, 1с18',
+      streetAddress: 'Переведеновский пер., д. 3',
       addressLocality: 'Москва',
       addressCountry: 'RU',
     },
