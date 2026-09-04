@@ -17,6 +17,7 @@ const CeilHero = () => (
       <img
         src={CEIL_IMG.hero}
         alt="Натяжной тканевый потолок на скрытом каркасе в интерьере квартиры"
+        fetchPriority="high"
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-foreground/45" />
@@ -35,6 +36,7 @@ const CeilHero = () => (
       <img
         src={CEIL_IMG.hero}
         alt="Бесшовный тканевый потолок в интерьере"
+        loading="lazy"
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-foreground/45" />

@@ -50,11 +50,11 @@ export const MATERIALS: Material[] = [
 export const ROOMS: Room[] = ['Гостиная', 'Спальня', 'Кабинет', 'Детская', 'Переговорная'];
 
 const IMG_MODERN =
-  'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e8206c2f-b21f-4d38-8126-08ca6342596f.jpg';
+  '/img/e8206c2f-b21f-4d38-8126-08ca6342596f.webp';
 const IMG_LOFT =
-  'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/d491dc61-7bb2-4c0b-9a4e-be611c5e64d1.jpg';
+  '/img/d491dc61-7bb2-4c0b-9a4e-be611c5e64d1.webp';
 const IMG_CLASSIC =
-  'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/73decbbc-78a8-41ce-a3de-f3026036bbb5.jpg';
+  '/img/73decbbc-78a8-41ce-a3de-f3026036bbb5.webp';
 
 export const CATALOG: CatalogItem[] = [
   {
@@ -70,7 +70,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/051e7e66-a5e5-426a-b78d-efd2d0b4433c.jpg',
+    img: '/img/051e7e66-a5e5-426a-b78d-efd2d0b4433c.webp',
     inStock: true,
     description:
       'Тёплый золотистый акцент для рабочей зоны. Плотный ворс гасит эхо и не выгорает на солнце.',
@@ -88,7 +88,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/0a211213-79d6-4440-8579-a0f2c7a21c96.jpg',
+    img: '/img/0a211213-79d6-4440-8579-a0f2c7a21c96.webp',
     inStock: true,
     description:
       'Глубокий синий с мелким рельефом. Держит цвет годами и хорошо работает на всю стену.',
@@ -106,7 +106,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/21aef804-a43e-4ff3-918a-c99378179548.jpg',
+    img: '/img/21aef804-a43e-4ff3-918a-c99378179548.webp',
     inStock: true,
     description:
       'Природный приглушённый оттенок без бликов при верхнем свете. Спокойный фон для гостиной.',
@@ -124,7 +124,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/53644f69-fd7e-4842-8c18-fde917cf67b6.jpg',
+    img: '/img/53644f69-fd7e-4842-8c18-fde917cf67b6.webp',
     inStock: true,
     description:
       'Тёплый шоколадный тон с матовой поверхностью. Подходит для классических интерьеров с деревом.',
@@ -142,7 +142,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/70f53d93-ad94-41a4-bb98-a73382024ef2.jpg',
+    img: '/img/70f53d93-ad94-41a4-bb98-a73382024ef2.webp',
     inStock: true,
     description:
       'Мягкий нейтральный тон между серым и бежевым. Универсальная база под любую мебель.',
@@ -160,7 +160,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/71fd8a4a-d1aa-46b3-9155-96e5eff82370.jpg',
+    img: '/img/71fd8a4a-d1aa-46b3-9155-96e5eff82370.webp',
     inStock: true,
     description:
       'Светлый холодный серый с лёгким блеском нити. Визуально расширяет небольшую комнату.',
@@ -178,7 +178,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/a2db3b16-a599-4de7-b8d4-df92c1a6941b.jpg',
+    img: '/img/a2db3b16-a599-4de7-b8d4-df92c1a6941b.webp',
     inStock: true,
     description:
       'Тёмный графит для переговорных и домашних студий. Максимальное поглощение звука −11 дБ.',
@@ -196,7 +196,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/a71dae66-ab5e-4d22-ba16-677fa5caa7da.jpg',
+    img: '/img/a71dae66-ab5e-4d22-ba16-677fa5caa7da.webp',
     inStock: true,
     description:
       'Насыщенный винный оттенок с плотной фактурой. Работает как тёмный акцент у изголовья.',
@@ -214,7 +214,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/ccac3258-d234-437c-ae06-e61d4300b7a9.jpg',
+    img: '/img/ccac3258-d234-437c-ae06-e61d4300b7a9.webp',
     inStock: true,
     description:
       'Тишина в детской без тёмных цветов. Тёплый песочный тон, состав без запаха.',
@@ -232,7 +232,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/d2c0b9c2-cff4-408a-aae7-7a97f35bef12.jpg',
+    img: '/img/d2c0b9c2-cff4-408a-aae7-7a97f35bef12.webp',
     inStock: true,
     description:
       'Яркий солнечный цвет для активной зоны. Тот же акустический слой, что и в спокойных оттенках.',
@@ -250,7 +250,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/f4ac0686-6357-4782-bc44-5942276cfadf.jpg',
+    img: '/img/f4ac0686-6357-4782-bc44-5942276cfadf.webp',
     inStock: true,
     description:
       'Ровный средне-серый без подтона. Самый ходовой вариант для офисов и переговорных.',
@@ -268,7 +268,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 40,
     width: 320,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/fd2942bd-0c20-41a3-a2cc-637ad88164b9.jpg',
+    img: '/img/fd2942bd-0c20-41a3-a2cc-637ad88164b9.webp',
     inStock: true,
     description:
       'Свежий бирюзовый с мягкой фактурой. Хорошо смотрится в детской и зоне отдыха.',
@@ -286,7 +286,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b37bee0e-90e5-4b2a-9ba3-8b63ab6a06b4.jpg',
+    img: '/img/b37bee0e-90e5-4b2a-9ba3-8b63ab6a06b4.webp',
     badge: 'Хит',
     inStock: true,
     description:
@@ -305,7 +305,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/d0fa9794-f1da-4a7a-afb0-0bf6250f0976.jpg',
+    img: '/img/d0fa9794-f1da-4a7a-afb0-0bf6250f0976.webp',
     inStock: true,
     description:
       'Тёплый пудрово-розовый оттенок с мягким зерном. Делает спальню и детскую спокойнее без лишней яркости.',
@@ -323,7 +323,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/bcbd22e3-b569-4a17-b14a-4f2952c3b4ec.jpg',
+    img: '/img/bcbd22e3-b569-4a17-b14a-4f2952c3b4ec.webp',
     inStock: true,
     description:
       'Тёплый серо-бежевый — самый универсальный тон коллекции. Хорошо сочетается с деревом и светлой мебелью.',
@@ -341,7 +341,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/61a57efa-e777-4061-8c25-a12586343026.jpg',
+    img: '/img/61a57efa-e777-4061-8c25-a12586343026.webp',
     inStock: true,
     description:
       'Почти белое полотно с тонкой сеткой плетения. Визуально расширяет комнату и не спорит с интерьером.',
@@ -359,7 +359,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/694bfb63-e001-4265-aa74-3ad87db92112.jpg',
+    img: '/img/694bfb63-e001-4265-aa74-3ad87db92112.webp',
     inStock: true,
     description:
       'Светлый холодный серый с лёгким серебристым отливом. Строгий вариант для кабинета и переговорной.',
@@ -377,7 +377,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/6720b358-a337-46aa-b316-643a44834d94.jpg',
+    img: '/img/6720b358-a337-46aa-b316-643a44834d94.webp',
     inStock: true,
     description:
       'Насыщенный стальной серый с плотным переплетением. Держит характер в гостиной и рабочем кабинете.',
@@ -395,7 +395,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/ad3e99e2-c285-4954-b561-d3b6de6cd26f.jpg',
+    img: '/img/ad3e99e2-c285-4954-b561-d3b6de6cd26f.webp',
     inStock: true,
     description:
       'Натуральный льняной беж с видимой фактурой нити. Тёплая база для спокойного скандинавского интерьера.',
@@ -413,7 +413,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 300,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/ada65b7f-82da-403c-b0ae-5811befb422a.jpg',
+    img: '/img/ada65b7f-82da-403c-b0ae-5811befb422a.webp',
     inStock: true,
     description:
       'Приглушённый розово-серый с лёгким свечением. Мягкий акцент для спальни и детской.',
@@ -431,7 +431,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/5b7bd9d8-e9ee-4723-9002-8f3d8d81ad2c.jpg',
+    img: '/img/5b7bd9d8-e9ee-4723-9002-8f3d8d81ad2c.webp',
     inStock: true,
     description:
       'Светлое льняное плетение с золотистым подтоном. Тёплая база для гостиной и спальни.',
@@ -449,7 +449,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/cbcee52f-1392-4722-a18a-3019b7288499.jpg',
+    img: '/img/cbcee52f-1392-4722-a18a-3019b7288499.webp',
     inStock: true,
     description:
       'Мягкий бежево-розовый меланж. Спокойный оттенок, который не спорит с текстилем и деревом.',
@@ -467,7 +467,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/a74b52b1-9eb8-4054-918e-ea86f71856e6.jpg',
+    img: '/img/a74b52b1-9eb8-4054-918e-ea86f71856e6.webp',
     inStock: true,
     description:
       'Нейтральный серый меланж с льняной фактурой. Универсальная основа для любого интерьера.',
@@ -485,7 +485,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/dd783e26-cfad-4dbd-a901-06a2b15f6b15.jpg',
+    img: '/img/dd783e26-cfad-4dbd-a901-06a2b15f6b15.webp',
     inStock: true,
     description:
       'Насыщенный графитовый меланж с заметной нитью. Контрастная стена под бетон и металл.',
@@ -503,7 +503,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/ef5ab68e-c817-42e5-8a32-b2391a0c2229.jpg',
+    img: '/img/ef5ab68e-c817-42e5-8a32-b2391a0c2229.webp',
     inStock: true,
     description:
       'Серо-коричневый тауп — самый «тёплый нейтральный» тон коллекции. Хорошо работает при дневном свете.',
@@ -521,7 +521,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/c053559e-e625-4b37-9e7f-0eb2c4cc0078.jpg',
+    img: '/img/c053559e-e625-4b37-9e7f-0eb2c4cc0078.webp',
     inStock: true,
     description:
       'Плотный серо-коричневый меланж с выраженной нитью. Спокойный фон для мебели тёмных тонов.',
@@ -539,7 +539,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/217dd272-7ab5-4759-adff-859e7b91eed1.jpg',
+    img: '/img/217dd272-7ab5-4759-adff-859e7b91eed1.webp',
     inStock: true,
     description:
       'Тёплый оттенок капучино с льняным переплетением. Мягкий свет и уют без потери нейтральности.',
@@ -557,7 +557,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/c9e9ec11-76e0-4b57-8c56-31e94e0dae2c.jpg',
+    img: '/img/c9e9ec11-76e0-4b57-8c56-31e94e0dae2c.webp',
     inStock: true,
     description:
       'Светлый песочный лён с натуральным характером. Универсален для спальни и детской.',
@@ -575,7 +575,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/3085e088-b5e7-4327-8493-f0d742970358.jpg',
+    img: '/img/3085e088-b5e7-4327-8493-f0d742970358.webp',
     inStock: true,
     description:
       'Приглушённый серо-голубой с зеленоватым подтоном. Свежий акцент, который не утомляет глаз.',
@@ -593,7 +593,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/bc719fe7-3e71-4233-b1e7-d3dc9082d619.jpg',
+    img: '/img/bc719fe7-3e71-4233-b1e7-d3dc9082d619.webp',
     inStock: true,
     description:
       'Глубокий грозовой синий с матовой поверхностью. Сильный акцент для кабинета и переговорной.',
@@ -611,7 +611,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/1b1b025b-f2fd-4493-94a8-2d2df772036a.jpg',
+    img: '/img/1b1b025b-f2fd-4493-94a8-2d2df772036a.webp',
     inStock: true,
     description:
       'Тёплый шоколадный оттенок с плотным плетением. Благородный тёмный тон для классического кабинета.',
@@ -629,7 +629,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/55ff1e55-47d0-46bb-880a-308cd674b78d.jpg',
+    img: '/img/55ff1e55-47d0-46bb-880a-308cd674b78d.webp',
     inStock: true,
     description:
       'Глубокий графитовый без бликов. Контрастная стена под подсветку, бетон и металл.',
@@ -647,7 +647,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b90df69f-931b-4616-8bee-bd350384d226.jpg',
+    img: '/img/b90df69f-931b-4616-8bee-bd350384d226.webp',
     inStock: true,
     description:
       'Мягкий джинсовый голубой с меланжевой нитью. Свежий и спокойный акцент для детской.',
@@ -665,7 +665,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 290,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b7919603-d6af-4ba5-b808-2ab5950bf548.jpg',
+    img: '/img/b7919603-d6af-4ba5-b808-2ab5950bf548.webp',
     inStock: true,
     description:
       'Приглушённая олива с природным характером. Хорошо сочетается с деревом и живыми растениями.',
@@ -701,7 +701,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/cfa30a5e-4939-4fbf-b382-21739c9cc71c.jpg',
+    img: '/img/cfa30a5e-4939-4fbf-b382-21739c9cc71c.webp',
     inStock: true,
     description:
       'Глубокий чёрный с мелкой рельефной фактурой. Даёт эффект акустической панели и делает медиазону выразительной.',
@@ -719,7 +719,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/30fd5b77-ee42-41c6-9c6e-36d544cb5b24.jpg',
+    img: '/img/30fd5b77-ee42-41c6-9c6e-36d544cb5b24.webp',
     inStock: true,
     description:
       'Тёплый карамельный беж с плотным плетением. Мягко рассеивает свет и гасит эхо в гостиной.',
@@ -737,7 +737,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/cf03fd14-c3f4-4b66-9c30-92396d14e846.jpg',
+    img: '/img/cf03fd14-c3f4-4b66-9c30-92396d14e846.webp',
     inStock: true,
     description:
       'Тёмный графит с холодным подтоном. Строгий фон для кабинета и переговорной, скрывает следы эксплуатации.',
@@ -755,7 +755,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/1b93a00a-673d-456c-950e-a6dec55bbb56.jpg',
+    img: '/img/1b93a00a-673d-456c-950e-a6dec55bbb56.webp',
     inStock: true,
     description:
       'Светлая версия графита с лёгкой зеленцой. Тёмный акцент, который не утяжеляет комнату.',
@@ -773,7 +773,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/a613ac7d-cfe9-40dd-89fe-6b69f8b10fb4.jpg',
+    img: '/img/a613ac7d-cfe9-40dd-89fe-6b69f8b10fb4.webp',
     inStock: true,
     description:
       'Спокойный серо-зелёный с матовой поверхностью. Природный оттенок для спальни и зоны отдыха.',
@@ -791,7 +791,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/7ae9161e-e653-42ec-a04b-6f2834cbc876.jpg',
+    img: '/img/7ae9161e-e653-42ec-a04b-6f2834cbc876.webp',
     inStock: true,
     description:
       'Светлый нейтральный серый с рельефным плетением. Универсальная база, которая не спорит с мебелью.',
@@ -809,7 +809,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/80c88f12-8c67-4033-9e66-38d6a2e82986.jpg',
+    img: '/img/80c88f12-8c67-4033-9e66-38d6a2e82986.webp',
     inStock: true,
     description:
       'Тёплый абрикосовый с мягким свечением. Оживляет детскую и делает комнату солнечной даже в пасмурный день.',
@@ -827,7 +827,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/f728a319-a708-45a4-961c-50f95c523f82.jpg',
+    img: '/img/f728a319-a708-45a4-961c-50f95c523f82.webp',
     inStock: true,
     description:
       'Насыщенный серый средней глубины. Держит акцентную стену и хорошо смотрится с техникой и металлом.',
@@ -845,7 +845,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/61ed2c0d-a904-4e46-b79e-9bbaa28bbfbb.jpg',
+    img: '/img/61ed2c0d-a904-4e46-b79e-9bbaa28bbfbb.webp',
     inStock: true,
     description:
       'Чистый белый с тонкой фактурой полотна. Визуально расширяет комнату и работает как акустический фон.',
@@ -863,7 +863,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/581655b2-680c-4fb0-9239-24458d3cfe69.jpg',
+    img: '/img/581655b2-680c-4fb0-9239-24458d3cfe69.webp',
     inStock: true,
     description:
       'Глубокий сине-ночной оттенок с благородной матовостью. Классический выбор для кабинета и изголовья кровати.',
@@ -881,7 +881,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/9f9a9c17-8c46-49d5-afc1-dfb462503ca4.jpg',
+    img: '/img/9f9a9c17-8c46-49d5-afc1-dfb462503ca4.webp',
     inStock: true,
     description:
       'Тёплый серо-бежевый «туман» — мягкий нейтральный тон. Спокойная база под светлую и тёмную мебель.',
@@ -899,7 +899,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/c88733bc-acfb-4c1c-92d7-0e708d40b164.jpg',
+    img: '/img/c88733bc-acfb-4c1c-92d7-0e708d40b164.webp',
     inStock: true,
     description:
       'Чистый голубой с лёгкой фактурой полотна. Свежий акцент для детской и зоны отдыха.',
@@ -917,7 +917,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/564c4a98-3169-442b-b584-cd853be7f556.jpg',
+    img: '/img/564c4a98-3169-442b-b584-cd853be7f556.webp',
     inStock: true,
     description:
       'Насыщенный travel-зелёный с матовой поверхностью. Благородный фон для кабинета и библиотеки.',
@@ -935,7 +935,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/4dd438fc-24fa-4de2-84da-a7ddbf8c60a4.jpg',
+    img: '/img/4dd438fc-24fa-4de2-84da-a7ddbf8c60a4.webp',
     inStock: true,
     description:
       'Приглушённая пыльная бирюза с мягким серым подтоном. Спокойный цвет, который не надоедает.',
@@ -953,7 +953,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 325,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/a2d6d537-efe4-4219-8d5d-f978b467a746.jpg',
+    img: '/img/a2d6d537-efe4-4219-8d5d-f978b467a746.webp',
     inStock: true,
     description:
       'Кремовый оттенок с тёплым свечением. Делает комнату светлее без стерильной белизны.',
@@ -988,7 +988,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/7577cb94-59b7-48c3-92a4-216521c5a5ca.jpg',
+    img: '/img/7577cb94-59b7-48c3-92a4-216521c5a5ca.webp',
     inStock: true,
     description:
       'Матовая поверхность с эффектом гладкой штукатурки. Ровный светлый фон без стыков и трещин.',
@@ -1006,7 +1006,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/ec137304-bac3-499e-8a61-0342bc16b4a5.jpg',
+    img: '/img/ec137304-bac3-499e-8a61-0342bc16b4a5.webp',
     inStock: true,
     description:
       'Серый бетонный тон с бархатистой фактурой. Лофт без холода настоящего бетона.',
@@ -1024,7 +1024,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/c2c7fc1e-ec61-400c-9d33-7151f869c0ed.jpg',
+    img: '/img/c2c7fc1e-ec61-400c-9d33-7151f869c0ed.webp',
     inStock: true,
     description:
       'Тёмный графит с матовым бетонным эффектом. Мощный акцент для медиазоны и кабинета.',
@@ -1042,7 +1042,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/fe8fb6c6-bce0-499f-932c-aaa08720dd3c.jpg',
+    img: '/img/fe8fb6c6-bce0-499f-932c-aaa08720dd3c.webp',
     inStock: true,
     description:
       'Приглушённый сине-серый с эффектом крашеной стены. Спокойный глубокий цвет для рабочей зоны.',
@@ -1060,7 +1060,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/4d5f35ad-2b13-4b74-b507-94942acf2c10.jpg',
+    img: '/img/4d5f35ad-2b13-4b74-b507-94942acf2c10.webp',
     inStock: true,
     description:
       'Тёплый белый с лёгким облачным разводом. Живая поверхность, которая играет при дневном свете.',
@@ -1078,7 +1078,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/023d9ac2-ad6d-4739-98cd-c4374d1bec95.jpg',
+    img: '/img/023d9ac2-ad6d-4739-98cd-c4374d1bec95.webp',
     inStock: true,
     description:
       'Ровный холодный серый с мелким зерном. Строгая база для современного интерьера и офиса.',
@@ -1096,7 +1096,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/6ea9ba44-12c7-46c5-bbd6-148fa8abd82c.jpg',
+    img: '/img/6ea9ba44-12c7-46c5-bbd6-148fa8abd82c.webp',
     inStock: true,
     description:
       'Чистый белый с меловой матовостью. Максимально светлый вариант — заменяет покраску стен.',
@@ -1114,7 +1114,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/bb1c008f-a21f-4f55-88f6-481a571670c8.jpg',
+    img: '/img/bb1c008f-a21f-4f55-88f6-481a571670c8.webp',
     inStock: true,
     description:
       'Насыщенный шоколадно-терракотовый с бархатной поверхностью. Тёплый акцент для библиотеки и кабинета.',
@@ -1132,7 +1132,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/c0842e58-43b3-4bb4-93e7-b2e5fdd3df50.jpg',
+    img: '/img/c0842e58-43b3-4bb4-93e7-b2e5fdd3df50.webp',
     inStock: true,
     description:
       'Пыльный розово-бежевый с мягкой матовостью. Тёплый нейтральный тон, который не выглядит скучно.',
@@ -1150,7 +1150,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/a33e00e0-9df5-4c97-9370-ad2f97d7b330.jpg',
+    img: '/img/a33e00e0-9df5-4c97-9370-ad2f97d7b330.webp',
     inStock: true,
     description:
       'Тёплая карамель с эффектом глиняной штукатурки. Наполняет комнату мягким солнечным светом.',
@@ -1168,7 +1168,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/1c19d722-0089-460e-b898-0b3d229a443f.jpg',
+    img: '/img/1c19d722-0089-460e-b898-0b3d229a443f.webp',
     inStock: true,
     description:
       'Глубокий кофейный оттенок с матовой глиняной фактурой. Тёплый и обволакивающий тон для кабинета.',
@@ -1186,7 +1186,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/ec43c7fc-e00f-4370-830f-bc099e5cd039.jpg',
+    img: '/img/ec43c7fc-e00f-4370-830f-bc099e5cd039.webp',
     inStock: true,
     description:
       'Серо-бежевый тауп — самый универсальный тон линейки. Работает и с деревом, и с холодным металлом.',
@@ -1204,7 +1204,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/e196462f-a3ec-4fa9-bd8b-974afe8bda77.jpg',
+    img: '/img/e196462f-a3ec-4fa9-bd8b-974afe8bda77.webp',
     inStock: true,
     description:
       'Светлый песочный с тёплым подтоном. Спокойная база, которая делает комнату мягче.',
@@ -1222,7 +1222,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/1c8a63c9-8545-4a82-8364-b2cdd1a0bf9c.jpg',
+    img: '/img/1c8a63c9-8545-4a82-8364-b2cdd1a0bf9c.webp',
     inStock: true,
     description:
       'Нежный голубой с матовой поверхностью. Свежий воздушный цвет для детской и спальни.',
@@ -1240,7 +1240,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/d6742857-b9b4-46f8-9b09-92004b1e9d4f.jpg',
+    img: '/img/d6742857-b9b4-46f8-9b09-92004b1e9d4f.webp',
     inStock: true,
     description:
       'Приглушённый сине-зелёный с глубиной цвета. Природный акцент, который не утомляет глаз.',
@@ -1258,7 +1258,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b7a42a21-0a4d-47b7-a332-bdc67c59229a.jpg',
+    img: '/img/b7a42a21-0a4d-47b7-a332-bdc67c59229a.webp',
     inStock: true,
     description:
       'Приглушённая серо-оливковая гамма. Природный оттенок, который хорошо смотрится с деревом и зеленью.',
@@ -1276,7 +1276,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/a235a51c-c44f-4317-b92c-f780dd657cf1.jpg',
+    img: '/img/a235a51c-c44f-4317-b92c-f780dd657cf1.webp',
     inStock: true,
     description:
       'Тёмный графитово-коричневый с матовой поверхностью. Задаёт характер акцентной стене.',
@@ -1294,7 +1294,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/37de0596-76e5-4c9e-9c91-15a9051d5d6f.jpg',
+    img: '/img/37de0596-76e5-4c9e-9c91-15a9051d5d6f.webp',
     inStock: true,
     description:
       'Нейтральный светло-серый с тёплым подтоном. Идеальный фон, который не спорит с мебелью.',
@@ -1312,7 +1312,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/d266a6cd-12ef-4345-bfe8-966f5aab82c3.jpg',
+    img: '/img/d266a6cd-12ef-4345-bfe8-966f5aab82c3.webp',
     inStock: true,
     description:
       'Мягкий серо-коричневый мокко. Тёплая глубина без тяжести тёмных тонов.',
@@ -1330,7 +1330,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 30,
     width: 290,
     warranty: 5,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/3cce7e2b-8859-49e5-b022-46696694b2a4.jpg',
+    img: '/img/3cce7e2b-8859-49e5-b022-46696694b2a4.webp',
     inStock: true,
     description:
       'Светлый бежево-кофейный тон с гладкой матовостью. Уютная база для классического интерьера.',
@@ -1366,7 +1366,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/dbde870a-b005-4c66-a688-4c21cb264857.jpg',
+    img: '/img/dbde870a-b005-4c66-a688-4c21cb264857.webp',
     inStock: true,
     description:
       'Мелкий тканый рисунок в холодном светло-сером тоне. Даёт объём стене, оставаясь фоном.',
@@ -1384,7 +1384,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/5e639be8-8f46-49ca-9c02-611efdd2b5e6.jpg',
+    img: '/img/5e639be8-8f46-49ca-9c02-611efdd2b5e6.webp',
     inStock: true,
     description:
       'Жемчужный оттенок с переливающимся плетением. Красиво играет при боковом свете от окна.',
@@ -1402,7 +1402,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/5a0ac198-3aa0-45d5-b77d-9c87c90eec23.jpg',
+    img: '/img/5a0ac198-3aa0-45d5-b77d-9c87c90eec23.webp',
     inStock: true,
     description:
       'Тёплый кремовый с фактурной нитью. Уютная база для классической и неоклассической гостиной.',
@@ -1420,7 +1420,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/59190fab-6d09-4f79-9a6e-6e8dff6d6123.jpg',
+    img: '/img/59190fab-6d09-4f79-9a6e-6e8dff6d6123.webp',
     inStock: true,
     description:
       'Спокойный светлый тон с мелким зерном. Скрывает мелкие неровности стены лучше гладкой краски.',
@@ -1438,7 +1438,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/6245fc3c-1585-4ae9-9011-f52b8da6f4ca.jpg',
+    img: '/img/6245fc3c-1585-4ae9-9011-f52b8da6f4ca.webp',
     inStock: true,
     description:
       'Мягкий молочно-бежевый с тёплым подтоном. Комфортный фон для спальни и детской.',
@@ -1456,7 +1456,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b64d073b-ec07-4200-8c11-291676554e1a.jpg',
+    img: '/img/b64d073b-ec07-4200-8c11-291676554e1a.webp',
     inStock: true,
     description:
       'Тёплый пудровый тон с сетчатым рисунком плетения. Мягкий свет и уют в спальне.',
@@ -1474,7 +1474,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/534fdbf1-4c4b-4da3-a799-3f346d83dcba.jpg',
+    img: '/img/534fdbf1-4c4b-4da3-a799-3f346d83dcba.webp',
     inStock: true,
     description:
       'Нейтральный серо-белый с матовой фактурой. Строгий фон, который не отвлекает внимание.',
@@ -1492,7 +1492,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/06fb48e3-0816-49f8-b559-8987d826752c.jpg',
+    img: '/img/06fb48e3-0816-49f8-b559-8987d826752c.webp',
     inStock: true,
     description:
       'Светлый ванильный оттенок с еле заметным зерном. Тёплая база для скандинавского интерьера.',
@@ -1510,7 +1510,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/0c888a0a-000f-4e6f-84d4-fa640407d65b.jpg',
+    img: '/img/0c888a0a-000f-4e6f-84d4-fa640407d65b.webp',
     inStock: true,
     description:
       'Холодный светлый лён с плотным плетением. Хорошо работает в комнатах с северными окнами.',
@@ -1528,7 +1528,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/8c8ad1e5-eb6e-4190-ac3f-a22998308df0.jpg',
+    img: '/img/8c8ad1e5-eb6e-4190-ac3f-a22998308df0.webp',
     inStock: true,
     description:
       'Почти белое полотно с объёмной фактурой. Визуально поднимает потолок и расширяет комнату.',
@@ -1546,7 +1546,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/5c1e1aff-950e-46f7-9119-f568066032bd.jpg',
+    img: '/img/5c1e1aff-950e-46f7-9119-f568066032bd.webp',
     inStock: true,
     description:
       'Холодный белый с мелким ёлочным плетением. Самый светлый вариант линейки для тёмных комнат.',
@@ -1564,7 +1564,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b5aeecd0-1479-42ff-8e52-e1e84168d36f.jpg',
+    img: '/img/b5aeecd0-1479-42ff-8e52-e1e84168d36f.webp',
     inStock: true,
     description:
       'Мягкий тон топлёного молока с бархатистой поверхностью. Спокойный фон для зоны отдыха.',
@@ -1582,7 +1582,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/2b78c1c3-c993-4ae8-a2f4-5f0068219f56.jpg',
+    img: '/img/2b78c1c3-c993-4ae8-a2f4-5f0068219f56.webp',
     inStock: true,
     description:
       'Имитация натурального льна с чёткой сеткой нити. Универсальный тон под классику и неоклассику.',
@@ -1600,7 +1600,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/3a9f428a-ab3b-46b0-8aca-ca385594291a.jpg',
+    img: '/img/3a9f428a-ab3b-46b0-8aca-ca385594291a.webp',
     inStock: true,
     description:
       'Тёплая слоновая кость с фактурным переплетением. Делает комнату светлее и мягче.',
@@ -1618,7 +1618,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/edb00d9b-2dcd-4ca4-bdae-86e8a64a4a02.jpg',
+    img: '/img/edb00d9b-2dcd-4ca4-bdae-86e8a64a4a02.webp',
     inStock: true,
     description:
       'Нейтральный светло-серый с плотной фактурой. Практичный фон, на котором не видно пыли.',
@@ -1636,7 +1636,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/7c56bd63-0da9-4bdd-b27b-62a8c57f3dbb.jpg',
+    img: '/img/7c56bd63-0da9-4bdd-b27b-62a8c57f3dbb.webp',
     inStock: true,
     description:
       'Светлый холодный тон с тонким рельефом нити. Аккуратный минималистичный фон без желтизны.',
@@ -1654,7 +1654,7 @@ export const CATALOG: CatalogItem[] = [
     thickness: 13,
     width: 320,
     warranty: 3,
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/0becbd33-5d3c-4ed6-a6c8-9c9a1fa16d0a.jpg',
+    img: '/img/0becbd33-5d3c-4ed6-a6c8-9c9a1fa16d0a.webp',
     inStock: true,
     description:
       'Тёплый кремовый с лёгким шелковистым блеском. Благородная база для классической спальни.',

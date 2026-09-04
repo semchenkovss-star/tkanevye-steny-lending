@@ -21,9 +21,9 @@ const CASES: AcCase[] = [
   {
     title: 'Переговорная в офисе',
     place: 'Москва, Сити',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/cf88160e-efe3-43a2-8db4-08693ab60558.jpg',
+    img: '/img/cf88160e-efe3-43a2-8db4-08693ab60558.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/507aba46-1696-42b4-916c-d53b3203b068.jpg',
+      '/img/507aba46-1696-42b4-916c-d53b3203b068.webp',
     area: '24 м²',
     days: '2 дня',
     fabric: 'Акустик Графит',
@@ -37,9 +37,9 @@ const CASES: AcCase[] = [
   {
     title: 'Домашняя студия',
     place: 'Москва, Академическая',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/1233a5a8-90c1-4465-b557-ef3787a14486.jpg',
+    img: '/img/1233a5a8-90c1-4465-b557-ef3787a14486.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/ff60803f-20f5-4e80-8341-0e0e6437527d.jpg',
+      '/img/ff60803f-20f5-4e80-8341-0e0e6437527d.webp',
     area: '13 м²',
     days: '2 дня',
     fabric: 'Акустик Графит + ловушки',
@@ -53,9 +53,9 @@ const CASES: AcCase[] = [
   {
     title: 'Спальня у лифта',
     place: 'Химки, ЖК «Парковый»',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/296123a6-553a-4f1e-a145-76c8c748a86c.jpg',
+    img: '/img/296123a6-553a-4f1e-a145-76c8c748a86c.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/46979d3b-c05c-41cf-8cdc-f9fa2b2fc814.jpg',
+      '/img/46979d3b-c05c-41cf-8cdc-f9fa2b2fc814.webp',
     area: '15 м²',
     days: '1 день',
     fabric: 'Акустик Туман',
@@ -69,9 +69,9 @@ const CASES: AcCase[] = [
   {
     title: 'Зал кафе',
     place: 'Москва, Таганская',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/67b42bff-63fb-4af3-9cb8-64840842d43a.jpg',
+    img: '/img/67b42bff-63fb-4af3-9cb8-64840842d43a.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5eafce0d-5b4f-4ea2-b2c3-51fcbe24f58b.jpg',
+      '/img/5eafce0d-5b4f-4ea2-b2c3-51fcbe24f58b.webp',
     area: '62 м²',
     days: '3 дня',
     fabric: 'Акустик Дюна',

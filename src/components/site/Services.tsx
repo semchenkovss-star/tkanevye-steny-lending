@@ -16,7 +16,7 @@ export const SERVICES: ServiceItem[] = [
   {
     title: 'Стены',
     lead: 'Натяжные стены на скрытом каркасе за один-два дня: ровная поверхность без штукатурки, пыли и просушки.',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/ff5a9931-f993-4df5-ab56-99200408285a.jpg',
+    img: '/img/ff5a9931-f993-4df5-ab56-99200408285a.webp',
     price: 'от 1 750 ₽ / м²',
     features: [
       'Скрывает перепады до 60 мм',
@@ -29,7 +29,7 @@ export const SERVICES: ServiceItem[] = [
   {
     title: 'Потолки',
     lead: 'Бесшовное полотно без швов и разводов: световые линии, ниши под карниз, монтаж за день.',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5db51be5-66f3-40cc-b60c-02133b86662d.jpg',
+    img: '/img/5db51be5-66f3-40cc-b60c-02133b86662d.webp',
     price: 'от 1 200 ₽ / м²',
     features: [
       'Матовые, сатиновые и акустические полотна',
@@ -42,7 +42,7 @@ export const SERVICES: ServiceItem[] = [
   {
     title: 'Акустика под ключ',
     lead: 'Тихие стены под задачу: считаем эхо и шум в комнате, подбираем полотно и площадь обработки, монтируем стены и потолок разом.',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/34f57fd2-ef90-4be0-814b-f6ac20dc8c26.jpg',
+    img: '/img/34f57fd2-ef90-4be0-814b-f6ac20dc8c26.webp',
     price: 'от 2 100 ₽ / м²',
     features: [
       'Замер эха и расчёт площади',

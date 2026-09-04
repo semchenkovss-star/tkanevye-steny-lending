@@ -12,7 +12,7 @@ interface SeoProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const DEFAULT_IMAGE = 'https://cdn.poehali.dev/intertnal/img/phl2/og-main-2.webp';
+const DEFAULT_IMAGE = '/img/og-main-2.webp';
 const SITE_NAME = 'Полотно';
 
 const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
@@ -49,6 +49,7 @@ const Seo = ({
   useEffect(() => {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
     const url = origin + path;
+    const imageUrl = image.startsWith('http') ? image : origin + image;
 
     document.title = title;
     setMeta('name', 'description', description);
@@ -66,12 +67,12 @@ const Seo = ({
     setMeta('property', 'og:title', title);
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', url);
-    setMeta('property', 'og:image', image);
+    setMeta('property', 'og:image', imageUrl);
 
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
-    setMeta('name', 'twitter:image', image);
+    setMeta('name', 'twitter:image', imageUrl);
 
     if (publishedAt) setMeta('property', 'article:published_time', publishedAt);
 

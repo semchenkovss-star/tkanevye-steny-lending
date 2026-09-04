@@ -19,9 +19,9 @@ const CASES: CeilCase[] = [
   {
     title: 'Теневой потолок',
     place: 'Москва, Пресня',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/969e988a-401d-4e5d-89bb-c3573d8b3838.jpg',
+    img: '/img/969e988a-401d-4e5d-89bb-c3573d8b3838.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/155dceee-04b6-48e8-8195-96cdb38ae3d0.jpg',
+      '/img/155dceee-04b6-48e8-8195-96cdb38ae3d0.webp',
     area: '9 м²',
     days: '1 день',
     fabric: 'Матовое полотно',
@@ -33,9 +33,9 @@ const CASES: CeilCase[] = [
   {
     title: 'Световое окно',
     place: 'Химки, ЖК «Парковый»',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/0a7d8697-af15-4b12-8c71-28cf0cab1e1a.jpg',
+    img: '/img/0a7d8697-af15-4b12-8c71-28cf0cab1e1a.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/7dbc0405-dc08-4e83-902e-ff9e616ffa93.jpg',
+      '/img/7dbc0405-dc08-4e83-902e-ff9e616ffa93.webp',
     area: '9 м²',
     days: '2 дня',
     fabric: 'Транслюцентное полотно',
@@ -47,9 +47,9 @@ const CASES: CeilCase[] = [
   {
     title: 'Парящий потолок',
     place: 'Москва, Кунцево',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5d93c289-d766-4fdd-bdfd-9320f7e4dcd8.jpg',
+    img: '/img/5d93c289-d766-4fdd-bdfd-9320f7e4dcd8.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/564c77a2-71da-45c0-9b6d-475b36e84802.jpg',
+      '/img/564c77a2-71da-45c0-9b6d-475b36e84802.webp',
     area: '16 м²',
     days: '1 день',
     fabric: 'Сатиновое полотно',
@@ -61,9 +61,9 @@ const CASES: CeilCase[] = [
   {
     title: 'Световые линии',
     place: 'Москва, Раменки',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/cd000b7c-7695-4f31-8ad7-314a7550cf26.jpg',
+    img: '/img/cd000b7c-7695-4f31-8ad7-314a7550cf26.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/ae970eea-c54a-4ff5-abc6-35a912fc0fd4.jpg',
+      '/img/ae970eea-c54a-4ff5-abc6-35a912fc0fd4.webp',
     area: '28 м²',
     days: '2 дня',
     fabric: 'Матовое полотно',
@@ -75,9 +75,9 @@ const CASES: CeilCase[] = [
   {
     title: 'Трековое освещение',
     place: 'Москва, Даниловский',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/bucket/b98887c5-81dc-4347-9042-25a641ad68f5.jpg',
+    img: '/img/b98887c5-81dc-4347-9042-25a641ad68f5.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5f76d32d-cc6c-4508-a6d4-e45fc317ec81.jpg',
+      '/img/5f76d32d-cc6c-4508-a6d4-e45fc317ec81.webp',
     area: '34 м²',
     days: '2 дня',
     fabric: 'Матовое полотно',

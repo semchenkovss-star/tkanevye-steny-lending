@@ -23,9 +23,9 @@ const CASES: CaseItem[] = [
   {
     title: 'Гостиная в панельном доме',
     place: 'Москва, Митино',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/293a57f7-0f38-469b-9902-803f225b736f.jpg',
+    img: '/img/293a57f7-0f38-469b-9902-803f225b736f.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/ad24ce56-100a-430e-b763-b535147b9b88.jpg',
+      '/img/ad24ce56-100a-430e-b763-b535147b9b88.webp',
     area: '18 м²',
     days: '2 дня',
     fabric: 'Луна 4',
@@ -36,9 +36,9 @@ const CASES: CaseItem[] = [
   {
     title: 'Спальня с гулким эхом',
     place: 'Химки, ЖК «Парковый»',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e4a3eb87-e3e1-4576-90f6-44ba3ae3d066.jpg',
+    img: '/img/e4a3eb87-e3e1-4576-90f6-44ba3ae3d066.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/04dcb2bc-5f79-41bf-8032-06f6a48771e6.jpg',
+      '/img/04dcb2bc-5f79-41bf-8032-06f6a48771e6.webp',
     area: '14 м²',
     days: '1 день',
     fabric: 'Акустик Туман',
@@ -49,9 +49,9 @@ const CASES: CaseItem[] = [
   {
     title: 'Домашний кабинет',
     place: 'Москва, Хамовники',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/389e0d1a-3353-4763-9947-4c241424fa4c.jpg',
+    img: '/img/389e0d1a-3353-4763-9947-4c241424fa4c.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/16c40be1-6ad4-4f0a-aed2-29c32c6f5c04.jpg',
+      '/img/16c40be1-6ad4-4f0a-aed2-29c32c6f5c04.webp',
     area: '11 м²',
     days: '1 день',
     fabric: 'Акустик Шафран',
@@ -62,9 +62,9 @@ const CASES: CaseItem[] = [
   {
     title: 'Детская комната',
     place: 'Москва, Раменки',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e7e1fe2c-6525-4b17-ad95-c7910ac08485.jpg',
+    img: '/img/e7e1fe2c-6525-4b17-ad95-c7910ac08485.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e8f89a76-0b60-4bfd-9c15-59a1ba979700.jpg',
+      '/img/e8f89a76-0b60-4bfd-9c15-59a1ba979700.webp',
     area: '12 м²',
     days: '1 день',
     fabric: 'Акустик Мята',
@@ -76,9 +76,9 @@ const CASES: CaseItem[] = [
   {
     title: 'Переговорная в офисе',
     place: 'Москва, Сити',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/cf88160e-efe3-43a2-8db4-08693ab60558.jpg',
+    img: '/img/cf88160e-efe3-43a2-8db4-08693ab60558.webp',
     imgBefore:
-      'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/507aba46-1696-42b4-916c-d53b3203b068.jpg',
+      '/img/507aba46-1696-42b4-916c-d53b3203b068.webp',
     area: '24 м²',
     days: '2 дня',
     fabric: 'Акустик Графит',

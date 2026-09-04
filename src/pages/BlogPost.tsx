@@ -142,6 +142,7 @@ const BlogPostPage = () => {
               <img
             src={post.img}
             alt={`${post.title} — тканевые стены и потолки, статья блога`}
+            fetchPriority="high"
             className="h-full w-full object-cover"
           />
             </div>

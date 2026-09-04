@@ -1,12 +1,12 @@
 export const ACOUSTIC_IMG = {
-  hero: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/7163e83f-03cf-4b70-ae75-cf0efd2f7bb3.jpg',
+  hero: '/img/7163e83f-03cf-4b70-ae75-cf0efd2f7bb3.webp',
   office:
-    'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/cf88160e-efe3-43a2-8db4-08693ab60558.jpg',
+    '/img/cf88160e-efe3-43a2-8db4-08693ab60558.webp',
   bedroom:
-    'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e3d4ef71-1b7b-4481-8b45-9c62a39f89f1.jpg',
+    '/img/e3d4ef71-1b7b-4481-8b45-9c62a39f89f1.webp',
   studio:
-    'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/cf6d428d-63bb-4517-9835-27b098dde0c5.jpg',
-  cafe: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/6abb6e99-e7e1-4ce1-a592-d0effba82398.jpg',
+    '/img/cf6d428d-63bb-4517-9835-27b098dde0c5.webp',
+  cafe: '/img/6abb6e99-e7e1-4ce1-a592-d0effba82398.webp',
 };
 
 export const ACOUSTIC_PAINS = [

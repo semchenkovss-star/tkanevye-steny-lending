@@ -1,8 +1,8 @@
 export const CEIL_IMG = {
-  hero: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5db51be5-66f3-40cc-b60c-02133b86662d.jpg',
-  matte: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/163b7471-b078-4dce-a1a0-cf0b73d32028.jpg',
-  gloss: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/d17b09be-fe52-43e4-9d9d-6050bec1317d.jpg',
-  work: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/8d020d03-2754-4192-95aa-0d40e7d5b7a4.jpg',
+  hero: '/img/5db51be5-66f3-40cc-b60c-02133b86662d.webp',
+  matte: '/img/163b7471-b078-4dce-a1a0-cf0b73d32028.webp',
+  gloss: '/img/d17b09be-fe52-43e4-9d9d-6050bec1317d.webp',
+  work: '/img/8d020d03-2754-4192-95aa-0d40e7d5b7a4.webp',
 };
 
 export const CEIL_PAINS = [

@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '9 мин',
     tag: 'Технология',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/e79cbb4e-ef16-497e-b24e-9a772e57c407.jpg',
+    img: '/img/e79cbb4e-ef16-497e-b24e-9a772e57c407.webp',
     keywords: 'профиль для натяжного потолка, багет для натяжного потолка, теневой натяжной потолок, гарпунная система, алюминиевый профиль потолок',
     body: [
       {
@@ -90,7 +90,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '8 мин',
     tag: 'Технология',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/c22d2cda-00c4-49de-990b-98b98edf9575.jpg',
+    img: '/img/c22d2cda-00c4-49de-990b-98b98edf9575.webp',
     keywords: 'закладные под светильники натяжной потолок, платформа под светильник, термокольцо для натяжного потолка, светильники в натяжной потолок, монтаж люстры натяжной потолок',
     body: [
       {
@@ -152,7 +152,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '8 мин',
     tag: 'Дизайн',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/ffab305a-790f-4b98-b193-976e9c527ade.jpg',
+    img: '/img/ffab305a-790f-4b98-b193-976e9c527ade.webp',
     keywords: 'скрытый карниз в натяжном потолке, ниша под карниз, потолочный карниз натяжной потолок, шторы из ниши, парящий потолок с нишей',
     body: [
       {
@@ -214,7 +214,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '7 мин',
     tag: 'Технология',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/084fe8d3-509a-43ee-bd59-35ce918fd00a.jpg',
+    img: '/img/084fe8d3-509a-43ee-bd59-35ce918fd00a.webp',
     keywords: 'сколько съедает натяжной потолок, высота натяжного потолка, потеря высоты натяжной потолок, минимальный отступ от потолка, натяжной потолок в низкой комнате',
     body: [
       {
@@ -280,7 +280,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '8 мин',
     tag: 'Материалы',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/9bc63510-1ac5-49db-8505-ee261d38d6f7.jpg',
+    img: '/img/9bc63510-1ac5-49db-8505-ee261d38d6f7.webp',
     keywords: 'матовый натяжной потолок, глянцевый натяжной потолок, сатиновый натяжной потолок, какой натяжной потолок выбрать, фактура натяжного потолка',
     body: [
       {
@@ -344,7 +344,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '8 мин',
     tag: 'Материалы',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/40dd0a17-9278-410e-b9c1-2777e6b17b86.jpg',
+    img: '/img/40dd0a17-9278-410e-b9c1-2777e6b17b86.webp',
     keywords: 'тканевый натяжной потолок, descor натяжные потолки, бесшовный натяжной потолок, d-premium, тканевый потолок цена',
     body: [
       {
@@ -404,7 +404,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '7 мин',
     tag: 'Дизайн',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/38560354-2e71-4c25-b288-5f021f56afba.jpg',
+    img: '/img/38560354-2e71-4c25-b288-5f021f56afba.webp',
     keywords: 'черный натяжной потолок, темные натяжные потолки фото, черный глянцевый потолок, темный потолок в интерьере',
     body: [
       {
@@ -467,7 +467,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '9 мин',
     tag: 'Свет',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/52835229-a5f4-427a-b6dc-c1d2d0239737.jpg',
+    img: '/img/52835229-a5f4-427a-b6dc-c1d2d0239737.webp',
     keywords: 'световые линии на натяжном потолке, светодиодный натяжной потолок, освещение на натяжном потолке, световые линии расчет, led линии в потолке',
     body: [
       {
@@ -529,7 +529,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '8 мин',
     tag: 'Технология',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/9df73618-a239-446c-9368-7a19da76eed2.jpg',
+    img: '/img/9df73618-a239-446c-9368-7a19da76eed2.webp',
     keywords: 'натяжной потолок в ванной, вентиляция в натяжном потолке, вытяжка в натяжном потолке, плесень за натяжным потолком, потолок в ванной комнате',
     body: [
       {
@@ -592,7 +592,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '9 мин',
     tag: 'Свет',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/77a88d08-f886-48c5-9835-44db550995be.jpg',
+    img: '/img/77a88d08-f886-48c5-9835-44db550995be.webp',
     keywords: 'магнитные натяжные потолки, трековые натяжные потолки, шинопровод для натяжного потолка, магнитный трек в натяжной потолок, встраиваемый шинопровод',
     body: [
       {
@@ -654,7 +654,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '8 мин',
     tag: 'Сервис',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/09392fd5-c1bf-44c7-8ec3-f603b0891d42.jpg',
+    img: '/img/09392fd5-c1bf-44c7-8ec3-f603b0891d42.webp',
     keywords: 'слив воды с натяжного потолка, затопили натяжной потолок, ремонт натяжных потолков, залив соседями натяжной потолок, потолок наполнился водой',
     body: [
       {
@@ -717,7 +717,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '9 мин',
     tag: 'Акустика',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/86f34c47-7da0-44a4-80e3-8cbfa7229e38.jpg',
+    img: '/img/86f34c47-7da0-44a4-80e3-8cbfa7229e38.webp',
     keywords: 'шумоизоляция потолка под натяжной потолок, квартира натяжной потолок шумоизоляция, звукоизоляция потолка в квартире, виброподвесы, ударный шум сверху',
     body: [
       {
@@ -779,7 +779,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '4 сентября 2026',
     readTime: '10 мин',
     tag: 'Деньги',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/87e87288-5963-45d7-914e-b9682b6ff175.jpg',
+    img: '/img/87e87288-5963-45d7-914e-b9682b6ff175.webp',
     keywords: 'натяжной потолок цена, стоимость натяжного потолка с установкой, натяжной потолок цена за м2, смета натяжного потолка, MSD Premium, Bauf, Descor',
     body: [
       {
@@ -856,7 +856,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '28 августа 2026',
     readTime: '9 мин',
     tag: 'Гайд',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/102a79b5-e98c-4340-b912-9925e2db05ce.jpg',
+    img: '/img/102a79b5-e98c-4340-b912-9925e2db05ce.webp',
     keywords: 'тихие стены, тканевые стены, натяжные стены, звукоизоляция квартиры, сравнение материалов',
     body: [
       {
@@ -904,7 +904,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '21 августа 2026',
     readTime: '7 мин',
     tag: 'Акустика',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/071da61b-abc0-4cd0-abfa-bb4ab1b8f234.jpg',
+    img: '/img/071da61b-abc0-4cd0-abfa-bb4ab1b8f234.webp',
     keywords: 'шумоизоляция от ударного шума, соседи, звукоизоляция стен, акустическая мембрана, каркасная система',
     body: [
       {
@@ -946,7 +946,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '14 августа 2026',
     readTime: '6 мин',
     tag: 'Технология',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/d7ae650e-02af-4681-9ee1-61424673c566.jpg',
+    img: '/img/d7ae650e-02af-4681-9ee1-61424673c566.webp',
     keywords: 'ошибки монтажа натяжных стен, шумоизоляция своими руками, профиль для тихих стен, подводные камни',
     body: [
       {
@@ -989,7 +989,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '7 августа 2026',
     readTime: '7 мин',
     tag: 'Акустика',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/5e56f677-66c0-47e0-9f53-b2fb35750b2c.jpg',
+    img: '/img/5e56f677-66c0-47e0-9f53-b2fb35750b2c.webp',
     keywords: 'акустика комнаты, домашний кинотеатр, звукопоглощение, эхо, тканевые стены',
     body: [
       {
@@ -1031,7 +1031,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '31 июля 2026',
     readTime: '6 мин',
     tag: 'Технология',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/a7bcab1d-de34-4d4f-a42e-06572c4781c6.jpg',
+    img: '/img/a7bcab1d-de34-4d4f-a42e-06572c4781c6.webp',
     keywords: 'розетка в натяжной стене, крепление телевизора на тканевую стену, скрытая проводка, закладные элементы',
     body: [
       {
@@ -1072,7 +1072,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '24 июля 2026',
     readTime: '6 мин',
     tag: 'Тренды',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/f71c00fe-1b6e-48fa-8a49-1cfb5c8a4e5f.jpg',
+    img: '/img/f71c00fe-1b6e-48fa-8a49-1cfb5c8a4e5f.webp',
     keywords: 'дизайн интерьера 2026, бесшовные стены, фактурная ткань, скрытый карниз, интеграция света',
     body: [
       {
@@ -1113,7 +1113,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '17 июля 2026',
     readTime: '8 мин',
     tag: 'Кейс',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/d454fa8e-e08c-475e-b392-1b76a8c8b57b.jpg',
+    img: '/img/d454fa8e-e08c-475e-b392-1b76a8c8b57b.webp',
     keywords: 'шумоизоляция спальни, шум от лифта, тихая спальня, отзывы о тканевых стенах, измерение шума',
     body: [
       {
@@ -1155,7 +1155,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '10 июля 2026',
     readTime: '6 мин',
     tag: 'Инструкция',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/df6d3672-a7d4-499d-b81e-97bda8471320.jpg',
+    img: '/img/df6d3672-a7d4-499d-b81e-97bda8471320.webp',
     keywords: 'шумоизоляция детской, антивандальная ткань, экологичные материалы, детская безопасность',
     body: [
       {
@@ -1196,7 +1196,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '3 июля 2026',
     readTime: '7 мин',
     tag: 'B2B',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/6a98636f-c451-4f09-b381-3040efdd57f3.jpg',
+    img: '/img/6a98636f-c451-4f09-b381-3040efdd57f3.webp',
     keywords: 'акустика офиса, переговорная комната, офисные перегородки, продуктивность сотрудников',
     body: [
       {
@@ -1237,7 +1237,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '26 июня 2026',
     readTime: '5 мин',
     tag: 'Процесс',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/c06e5653-12e4-45b2-a7bd-1f2560986623.jpg',
+    img: '/img/c06e5653-12e4-45b2-a7bd-1f2560986623.webp',
     keywords: 'монтаж натяжных стен, сроки ремонта, чистый монтаж, гарантия на работы',
     body: [
       {
@@ -1278,7 +1278,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '19 июня 2026',
     readTime: '7 мин',
     tag: 'Деньги',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/2304c0b2-69db-4942-ae20-7b0c1d23dea8.jpg',
+    img: '/img/2304c0b2-69db-4942-ae20-7b0c1d23dea8.webp',
     keywords: 'цена тихих стен, стоимость шумоизоляции, расчет сметы, прайс-лист 2026',
     body: [
       {
@@ -1320,7 +1320,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '12 июня 2026',
     readTime: '6 мин',
     tag: 'Материалы',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/8c1fdf41-247a-4e9b-875d-183ac8befdc6.jpg',
+    img: '/img/8c1fdf41-247a-4e9b-875d-183ac8befdc6.webp',
     keywords: 'акустические панели, настенные баффлы, DIY шумоизоляция, войлочные панели',
     body: [
       {
@@ -1361,7 +1361,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '5 июня 2026',
     readTime: '5 мин',
     tag: 'FAQ',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/869eee6b-df11-40f6-a68e-3e287a56cd91.jpg',
+    img: '/img/869eee6b-df11-40f6-a68e-3e287a56cd91.webp',
     keywords: 'уход за тканевыми стенами, чистка натяжных стен, удаление пятен, эксплуатация',
     body: [
       {
@@ -1402,7 +1402,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '29 мая 2026',
     readTime: '5 мин',
     tag: 'Акустика',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/2dc9c122-5519-4e75-8364-502b12c0040d.jpg',
+    img: '/img/2dc9c122-5519-4e75-8364-502b12c0040d.webp',
     keywords: 'гулкая комната, реверберация, первичная отделка, новостройка',
     body: [
       {
@@ -1443,7 +1443,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '22 мая 2026',
     readTime: '6 мин',
     tag: 'FAQ',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/b75a2e97-2a25-4175-9591-f70770cce68f.jpg',
+    img: '/img/b75a2e97-2a25-4175-9591-f70770cce68f.webp',
     keywords: 'FAQ натяжные стены, запах материала, плесень за стеной, срок службы',
     body: [
       {
@@ -1490,7 +1490,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '3 сентября 2026',
     readTime: '8 мин',
     tag: 'Акустика',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/ae75988c-034c-4034-9907-7ecaea00199b.jpg',
+    img: '/img/ae75988c-034c-4034-9907-7ecaea00199b.webp',
     body: [
       {
         p: [
@@ -1553,7 +1553,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '28 июля 2026',
     readTime: '4 мин',
     tag: 'Технология',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/480a4f0c-d22e-493f-82ea-78305902d47c.jpg',
+    img: '/img/480a4f0c-d22e-493f-82ea-78305902d47c.webp',
     body: [
       {
         p: [
@@ -1587,7 +1587,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '10 июля 2026',
     readTime: '5 мин',
     tag: 'Акустика',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/d01a16cf-63e7-4aa5-a7fb-a5789d779a26.jpg',
+    img: '/img/d01a16cf-63e7-4aa5-a7fb-a5789d779a26.webp',
     body: [
       {
         p: [
@@ -1620,7 +1620,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '22 июня 2026',
     readTime: '4 мин',
     tag: 'Материалы',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/c8a6ab77-99e3-41aa-8446-bf8992503a5b.jpg',
+    img: '/img/c8a6ab77-99e3-41aa-8446-bf8992503a5b.webp',
     body: [
       {
         p: [
@@ -1663,7 +1663,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '5 июня 2026',
     readTime: '3 мин',
     tag: 'Деньги',
-    img: 'https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/480a4f0c-d22e-493f-82ea-78305902d47c.jpg',
+    img: '/img/480a4f0c-d22e-493f-82ea-78305902d47c.webp',
     body: [
       {
         p: [

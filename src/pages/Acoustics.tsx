@@ -77,6 +77,7 @@ const AcousticsPage = () => {
         <img
           src={ACOUSTIC_IMG.hero}
           alt="Акустические тканевые панели на стене — шумоизоляция комнаты под ключ"
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
         <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">
