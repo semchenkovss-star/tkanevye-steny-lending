@@ -124,9 +124,9 @@ const LeadForm = ({
               if (errors.agree) setErrors((p) => ({ ...p, agree: undefined }));
             }}
             aria-invalid={Boolean(errors.agree)}
-            className={`mt-0.5 h-5 w-5 shrink-0 cursor-pointer appearance-none border bg-card transition-colors checked:border-primary checked:bg-primary ${
+            className={`mt-0.5 h-6 w-6 shrink-0 cursor-pointer appearance-none border bg-card transition-colors checked:border-primary checked:bg-primary ${
               errors.agree ? 'border-destructive' : 'border-border'
-            } bg-[length:14px_14px] bg-center bg-no-repeat checked:bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%223%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%2220 6 9 17 4 12%22/></svg>')]`}
+            } bg-[length:16px_16px] bg-center bg-no-repeat checked:bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%223%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%2220 6 9 17 4 12%22/></svg>')]`}
           />
           <span>
             Я согласен на обработку персональных данных и принимаю{' '}

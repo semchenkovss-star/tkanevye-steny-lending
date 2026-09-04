@@ -23,7 +23,7 @@ const SiteSwitch = () => {
               key={s.to}
               to={s.to}
               aria-current={active ? 'page' : undefined}
-              className={`flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap px-2 py-3 text-[0.65rem] uppercase tracking-[0.08em] transition-colors sm:gap-2 sm:px-4 sm:text-sm sm:tracking-[0.12em] ${
+              className={`flex min-w-0 flex-1 items-center justify-center gap-1.5 min-h-[46px] whitespace-nowrap px-2 py-3 text-[0.65rem] uppercase tracking-[0.08em] transition-colors sm:gap-2 sm:px-4 sm:text-sm sm:tracking-[0.12em] ${
                 active
                   ? 'bg-foreground text-background'
                   : 'bg-secondary text-muted-foreground hover:bg-card hover:text-foreground'

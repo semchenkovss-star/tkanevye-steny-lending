@@ -34,7 +34,7 @@ const Logo = ({ to = '/', size = 'md', tone = 'default', className = '' }: LogoP
     </>
   );
 
-  const classes = `flex shrink-0 flex-col leading-none ${className}`;
+  const classes = `-my-1.5 flex min-h-[44px] shrink-0 flex-col justify-center py-1.5 leading-none ${className}`;
 
   if (to.startsWith('#')) {
     return (

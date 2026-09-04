@@ -87,7 +87,7 @@ const AcousticsPage = () => {
         <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm text-background/70 transition-colors hover:text-background"
+            className="-my-2 inline-flex min-h-[44px] items-center gap-2 py-2 text-sm text-background/70 transition-colors hover:text-background"
           >
             <Icon name="ArrowLeft" size={16} />
             На главную
@@ -111,7 +111,7 @@ const AcousticsPage = () => {
             </button>
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-2 font-display text-2xl uppercase tracking-[0.02em] text-background transition-colors hover:text-primary"
+              className="-my-1.5 flex min-h-[44px] items-center gap-2 py-1.5 font-display text-2xl uppercase tracking-[0.02em] text-background transition-colors hover:text-primary"
             >
               <Icon name="Phone" size={20} className="text-primary" />
               {PHONE_DISPLAY}
@@ -290,7 +290,7 @@ const AcousticsPage = () => {
                   </div>
                   <a
                     href={PHONE_HREF}
-                    className="mt-3 flex items-center gap-3 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary-ink sm:text-[2.5rem]"
+                    className="mt-2 flex min-h-[44px] items-center gap-3 py-1.5 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary-ink sm:text-[2.5rem]"
                   >
                     <Icon name="Phone" size={26} className="text-primary-ink" />
                     {PHONE_DISPLAY}

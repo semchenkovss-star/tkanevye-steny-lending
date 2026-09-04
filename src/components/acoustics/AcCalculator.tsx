@@ -84,7 +84,7 @@ const AcCalculator = () => {
                   type="button"
                   aria-label="Уменьшить площадь"
                   onClick={() => setArea((v) => clamp(v - 1, 4, 200))}
-                  className="flex w-10 shrink-0 items-center justify-center border-r border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  className="flex w-11 shrink-0 items-center justify-center border-r border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   <Icon name="Minus" size={16} />
                 </button>
@@ -102,7 +102,7 @@ const AcCalculator = () => {
                   type="button"
                   aria-label="Увеличить площадь"
                   onClick={() => setArea((v) => clamp(v + 1, 4, 200))}
-                  className="flex w-10 shrink-0 items-center justify-center border-l border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  className="flex w-11 shrink-0 items-center justify-center border-l border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   <Icon name="Plus" size={16} />
                 </button>
@@ -118,7 +118,7 @@ const AcCalculator = () => {
                   type="button"
                   aria-label="Уменьшить высоту"
                   onClick={() => setHeight((v) => clamp(Number((v - 0.1).toFixed(1)), 2, 5))}
-                  className="flex w-10 shrink-0 items-center justify-center border-r border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  className="flex w-11 shrink-0 items-center justify-center border-r border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   <Icon name="Minus" size={16} />
                 </button>
@@ -137,7 +137,7 @@ const AcCalculator = () => {
                   type="button"
                   aria-label="Увеличить высоту"
                   onClick={() => setHeight((v) => clamp(Number((v + 0.1).toFixed(1)), 2, 5))}
-                  className="flex w-10 shrink-0 items-center justify-center border-l border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  className="flex w-11 shrink-0 items-center justify-center border-l border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                 >
                   <Icon name="Plus" size={16} />
                 </button>

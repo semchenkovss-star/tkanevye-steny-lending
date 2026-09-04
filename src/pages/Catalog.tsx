@@ -229,7 +229,7 @@ const CatalogPage = () => {
             <CalcButton className="hidden sm:flex" />
             <Link
             to="/"
-            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="-my-2 flex min-h-[44px] items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Icon name="ArrowLeft" size={16} />
             На главную
@@ -296,7 +296,7 @@ const CatalogPage = () => {
                 <select
                   value={sort}
                   onChange={(e) => setSort(e.target.value as Sort)}
-                  className="border border-border bg-card px-3 py-2.5 text-sm text-foreground outline-none focus:border-primary"
+                  className="min-h-[44px] border border-border bg-card px-3 py-2.5 text-base text-foreground sm:text-sm outline-none focus:border-primary"
                 >
                   {SORTS.map((s) => (
                     <option key={s.id} value={s.id}>

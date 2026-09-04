@@ -67,7 +67,7 @@ const BlogPage = () => {
             <CalcButton className="hidden sm:flex" />
             <Link
             to="/"
-            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="-my-2 flex min-h-[44px] items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Icon name="ArrowLeft" size={16} />
             На главную

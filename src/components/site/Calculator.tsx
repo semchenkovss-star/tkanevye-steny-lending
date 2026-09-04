@@ -35,7 +35,7 @@ const NumberField = ({
         type="button"
         aria-label="Уменьшить"
         onClick={() => onChange(clamp(Number((value - step).toFixed(1)), min, max))}
-        className="flex w-10 shrink-0 items-center justify-center border-r border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        className="flex w-11 shrink-0 items-center justify-center border-r border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
       >
         <Icon name="Minus" size={16} />
       </button>
@@ -57,7 +57,7 @@ const NumberField = ({
         type="button"
         aria-label="Увеличить"
         onClick={() => onChange(clamp(Number((value + step).toFixed(1)), min, max))}
-        className="flex w-10 shrink-0 items-center justify-center border-l border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        className="flex w-11 shrink-0 items-center justify-center border-l border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
       >
         <Icon name="Plus" size={16} />
       </button>

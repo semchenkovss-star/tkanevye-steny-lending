@@ -67,13 +67,13 @@ const Footer = () => {
               <h3 className="font-display text-xl uppercase tracking-wide text-background">
                 {col.title}
               </h3>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-4 space-y-1">
                 {col.links.map((l) =>
                   l.href.startsWith('/') ? (
                     <li key={l.href}>
                       <Link
                         to={l.href}
-                        className="text-sm text-background/60 transition-colors hover:text-primary"
+                        className="-my-1.5 inline-flex min-h-[44px] items-center py-1.5 text-sm text-background/60 transition-colors hover:text-primary"
                       >
                         {l.label}
                       </Link>
@@ -82,7 +82,7 @@ const Footer = () => {
                     <li key={l.href}>
                       <a
                         href={prefix + l.href}
-                        className="text-sm text-background/60 transition-colors hover:text-primary"
+                        className="-my-1.5 inline-flex min-h-[44px] items-center py-1.5 text-sm text-background/60 transition-colors hover:text-primary"
                       >
                         {l.label}
                       </a>
@@ -100,14 +100,14 @@ const Footer = () => {
                 <Icon name="Phone" size={16} className="text-primary" />
                 <a
                   href={PHONE_HREF}
-                  className="font-display text-lg tracking-[0.02em] text-background transition-colors hover:text-primary"
+                  className="-my-1.5 inline-flex min-h-[44px] items-center py-1.5 font-display text-lg tracking-[0.02em] text-background transition-colors hover:text-primary"
                 >
                   {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Icon name="Mail" size={16} className="text-primary" />
-                <a href={EMAIL_HREF} className="transition-colors hover:text-primary">
+                <a href={EMAIL_HREF} className="-my-1.5 inline-flex min-h-[44px] items-center py-1.5 transition-colors hover:text-primary">
                   {EMAIL}
                 </a>
               </li>
@@ -146,7 +146,7 @@ const Footer = () => {
             </h4>
             <a
               href={EMAIL_HREF}
-              className="mt-3 block text-xs leading-[1.7] text-background/55 transition-colors hover:text-primary"
+              className="mt-2 inline-flex min-h-[44px] items-center text-xs leading-[1.7] text-background/55 transition-colors hover:text-primary"
             >
               {EMAIL}
             </a>
@@ -160,7 +160,7 @@ const Footer = () => {
         <div className="mt-10 flex flex-col gap-3 border-t border-background/15 pt-8 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
           <span>© Тканевыестены.рус 2026</span>
           <div className="flex flex-wrap items-center gap-4">
-            <Link to="/privacy" className="transition-colors hover:text-primary">
+            <Link to="/privacy" className="-my-1.5 inline-flex min-h-[44px] items-center py-1.5 transition-colors hover:text-primary">
               Политика конфиденциальности
             </Link>
             <span>Информация на сайте не является публичной офертой.</span>

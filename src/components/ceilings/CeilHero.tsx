@@ -55,7 +55,7 @@ const CeilHero = () => (
         </nav>
         <a
           href={PHONE_HREF}
-          className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="-my-2 flex min-h-[44px] items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <Icon name="Phone" size={16} />
           <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
@@ -102,7 +102,7 @@ const CeilHero = () => (
         <div className="max-w-[22em]">
           <a
             href={PHONE_HREF}
-            className="flex items-center gap-2 font-display text-2xl uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary"
+            className="-my-1.5 flex min-h-[44px] items-center gap-2 py-1.5 font-display text-2xl uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary"
           >
             <Icon name="Phone" size={20} className="text-primary" />
             {PHONE_DISPLAY}

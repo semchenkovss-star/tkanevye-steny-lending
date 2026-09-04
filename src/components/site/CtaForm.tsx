@@ -46,7 +46,7 @@ const CtaForm = () => {
               </div>
               <a
                 href={PHONE_HREF}
-                className="mt-3 flex items-center gap-3 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary-ink sm:text-[2.5rem]"
+                className="mt-2 flex min-h-[44px] items-center gap-3 py-1.5 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary-ink sm:text-[2.5rem]"
               >
                 <Icon name="Phone" size={26} className="text-primary-ink" />
                 {PHONE_DISPLAY}
