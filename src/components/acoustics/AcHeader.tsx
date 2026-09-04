@@ -6,6 +6,7 @@ import CalcButton from '@/components/site/CalcButton';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const LINKS = [
+  { href: '#services', label: 'Услуги' },
   { href: '/', label: 'Стены' },
   { href: '/ceilings', label: 'Потолки' },
   { href: '/catalog', label: 'Каталог' },
@@ -15,6 +16,7 @@ const LINKS = [
   { href: '#ac-usage', label: 'Применение' },
   { href: '#ac-calc', label: 'Калькулятор' },
   { href: '#ac-faq', label: 'Вопросы' },
+  { href: '#ac-blog', label: 'Блог' },
 ];
 
 const AcHeader = () => {
