@@ -202,7 +202,7 @@ const SamplesDialog = () => {
                     >
                       <img
                         src={i.img}
-                        alt={i.name}
+                        alt={`Образец ткани ${i.name} — ${i.material}, цвет ${i.colorName}`}
                         loading="lazy"
                         className="h-12 w-12 shrink-0 object-cover"
                       />

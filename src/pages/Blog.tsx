@@ -75,7 +75,7 @@ const BlogPage = () => {
           <div className="aspect-[16/10] overflow-hidden lg:aspect-auto">
             <img
               src={lead.img}
-              alt={lead.title}
+              alt={`${lead.title} — главная статья блога о тканевых стенах и потолках`}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
           </div>
@@ -108,7 +108,7 @@ const BlogPage = () => {
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={p.img}
-                  alt={p.title}
+                  alt={`${p.title} — статья о тканевых стенах, потолках и акустике`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />

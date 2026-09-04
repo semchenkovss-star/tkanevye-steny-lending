@@ -23,7 +23,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
         >
           <img
             src={item.img}
-            alt={item.name}
+            alt={`Ткань для стен ${item.name} — ${item.material}, цвет ${item.colorName}`}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />

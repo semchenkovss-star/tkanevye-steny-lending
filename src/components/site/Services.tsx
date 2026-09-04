@@ -69,7 +69,7 @@ const Services = () => (
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
             <img
               src={s.img}
-              alt={s.title}
+              alt={`${s.title} — услуга монтажа тканевых стен и потолков в Москве`}
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />

@@ -137,7 +137,11 @@ const BlogPostPage = () => {
             </p>
 
             <div className="mt-10 aspect-[16/9] overflow-hidden">
-              <img src={post.img} alt={post.title} className="h-full w-full object-cover" />
+              <img
+            src={post.img}
+            alt={`${post.title} — тканевые стены и потолки, статья блога`}
+            className="h-full w-full object-cover"
+          />
             </div>
 
             <div className="mt-12 max-w-[42em]">
@@ -202,7 +206,7 @@ const BlogPostPage = () => {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={p.img}
-                    alt={p.title}
+                    alt={`${p.title} — читайте также о тканевых стенах`}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />

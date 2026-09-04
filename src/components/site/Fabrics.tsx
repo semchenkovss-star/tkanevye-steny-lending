@@ -58,7 +58,7 @@ const Fabrics = () => {
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
               <img
                 src={f.img}
-                alt={f.name}
+                alt={`Ткань ${f.name} — ${f.material} для натяжных тканевых стен и потолков`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />

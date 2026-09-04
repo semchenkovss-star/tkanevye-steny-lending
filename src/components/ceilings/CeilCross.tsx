@@ -14,7 +14,7 @@ const CeilCross = () => (
         <div className="relative overflow-hidden lg:col-span-5">
           <img
             src={walls.img}
-            alt="Тканевые стены на скрытом каркасе"
+            alt="Натяжные тканевые стены на скрытом каркасе — отделка комнаты тканью"
             loading="lazy"
             className="block aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] lg:aspect-auto lg:h-full"
           />

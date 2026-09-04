@@ -74,8 +74,7 @@ const AcousticsPage = () => {
       <section id="top" className="relative w-full overflow-hidden bg-foreground text-background">
         <img
           src={ACOUSTIC_IMG.hero}
-          alt=""
-          aria-hidden="true"
+          alt="Акустические тканевые панели на стене — шумоизоляция комнаты под ключ"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
         <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">
@@ -182,7 +181,7 @@ const AcousticsPage = () => {
                 <div className="aspect-[16/10] w-full overflow-hidden bg-secondary">
                   <img
                     src={c.img}
-                    alt={c.title}
+                    alt={`${c.title} — акустика под ключ: тканевые панели и звукопоглощение`}
                     loading="lazy"
                     className="h-full w-full object-cover"
                   />

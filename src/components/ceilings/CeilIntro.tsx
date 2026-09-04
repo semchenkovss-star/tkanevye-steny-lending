@@ -43,7 +43,7 @@ export const CeilWhat = () => (
         <div className="relative overflow-hidden border border-border">
           <img
             src={CEIL_IMG.matte}
-            alt="Матовый бесшовный натяжной потолок в гостиной"
+            alt="Матовый бесшовный натяжной тканевый потолок в гостиной на скрытом каркасе"
             className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
             loading="lazy"
           />

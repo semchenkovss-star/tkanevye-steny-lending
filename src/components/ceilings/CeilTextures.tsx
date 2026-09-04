@@ -97,7 +97,7 @@ const CeilTextures = () => {
         <div className="relative overflow-hidden lg:col-span-7">
           <img
             src={t.img}
-            alt={`${t.name} натяжной потолок`}
+            alt={`Фактура ${t.name} — тканевое полотно для натяжного потолка`}
             loading="lazy"
             className="block aspect-[16/10] w-full object-cover lg:aspect-auto lg:h-full"
           />

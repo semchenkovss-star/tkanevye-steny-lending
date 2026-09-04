@@ -111,7 +111,7 @@ const CeilCases = () => {
           <div className="relative select-none overflow-hidden lg:col-span-7">
             <img
               src={item.img}
-              alt={`${item.title} — после монтажа`}
+              alt={`${item.title} — натяжной тканевый потолок после монтажа, Москва`}
               className="block aspect-[4/3] w-full object-cover lg:aspect-auto lg:h-full"
               loading="lazy"
             />
@@ -121,7 +121,7 @@ const CeilCases = () => {
             >
               <img
                 src={item.imgBefore}
-                alt={`${item.title} — до монтажа`}
+                alt={`${item.title} — потолок до монтажа тканевого полотна`}
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
               />
@@ -217,7 +217,7 @@ const CeilCases = () => {
             <span className="relative h-16 w-20 shrink-0 overflow-hidden">
               <img
                 src={c.img}
-                alt={c.title}
+                alt={`${c.title} — пример натяжного тканевого потолка на скрытом каркасе`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
               />

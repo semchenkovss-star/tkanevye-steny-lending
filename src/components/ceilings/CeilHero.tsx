@@ -12,12 +12,11 @@ const NAV = [
 const CeilHero = () => (
   <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-background">
     <div
-      aria-hidden="true"
       className="absolute inset-y-0 right-0 hidden w-[43%] overflow-hidden md:block"
     >
       <img
         src={CEIL_IMG.hero}
-        alt=""
+        alt="Натяжной тканевый потолок на скрытом каркасе в интерьере квартиры"
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-foreground/45" />
@@ -31,10 +30,13 @@ const CeilHero = () => (
     </div>
 
     <div
-      aria-hidden="true"
       className="absolute inset-x-0 bottom-0 h-24 overflow-hidden md:hidden"
     >
-      <img src={CEIL_IMG.hero} alt="" className="h-full w-full object-cover" />
+      <img
+        src={CEIL_IMG.hero}
+        alt="Бесшовный тканевый потолок в интерьере"
+        className="h-full w-full object-cover"
+      />
       <div className="absolute inset-0 bg-foreground/45" />
     </div>
 

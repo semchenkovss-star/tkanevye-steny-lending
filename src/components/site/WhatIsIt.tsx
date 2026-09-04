@@ -33,7 +33,7 @@ const WhatIsIt = () => {
           <div className="relative overflow-hidden border border-border">
             <img
               src="https://cdn.poehali.dev/projects/ce2018a8-652f-4f81-8b13-f4d5286e8e64/files/480a4f0c-d22e-493f-82ea-78305902d47c.jpg"
-              alt="Гостиная с тканевой стеной на скрытом каркасе"
+              alt="Гостиная с натяжной тканевой стеной на скрытом каркасе — отделка без пыли"
               className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />

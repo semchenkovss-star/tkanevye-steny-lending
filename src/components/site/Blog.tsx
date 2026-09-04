@@ -25,7 +25,7 @@ const Blog = () => {
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={p.img}
-                alt={p.title}
+                alt={`${p.title} — статья о тканевых стенах и потолках`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />

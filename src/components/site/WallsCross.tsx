@@ -11,7 +11,7 @@ const WallsCross = () => (
         <div className="relative overflow-hidden lg:col-span-5">
           <img
             src={ceilings.img}
-            alt="Бесшовный натяжной потолок"
+            alt="Бесшовный натяжной тканевый потолок на скрытом каркасе"
             loading="lazy"
             className="block aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] lg:aspect-auto lg:h-full"
           />

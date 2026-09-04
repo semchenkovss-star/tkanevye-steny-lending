@@ -112,7 +112,7 @@ const Cases = () => {
           <div className="relative select-none overflow-hidden lg:col-span-7">
             <img
               src={item.img}
-              alt={`${item.title} — после монтажа`}
+              alt={`${item.title} — тканевые стены на скрытом каркасе после монтажа`}
               className="block aspect-[4/3] w-full object-cover lg:aspect-auto lg:h-full"
               loading="lazy"
             />
@@ -122,7 +122,7 @@ const Cases = () => {
             >
               <img
                 src={item.imgBefore}
-                alt={`${item.title} — до монтажа`}
+                alt={`${item.title} — стены до монтажа тканевого полотна`}
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
               />
@@ -233,7 +233,7 @@ const Cases = () => {
             <span className="relative h-16 w-20 shrink-0 overflow-hidden">
               <img
                 src={c.img}
-                alt={c.title}
+                alt={`${c.title} — пример отделки стен тканью на скрытом каркасе`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
               />

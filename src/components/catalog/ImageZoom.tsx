@@ -61,7 +61,7 @@ const ImageZoom = ({ src, title, caption, onLead, onClose }: Props) => {
         >
           <img
             src={src}
-            alt={`Фактура ткани ${title}`}
+            alt={`Фактура ткани ${title} крупным планом — материал для натяжных тканевых стен`}
             style={{ transformOrigin: origin }}
             className={`h-auto w-full select-none transition-transform duration-300 ${
               zoomed ? 'scale-[2.2]' : 'scale-100'
