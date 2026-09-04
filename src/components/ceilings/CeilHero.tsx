@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
 import { CEIL_IMG } from '@/lib/ceilings';
+import Logo from '@/components/site/Logo';
 
 const NAV = [
   { href: '#ceil-what', label: 'Технология' },
@@ -44,9 +45,7 @@ const CeilHero = () => (
 
     <div className="shell-left relative z-[3] flex min-h-[100svh] w-full flex-col pb-28 pr-5 pt-7 sm:pr-8 md:w-[57%] md:pb-14 md:pr-14 md:pt-11">
       <header className="rule-bottom flex items-baseline justify-between gap-6 pb-4">
-        <Link to="/" className="font-display text-xl uppercase tracking-[0.16em] text-foreground">
-          Натяжные потолки
-        </Link>
+        <Logo to="/" size="md" />
         <nav className="hidden gap-7 md:flex">
           {NAV.map((item) => (
             <a key={item.href} href={item.href} className="nav-link">

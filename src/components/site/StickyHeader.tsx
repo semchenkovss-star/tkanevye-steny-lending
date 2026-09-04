@@ -4,6 +4,7 @@ import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import CalcButton from '@/components/site/CalcButton';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
+import Logo from '@/components/site/Logo';
 
 const LINKS = [
   { href: '#services', label: 'Услуги' },
@@ -55,7 +56,7 @@ const StickyHeader = () => {
         }`}
       >
         <div className="shell flex h-16 items-center justify-between gap-6">
-          <a href="#top" className="font-display text-xl uppercase tracking-[0.16em]">архитектурный текстиль</a>
+          <Logo to="#top" size="sm" />
 
           <nav className="hidden items-center gap-6 lg:flex">
             {LINKS.map((l) =>
@@ -109,7 +110,7 @@ const StickyHeader = () => {
       {open && (
         <div className="fixed inset-0 z-50 bg-background animate-fade-in lg:hidden">
           <div className="flex h-16 items-center justify-between border-b border-border px-5 sm:px-8">
-            <span className="font-display text-xl uppercase tracking-[0.16em]">Полотно</span>
+            <Logo to="#top" size="sm" />
             <button
               type="button"
               aria-label="Закрыть меню"

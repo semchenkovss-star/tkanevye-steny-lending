@@ -26,6 +26,7 @@ import {
   Tone,
   toneOf,
 } from '@/data/catalog';
+import Logo from '@/components/site/Logo';
 
 type Sort = 'popular' | 'price-asc' | 'price-desc' | 'noise';
 
@@ -223,7 +224,7 @@ const CatalogPage = () => {
       <SiteSwitch />
       <header className="border-b border-border">
         <div className="shell flex h-16 items-center justify-between gap-6">
-          <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">Архитектурный текстиль</Link>
+          <Logo to="/" size="sm" />
           <div className="flex items-center gap-3">
             <CalcButton className="hidden sm:flex" />
             <Link

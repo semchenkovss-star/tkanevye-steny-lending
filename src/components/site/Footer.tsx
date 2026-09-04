@@ -12,6 +12,7 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
 } from '@/lib/contacts';
+import Logo from '@/components/site/Logo';
 
 const COLUMNS = [
   {
@@ -47,7 +48,7 @@ const Footer = () => {
       <div className="shell py-14 sm:py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="font-display text-3xl uppercase tracking-[0.16em]">Тканевые стены</div>
+            <Logo to="/" size="lg" tone="inverted" />
             <p className="mt-4 max-w-[26em] text-[0.95rem] leading-[1.6] text-background/60">
               Натяжные тканевые стены и потолки на скрытом каркасе. Тихие стены, которые гасят эхо и
               шум соседей. Москва и область, монтаж за один-два дня без пыли и мокрых работ.

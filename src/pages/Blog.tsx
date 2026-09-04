@@ -10,6 +10,7 @@ import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, BLOG_TOPICS, BlogTopicId, postsByTopic } from '@/data/blog';
 import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
 import { openLead } from '@/lib/lead';
+import Logo from '@/components/site/Logo';
 
 const buildJsonLd = () => {
   const origin = window.location.origin;
@@ -61,7 +62,7 @@ const BlogPage = () => {
       <SiteSwitch />
       <header className="border-b border-border">
         <div className="shell flex h-16 items-center justify-between gap-6">
-          <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">Тканевые стены</Link>
+          <Logo to="/" size="sm" />
           <div className="flex items-center gap-3">
             <CalcButton className="hidden sm:flex" />
             <Link

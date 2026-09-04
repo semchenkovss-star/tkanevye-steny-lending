@@ -6,6 +6,7 @@ import Seo from '@/components/Seo';
 import Footer from '@/components/site/Footer';
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
 import { breadcrumbsLd, organizationLd } from '@/lib/schema';
+import Logo from '@/components/site/Logo';
 
 const linkify = (text: string) => {
   const parts = text.split(new RegExp(`(${PHONE_DISPLAY.replace(/[()+]/g, '\\$&')}|${EMAIL})`, 'g'));
@@ -126,9 +127,7 @@ const Privacy = () => {
 
       <header className="border-b border-border">
         <div className="shell flex h-16 items-center justify-between gap-6">
-          <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">
-            Тканевые стены
-          </Link>
+          <Logo to="/" size="sm" />
           <div className="flex items-center gap-3">
             <CalcButton className="hidden sm:flex" />
             <Link
