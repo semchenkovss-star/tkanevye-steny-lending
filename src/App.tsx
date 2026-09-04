@@ -12,6 +12,7 @@ import AcousticsPage from "./pages/Acoustics";
 import CeilingsPage from "./pages/Ceilings";
 import BlogPostPage from "./pages/BlogPost";
 import Privacy from "./pages/Privacy";
+import CookieNotice from "@/components/site/CookieNotice";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieNotice />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
