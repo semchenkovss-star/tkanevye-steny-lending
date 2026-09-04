@@ -8,6 +8,7 @@ interface SeoProps {
   type?: 'website' | 'article';
   publishedAt?: string;
   keywords?: string;
+  noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
@@ -42,6 +43,7 @@ const Seo = ({
   type = 'website',
   publishedAt,
   keywords,
+  noindex = false,
   jsonLd,
 }: SeoProps) => {
   useEffect(() => {
@@ -51,7 +53,11 @@ const Seo = ({
     document.title = title;
     setMeta('name', 'description', description);
     if (keywords) setMeta('name', 'keywords', keywords);
-    setMeta('name', 'robots', 'index, follow, max-image-preview:large');
+    setMeta(
+      'name',
+      'robots',
+      noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large',
+    );
     setLink('canonical', url);
 
     setMeta('property', 'og:site_name', SITE_NAME);
@@ -80,7 +86,7 @@ const Seo = ({
     return () => {
       if (jsonLd && script.parentNode) script.parentNode.removeChild(script);
     };
-  }, [title, description, path, image, type, publishedAt, keywords, jsonLd]);
+  }, [title, description, path, image, type, publishedAt, keywords, noindex, jsonLd]);
 
   return null;
 };

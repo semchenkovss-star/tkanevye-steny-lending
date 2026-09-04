@@ -1,6 +1,8 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  seoTitle?: string;
+  seoDescription?: string;
   excerpt: string;
   date: string;
   dateLabel: string;
@@ -15,6 +17,8 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'profil-dlya-natyazhnogo-potolka',
+    seoDescription: 'Чем алюминиевый багет отличается от пластикового, что такое гарпунная и штапиковая системы и почему теневой профиль дороже.',
+    seoTitle: 'Профиль для натяжного потолка: виды багета',
     topic: 'ceilings',
     title: 'Профиль для натяжного потолка: пластик, алюминий и теневой стык',
     excerpt:
@@ -77,6 +81,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'zakladnye-pod-svetilniki',
+    seoTitle: 'Закладные под светильники в потолке',
     topic: 'ceilings',
     title: 'Закладные под светильники: почему без них потолок провиснет',
     excerpt:
@@ -138,6 +143,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'skrytyj-karniz-v-natyazhnom-potolke',
+    seoTitle: 'Скрытый карниз в натяжном потолке',
     topic: 'ceilings',
     title: 'Скрытый карниз в натяжном потолке: шторы из ниши без гардины',
     excerpt:
@@ -199,6 +205,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'skolko-santimetrov-sedaet-potolok',
+    seoTitle: 'Сколько см съедает натяжной потолок',
     topic: 'ceilings',
     title: 'Сколько сантиметров съедает натяжной потолок: честный расчёт',
     excerpt:
@@ -263,6 +270,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'matovyj-satinovyj-glyancevyj',
+    seoDescription: 'Где глянец расширит пространство, а где будет бликовать, чем сатин отличается от матового и какую фактуру брать в спальню и кухню.',
+    seoTitle: 'Матовый, сатиновый или глянцевый потолок',
     topic: 'ceilings',
     title: 'Матовый, сатиновый или глянцевый: честное сравнение фактур',
     excerpt:
@@ -325,6 +334,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'tkanevyj-natyazhnoj-potolok-descor',
+    seoDescription: 'Экологичность, монтаж без тепловой пушки, бесшовность до 5 метров и перекрашивание — против главного минуса, воды при заливе.',
+    seoTitle: 'Тканевый натяжной потолок Descor',
     topic: 'ceilings',
     title: 'Тканевый натяжной потолок Descor: плюсы, минусы и кому он нужен',
     excerpt:
@@ -384,6 +395,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'chernyj-natyazhnoj-potolok',
+    seoTitle: 'Чёрный натяжной потолок в интерьере',
     topic: 'ceilings',
     title: 'Чёрный натяжной потолок: смелое решение для лофта или ошибка?',
     excerpt:
@@ -445,6 +457,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'svetovye-linii-vmesto-lyustry',
+    seoDescription: 'Сколько метров ленты нужно на комнату 20 м², какая мощность даёт комфортный свет и как выбрать рассеиватель без точек и полос.',
+    seoTitle: 'Световые линии вместо люстры',
     topic: 'ceilings',
     title: 'Световые линии вместо люстры: расчёт освещения для комнаты',
     excerpt:
@@ -506,6 +520,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'natyazhnoj-potolok-v-vannoj',
+    seoTitle: 'Натяжной потолок в ванной комнате',
     topic: 'ceilings',
     title: 'Натяжной потолок в ванной: бой плесени, грибку и ржавчине',
     excerpt:
@@ -567,6 +582,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'magnitnyj-shinoprovod-v-potolke',
+    seoDescription: 'Как трек крепится к закладной, какие драйверы ставить и почему полотно рядом с треком не должно перегреваться.',
+    seoTitle: 'Магнитный шинопровод в потолке',
     topic: 'ceilings',
     title: 'Магнитный шинопровод: революция в освещении или переплата?',
     excerpt:
@@ -628,6 +645,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'sliv-vody-s-natyazhnogo-potolka',
+    seoTitle: 'Слив воды с натяжного потолка',
     topic: 'ceilings',
     title: 'Слив воды с натяжного потолка: инструкция спасения при заливе',
     excerpt:
@@ -690,6 +708,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'shumoizolyaciya-pod-natyazhnym-potolkom',
+    seoTitle: 'Шумоизоляция под натяжным потолком',
     topic: 'ceilings',
     title: 'Шумоизоляция под натяжным потолком: мифы и реальная физика тишины',
     excerpt:
@@ -750,6 +769,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'anatomiya-ceny-natyazhnogo-potolka',
+    seoDescription: 'Разбор сметы: стоимость полотна MSD, Bauf и Descor, работа монтажников, профиль и закладные. Чем цена «с Авито» отличается от честной.',
+    seoTitle: 'Цена натяжного потолка за м²',
     topic: 'ceilings',
     title: 'Анатомия цены: почему натяжной потолок стоит от 300 до 5000 ₽ за м²',
     excerpt:
@@ -826,6 +847,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'tihie-steny-2026-gaid',
+    seoTitle: 'Ткань, ПВХ или акустические панели',
     topic: 'walls',
     title: 'Тихие стены 2026: гайд по выбору между тканью, ПВХ и акустическими панелями',
     excerpt:
@@ -873,6 +895,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'udarnyj-shum-ot-sosedej',
+    seoTitle: 'Защита от ударного шума соседей',
     topic: 'walls',
     title: 'Соседи включают перфоратор? Как работает защита от ударного шума',
     excerpt:
@@ -914,6 +937,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'oshibki-montazha',
+    seoTitle: '7 ошибок монтажа натяжных стен',
     topic: 'walls',
     title: 'Топ-7 ошибок при монтаже натяжных стен, которые убивают звукоизоляцию',
     excerpt:
@@ -956,6 +980,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'akustika-domashnego-kinoteatra',
+    seoTitle: 'Акустика домашнего кинотеатра',
     topic: 'walls',
     title: 'Акустика домашнего кинотеатра: тканевые стены вместо обоев',
     excerpt:
@@ -997,6 +1022,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'elektrika-za-polotnom',
+    seoTitle: 'Электрика и крепление ТВ за полотном',
     topic: 'walls',
     title: 'Скрытая жизнь за полотном: электрика, розетки и крепление ТВ',
     excerpt:
@@ -1037,6 +1063,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'dizajn-kod-2026',
+    seoTitle: 'Дизайн-код 2026: отказ от обоев',
     topic: 'walls',
     title: 'Дизайн-код 2026: почему дизайнеры отказываются от обоев',
     excerpt:
@@ -1077,6 +1104,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'spalnya-shum-lifta',
+    seoTitle: 'Тканевые стены в спальне: шум лифта',
     topic: 'walls',
     title: 'Натяжные стены в спальне: тест-драйв снижения шума от лифта',
     excerpt:
@@ -1118,6 +1146,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'detskaya-shumoizolyaciya',
+    seoTitle: 'Шумоизоляция детской комнаты',
     topic: 'walls',
     title: 'Детская комната: безопасная шумоизоляция, которая переживёт мяч и маркер',
     excerpt:
@@ -1158,6 +1187,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'akustika-ofisa',
+    seoTitle: 'Акустика офиса и open space',
     topic: 'walls',
     title: 'Open space против кабинета: зонирование акустическими перегородками',
     excerpt:
@@ -1198,6 +1228,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'chistyj-montazh',
+    seoTitle: 'Монтаж натяжных стен без пыли',
     topic: 'walls',
     title: 'Чистый монтаж за 2 дня: установка натяжных стен без пыли',
     excerpt:
@@ -1238,6 +1269,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'smeta-studiya-25m',
+    seoTitle: 'Смета на тихие стены для студии 25 м²',
     topic: 'walls',
     title: 'Сколько стоят тихие стены в 2026 году: расчёт сметы для студии 25 м²',
     excerpt:
@@ -1279,6 +1311,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'tkan-ili-vojlok',
+    seoTitle: 'Ткань или войлок для отделки стен',
     topic: 'walls',
     title: 'Ткань или войлок: сравниваем акустические панели для отделки',
     excerpt:
@@ -1319,6 +1352,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'uhod-za-tkanevymi-stenami',
+    seoTitle: 'Уход за тканевыми стенами',
     topic: 'walls',
     title: 'Как ухаживать за тканевыми стенами: кофе, фломастеры и пыль',
     excerpt:
@@ -1359,6 +1393,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'effekt-barabana-novostrojka',
+    seoTitle: 'Эффект барабана в новостройке',
     topic: 'walls',
     title: 'Эффект барабана: почему пустая бетонная коробка звучит ужасно',
     excerpt:
@@ -1399,6 +1434,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'faq-pered-montazhom',
+    seoTitle: 'Вопросы перед монтажом тканевых стен',
     topic: 'walls',
     title: 'Частые вопросы перед монтажом: провисание, запах, плесень',
     excerpt:
@@ -1445,6 +1481,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'tihie-steny-2026',
+    seoTitle: 'Как победить шум от соседей',
     topic: 'walls',
     title: 'Эпоха глухих стен: как победить шум от соседей в 2026 году',
     excerpt:
@@ -1507,6 +1544,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'steny-za-odin-den',
+    seoTitle: 'Тканевая стена за один день',
     topic: 'walls',
     title: 'Почему тканевая стена делается за один день',
     excerpt:
@@ -1540,6 +1578,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'kak-ubrat-eho',
+    seoTitle: 'Как убрать эхо в комнате',
     topic: 'walls',
     title: 'Эхо в комнате: откуда берётся и что с ним делать',
     excerpt:
@@ -1572,6 +1611,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'vybor-tkani',
+    seoTitle: 'Как выбрать ткань: лён или фетр',
     topic: 'walls',
     title: 'Как выбрать ткань: лён, рогожка или акустический фетр',
     excerpt:
@@ -1614,6 +1654,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'skolko-stoit',
+    seoTitle: 'Смета на тканевую стену',
     topic: 'walls',
     title: 'Из чего складывается смета на тканевую стену',
     excerpt:

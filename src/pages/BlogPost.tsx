@@ -71,8 +71,8 @@ const BlogPostPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title={`${post.title} | Блог Полотно`}
-        description={post.excerpt}
+        title={`${post.seoTitle ?? post.title} | Полотно`}
+        description={post.seoDescription ?? post.excerpt}
         path={`/blog/${post.slug}`}
         image={post.img}
         type="article"
