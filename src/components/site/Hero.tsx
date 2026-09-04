@@ -97,7 +97,7 @@ const Hero = () => {
         >
           <a
             href="#calc"
-            className="whitespace-nowrap bg-primary px-[30px] py-[17px] font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
+            className="bg-primary px-6 py-4 text-center font-display text-base uppercase leading-tight tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover sm:whitespace-nowrap sm:px-[30px] sm:py-[17px] sm:text-lg"
           >
             Рассчитать стену по размерам
           </a>

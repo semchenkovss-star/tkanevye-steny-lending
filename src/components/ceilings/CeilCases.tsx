@@ -210,7 +210,7 @@ const CeilCases = () => {
             key={c.title}
             type="button"
             onClick={() => select(i)}
-            className={`group relative flex items-center gap-4 p-4 text-left transition-colors ${
+            className={`group relative flex min-w-0 items-center gap-3 p-4 text-left transition-colors sm:gap-4 ${
               i === active ? 'bg-foreground text-background' : 'bg-card hover:bg-secondary'
             }`}
           >
@@ -222,12 +222,12 @@ const CeilCases = () => {
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
               />
             </span>
-            <span className="min-w-0">
+            <span className="min-w-0 flex-1">
               <span className="block truncate font-display text-lg uppercase leading-tight tracking-wide">
                 {c.title}
               </span>
               <span
-                className={`mt-1 block text-sm ${
+                className={`mt-1 block truncate text-sm ${
                   i === active ? 'text-background/70' : 'text-muted-foreground'
                 }`}
               >

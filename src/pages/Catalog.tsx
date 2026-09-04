@@ -249,8 +249,8 @@ const CatalogPage = () => {
           замерщик.
         </p>
 
-        <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-10">
-          <aside className="lg:col-span-3">
+        <div className="mt-10 grid min-w-0 gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-10">
+          <aside className="min-w-0 lg:col-span-3">
             <button
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
@@ -286,7 +286,7 @@ const CatalogPage = () => {
             )}
           </aside>
 
-          <div className="lg:col-span-9" ref={resultsRef}>
+          <div className="min-w-0 lg:col-span-9" ref={resultsRef}>
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-5">
               <span className="text-sm text-muted-foreground">
                 Показано <b className="text-foreground">{list.length}</b> из {CATALOG.length}

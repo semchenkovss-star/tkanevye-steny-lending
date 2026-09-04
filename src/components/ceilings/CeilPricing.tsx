@@ -16,7 +16,7 @@ const CeilPricing = () => (
       {CEIL_PLANS.map((p) => (
         <article
           key={p.name}
-          className={`flex flex-col p-6 sm:p-8 lg:p-10 ${
+          className={`flex min-w-0 flex-col p-5 sm:p-8 lg:p-10 ${
             p.accent ? 'bg-foreground text-background' : 'bg-card text-foreground'
           }`}
         >

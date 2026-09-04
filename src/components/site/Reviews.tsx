@@ -38,11 +38,11 @@ const Reviews = () => {
     <Section id="reviews" index="09" eyebrow="Отзывы" title={<>Говорят заказчики</>}>
       <div className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-8">
-          <blockquote className="border-l-2 border-primary pl-6 lg:pl-10">
-            <p className="font-display text-[1.75rem] uppercase leading-[1.1] tracking-wide text-foreground sm:text-[2.25rem]">
+          <blockquote className="min-w-0 border-l-2 border-primary pl-4 sm:pl-6 lg:pl-10">
+            <p className="font-display text-[1.5rem] uppercase leading-[1.1] tracking-wide text-foreground [overflow-wrap:anywhere] sm:text-[2.25rem]">
               «{r.text}»
             </p>
-            <footer className="mt-8 flex items-center gap-4">
+            <footer className="mt-8 flex min-w-0 flex-wrap items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center bg-primary font-display text-xl text-primary-foreground">
                 {r.name.charAt(0)}
               </div>

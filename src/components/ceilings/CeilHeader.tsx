@@ -55,10 +55,10 @@ const CeilHeader = () => {
           visible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <div className="shell flex h-16 items-center justify-between gap-6">
+        <div className="shell flex h-16 items-center justify-between gap-4">
           <Logo to="#top" size="sm" />
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden min-w-0 flex-1 flex-wrap items-center justify-center gap-x-4 gap-y-1 xl:flex xl:gap-x-5">
             {LINKS.map((l) =>
               l.href.startsWith('/') ? (
                 <Link key={l.href} to={l.href} className="nav-link">
@@ -72,7 +72,7 @@ const CeilHeader = () => {
             )}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex shrink-0 items-center gap-3 sm:gap-4">
             <a
               href={PHONE_HREF}
               className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary-ink md:flex"
@@ -92,7 +92,7 @@ const CeilHeader = () => {
               type="button"
               aria-label="Меню"
               onClick={() => setOpen(true)}
-              className="flex h-11 w-11 items-center justify-center border border-border text-foreground transition-colors hover:bg-secondary lg:hidden"
+              className="flex h-11 w-11 items-center justify-center border border-border text-foreground transition-colors hover:bg-secondary xl:hidden"
             >
               <Icon name="Menu" size={20} />
             </button>
@@ -101,7 +101,7 @@ const CeilHeader = () => {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-background animate-fade-in lg:hidden">
+        <div className="fixed inset-0 z-50 bg-background animate-fade-in xl:hidden">
           <div className="flex h-16 items-center justify-between border-b border-border px-5 sm:px-8">
             <Logo to="#top" size="sm" />
             <button

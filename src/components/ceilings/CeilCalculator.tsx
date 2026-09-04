@@ -25,16 +25,16 @@ const NumberField = ({
     <label htmlFor={id} className="mb-2 block text-sm text-muted-foreground">
       {label}
     </label>
-    <div className="flex items-stretch border border-border bg-card">
+    <div className="flex min-w-0 items-stretch border border-border bg-card">
       <button
         type="button"
         aria-label="Уменьшить"
         onClick={() => onChange(clamp(Number((value - 0.1).toFixed(1)), min, max))}
-        className="flex w-12 shrink-0 items-center justify-center border-r border-border text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        className="flex w-10 shrink-0 items-center justify-center border-r border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
       >
         <Icon name="Minus" size={16} />
       </button>
-      <div className="flex flex-1 items-baseline justify-center gap-1.5 px-2">
+      <div className="flex min-w-0 flex-1 items-baseline justify-center gap-1.5 px-1 sm:px-2">
         <input
           id={id}
           type="number"
@@ -44,7 +44,7 @@ const NumberField = ({
           step={0.1}
           value={value}
           onChange={(e) => onChange(clamp(Number(e.target.value), min, max))}
-          className="h-14 w-full [appearance:textfield] bg-transparent text-center font-display text-2xl tracking-wide text-foreground outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          className="h-14 w-full min-w-0 [appearance:textfield] bg-transparent text-center font-display text-2xl tracking-wide text-foreground outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
         <span className="text-sm text-muted-foreground">м</span>
       </div>
@@ -52,7 +52,7 @@ const NumberField = ({
         type="button"
         aria-label="Увеличить"
         onClick={() => onChange(clamp(Number((value + 0.1).toFixed(1)), min, max))}
-        className="flex w-12 shrink-0 items-center justify-center border-l border-border text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        className="flex w-10 shrink-0 items-center justify-center border-l border-border sm:w-12 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
       >
         <Icon name="Plus" size={16} />
       </button>
@@ -99,9 +99,9 @@ const CeilCalculator = () => {
       title={<>Посчитайте стоимость своего потолка</>}
       lead="Введите размеры комнаты, выберите тариф и полотно — стоимость натяжного потолка появится сразу. Это ориентир: точную смету считает замерщик."
     >
-      <div className="grid gap-px border border-border bg-border lg:grid-cols-12">
-        <div className="bg-card p-6 sm:p-8 lg:col-span-7 lg:p-10">
-          <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid min-w-0 gap-px border border-border bg-border lg:grid-cols-12">
+        <div className="min-w-0 bg-card p-5 sm:p-8 lg:col-span-7 lg:p-10">
+          <div className="grid min-w-0 gap-6 sm:grid-cols-2">
             <NumberField
               id="ceil-length"
               label="Длина комнаты"
