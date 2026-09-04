@@ -17,6 +17,7 @@ import CeilCalculator from '@/components/ceilings/CeilCalculator';
 import { CeilCta, CeilFaq } from '@/components/ceilings/CeilFaqCta';
 import CeilCross from '@/components/ceilings/CeilCross';
 import CeilBlog from '@/components/ceilings/CeilBlog';
+import Services from '@/components/site/Services';
 import { CEIL_FAQ, CEIL_IMG } from '@/lib/ceilings';
 
 const JSON_LD = [
@@ -71,6 +72,7 @@ const CeilingsPage = () => {
         <CeilGuide />
         <CeilPricing />
         <CeilCalculator />
+        <Services index="10" />
         <CeilBlog />
         <CeilCross />
         <CeilFaq />

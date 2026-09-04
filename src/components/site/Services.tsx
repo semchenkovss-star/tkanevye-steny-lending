@@ -54,10 +54,10 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
-const Services = () => (
+const Services = ({ index = '11' }: { index?: string }) => (
   <Section
     id="services"
-    index="11"
+    index={index}
     eyebrow="Услуги"
     title={<>Три услуги — один подрядчик</>}
     lead="Делаем только текстильные поверхности — стены и потолки. Можно заказать по отдельности или вместе, одной бригадой и одним счётом."
