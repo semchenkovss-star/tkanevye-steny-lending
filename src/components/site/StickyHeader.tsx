@@ -51,8 +51,8 @@ const StickyHeader = () => {
   return (
     <>
       <div
-        className={`fixed inset-x-0 top-0 z-40 border-b border-border bg-background/95 backdrop-blur transition-transform duration-300 ${
-          visible ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed inset-x-0 top-12 z-30 border-b border-border bg-background/95 backdrop-blur transition-transform duration-300 ${
+          visible ? 'translate-y-0' : '-translate-y-[calc(100%+3rem)]'
         }`}
       >
         <div className="shell flex h-16 items-center justify-between gap-4">
