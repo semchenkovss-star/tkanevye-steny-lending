@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
-import { formatPhone, isPhoneValid } from '@/lib/lead';
+import { formatPhone, isPhoneValid, sendLead } from '@/lib/lead';
 
 interface LeadFormProps {
   source?: string;
@@ -21,8 +21,10 @@ const LeadForm = ({
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState<{ name?: string; phone?: string; agree?: string }>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     const next: { name?: string; phone?: string; agree?: string } = {};
     if (name.trim().length < 2) next.name = 'Напишите, как к вам обращаться';
@@ -31,15 +33,14 @@ const LeadForm = ({
     setErrors(next);
     if (Object.keys(next).length) return;
 
-    // eslint-disable-next-line no-console
-    console.log('lead', {
-      name,
-      phone,
-      source,
-      summary,
-      agree,
-      agreedAt: new Date().toISOString(),
-    });
+    setSending(true);
+    const ok = await sendLead({ name: name.trim(), phone, source, summary });
+    setSending(false);
+    if (!ok) {
+      setFailed(true);
+      return;
+    }
+    setFailed(false);
     setSent(true);
     onDone?.();
   };
@@ -144,11 +145,16 @@ const LeadForm = ({
 
       <button
         type="submit"
-        disabled={!agree}
+        disabled={!agree || sending}
         className="mt-6 w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
       >
-        Записаться на замер
+        {sending ? 'Отправляем…' : 'Записаться на замер'}
       </button>
+      {failed && (
+        <p className="mt-3 text-sm text-destructive">
+          Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.
+        </p>
+      )}
     </form>
   );
 };

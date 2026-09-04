@@ -24,3 +24,28 @@ export function formatPhone(raw: string): string {
 export function isPhoneValid(masked: string): boolean {
   return masked.replace(/\D/g, '').length === 11;
 }
+const LEADS_URL = 'https://functions.poehali.dev/5590f489-efb2-4d67-be9a-f87d8efe230a';
+
+export interface LeadPayload {
+  name: string;
+  phone: string;
+  source: string;
+  summary?: string;
+  address?: string;
+  comment?: string;
+  samples?: string[];
+}
+
+/** Отправка заявки на почту и в Telegram */
+export async function sendLead(payload: LeadPayload): Promise<boolean> {
+  try {
+    const res = await fetch(LEADS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}

@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { CATALOG } from '@/data/catalog';
-import { formatPhone, isPhoneValid } from '@/lib/lead';
+import { formatPhone, isPhoneValid, sendLead } from '@/lib/lead';
 import { SAMPLES_EVENT, SAMPLES_LIMIT } from '@/lib/samples';
 
 interface Errors {
@@ -24,6 +24,8 @@ const SamplesDialog = () => {
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -72,7 +74,7 @@ const SamplesDialog = () => {
     });
   };
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     const next: Errors = {};
     if (picked.length === 0) next.picked = 'Выберите хотя бы один оттенок';
@@ -83,16 +85,21 @@ const SamplesDialog = () => {
     setErrors(next);
     if (Object.keys(next).length) return;
 
-    // eslint-disable-next-line no-console
-    console.log('samples', {
-      picked: picked.map((s) => CATALOG.find((i) => i.slug === s)?.name ?? s),
-      name,
+    setSending(true);
+    const ok = await sendLead({
+      name: name.trim(),
       phone,
-      address,
-      comment,
-      agree,
-      agreedAt: new Date().toISOString(),
+      source: 'Каталог — заказ образцов',
+      address: address.trim(),
+      comment: comment.trim(),
+      samples: picked.map((s) => CATALOG.find((i) => i.slug === s)?.name ?? s),
     });
+    setSending(false);
+    if (!ok) {
+      setFailed(true);
+      return;
+    }
+    setFailed(false);
     setSent(true);
   };
 
@@ -342,11 +349,16 @@ const SamplesDialog = () => {
             <div className="border-t border-border bg-card p-5 sm:px-9 sm:py-6">
               <button
                 type="submit"
-                disabled={!agree}
+                disabled={!agree || sending}
                 className="w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
               >
-                Заказать образцы
+                {sending ? 'Отправляем…' : 'Заказать образцы'}
               </button>
+              {failed && (
+                <p className="mt-3 text-sm text-destructive">
+                  Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.
+                </p>
+              )}
             </div>
           </form>
         )}
