@@ -5,6 +5,7 @@ import CalcButton from '@/components/site/CalcButton';
 import Seo from '@/components/Seo';
 import Footer from '@/components/site/Footer';
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
+import { breadcrumbsLd, organizationLd } from '@/lib/schema';
 
 const linkify = (text: string) => {
   const parts = text.split(new RegExp(`(${PHONE_DISPLAY.replace(/[()+]/g, '\\$&')}|${EMAIL})`, 'g'));
@@ -117,6 +118,10 @@ const Privacy = () => {
         title="Политика обработки персональных данных | Тканевые стены"
         description="Как мы собираем, используем и защищаем персональные данные пользователей сайта: цели обработки, сроки хранения, права пользователя и контакты для обращений."
         path="/privacy"
+        jsonLd={[
+          organizationLd(),
+          breadcrumbsLd([{ name: 'Политика конфиденциальности', path: '/privacy' }]),
+        ]}
       />
 
       <header className="border-b border-border">

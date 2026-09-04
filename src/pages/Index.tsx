@@ -22,47 +22,39 @@ import CtaForm from '@/components/site/CtaForm';
 import Footer from '@/components/site/Footer';
 import FloatingCta from '@/components/site/FloatingCta';
 import LeadDialog from '@/components/site/LeadDialog';
+import { STEPS } from '@/components/site/HowItWorks';
+import {
+  faqLd,
+  howToLd,
+  localBusinessLd,
+  organizationLd,
+  websiteLd,
+} from '@/lib/schema';
 
-const JSON_LD = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Полотно',
-    description:
-      'Установка натяжных тканевых стен и потолков на скрытом каркасе в Москве и области. Тихие стены с звукопоглощением, монтаж за 1–2 дня без пыли и мокрых работ.',
-    telephone: '+7 (495) 797-08-09',
-    email: 'fabricwall@mail.ru',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Переведеновский пер., д. 3',
-      addressLocality: 'Москва',
-      addressCountry: 'RU',
-    },
-    areaServed: 'Москва и Московская область',
-    openingHours: 'Mo-Sa 09:00-20:00',
-    priceRange: '₽₽',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '640',
-    },
-  },
+const buildJsonLd = () => [
+  organizationLd(),
+  websiteLd(),
+  localBusinessLd(),
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    name: 'Натяжные тканевые стены на скрытом каркасе',
     serviceType: 'Установка натяжных тканевых стен на скрытом каркасе',
-    provider: { '@type': 'LocalBusiness', name: 'Полотно' },
+    provider: { '@id': `${window.location.origin}/#organization` },
     areaServed: 'Москва и Московская область',
+    offers: {
+      '@type': 'Offer',
+      price: '1750',
+      priceCurrency: 'RUB',
+      description: 'Натяжная тканевая стена под ключ, цена за м²',
+    },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: QUESTIONS.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  },
+  howToLd(
+    'Как проходит монтаж тканевой стены',
+    'Четыре шага от заявки до готовой стены: звонок, замер и смета, раскрой полотна и монтаж с уборкой.',
+    STEPS.map((s) => ({ title: s.title, text: s.text })),
+  ),
+  faqLd(QUESTIONS),
 ];
 
 const Index = () => {
@@ -81,7 +73,7 @@ const Index = () => {
         title="Тканевые стены под ключ в Москве за 1 день | Полотно"
         description="Натяжные тканевые стены на скрытом каркасе: ровная стена за 1–2 дня без пыли и штукатурки. Шумоизоляция, гарантия 5 лет, бесплатный замер."
         path="/"
-        jsonLd={JSON_LD}
+        jsonLd={buildJsonLd()}
       />
       <StickyHeader />
       <SiteSwitch />

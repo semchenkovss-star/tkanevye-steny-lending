@@ -3,7 +3,7 @@ import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 
-const STEPS = [
+export const STEPS = [
   {
     n: '01',
     day: 'День 0',

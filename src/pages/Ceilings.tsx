@@ -18,14 +18,19 @@ import { CeilCta, CeilFaq } from '@/components/ceilings/CeilFaqCta';
 import CeilCross from '@/components/ceilings/CeilCross';
 import CeilBlog from '@/components/ceilings/CeilBlog';
 import Services from '@/components/site/Services';
-import { CEIL_FAQ, CEIL_IMG } from '@/lib/ceilings';
+import { CEIL_FAQ, CEIL_IMG, CEIL_STEPS } from '@/lib/ceilings';
+import { breadcrumbsLd, faqLd, howToLd, organizationLd, websiteLd } from '@/lib/schema';
 
-const JSON_LD = [
+const buildJsonLd = () => [
+  organizationLd(),
+  websiteLd(),
+  breadcrumbsLd([{ name: 'Натяжные потолки', path: '/ceilings' }]),
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    name: 'Натяжные потолки под ключ',
     serviceType: 'Монтаж натяжных потолков в Москве',
-    provider: { '@type': 'LocalBusiness', name: 'Полотно' },
+    provider: { '@id': `${window.location.origin}/#organization` },
     areaServed: 'Москва и Московская область',
     offers: {
       '@type': 'Offer',
@@ -34,15 +39,13 @@ const JSON_LD = [
       description: 'Бесшовный натяжной потолок под ключ за один день, цена за м²',
     },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: CEIL_FAQ.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  },
+  howToLd(
+    'Как проходит монтаж натяжного потолка',
+    'Четыре шага до готового потолка: заявка, замер и смета, подготовка полотна и монтаж за один день.',
+    CEIL_STEPS.map((s) => ({ title: s.title, text: s.text })),
+    'P1D',
+  ),
+  faqLd(CEIL_FAQ),
 ];
 
 const CeilingsPage = () => {
@@ -57,7 +60,7 @@ const CeilingsPage = () => {
         description="Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа."
         path="/ceilings"
         image={CEIL_IMG.hero}
-        jsonLd={JSON_LD}
+        jsonLd={buildJsonLd()}
       />
       <CeilHeader />
       <SiteSwitch />

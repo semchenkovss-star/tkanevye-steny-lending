@@ -29,30 +29,34 @@ import {
   ACOUSTIC_RESULTS,
   ACOUSTIC_STEPS,
 } from '@/lib/acoustics';
+import { breadcrumbsLd, faqLd, howToLd, organizationLd, websiteLd } from '@/lib/schema';
 
-const JSON_LD = [
+const buildJsonLd = () => [
+  organizationLd(),
+  websiteLd(),
+  breadcrumbsLd([{ name: 'Акустика под ключ', path: '/acoustics' }]),
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    name: 'Шумоизоляция комнаты под ключ',
     serviceType: 'Шумоизоляция и акустическая обработка помещения под ключ',
-    provider: { '@type': 'LocalBusiness', name: 'Полотно' },
+    provider: { '@id': `${window.location.origin}/#organization` },
     areaServed: 'Москва и Московская область',
     offers: {
       '@type': 'Offer',
       price: '2100',
       priceCurrency: 'RUB',
-      description: 'Звукоизоляция стен в квартире и акустическая обработка помещения под ключ, цена за м²',
+      description:
+        'Звукоизоляция стен в квартире и акустическая обработка помещения под ключ, цена за м²',
     },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: ACOUSTIC_FAQ.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  },
+  howToLd(
+    'Как проходит акустическая обработка помещения',
+    'Четыре шага: замер шумомером, подбор состава, смета с гарантией результата и монтаж стен и потолка.',
+    ACOUSTIC_STEPS.map((s) => ({ title: s.title, text: s.text })),
+    'P3D',
+  ),
+  faqLd(ACOUSTIC_FAQ),
 ];
 
 const AcousticsPage = () => {
@@ -67,7 +71,7 @@ const AcousticsPage = () => {
         description="Звукоизоляция стен в квартире под ключ: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–3 дня, контрольный замер."
         path="/acoustics"
         image={ACOUSTIC_IMG.hero}
-        jsonLd={JSON_LD}
+        jsonLd={buildJsonLd()}
       />
 
       <AcHeader />

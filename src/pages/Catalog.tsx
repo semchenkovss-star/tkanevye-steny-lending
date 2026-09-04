@@ -11,6 +11,7 @@ import CatalogCard from '@/components/catalog/CatalogCard';
 import SamplesDialog from '@/components/catalog/SamplesDialog';
 import AcousticGuide from '@/components/catalog/AcousticGuide';
 import { openSamples } from '@/lib/samples';
+import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
 import CatalogFilters, { EMPTY_FILTERS, Filters } from '@/components/catalog/CatalogFilters';
 import {
   CATALOG,
@@ -137,29 +138,78 @@ const CatalogPage = () => {
       : []),
   ];
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Каталог тканевых панелей и акустических тканей для стен',
-    itemListElement: list.map((i, n) => ({
-      '@type': 'ListItem',
-      position: n + 1,
-      item: {
-        '@type': 'Product',
-        name: i.name,
-        image: i.img,
-        description: i.description,
-        offers: {
-          '@type': 'Offer',
-          price: i.price,
-          priceCurrency: 'RUB',
-          availability: i.inStock
-            ? 'https://schema.org/InStock'
-            : 'https://schema.org/PreOrder',
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const jsonLd = [
+    organizationLd(),
+    websiteLd(),
+    breadcrumbsLd([{ name: 'Каталог тканей', path: '/catalog' }]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Каталог тканевых панелей и акустических тканей для стен',
+      numberOfItems: list.length,
+      itemListElement: list.map((i, n) => ({
+        '@type': 'ListItem',
+        position: n + 1,
+        item: {
+          '@type': 'Product',
+          '@id': `${origin}/catalog#fabric-${i.slug}`,
+          name: i.name,
+          image: i.img.startsWith('http') ? i.img : origin + i.img,
+          description: i.description,
+          url: `${origin}/catalog#fabric-${i.slug}`,
+          sku: i.slug,
+          material: i.material,
+          color: i.colorName,
+          width: i.width
+            ? { '@type': 'QuantitativeValue', value: i.width, unitCode: 'CMT' }
+            : undefined,
+          brand: { '@type': 'Brand', name: 'Тканевые стены' },
+          category: 'Ткани для стен и потолков',
+          additionalProperty: [
+            {
+              '@type': 'PropertyValue',
+              name: 'Шумопоглощение',
+              value: `${i.noise} дБ`,
+            },
+            {
+              '@type': 'PropertyValue',
+              name: 'Толщина конструкции',
+              value: `${i.thickness} мм`,
+            },
+            {
+              '@type': 'PropertyValue',
+              name: 'Гарантия',
+              value: `${i.warranty} ${i.warranty === 1 ? 'год' : i.warranty < 5 ? 'года' : 'лет'}`,
+            },
+            {
+              '@type': 'PropertyValue',
+              name: 'Стиль интерьера',
+              value: CONCEPTS.find((c) => c.id === i.concept)?.label ?? i.concept,
+            },
+          ],
+          offers: {
+            '@type': 'Offer',
+            price: i.price,
+            priceCurrency: 'RUB',
+            url: `${origin}/catalog#fabric-${i.slug}`,
+            priceValidUntil: '2027-12-31',
+            availability: i.inStock
+              ? 'https://schema.org/InStock'
+              : 'https://schema.org/PreOrder',
+            seller: { '@id': `${origin}/#organization` },
+            eligibleQuantity: {
+              '@type': 'QuantitativeValue',
+              unitCode: 'MTK',
+              unitText: 'м²',
+            },
+          },
         },
-      },
-    })),
-  };
+      })),
+    },
+  ];
+
+
 
   return (
     <div className="min-h-screen bg-background">

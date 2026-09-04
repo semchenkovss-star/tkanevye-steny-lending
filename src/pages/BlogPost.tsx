@@ -8,6 +8,7 @@ import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, getPost } from '@/data/blog';
+import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
 import { openLead } from '@/lib/lead';
 
 const BlogPostPage = () => {
@@ -39,33 +40,40 @@ const BlogPostPage = () => {
   const others = [...sameTag, ...pool.filter((p) => p.tag !== post.tag)].slice(0, 3);
 
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const wordCount = post.body.reduce(
+    (n, b) => n + b.p.reduce((k, t) => k + t.split(/\s+/).length, 0),
+    0,
+  );
+
   const jsonLd = [
+    organizationLd(),
+    websiteLd(),
     {
       '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: post.title,
-      description: post.excerpt,
-      image: post.img,
+      '@type': 'Article',
+      '@id': `${origin}/blog/${post.slug}#article`,
+      headline: post.seoTitle ?? post.title,
+      alternativeHeadline: post.title,
+      description: post.seoDescription ?? post.excerpt,
+      image: post.img.startsWith('http') ? post.img : origin + post.img,
       datePublished: post.date,
-      author: { '@type': 'Organization', name: 'Полотно' },
-      publisher: { '@type': 'Organization', name: 'Полотно' },
+      dateModified: post.date,
+      wordCount,
+      inLanguage: 'ru-RU',
+      author: { '@id': `${origin}/#organization` },
+      publisher: { '@id': `${origin}/#organization` },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${origin}/blog/${post.slug}`,
+      },
+      isPartOf: { '@id': `${origin}/blog#blog` },
       articleSection: post.tag,
       keywords: post.keywords,
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Главная', item: `${origin}/` },
-        { '@type': 'ListItem', position: 2, name: 'Блог', item: `${origin}/blog` },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: post.title,
-          item: `${origin}/blog/${post.slug}`,
-        },
-      ],
-    },
+    breadcrumbsLd([
+      { name: 'Блог', path: '/blog' },
+      { name: post.seoTitle ?? post.title, path: `/blog/${post.slug}` },
+    ]),
   ];
 
   return (

@@ -8,21 +8,36 @@ import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, BLOG_TOPICS, BlogTopicId, postsByTopic } from '@/data/blog';
+import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
 import { openLead } from '@/lib/lead';
 
-const JSON_LD = {
-  '@context': 'https://schema.org',
-  '@type': 'Blog',
-  name: 'Блог Полотно',
-  description: 'Статьи о тканевых стенах: технология, акустика, материалы и стоимость.',
-  blogPost: BLOG_POSTS.map((p) => ({
-    '@type': 'BlogPosting',
-    headline: p.title,
-    description: p.excerpt,
-    datePublished: p.date,
-    image: p.img,
-    url: `${typeof window !== 'undefined' ? window.location.origin : ''}/blog/${p.slug}`,
-  })),
+const buildJsonLd = () => {
+  const origin = window.location.origin;
+  return [
+    organizationLd(),
+    websiteLd(),
+    breadcrumbsLd([{ name: 'Блог', path: '/blog' }]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      '@id': `${origin}/blog#blog`,
+      name: 'Блог о тканевых стенах и потолках',
+      description:
+        'Статьи о тканевых стенах, натяжных потолках и акустике: технология, материалы и стоимость.',
+      url: `${origin}/blog`,
+      inLanguage: 'ru-RU',
+      publisher: { '@id': `${origin}/#organization` },
+      blogPost: BLOG_POSTS.map((p) => ({
+        '@type': 'BlogPosting',
+        headline: p.seoTitle ?? p.title,
+        description: p.excerpt,
+        datePublished: p.date,
+        image: p.img.startsWith('http') ? p.img : origin + p.img,
+        url: `${origin}/blog/${p.slug}`,
+        author: { '@id': `${origin}/#organization` },
+      })),
+    },
+  ];
 };
 
 const BlogPage = () => {
@@ -41,7 +56,7 @@ const BlogPage = () => {
         description="Как устроена тканевая стена и натяжной потолок, как убрать эхо, чем отличаются ткани и из чего складывается смета — статьи по делу."
         path="/blog"
         image={BLOG_POSTS[0].img}
-        jsonLd={JSON_LD}
+        jsonLd={buildJsonLd()}
       />
       <SiteSwitch />
       <header className="border-b border-border">
