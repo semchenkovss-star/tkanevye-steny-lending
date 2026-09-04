@@ -45,9 +45,9 @@ const Hero = () => {
         <header className="rule-bottom flex items-baseline justify-between gap-6 pb-4">
           <a
             href="#top"
-            className="font-display text-xl uppercase tracking-[0.16em] text-foreground"
-          >Тканевые Стены
-</a>
+            className="font-display text-xl uppercase tracking-[0.16em] text-foreground my-0 mx-0 px-0 py-0"
+          >fabric Wall
+тканевые стены</a>
           <nav className="hidden gap-7 md:flex">
             {NAV.map((item) => (
               <a key={item.href} href={item.href} className="nav-link">
