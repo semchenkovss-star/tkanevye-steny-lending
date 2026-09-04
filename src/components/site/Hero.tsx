@@ -43,11 +43,14 @@ const Hero = () => {
 
       <div className="shell-left relative z-[3] flex min-h-[100svh] w-full flex-col pb-28 pr-5 pt-7 sm:pr-8 md:w-[57%] md:pb-14 md:pr-14 md:pt-11">
         <header className="rule-bottom flex items-baseline justify-between gap-6 pb-4">
-          <a
-            href="#top"
-            className="font-display text-xl uppercase tracking-[0.16em] text-foreground my-0 mx-0 px-0 py-0"
-          >fabric Wall
-тканевые стены</a>
+          <a href="#top" className="flex shrink-0 flex-col leading-none">
+            <span className="whitespace-nowrap font-display text-[1.45rem] uppercase leading-none tracking-[0.1em] text-foreground sm:text-[1.7rem]">
+              Fabric<span className="text-primary-ink"> Wall</span>
+            </span>
+            <span className="mt-1.5 whitespace-nowrap text-[0.58rem] uppercase leading-none tracking-[0.26em] text-muted-foreground sm:text-[0.63rem]">
+              Тканевые стены
+            </span>
+          </a>
           <nav className="hidden gap-7 md:flex">
             {NAV.map((item) => (
               <a key={item.href} href={item.href} className="nav-link">
