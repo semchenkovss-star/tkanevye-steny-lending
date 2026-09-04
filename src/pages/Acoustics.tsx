@@ -226,13 +226,29 @@ const AcousticsPage = () => {
 
             <div className="mt-7 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
               {ACOUSTIC_PLACES.map((p) => (
-                <article key={p.title} className="flex flex-col bg-card p-6 sm:p-7">
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('ac-place', { detail: p.id }));
+                    document.getElementById('ac-calc')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="group flex flex-col bg-card p-6 text-left transition-colors hover:bg-secondary sm:p-7"
+                >
                   <Icon name={p.icon} size={24} className="shrink-0 text-primary-ink" />
                   <h4 className="mt-4 font-display text-lg uppercase leading-tight tracking-wide text-foreground sm:text-xl">
                     {p.title}
                   </h4>
                   <p className="mt-3 text-sm leading-[1.6] text-muted-foreground">{p.text}</p>
-                </article>
+                  <span className="mt-4 flex items-center gap-1.5 text-xs uppercase tracking-[0.1em] text-primary-ink">
+                    Рассчитать
+                    <Icon
+                      name="ArrowRight"
+                      size={14}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </span>
+                </button>
               ))}
             </div>
           </div>

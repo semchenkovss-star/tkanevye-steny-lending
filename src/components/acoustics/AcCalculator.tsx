@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { ACOUSTIC_PLACES } from '@/lib/acoustics';
 
 const money = (v: number) => Math.round(v).toLocaleString('ru-RU') + ' ₽';
 
@@ -32,20 +33,36 @@ const EXTRAS = [
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
 const AcCalculator = () => {
-  const [area, setArea] = useState(16);
+  const [placeId, setPlaceId] = useState('flat');
+  const [area, setArea] = useState(18);
   const [height, setHeight] = useState(2.7);
-  const [goalId, setGoalId] = useState<string>('echo');
+  const [goalId, setGoalId] = useState<string>('noise');
   const [extras, setExtras] = useState<string[]>([]);
 
+  const place = ACOUSTIC_PLACES.find((p) => p.id === placeId) ?? ACOUSTIC_PLACES[0];
   const goal = GOALS.find((g) => g.id === goalId) ?? GOALS[0];
+
+  const pickPlace = (id: string) => {
+    const p = ACOUSTIC_PLACES.find((x) => x.id === id);
+    if (!p) return;
+    setPlaceId(id);
+    setArea(p.area);
+    setGoalId(p.goal);
+    setExtras((prev) => {
+      const rest = prev.filter((e) => e !== 'ceiling');
+      return p.ceiling ? [...rest, 'ceiling'] : rest;
+    });
+  };
+
+  const rate = goal.rate + place.extraRate;
 
   const wallArea = useMemo(() => {
     const side = Math.sqrt(area);
     const perimeter = side * 4;
-    return Number((perimeter * height * goal.coverage).toFixed(1));
-  }, [area, height, goal]);
+    return Number((perimeter * height * goal.coverage * place.factor).toFixed(1));
+  }, [area, height, goal, place]);
 
-  const wallSum = wallArea * goal.rate;
+  const wallSum = wallArea * rate;
   const ceilSum = extras.includes('ceiling') ? area * 1900 : 0;
   const doorSum = extras.includes('door') ? 18000 : 0;
   const total = wallSum + ceilSum + doorSum;
@@ -53,14 +70,25 @@ const AcCalculator = () => {
   const days = useMemo(() => {
     let d = goal.id === 'noise' ? 2 : 1;
     if (wallArea > 30) d += 1;
+    if (wallArea > 80) d += 2;
+    if (wallArea > 160) d += 2;
     if (extras.includes('ceiling')) d += 1;
     return d;
   }, [goal, wallArea, extras]);
 
+  useEffect(() => {
+    const onPick = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      if (ACOUSTIC_PLACES.some((p) => p.id === id)) pickPlace(id);
+    };
+    window.addEventListener('ac-place', onPick);
+    return () => window.removeEventListener('ac-place', onPick);
+  }, []);
+
   const toggle = (id: string) =>
     setExtras((p) => (p.includes(id) ? p.filter((e) => e !== id) : [...p, id]));
 
-  const summary = `Акустика: комната ${area} м², высота ${height} м, задача «${goal.name}», обработка ${wallArea} м² стен${
+  const summary = `Акустика: ${place.title}, ${area} м², высота ${height} м, задача «${goal.name}», обработка ${wallArea} м² стен${
     extras.includes('ceiling') ? ' + потолок' : ''
   }${extras.includes('door') ? ' + дверь' : ''} — ${money(total)}, срок ${days} дн.`;
 
@@ -70,10 +98,43 @@ const AcCalculator = () => {
       index="05"
       eyebrow="Калькулятор"
       title={<>Посчитайте стоимость тишины</>}
-      lead="Укажите площадь комнаты и задачу — стоимость шумоизоляции комнаты под ключ появится сразу. Это ориентир: точную смету считает замерщик после замера шума."
+      lead="Выберите тип помещения, площадь и задачу — стоимость появится сразу с учётом специфики объекта. Это ориентир: точную смету считает замерщик после замера шума."
     >
       <div className="grid min-w-0 gap-px border border-border bg-border lg:grid-cols-12">
         <div className="min-w-0 bg-card p-5 sm:p-8 lg:col-span-7 lg:p-10">
+          <div className="mb-9">
+            <div className="mb-3 text-sm text-muted-foreground">Тип помещения</div>
+            <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+              {ACOUSTIC_PLACES.map((p) => {
+                const active = p.id === placeId;
+                return (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => pickPlace(p.id)}
+                    aria-pressed={active}
+                    className={`flex min-h-[52px] items-center gap-2.5 p-3.5 text-left transition-colors ${
+                      active
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-card text-foreground hover:bg-secondary'
+                    }`}
+                  >
+                    <Icon
+                      name={p.icon}
+                      size={18}
+                      className={`shrink-0 ${active ? '' : 'text-primary-ink'}`}
+                    />
+                    <span className="text-[0.85rem] leading-[1.25]">{p.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-3 flex gap-2 text-xs leading-[1.5] text-muted-foreground">
+              <Icon name="Info" size={14} className="mt-0.5 shrink-0 text-primary-ink" />
+              {place.note}
+            </p>
+          </div>
+
           <div className="grid min-w-0 gap-6 sm:grid-cols-2">
             <div>
               <label htmlFor="ac-area" className="mb-2 block text-sm text-muted-foreground">
@@ -175,7 +236,7 @@ const AcCalculator = () => {
                         active ? 'text-primary-foreground/80' : 'text-muted-foreground'
                       }`}
                     >
-                      {g.rate.toLocaleString('ru-RU')} ₽/м²
+                      {(g.rate + place.extraRate).toLocaleString('ru-RU')} ₽/м²
                     </div>
                     <div
                       className={`mt-3 text-xs leading-[1.4] ${
@@ -241,10 +302,15 @@ const AcCalculator = () => {
             Срок работ: <b className="text-background">{days} дн.</b>
           </div>
 
+          <div className="mt-3 flex items-center gap-2 text-sm text-background/70">
+            <Icon name={place.icon} size={16} className="text-primary" />
+            {place.title}
+          </div>
+
           <dl className="mt-8 space-y-3 border-t border-background/15 pt-6 text-sm">
             <div className="flex items-baseline justify-between gap-4">
               <dt className="text-background/60">
-                Стены {wallArea} м² × {goal.rate.toLocaleString('ru-RU')} ₽
+                Стены {wallArea} м² × {rate.toLocaleString('ru-RU')} ₽
               </dt>
               <dd className="whitespace-nowrap">{money(wallSum)}</dd>
             </div>
