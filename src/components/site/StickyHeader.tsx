@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import CalcButton from '@/components/site/CalcButton';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const LINKS = [
@@ -85,6 +86,7 @@ const StickyHeader = () => {
             >
               <Icon name="Phone" size={18} />
             </a>
+            <CalcButton to="#calc" className="hidden md:flex" />
             <button
               type="button"
               onClick={() => openLead('Шапка')}
@@ -149,6 +151,14 @@ const StickyHeader = () => {
             >
               Замер
             </button>
+            <a
+              href="#calc"
+              onClick={() => setOpen(false)}
+              className="mt-4 flex items-center justify-center gap-2 border border-border py-4 font-display text-2xl uppercase tracking-[0.04em] text-foreground"
+            >
+              <Icon name="Calculator" size={20} className="text-primary" />
+              Рассчитать
+            </a>
             <a
               href={PHONE_HREF}
               className="mt-6 flex items-center justify-center gap-2 border border-border py-4 font-display text-2xl uppercase tracking-[0.02em] text-foreground"

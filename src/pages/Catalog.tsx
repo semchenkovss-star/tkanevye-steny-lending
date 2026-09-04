@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
+import CalcButton from '@/components/site/CalcButton';
 import Footer from '@/components/site/Footer';
 import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
@@ -173,13 +174,16 @@ const CatalogPage = () => {
       <header className="border-b border-border">
         <div className="shell flex h-16 items-center justify-between gap-6">
           <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">Архитектурный текстиль</Link>
-          <Link
+          <div className="flex items-center gap-3">
+            <CalcButton className="hidden sm:flex" />
+            <Link
             to="/"
             className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Icon name="ArrowLeft" size={16} />
             На главную
           </Link>
+          </div>
         </div>
       </header>
 

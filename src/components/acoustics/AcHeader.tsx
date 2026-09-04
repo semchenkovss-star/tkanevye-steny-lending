@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import CalcButton from '@/components/site/CalcButton';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 
 const LINKS = [
@@ -78,6 +79,7 @@ const AcHeader = () => {
               <Icon name="Phone" size={17} className="text-primary" />
               {PHONE_DISPLAY}
             </a>
+            <CalcButton to="#ac-calc" className="hidden md:flex" />
             <button
               type="button"
               onClick={() => openLead('Акустика — шапка')}

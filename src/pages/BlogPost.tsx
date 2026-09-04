@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
+import CalcButton from '@/components/site/CalcButton';
 import Footer from '@/components/site/Footer';
 import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
@@ -83,13 +84,16 @@ const BlogPostPage = () => {
           <Link to="/" className="font-display text-xl uppercase tracking-[0.16em]">
             Полотно
           </Link>
-          <Link
+          <div className="flex items-center gap-3">
+            <CalcButton className="hidden sm:flex" />
+            <Link
             to="/blog"
             className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Icon name="ArrowLeft" size={16} />
             Все статьи
           </Link>
+          </div>
         </div>
       </header>
 
