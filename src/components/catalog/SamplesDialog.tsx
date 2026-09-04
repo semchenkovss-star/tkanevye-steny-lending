@@ -342,7 +342,8 @@ const SamplesDialog = () => {
             <div className="border-t border-border bg-card p-5 sm:px-9 sm:py-6">
               <button
                 type="submit"
-                className="w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+                disabled={!agree}
+                className="w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
               >
                 Заказать образцы
               </button>

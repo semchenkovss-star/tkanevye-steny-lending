@@ -144,7 +144,8 @@ const LeadForm = ({
 
       <button
         type="submit"
-        className="mt-6 w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+        disabled={!agree}
+        className="mt-6 w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
       >
         Записаться на замер
       </button>
