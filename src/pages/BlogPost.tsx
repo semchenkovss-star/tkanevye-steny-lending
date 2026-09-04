@@ -31,7 +31,9 @@ const BlogPostPage = () => {
     );
   }
 
-  const others = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const rest = BLOG_POSTS.filter((p) => p.slug !== post.slug);
+  const sameTag = rest.filter((p) => p.tag === post.tag);
+  const others = [...sameTag, ...rest.filter((p) => p.tag !== post.tag)].slice(0, 3);
 
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const jsonLd = [
@@ -183,6 +185,9 @@ const BlogPostPage = () => {
           <h2 className="font-display text-[2rem] uppercase leading-none tracking-wide">
             Читайте также
           </h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Ещё материалы в рубрике «{post.tag}»
+          </p>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             {others.map((p) => (
               <Link
@@ -210,6 +215,20 @@ const BlogPostPage = () => {
                 </div>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-12 flex flex-col items-start gap-4 border border-border bg-secondary p-8 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-[30em] text-sm leading-[1.6] text-muted-foreground">
+              Прикиньте бюджет своей комнаты за минуту — калькулятор считает по площади, ткани и
+              наполнению.
+            </p>
+            <Link
+              to="/#calc"
+              className="flex items-center justify-center gap-2 whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+            >
+              Рассчитать стоимость
+              <Icon name="Calculator" size={18} />
+            </Link>
           </div>
         </div>
       </main>

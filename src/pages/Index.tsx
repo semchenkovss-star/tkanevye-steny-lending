@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Seo from '@/components/Seo';
 import { QUESTIONS } from '@/components/site/Faq';
 import StickyHeader from '@/components/site/StickyHeader';
@@ -65,6 +66,15 @@ const JSON_LD = [
 ];
 
 const Index = () => {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) {
+      requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Seo
