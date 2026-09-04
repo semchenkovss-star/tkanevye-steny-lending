@@ -34,10 +34,11 @@ const FloatingCta = () => {
       <a
         href={PHONE_HREF}
         aria-label={`Позвонить ${PHONE_DISPLAY}`}
-        className="flex items-center gap-2 border border-border bg-background px-5 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground shadow-[0_10px_40px_-12px_rgba(28,28,26,0.4)] transition-colors hover:bg-secondary"
+        title={PHONE_DISPLAY}
+        className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_10px_40px_-12px_rgba(28,28,26,0.6)] transition-colors hover:bg-foreground sm:h-16 sm:w-16"
       >
-        <Icon name="Phone" size={20} className="text-primary" />
-        <span className="hidden lg:inline">{PHONE_DISPLAY}</span>
+        <span className="absolute inset-0 animate-ping rounded-full bg-primary/40" />
+        <Icon name="Phone" size={24} className="relative" />
       </a>
       <button
         type="button"

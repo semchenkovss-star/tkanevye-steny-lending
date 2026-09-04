@@ -4,6 +4,26 @@ import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
 import Seo from '@/components/Seo';
 import Footer from '@/components/site/Footer';
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
+
+const linkify = (text: string) => {
+  const parts = text.split(new RegExp(`(${PHONE_DISPLAY.replace(/[()+]/g, '\\$&')}|${EMAIL})`, 'g'));
+  return parts.map((part, i) => {
+    if (part === PHONE_DISPLAY)
+      return (
+        <a key={i} href={PHONE_HREF} className="text-foreground underline underline-offset-2">
+          {part}
+        </a>
+      );
+    if (part === EMAIL)
+      return (
+        <a key={i} href={EMAIL_HREF} className="text-foreground underline underline-offset-2">
+          {part}
+        </a>
+      );
+    return part;
+  });
+};
 
 const SECTIONS = [
   {
@@ -156,7 +176,7 @@ const Privacy = () => {
                   </h2>
                   {s.p.map((text, k) => (
                     <p key={k} className="mb-4 text-base leading-[1.75] text-muted-foreground">
-                      {text}
+                      {linkify(text)}
                     </p>
                   ))}
                 </section>
