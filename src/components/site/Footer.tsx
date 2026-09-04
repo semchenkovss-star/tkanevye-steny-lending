@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import SocialLinks from '@/components/site/SocialLinks';
 import {
   ADDRESS,
   EMAIL,
@@ -148,6 +149,10 @@ const Footer = () => {
             >
               {EMAIL}
             </a>
+            <h4 className="mt-6 font-display text-base uppercase tracking-[0.14em] text-background/80">
+              Мы в соцсетях
+            </h4>
+            <SocialLinks className="mt-3" />
           </div>
         </div>
 
