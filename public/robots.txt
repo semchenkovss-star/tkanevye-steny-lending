@@ -23,4 +23,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://xn--80aeibazwe8adh9hf.xn--p1acf/sitemap.xml
+Sitemap: https://fabricwall.ru/sitemap.xml

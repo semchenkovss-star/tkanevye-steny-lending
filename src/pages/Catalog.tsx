@@ -215,7 +215,7 @@ const CatalogPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Акустические ткани для стен: каталог и цены за м² | Полотно"
+        title="Акустические ткани для стен: каталог и цены за м² | Fabric Wall"
         description="Ткани для стен и потолков: лён, велюр, рогожка, микрошенилл. Фильтр по стилю, помещению и цене. Шумоизоляция до −11 дБ, образцы на дом."
         path="/catalog"
         jsonLd={jsonLd}

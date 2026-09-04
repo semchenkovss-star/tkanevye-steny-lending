@@ -80,7 +80,7 @@ const BlogPostPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title={`${post.seoTitle ?? post.title} | Полотно`}
+        title={`${post.seoTitle ?? post.title} | Fabric Wall`}
         description={post.seoDescription ?? post.excerpt}
         path={`/blog/${post.slug}`}
         image={post.img}

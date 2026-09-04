@@ -67,7 +67,7 @@ const AcousticsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Шумоизоляция комнаты под ключ в Москве | Полотно"
+        title="Шумоизоляция комнаты под ключ в Москве | Fabric Wall"
         description="Звукоизоляция стен в квартире под ключ: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–3 дня, контрольный замер."
         path="/acoustics"
         image={ACOUSTIC_IMG.hero}

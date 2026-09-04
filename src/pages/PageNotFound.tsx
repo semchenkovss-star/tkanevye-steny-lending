@@ -23,7 +23,7 @@ const PageNotFound = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Seo
-        title="Страница не найдена — 404 | Полотно"
+        title="Страница не найдена — 404 | Fabric Wall"
         description="Такой страницы нет. Вернитесь на главную или выберите нужный раздел сайта."
         path={location.pathname}
         noindex

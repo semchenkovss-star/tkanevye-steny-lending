@@ -53,7 +53,7 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Блог: тканевые стены, потолки и акустика | Полотно"
+        title="Блог: тканевые стены, потолки и акустика | Fabric Wall"
         description="Как устроена тканевая стена и натяжной потолок, как убрать эхо, чем отличаются ткани и из чего складывается смета — статьи по делу."
         path="/blog"
         image={BLOG_POSTS[0].img}

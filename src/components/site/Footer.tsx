@@ -158,7 +158,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-background/15 pt-8 text-xs text-background/45 sm:flex-row sm:items-center sm:justify-between">
-          <span>© Тканевыестены.рус 2026</span>
+          <span>© Fabric Wall · fabricwall.ru, {new Date().getFullYear()}</span>
           <div className="flex flex-wrap items-center gap-4">
             <Link to="/privacy" className="-my-1.5 inline-flex min-h-[44px] items-center py-1.5 transition-colors hover:text-primary">
               Политика конфиденциальности

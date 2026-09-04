@@ -9,7 +9,7 @@ import {
   WORK_HOURS,
 } from '@/lib/contacts';
 
-export const SITE_NAME = 'Тканевые стены';
+export const SITE_NAME = 'Fabric Wall';
 export const LEGAL_DESCRIPTION =
   'Установка натяжных тканевых стен и потолков на скрытом каркасе в Москве и области. Тихие стены со звукопоглощением, монтаж за 1–2 дня без пыли и мокрых работ.';
 
