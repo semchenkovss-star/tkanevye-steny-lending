@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
-import { BLOG_POSTS } from '@/data/blog';
+import { WALL_POSTS } from '@/data/blog';
 
 const Blog = () => {
-  const posts = BLOG_POSTS.slice(0, 3);
+  const posts = WALL_POSTS.slice(0, 3);
 
   return (
     <Section

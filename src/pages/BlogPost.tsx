@@ -33,8 +33,10 @@ const BlogPostPage = () => {
   }
 
   const rest = BLOG_POSTS.filter((p) => p.slug !== post.slug);
-  const sameTag = rest.filter((p) => p.tag === post.tag);
-  const others = [...sameTag, ...rest.filter((p) => p.tag !== post.tag)].slice(0, 3);
+  const sameTopic = rest.filter((p) => p.topic === post.topic);
+  const pool = sameTopic.length >= 3 ? sameTopic : rest;
+  const sameTag = pool.filter((p) => p.tag === post.tag);
+  const others = [...sameTag, ...pool.filter((p) => p.tag !== post.tag)].slice(0, 3);
 
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const jsonLd = [
