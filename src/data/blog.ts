@@ -1649,3 +1649,22 @@ export const getPost = (slug?: string) => BLOG_POSTS.find((p) => p.slug === slug
 
 export const CEILING_POSTS = BLOG_POSTS.filter((p) => p.topic === 'ceilings');
 export const WALL_POSTS = BLOG_POSTS.filter((p) => p.topic !== 'ceilings');
+
+const ACOUSTIC_SLUGS = [
+  'tihie-steny-2026',
+  'kak-ubrat-eho',
+  'udarnyj-shum-ot-sosedej',
+  'effekt-barabana-novostrojka',
+  'akustika-domashnego-kinoteatra',
+  'akustika-ofisa',
+  'spalnya-shum-lifta',
+  'detskaya-shumoizolyaciya',
+  'shumoizolyaciya-pod-natyazhnym-potolkom',
+  'tkan-ili-vojlok',
+  'tihie-steny-2026-gaid',
+  'oshibki-montazha',
+];
+
+export const ACOUSTIC_POSTS = ACOUSTIC_SLUGS.map(
+  (s) => BLOG_POSTS.find((p) => p.slug === s),
+).filter((p): p is BlogPost => Boolean(p));

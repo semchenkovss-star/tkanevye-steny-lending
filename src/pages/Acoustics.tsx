@@ -12,6 +12,7 @@ import AcHeader from '@/components/acoustics/AcHeader';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import AcCases from '@/components/acoustics/AcCases';
 import Services from '@/components/site/Services';
+import AcBlog from '@/components/acoustics/AcBlog';
 import {
   Accordion,
   AccordionContent,
@@ -229,9 +230,11 @@ const AcousticsPage = () => {
 
         <Services index="06" />
 
+        <AcBlog />
+
         <Section
           id="ac-faq"
-          index="07"
+          index="08"
           eyebrow="Частые вопросы"
           title={<>Что спрашивают перед замером</>}
           tone="surface"
@@ -258,7 +261,7 @@ const AcousticsPage = () => {
           <div className="shell py-16 sm:py-20 lg:py-28">
             <div className="grid gap-12 lg:grid-cols-12">
               <div className="lg:col-span-5">
-                <span className="font-display text-sm tracking-[0.2em] text-primary">08</span>
+                <span className="font-display text-sm tracking-[0.2em] text-primary">09</span>
                 <h2 className="mt-4 max-w-[12em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] sm:text-[3.25rem]">
                   Замер шума бесплатно
                 </h2>
