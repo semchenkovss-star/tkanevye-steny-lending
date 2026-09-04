@@ -27,14 +27,14 @@ const CtaForm = () => {
       >
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <span className="font-display text-sm tracking-[0.2em] text-primary">13</span>
+            <span className="font-display text-sm tracking-[0.2em] text-primary-ink">13</span>
             <h2 className="mt-4 max-w-[12em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
               Замер и смета за 24 часа
             </h2>
             <ul className="mt-8 space-y-4">
               {PROMISES.map((p) => (
                 <li key={p} className="flex gap-3 text-[0.95rem] leading-[1.55]">
-                  <Icon name="Check" size={18} className="mt-0.5 shrink-0 text-primary" />
+                  <Icon name="Check" size={18} className="mt-0.5 shrink-0 text-primary-ink" />
                   <span className="text-muted-foreground">{p}</span>
                 </li>
               ))}
@@ -46,9 +46,9 @@ const CtaForm = () => {
               </div>
               <a
                 href={PHONE_HREF}
-                className="mt-3 flex items-center gap-3 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary sm:text-[2.5rem]"
+                className="mt-3 flex items-center gap-3 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary-ink sm:text-[2.5rem]"
               >
-                <Icon name="Phone" size={26} className="text-primary" />
+                <Icon name="Phone" size={26} className="text-primary-ink" />
                 {PHONE_DISPLAY}
               </a>
               <p className="mt-3 text-sm text-muted-foreground">{WORK_HOURS}</p>

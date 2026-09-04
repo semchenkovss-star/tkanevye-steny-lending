@@ -65,7 +65,7 @@ const LeadDialog = () => {
 
         {summary && (
           <div className="mt-5 flex gap-3 border border-border bg-secondary p-4">
-            <Icon name="Calculator" size={18} className="mt-0.5 shrink-0 text-primary" />
+            <Icon name="Calculator" size={18} className="mt-0.5 shrink-0 text-primary-ink" />
             <p className="text-sm leading-[1.5] text-foreground">
               <span className="block text-xs uppercase tracking-[0.12em] text-muted-foreground">
                 Ваш расчёт

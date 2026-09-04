@@ -50,7 +50,7 @@ const Check = ({
     type="button"
     onClick={onClick}
     aria-pressed={active}
-    className="flex w-full items-center gap-3 py-2 text-left text-[0.95rem] text-foreground transition-colors hover:text-primary"
+    className="flex w-full items-center gap-3 py-2 text-left text-[0.95rem] text-foreground transition-colors hover:text-primary-ink"
   >
     <span
       className={`flex h-5 w-5 shrink-0 items-center justify-center border transition-colors ${
@@ -96,7 +96,7 @@ const CatalogFilters = ({ value, onChange, total }: Props) => {
           <button
             type="button"
             onClick={() => onChange(EMPTY_FILTERS)}
-            className="text-sm text-muted-foreground underline underline-offset-2 transition-colors hover:text-primary"
+            className="text-sm text-muted-foreground underline underline-offset-2 transition-colors hover:text-primary-ink"
           >
             Сбросить
           </button>
@@ -115,8 +115,8 @@ const CatalogFilters = ({ value, onChange, total }: Props) => {
                 onClick={() => onChange({ ...value, tones: toggle(value.tones, t.id) })}
                 className={`flex items-center gap-2 border px-3 py-2 text-sm transition-colors ${
                   active
-                    ? 'border-primary text-primary'
-                    : 'border-border text-foreground hover:border-primary hover:text-primary'
+                    ? 'border-primary text-primary-ink'
+                    : 'border-border text-foreground hover:border-primary hover:text-primary-ink'
                 }`}
               >
                 <span

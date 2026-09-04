@@ -26,7 +26,7 @@ const CookieNotice = () => {
         <p className="max-w-[52em] text-sm leading-[1.6] text-muted-foreground">
           Мы используем файлы cookie, чтобы сайт работал корректно и удобно. Продолжая пользоваться
           сайтом, вы соглашаетесь с обработкой персональных данных в соответствии с{' '}
-          <Link to="/privacy" className="text-foreground underline underline-offset-4 hover:text-primary">
+          <Link to="/privacy" className="text-foreground underline underline-offset-4 hover:text-primary-ink">
             политикой конфиденциальности
           </Link>
           .
@@ -34,7 +34,7 @@ const CookieNotice = () => {
         <button
           type="button"
           onClick={accept}
-          className="whitespace-nowrap bg-primary px-7 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+          className="whitespace-nowrap bg-primary px-7 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
         >
           Хорошо
         </button>

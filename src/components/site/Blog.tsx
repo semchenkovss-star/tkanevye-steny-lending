@@ -32,14 +32,14 @@ const Blog = () => {
             </div>
             <div className="flex flex-1 flex-col p-6">
               <div className="flex items-center gap-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                <span className="text-primary">{p.tag}</span>
+                <span className="text-primary-ink">{p.tag}</span>
                 <span>{p.readTime}</span>
               </div>
               <h3 className="mt-4 font-display text-[1.5rem] uppercase leading-[1.05] tracking-wide text-foreground">
                 {p.title}
               </h3>
               <p className="mt-3 text-sm leading-[1.6] text-muted-foreground">{p.excerpt}</p>
-              <span className="mt-6 flex items-center gap-2 text-sm text-foreground transition-colors group-hover:text-primary">
+              <span className="mt-6 flex items-center gap-2 text-sm text-foreground transition-colors group-hover:text-primary-ink">
                 Читать
                 <Icon name="ArrowRight" size={16} />
               </span>

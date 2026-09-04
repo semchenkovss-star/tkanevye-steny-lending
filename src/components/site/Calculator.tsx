@@ -123,7 +123,7 @@ const Calculator = () => {
           </div>
 
           <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-            <Icon name="Ruler" size={16} className="text-primary" />
+            <Icon name="Ruler" size={16} className="text-primary-ink" />
             Площадь полотна: <b className="text-foreground">{area} м²</b>
           </div>
 

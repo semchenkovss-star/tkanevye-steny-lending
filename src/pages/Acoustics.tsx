@@ -142,7 +142,7 @@ const AcousticsPage = () => {
           <div className="grid gap-px border border-border bg-border md:grid-cols-3">
             {ACOUSTIC_PAINS.map((p) => (
               <div key={p.title} className="bg-card p-7 sm:p-9">
-                <Icon name={p.icon} size={26} className="text-primary" />
+                <Icon name={p.icon} size={26} className="text-primary-ink" />
                 <h3 className="mt-6 font-display text-2xl uppercase leading-tight tracking-wide">
                   {p.title}
                 </h3>
@@ -163,7 +163,7 @@ const AcousticsPage = () => {
           <div className="grid gap-px border border-border bg-border sm:grid-cols-2 xl:grid-cols-5">
             {ACOUSTIC_STEPS.map((s) => (
               <div key={s.n} className="bg-card p-6">
-                <span className="font-display text-sm tracking-[0.2em] text-primary">{s.n}</span>
+                <span className="font-display text-sm tracking-[0.2em] text-primary-ink">{s.n}</span>
                 <h3 className="mt-4 font-display text-xl uppercase leading-tight tracking-wide">
                   {s.title}
                 </h3>
@@ -203,7 +203,7 @@ const AcousticsPage = () => {
                   <ul className="mt-6 space-y-3">
                     {c.facts.map((f) => (
                       <li key={f} className="flex gap-3 text-sm leading-[1.5]">
-                        <Icon name="Check" size={17} className="mt-0.5 shrink-0 text-primary" />
+                        <Icon name="Check" size={17} className="mt-0.5 shrink-0 text-primary-ink" />
                         {f}
                       </li>
                     ))}
@@ -216,14 +216,14 @@ const AcousticsPage = () => {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               to="/catalog?material[]=Акустик"
-              className="flex items-center gap-2 border border-border bg-card px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="flex items-center gap-2 border border-border bg-card px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary-ink"
             >
               Акустические ткани в каталоге
               <Icon name="ArrowRight" size={18} />
             </Link>
             <Link
               to="/ceilings"
-              className="flex items-center gap-2 border border-border bg-card px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="flex items-center gap-2 border border-border bg-card px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary-ink"
             >
               Акустические потолки
               <Icon name="ArrowRight" size={18} />
@@ -266,7 +266,7 @@ const AcousticsPage = () => {
           <div className="shell py-16 sm:py-20 lg:py-28">
             <div className="grid gap-12 lg:grid-cols-12">
               <div className="lg:col-span-5">
-                <span className="font-display text-sm tracking-[0.2em] text-primary">09</span>
+                <span className="font-display text-sm tracking-[0.2em] text-primary-ink">09</span>
                 <h2 className="mt-4 max-w-[12em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] sm:text-[3.25rem]">
                   Замер шума бесплатно
                 </h2>
@@ -278,7 +278,7 @@ const AcousticsPage = () => {
                     'Контрольный замер после монтажа и протокол на руки',
                   ].map((p) => (
                     <li key={p} className="flex gap-3 text-[0.95rem] leading-[1.55]">
-                      <Icon name="Check" size={18} className="mt-0.5 shrink-0 text-primary" />
+                      <Icon name="Check" size={18} className="mt-0.5 shrink-0 text-primary-ink" />
                       <span className="text-muted-foreground">{p}</span>
                     </li>
                   ))}
@@ -290,9 +290,9 @@ const AcousticsPage = () => {
                   </div>
                   <a
                     href={PHONE_HREF}
-                    className="mt-3 flex items-center gap-3 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary sm:text-[2.5rem]"
+                    className="mt-3 flex items-center gap-3 font-display text-[2rem] uppercase leading-none tracking-[0.01em] text-foreground transition-colors hover:text-primary-ink sm:text-[2.5rem]"
                   >
-                    <Icon name="Phone" size={26} className="text-primary" />
+                    <Icon name="Phone" size={26} className="text-primary-ink" />
                     {PHONE_DISPLAY}
                   </a>
                   <p className="mt-3 text-sm text-muted-foreground">{WORK_HOURS}</p>

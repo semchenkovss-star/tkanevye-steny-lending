@@ -117,7 +117,7 @@ const BlogPage = () => {
           </div>
           <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
             <div className="flex items-center gap-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-              <span className="text-primary">{lead.tag}</span>
+              <span className="text-primary-ink">{lead.tag}</span>
               <span>{lead.dateLabel}</span>
               <span>{lead.readTime}</span>
             </div>
@@ -127,7 +127,7 @@ const BlogPage = () => {
             <p className="mt-4 max-w-[32em] text-base leading-[1.6] text-muted-foreground">
               {lead.excerpt}
             </p>
-            <span className="mt-8 flex items-center gap-2 text-sm text-foreground transition-colors group-hover:text-primary">
+            <span className="mt-8 flex items-center gap-2 text-sm text-foreground transition-colors group-hover:text-primary-ink">
               Читать статью
               <Icon name="ArrowRight" size={16} />
             </span>
@@ -151,14 +151,14 @@ const BlogPage = () => {
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center gap-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  <span className="text-primary">{p.tag}</span>
+                  <span className="text-primary-ink">{p.tag}</span>
                   <span>{p.readTime}</span>
                 </div>
                 <h3 className="mt-4 font-display text-[1.5rem] uppercase leading-[1.05] tracking-wide">
                   {p.title}
                 </h3>
                 <p className="mt-3 text-sm leading-[1.6] text-muted-foreground">{p.excerpt}</p>
-                <span className="mt-6 flex items-center gap-2 text-sm transition-colors group-hover:text-primary">
+                <span className="mt-6 flex items-center gap-2 text-sm transition-colors group-hover:text-primary-ink">
                   Читать
                   <Icon name="ArrowRight" size={16} />
                 </span>
@@ -181,7 +181,7 @@ const BlogPage = () => {
             <button
               type="button"
               onClick={() => openLead('Блог')}
-              className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+              className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               Записаться на замер
             </button>

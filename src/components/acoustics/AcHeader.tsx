@@ -74,16 +74,16 @@ const AcHeader = () => {
           <div className="flex items-center gap-4">
             <a
               href={PHONE_HREF}
-              className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary md:flex"
+              className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary-ink md:flex"
             >
-              <Icon name="Phone" size={17} className="text-primary" />
+              <Icon name="Phone" size={17} className="text-primary-ink" />
               {PHONE_DISPLAY}
             </a>
             <CalcButton to="#ac-calc" className="hidden md:flex" />
             <button
               type="button"
               onClick={() => openLead('Акустика — шапка')}
-              className="hidden bg-primary px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground sm:block"
+              className="hidden bg-primary px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover sm:block"
             >
               Замер
             </button>

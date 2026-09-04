@@ -74,9 +74,9 @@ const StickyHeader = () => {
           <div className="flex items-center gap-4">
             <a
               href={PHONE_HREF}
-              className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary md:flex"
+              className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary-ink md:flex"
             >
-              <Icon name="Phone" size={17} className="text-primary" />
+              <Icon name="Phone" size={17} className="text-primary-ink" />
               {PHONE_DISPLAY}
             </a>
             <a
@@ -90,7 +90,7 @@ const StickyHeader = () => {
             <button
               type="button"
               onClick={() => openLead('Шапка')}
-              className="hidden bg-primary px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground sm:block"
+              className="hidden bg-primary px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover sm:block"
             >
               Замер
             </button>
@@ -163,7 +163,7 @@ const StickyHeader = () => {
               href={PHONE_HREF}
               className="mt-6 flex items-center justify-center gap-2 border border-border py-4 font-display text-2xl uppercase tracking-[0.02em] text-foreground"
             >
-              <Icon name="Phone" size={20} className="text-primary" />
+              <Icon name="Phone" size={20} className="text-primary-ink" />
               {PHONE_DISPLAY}
             </a>
             <span className="mt-3 text-center text-xs text-muted-foreground">{WORK_HOURS}</span>

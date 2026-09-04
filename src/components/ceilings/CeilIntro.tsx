@@ -54,7 +54,7 @@ export const CeilWhat = () => (
         <div className="divide-y divide-border border-y border-border">
           {CEIL_LAYERS.map((l) => (
             <div key={l.n} className="flex gap-6 py-7">
-              <span className="font-display text-2xl leading-none text-primary">{l.n}</span>
+              <span className="font-display text-2xl leading-none text-primary-ink">{l.n}</span>
               <div>
                 <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
                   {l.title}
@@ -66,7 +66,7 @@ export const CeilWhat = () => (
         </div>
 
         <div className="mt-8 flex items-start gap-4 bg-secondary p-6">
-          <Icon name="Info" size={20} className="mt-0.5 shrink-0 text-primary" />
+          <Icon name="Info" size={20} className="mt-0.5 shrink-0 text-primary-ink" />
           <p className="text-sm leading-[1.6] text-muted-foreground">
             Конструкция разборная: полотно снимается из замка и ставится обратно за пару часов —
             доступ к проводке и стоякам сохраняется.

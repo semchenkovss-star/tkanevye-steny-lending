@@ -37,7 +37,7 @@ const CeilGuide = () => (
     <div className="grid gap-px border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
       {CRITERIA.map((c) => (
         <div key={c.title} className="bg-card p-6">
-          <Icon name={c.icon} size={24} className="text-primary" />
+          <Icon name={c.icon} size={24} className="text-primary-ink" />
           <h3 className="mt-5 font-display text-xl uppercase leading-tight tracking-wide">
             {c.title}
           </h3>

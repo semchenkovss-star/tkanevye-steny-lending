@@ -93,7 +93,7 @@ const Services = ({ index = '11' }: { index?: string }) => (
               ))}
             </ul>
 
-            <span className="mt-8 flex items-center gap-2 font-display text-lg uppercase tracking-[0.04em] text-primary">
+            <span className="mt-8 flex items-center gap-2 font-display text-lg uppercase tracking-[0.04em] text-primary-ink">
               {s.cta}
               <Icon
                 name="ArrowRight"

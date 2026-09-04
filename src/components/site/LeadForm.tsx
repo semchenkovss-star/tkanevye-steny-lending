@@ -52,7 +52,7 @@ const LeadForm = ({
           compact ? '' : 'lg:p-10'
         }`}
       >
-        <Icon name="CircleCheck" size={34} className="text-primary" />
+        <Icon name="CircleCheck" size={34} className="text-primary-ink" />
         <h3 className="font-display text-3xl uppercase leading-none tracking-wide">
           Заявка принята
         </h3>
@@ -146,7 +146,7 @@ const LeadForm = ({
       <button
         type="submit"
         disabled={!agree || sending}
-        className="mt-6 w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
+        className="mt-6 w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
       >
         {sending ? 'Отправляем…' : 'Записаться на замер'}
       </button>

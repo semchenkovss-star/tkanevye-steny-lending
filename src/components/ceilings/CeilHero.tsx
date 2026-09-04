@@ -96,7 +96,7 @@ const CeilHero = () => (
       >
         <a
           href="#ceil-calc"
-          className="whitespace-nowrap bg-primary px-[30px] py-[17px] font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+          className="whitespace-nowrap bg-primary px-[30px] py-[17px] font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
         >
           Рассчитать потолок
         </a>

@@ -129,7 +129,7 @@ const SamplesDialog = () => {
 
         {sent ? (
           <div className="flex flex-col items-start gap-4 p-8 sm:p-10">
-            <Icon name="CircleCheck" size={34} className="text-primary" />
+            <Icon name="CircleCheck" size={34} className="text-primary-ink" />
             <h3 className="font-display text-3xl uppercase leading-none tracking-wide">
               Образцы в пути
             </h3>
@@ -141,7 +141,7 @@ const SamplesDialog = () => {
             <button
               type="button"
               onClick={close}
-              className="mt-2 bg-primary px-6 py-3.5 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+              className="mt-2 bg-primary px-6 py-3.5 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               Закрыть
             </button>
@@ -350,7 +350,7 @@ const SamplesDialog = () => {
               <button
                 type="submit"
                 disabled={!agree || sending}
-                className="w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
+                className="w-full bg-primary px-8 py-4 font-display text-xl uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted"
               >
                 {sending ? 'Отправляем…' : 'Заказать образцы'}
               </button>

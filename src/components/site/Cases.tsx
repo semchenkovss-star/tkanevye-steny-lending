@@ -154,7 +154,7 @@ const Cases = () => {
 
           <div className="flex flex-col border-t border-border p-7 sm:p-9 lg:col-span-5 lg:border-l lg:border-t-0">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Icon name="MapPin" size={16} className="text-primary" />
+              <Icon name="MapPin" size={16} className="text-primary-ink" />
               {item.place}
             </div>
             <h3 className="mt-3 font-display text-3xl uppercase leading-none tracking-wide sm:text-4xl">
@@ -190,7 +190,7 @@ const Cases = () => {
                   {fabricSlug(item.fabric) ? (
                     <Link
                       to={`/catalog#fabric-${fabricSlug(item.fabric)}`}
-                      className="inline-flex items-center gap-1 text-primary underline-offset-4 transition-colors hover:underline"
+                      className="inline-flex items-center gap-1 text-primary-ink underline-offset-4 transition-colors hover:underline"
                     >
                       {item.fabric}
                       <Icon name="ArrowUpRight" size={16} />
@@ -212,7 +212,7 @@ const Cases = () => {
                 <p className="text-[0.95rem] leading-[1.6] text-muted-foreground">{item.task}</p>
               </div>
               <div className="flex gap-4">
-                <Icon name="CircleCheck" size={20} className="mt-0.5 shrink-0 text-primary" />
+                <Icon name="CircleCheck" size={20} className="mt-0.5 shrink-0 text-primary-ink" />
                 <p className="text-[0.95rem] leading-[1.6] text-foreground">{item.result}</p>
               </div>
             </div>

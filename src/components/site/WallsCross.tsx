@@ -31,7 +31,7 @@ const WallsCross = () => (
             Бесшовное полотно за один день: трещины и стыки плит уходят, свет ставим там, где нужно
             вам. Стены и потолки можно заказать вместе — одной бригадой и одним счётом.
           </p>
-          <span className="mt-8 flex items-center gap-2 font-display text-lg uppercase tracking-[0.04em] text-primary">
+          <span className="mt-8 flex items-center gap-2 font-display text-lg uppercase tracking-[0.04em] text-primary-ink">
             Перейти к натяжным потолкам
             <Icon
               name="ArrowRight"

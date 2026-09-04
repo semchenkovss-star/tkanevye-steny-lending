@@ -25,7 +25,7 @@ const BlogPostPage = () => {
         <h1 className="font-display text-[2.5rem] uppercase leading-none">Статья не найдена</h1>
         <Link
           to="/blog"
-          className="bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+          className="bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
         >
           Все статьи
         </Link>
@@ -129,7 +129,7 @@ const BlogPostPage = () => {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-10">
-              <span className="font-display text-sm tracking-[0.2em] text-primary">
+              <span className="font-display text-sm tracking-[0.2em] text-primary-ink">
                 {post.tag}
               </span>
               <div className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
@@ -184,7 +184,7 @@ const BlogPostPage = () => {
                 <button
                   type="button"
                   onClick={() => openLead(`Статья: ${post.title}`)}
-                  className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+                  className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
                 >
                   Записаться на замер
                 </button>
@@ -223,11 +223,11 @@ const BlogPostPage = () => {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <div className="text-xs uppercase tracking-[0.14em] text-primary">{p.tag}</div>
+                  <div className="text-xs uppercase tracking-[0.14em] text-primary-ink">{p.tag}</div>
                   <h3 className="mt-3 font-display text-[1.35rem] uppercase leading-[1.05] tracking-wide">
                     {p.title}
                   </h3>
-                  <span className="mt-5 flex items-center gap-2 text-sm transition-colors group-hover:text-primary">
+                  <span className="mt-5 flex items-center gap-2 text-sm transition-colors group-hover:text-primary-ink">
                     Читать
                     <Icon name="ArrowRight" size={16} />
                   </span>
@@ -243,7 +243,7 @@ const BlogPostPage = () => {
             </p>
             <Link
               to="/#calc"
-              className="flex items-center justify-center gap-2 whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+              className="flex items-center justify-center gap-2 whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               Рассчитать стоимость
               <Icon name="Calculator" size={18} />

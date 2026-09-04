@@ -28,7 +28,7 @@ const AcousticGuide = () => (
   <section className="mt-10 border border-border bg-card p-6 sm:p-8">
     <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <div className="text-xs uppercase tracking-[0.14em] text-primary">Подсказка</div>
+        <div className="text-xs uppercase tracking-[0.14em] text-primary-ink">Подсказка</div>
         <h2 className="mt-2 font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl">
           Как выбрать акустическую ткань для стен
         </h2>
@@ -42,7 +42,7 @@ const AcousticGuide = () => (
     <div className="mt-7 grid gap-px border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
       {CRITERIA.map((c) => (
         <div key={c.title} className="bg-card p-5">
-          <Icon name={c.icon} size={22} className="text-primary" />
+          <Icon name={c.icon} size={22} className="text-primary-ink" />
           <h3 className="mt-4 font-display text-lg uppercase leading-tight tracking-wide">
             {c.title}
           </h3>

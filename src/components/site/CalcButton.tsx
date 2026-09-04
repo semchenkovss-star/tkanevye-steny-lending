@@ -9,7 +9,7 @@ type Props = {
 
 const CalcButton = ({ to = '/#calc', className = '', label = 'Рассчитать стоимость' }: Props) => {
   const base =
-    'flex items-center justify-center gap-2 whitespace-nowrap border border-border bg-card px-4 py-3 font-display text-sm uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary';
+    'flex items-center justify-center gap-2 whitespace-nowrap border border-border bg-card px-4 py-3 font-display text-sm uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary-ink';
 
   if (to.startsWith('#')) {
     return (

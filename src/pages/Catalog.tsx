@@ -256,7 +256,7 @@ const CatalogPage = () => {
               className="flex w-full items-center justify-between border border-border bg-card px-5 py-4 font-display text-lg uppercase tracking-[0.04em] lg:hidden"
             >
               <span className="flex items-center gap-2">
-                <Icon name="SlidersHorizontal" size={18} className="text-primary" />
+                <Icon name="SlidersHorizontal" size={18} className="text-primary-ink" />
                 Фильтр
               </span>
               <Icon name={mobileOpen ? 'ChevronUp' : 'ChevronDown'} size={18} />
@@ -313,7 +313,7 @@ const CatalogPage = () => {
                     key={c.key}
                     type="button"
                     onClick={c.remove}
-                    className="flex items-center gap-2 border border-border bg-card px-3 py-2 text-sm text-foreground transition-colors hover:border-primary hover:text-primary"
+                    className="flex items-center gap-2 border border-border bg-card px-3 py-2 text-sm text-foreground transition-colors hover:border-primary hover:text-primary-ink"
                   >
                     {c.label}
                     <Icon name="X" size={14} />
@@ -322,7 +322,7 @@ const CatalogPage = () => {
                 <button
                   type="button"
                   onClick={() => applyFilters(EMPTY_FILTERS)}
-                  className="px-3 py-2 text-sm text-muted-foreground underline underline-offset-2 hover:text-primary"
+                  className="px-3 py-2 text-sm text-muted-foreground underline underline-offset-2 hover:text-primary-ink"
                 >
                   Сбросить всё
                 </button>
@@ -331,7 +331,7 @@ const CatalogPage = () => {
 
             {list.length === 0 ? (
               <div className="mt-10 border border-border bg-card p-10 text-center">
-                <Icon name="SearchX" size={34} className="mx-auto text-primary" />
+                <Icon name="SearchX" size={34} className="mx-auto text-primary-ink" />
                 <h2 className="mt-5 font-display text-3xl uppercase tracking-wide">
                   Под такие условия ничего нет
                 </h2>
@@ -342,7 +342,7 @@ const CatalogPage = () => {
                 <button
                   type="button"
                   onClick={() => applyFilters(EMPTY_FILTERS)}
-                  className="mt-7 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-foreground"
+                  className="mt-7 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
                 >
                   Сбросить фильтры
                 </button>

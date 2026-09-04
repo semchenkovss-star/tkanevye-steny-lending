@@ -47,7 +47,7 @@ const Section = ({
               {index && (
                 <span
                   className={`font-display text-sm tracking-[0.2em] ${
-                    tone === 'dark' ? 'text-primary' : 'text-primary'
+                    tone === 'dark' ? 'text-primary-ink' : 'text-primary-ink'
                   }`}
                 >
                   {index}

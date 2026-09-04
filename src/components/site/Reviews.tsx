@@ -89,7 +89,7 @@ const Reviews = () => {
               { k: '92%', v: 'заказчиков приходят по рекомендации' },
             ].map((s) => (
               <div key={s.k} className="py-6">
-                <div className="font-display text-4xl leading-none text-primary">{s.k}</div>
+                <div className="font-display text-4xl leading-none text-primary-ink">{s.k}</div>
                 <div className="mt-2 text-sm leading-[1.5] text-muted-foreground">{s.v}</div>
               </div>
             ))}

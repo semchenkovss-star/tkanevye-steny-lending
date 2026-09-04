@@ -146,7 +146,7 @@ const Privacy = () => {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-10">
-              <span className="font-display text-sm tracking-[0.2em] text-primary">Документ</span>
+              <span className="font-display text-sm tracking-[0.2em] text-primary-ink">Документ</span>
               <div className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
                 Редакция от 1 января 2026 года
               </div>

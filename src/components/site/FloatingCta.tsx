@@ -35,7 +35,7 @@ const FloatingCta = () => {
         href={PHONE_HREF}
         aria-label={`Позвонить ${PHONE_DISPLAY}`}
         title={PHONE_DISPLAY}
-        className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_10px_40px_-12px_rgba(28,28,26,0.6)] transition-colors hover:bg-foreground sm:h-16 sm:w-16"
+        className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_10px_40px_-12px_rgba(28,28,26,0.6)] transition-colors hover:bg-primary-hover sm:h-16 sm:w-16"
       >
         <span className="absolute inset-0 animate-ping rounded-full bg-primary/40" />
         <Icon name="Phone" size={24} className="relative" />
@@ -43,7 +43,7 @@ const FloatingCta = () => {
       <button
         type="button"
         onClick={() => openLead('Плавающая кнопка')}
-        className="flex items-center gap-3 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground shadow-[0_10px_40px_-12px_rgba(28,28,26,0.6)] transition-colors hover:bg-foreground"
+        className="flex items-center gap-3 bg-primary px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground shadow-[0_10px_40px_-12px_rgba(28,28,26,0.6)] transition-colors hover:bg-primary-hover"
       >
         <Icon name="Ruler" size={20} />
         <span className="hidden sm:inline">Замер</span>
