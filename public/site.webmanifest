@@ -1,0 +1,14 @@
+{
+  "name": "Fabric Wall — тканевые стены",
+  "short_name": "Fabric Wall",
+  "description": "Натяжные тканевые стены и потолки на скрытом каркасе в Москве",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "theme_color": "#F2994A",
+  "background_color": "#F7F4F0",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "ru-RU"
+}
