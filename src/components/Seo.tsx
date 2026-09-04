@@ -12,7 +12,7 @@ interface SeoProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const DEFAULT_IMAGE = '/img/og-main-2.webp';
+const DEFAULT_IMAGE = '/img/og-cover.webp';
 const SITE_NAME = 'Полотно';
 
 const setMeta = (attr: 'name' | 'property', key: string, content: string) => {

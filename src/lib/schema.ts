@@ -75,7 +75,7 @@ export const localBusinessLd = () => ({
   url: `${origin()}/`,
   telephone: PHONE_DISPLAY,
   email: EMAIL,
-  image: abs('/img/og-main-2.webp'),
+  image: abs('/img/og-cover.webp'),
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Переведеновский пер., д. 3',
