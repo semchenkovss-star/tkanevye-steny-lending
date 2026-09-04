@@ -12,8 +12,8 @@ interface SeoProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const DEFAULT_IMAGE = '/img/og-cover.webp';
-const SITE_NAME = 'Полотно';
+const DEFAULT_IMAGE = '/img/og-cover.jpg';
+const SITE_NAME = 'Fabric Wall';
 
 const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
@@ -68,11 +68,16 @@ const Seo = ({
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', imageUrl);
+    setMeta('property', 'og:image:secure_url', imageUrl);
+    setMeta('property', 'og:image:width', '1200');
+    setMeta('property', 'og:image:height', '630');
+    setMeta('property', 'og:image:alt', title);
 
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
     setMeta('name', 'twitter:image', imageUrl);
+    setMeta('name', 'vk:image', imageUrl);
 
     if (publishedAt) setMeta('property', 'article:published_time', publishedAt);
 
