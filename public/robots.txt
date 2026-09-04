@@ -1,7 +1,14 @@
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid&from
+
+User-agent: YandexImages
 Allow: /
 
 User-agent: Bingbot
@@ -16,4 +23,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://xn--80aeibazwe8adh9hf.xn--p1acf/sitemap.xml
