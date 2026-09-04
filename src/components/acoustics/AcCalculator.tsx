@@ -10,7 +10,7 @@ const GOALS = [
   {
     id: 'echo',
     name: 'Убрать эхо',
-    rate: 2100,
+    rate: 5900,
     coverage: 0.55,
     hint: 'Гулкий звук внутри комнаты, плохая разборчивость на созвонах',
     detail: 'Хватает одной-двух стен: обрабатываем зоны первых отражений.',
@@ -18,7 +18,7 @@ const GOALS = [
   {
     id: 'noise',
     name: 'Защита от соседей',
-    rate: 3400,
+    rate: 8900,
     coverage: 1,
     hint: 'Слышно речь, телевизор и шаги за стеной',
     detail: 'Нужен полный слой по стене-источнику: каркас, плита и мембрана.',
@@ -90,7 +90,7 @@ const AcCalculator = () => {
 
   const summary = `Акустика: ${place.title}, ${area} м², высота ${height} м, задача «${goal.name}», обработка ${wallArea} м² стен${
     extras.includes('ceiling') ? ' + потолок' : ''
-  }${extras.includes('door') ? ' + дверь' : ''} — ${money(total)}, срок ${days} дн.`;
+  }${extras.includes('door') ? ' + дверь' : ''} — от ${money(total)}, срок ${days} дн.`;
 
   return (
     <Section
@@ -236,7 +236,7 @@ const AcCalculator = () => {
                         active ? 'text-primary-foreground/80' : 'text-muted-foreground'
                       }`}
                     >
-                      {(g.rate + place.extraRate).toLocaleString('ru-RU')} ₽/м²
+                      от {(g.rate + place.extraRate).toLocaleString('ru-RU')} ₽/м²
                     </div>
                     <div
                       className={`mt-3 text-xs leading-[1.4] ${
@@ -293,8 +293,9 @@ const AcCalculator = () => {
           <span className="text-xs uppercase tracking-[0.14em] text-background/55">
             Ориентировочная стоимость
           </span>
-          <div className="mt-3 font-display text-[3rem] leading-none text-primary sm:text-[3.75rem]">
-            {money(total)}
+          <div className="mt-3 flex items-baseline gap-2 font-display leading-none text-primary">
+            <span className="text-[1.5rem] sm:text-[1.75rem]">от</span>
+            <span className="text-[3rem] sm:text-[3.75rem]">{money(total)}</span>
           </div>
 
           <div className="mt-6 flex items-center gap-2 text-sm text-background/70">
@@ -312,18 +313,18 @@ const AcCalculator = () => {
               <dt className="text-background/60">
                 Стены {wallArea} м² × {rate.toLocaleString('ru-RU')} ₽
               </dt>
-              <dd className="whitespace-nowrap">{money(wallSum)}</dd>
+              <dd className="whitespace-nowrap">от {money(wallSum)}</dd>
             </div>
             {ceilSum > 0 && (
               <div className="flex items-baseline justify-between gap-4">
                 <dt className="text-background/60">Акустический потолок {area} м²</dt>
-                <dd className="whitespace-nowrap">{money(ceilSum)}</dd>
+                <dd className="whitespace-nowrap">от {money(ceilSum)}</dd>
               </div>
             )}
             {doorSum > 0 && (
               <div className="flex items-baseline justify-between gap-4">
                 <dt className="text-background/60">Дверной проём</dt>
-                <dd className="whitespace-nowrap">{money(doorSum)}</dd>
+                <dd className="whitespace-nowrap">от {money(doorSum)}</dd>
               </div>
             )}
             <div className="flex items-baseline justify-between gap-4">
