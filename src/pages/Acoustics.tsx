@@ -30,6 +30,7 @@ import {
   ACOUSTIC_STEPS,
 } from '@/lib/acoustics';
 import { breadcrumbsLd, faqLd, howToLd, organizationLd, websiteLd } from '@/lib/schema';
+import CrossLinks from '@/components/site/CrossLinks';
 
 const buildJsonLd = () => [
   organizationLd(),
@@ -261,6 +262,8 @@ const AcousticsPage = () => {
             </div>
           </div>
         </Section>
+
+        <CrossLinks current="/acoustics" />
 
         <section id="ac-lead" className="w-full border-t border-border">
           <div className="shell py-16 sm:py-20 lg:py-28">

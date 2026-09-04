@@ -15,11 +15,11 @@ import CeilGuide from '@/components/ceilings/CeilGuide';
 import CeilPricing from '@/components/ceilings/CeilPricing';
 import CeilCalculator from '@/components/ceilings/CeilCalculator';
 import { CeilCta, CeilFaq } from '@/components/ceilings/CeilFaqCta';
-import CeilCross from '@/components/ceilings/CeilCross';
 import CeilBlog from '@/components/ceilings/CeilBlog';
 import Services from '@/components/site/Services';
 import { CEIL_FAQ, CEIL_IMG, CEIL_STEPS } from '@/lib/ceilings';
 import { breadcrumbsLd, faqLd, howToLd, organizationLd, websiteLd } from '@/lib/schema';
+import CrossLinks from '@/components/site/CrossLinks';
 
 const buildJsonLd = () => [
   organizationLd(),
@@ -77,7 +77,7 @@ const CeilingsPage = () => {
         <CeilCalculator />
         <Services index="10" />
         <CeilBlog />
-        <CeilCross />
+        <CrossLinks current="/ceilings" />
         <CeilFaq />
         <CeilCta />
       </main>
