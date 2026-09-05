@@ -1,5 +1,4 @@
 import {
-  ADDRESS,
   EMAIL,
   LEGAL_INN,
   LEGAL_NAME,
@@ -17,6 +16,18 @@ export const origin = () => (typeof window !== 'undefined' ? window.location.ori
 
 const abs = (path: string) => (path.startsWith('http') ? path : origin() + path);
 
+/** Логотип компании для поисковых систем (Яндекс и Google требуют растр) */
+export const logoLd = () => ({
+  '@type': 'ImageObject',
+  '@id': `${origin()}/#logo`,
+  url: abs('/logo.png'),
+  contentUrl: abs('/logo.png'),
+  width: 512,
+  height: 512,
+  caption: SITE_NAME,
+  inLanguage: 'ru-RU',
+});
+
 export const organizationLd = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -25,7 +36,8 @@ export const organizationLd = () => ({
   legalName: LEGAL_NAME,
   description: LEGAL_DESCRIPTION,
   url: `${origin()}/`,
-  logo: abs('/favicon.svg'),
+  logo: logoLd(),
+  image: logoLd(),
   telephone: PHONE_DISPLAY,
   email: EMAIL,
   taxID: LEGAL_INN,
@@ -75,7 +87,8 @@ export const localBusinessLd = () => ({
   url: `${origin()}/`,
   telephone: PHONE_DISPLAY,
   email: EMAIL,
-  image: abs('/img/og-cover.webp'),
+  logo: logoLd(),
+  image: [abs('/img/og-cover.jpg'), abs('/logo.png')],
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Переведеновский пер., д. 3',
