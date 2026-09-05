@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
-import { formatPhone, isPhoneValid, sendLead } from '@/lib/lead';
+import PhoneInput from '@/components/ui/phone-input';
+import { isPhoneValid, sendLead } from '@/lib/lead';
 
 interface LeadFormProps {
   source?: string;
@@ -90,18 +91,13 @@ const LeadForm = ({
           <label htmlFor={`phone-${source}`} className="mb-2 block text-sm text-muted-foreground">
             Телефон
           </label>
-          <input
+          <PhoneInput
             id={`phone-${source}`}
-            inputMode="tel"
             value={phone}
-            onFocus={() => {
-              if (!phone) setPhone('+7 (');
-            }}
-            onChange={(e) => {
-              setPhone(formatPhone(e.target.value));
+            onChange={(v) => {
+              setPhone(v);
               if (errors.phone) setErrors((p) => ({ ...p, phone: undefined }));
             }}
-            placeholder="+7 (___) ___-__-__"
             className={`h-14 w-full border bg-card px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary ${
               errors.phone ? 'border-destructive' : 'border-border'
             }`}

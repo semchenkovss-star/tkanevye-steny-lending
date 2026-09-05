@@ -2,7 +2,8 @@ import { FormEvent, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { CATALOG } from '@/data/catalog';
-import { formatPhone, isPhoneValid, sendLead } from '@/lib/lead';
+import PhoneInput from '@/components/ui/phone-input';
+import { isPhoneValid, sendLead } from '@/lib/lead';
 import { SAMPLES_EVENT, SAMPLES_LIMIT } from '@/lib/samples';
 
 interface Errors {
@@ -257,18 +258,13 @@ const SamplesDialog = () => {
                   <label htmlFor="sm-phone" className="mb-2 block text-sm text-muted-foreground">
                     Телефон
                   </label>
-                  <input
+                  <PhoneInput
                     id="sm-phone"
-                    inputMode="tel"
                     value={phone}
-                    onFocus={() => {
-                      if (!phone) setPhone('+7 (');
-                    }}
-                    onChange={(e) => {
-                      setPhone(formatPhone(e.target.value));
+                    onChange={(v) => {
+                      setPhone(v);
                       setErrors((p) => ({ ...p, phone: undefined }));
                     }}
-                    placeholder="+7 (___) ___-__-__"
                     className={`h-14 w-full border bg-card px-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary ${
                       errors.phone ? 'border-destructive' : 'border-border'
                     }`}
