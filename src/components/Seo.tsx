@@ -25,6 +25,14 @@ const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
   el.setAttribute('content', content);
 };
 
+const CANONICAL_ORIGIN = 'https://fabricwall.ru';
+
+const canonicalUrl = (path: string) => {
+  const clean = path.split('?')[0].split('#')[0];
+  const normalized = clean.length > 1 ? clean.replace(/\/+$/, '') : '/';
+  return CANONICAL_ORIGIN + normalized;
+};
+
 const setLink = (rel: string, href: string) => {
   let el = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
   if (!el) {
@@ -48,7 +56,7 @@ const Seo = ({
 }: SeoProps) => {
   useEffect(() => {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
-    const url = origin + path;
+    const url = canonicalUrl(path);
     const imageUrl = image.startsWith('http') ? image : origin + image;
 
     document.title = title;
