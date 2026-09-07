@@ -29,9 +29,9 @@ const buildJsonLd = () => [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Натяжные потолки под ключ',
-    serviceType: 'Монтаж натяжных потолков в Москве',
+    serviceType: 'Монтаж натяжных тканевых потолков',
     provider: { '@id': `${window.location.origin}/#organization` },
-    areaServed: 'Москва и Московская область',
+    areaServed: { '@type': 'Country', name: 'Россия' },
     offers: {
       '@type': 'Offer',
       price: '1200',
@@ -56,7 +56,7 @@ const CeilingsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Натяжные потолки в Москве под ключ за 1 день | Fabric Wall"
+        title="Натяжные тканевые потолки под ключ за 1 день | Fabric Wall"
         description="Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа."
         path="/ceilings"
         image={CEIL_IMG.hero}

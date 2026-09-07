@@ -43,7 +43,7 @@ const buildJsonLd = () => [
     name: 'Шумоизоляция комнаты под ключ',
     serviceType: 'Шумоизоляция и акустическая обработка помещения под ключ',
     provider: { '@id': `${window.location.origin}/#organization` },
-    areaServed: 'Москва и Московская область',
+    areaServed: { '@type': 'Country', name: 'Россия' },
     offers: {
       '@type': 'Offer',
       price: '5900',
@@ -69,7 +69,7 @@ const AcousticsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Шумоизоляция комнаты под ключ в Москве | Fabric Wall"
+        title="Шумоизоляция комнаты под ключ | Fabric Wall"
         description="Звукоизоляция стен в квартире под ключ: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–3 дня, контрольный замер."
         path="/acoustics"
         image={ACOUSTIC_IMG.hero}

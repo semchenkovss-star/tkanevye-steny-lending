@@ -10,7 +10,7 @@ import {
 
 export const SITE_NAME = 'Fabric Wall';
 export const LEGAL_DESCRIPTION =
-  'Установка натяжных тканевых стен и потолков на скрытом каркасе в Москве и области. Тихие стены со звукопоглощением, монтаж за 1–2 дня без пыли и мокрых работ.';
+  'Установка натяжных тканевых стен и потолков на скрытом каркасе. Тихие стены со звукопоглощением, монтаж за 1–2 дня без пыли и мокрых работ. Работаем по России.';
 
 export const origin = () => (typeof window !== 'undefined' ? window.location.origin : '');
 
@@ -95,10 +95,7 @@ export const localBusinessLd = () => ({
     addressLocality: 'Москва',
     addressCountry: 'RU',
   },
-  areaServed: [
-    { '@type': 'City', name: 'Москва' },
-    { '@type': 'AdministrativeArea', name: 'Московская область' },
-  ],
+  areaServed: { '@type': 'Country', name: 'Россия' },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

@@ -41,7 +41,7 @@ const buildJsonLd = () => [
     name: 'Натяжные тканевые стены на скрытом каркасе',
     serviceType: 'Установка натяжных тканевых стен на скрытом каркасе',
     provider: { '@id': `${window.location.origin}/#organization` },
-    areaServed: 'Москва и Московская область',
+    areaServed: { '@type': 'Country', name: 'Россия' },
     offers: {
       '@type': 'Offer',
       price: '1750',
@@ -70,7 +70,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Тканевые стены под ключ в Москве за 1 день | Fabric Wall"
+        title="Тканевые стены под ключ за 1 день | Fabric Wall"
         description="Натяжные тканевые стены на скрытом каркасе: ровная стена за 1–2 дня без пыли и штукатурки. Шумоизоляция, гарантия 5 лет, бесплатный замер."
         path="/"
         jsonLd={buildJsonLd()}
