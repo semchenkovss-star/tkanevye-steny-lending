@@ -1,3 +1,5 @@
+import { GOALS, reachGoal } from '@/lib/metrika';
+
 export const LEAD_EVENT = 'polotno:lead';
 
 /** Открыть модальное окно заявки из любой точки страницы */
@@ -45,6 +47,7 @@ export async function sendLead(payload: LeadPayload): Promise<boolean> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
+    if (res.ok) reachGoal(GOALS.LEAD, { source: payload.source });
     return res.ok;
   } catch {
     return false;
