@@ -12,7 +12,23 @@ declare global {
 export const GOALS = {
   LEAD: 'lead',
   PHONE_CLICK: 'phone_click',
+  SOCIAL_CLICK: 'social_click',
 } as const;
+
+const SOCIAL_HOSTS: Record<string, string> = {
+  't.me': 'Telegram',
+  'telegram.me': 'Telegram',
+  'vk.ru': 'ВКонтакте',
+  'vk.com': 'ВКонтакте',
+  'max.ru': 'MAX',
+  'youtube.com': 'YouTube',
+  'rutube.ru': 'Rutube',
+};
+
+const socialName = (href: string): string | null => {
+  const host = href.replace(/^https?:\/\//, '').split('/')[0].replace(/^www\./, '');
+  return SOCIAL_HOSTS[host] || null;
+};
 
 /** Отправка цели в Яндекс.Метрику */
 export function reachGoal(goal: string, params?: Record<string, unknown>) {
@@ -20,13 +36,21 @@ export function reachGoal(goal: string, params?: Record<string, unknown>) {
   window.ym(COUNTER_ID, 'reachGoal', goal, params);
 }
 
-/** Клики по телефону во всех блоках сайта — один слушатель на документ */
+/** Клики по телефону и мессенджерам во всех блоках сайта — один слушатель на документ */
 export function initPhoneTracking() {
   if (typeof document === 'undefined') return;
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement | null;
-    const link = target?.closest?.('a[href^="tel:"]');
+    const link = target?.closest?.('a[href]') as HTMLAnchorElement | null;
     if (!link) return;
-    reachGoal(GOALS.PHONE_CLICK, { place: link.getAttribute('data-goal-place') || 'сайт' });
+    const href = link.getAttribute('href') || '';
+
+    if (href.startsWith('tel:')) {
+      reachGoal(GOALS.PHONE_CLICK, { place: link.getAttribute('data-goal-place') || 'сайт' });
+      return;
+    }
+
+    const network = socialName(href);
+    if (network) reachGoal(GOALS.SOCIAL_CLICK, { network });
   });
 }
