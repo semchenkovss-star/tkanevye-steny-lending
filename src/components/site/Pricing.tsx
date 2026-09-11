@@ -3,11 +3,11 @@ import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { PLANS } from '@/lib/pricing';
 
-const Pricing = () => {
+const Pricing = ({ index = '07' }: { index?: string }) => {
   return (
     <Section
       id="price"
-      index="07"
+      index={index}
       eyebrow="Тарифы"
       title={<>Цена за квадратный метр под ключ</>}
       lead="В стоимость входит материал, каркас, работа и уборка. Итог фиксируется в смете после замера и больше не меняется."

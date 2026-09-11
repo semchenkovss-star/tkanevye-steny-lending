@@ -65,7 +65,7 @@ const NumberField = ({
   </div>
 );
 
-const Calculator = () => {
+const Calculator = ({ index = '08' }: { index?: string }) => {
   const [length, setLength] = useState(4.2);
   const [height, setHeight] = useState(2.7);
   const [planId, setPlanId] = useState('quiet');
@@ -92,7 +92,7 @@ const Calculator = () => {
   return (
     <Section
       id="calc"
-      index="08"
+      index={index}
       eyebrow="Калькулятор"
       title={<>Посчитайте стоимость своей стены</>}
       lead="Введите размеры стены, выберите тариф — расчёт появится сразу. Это ориентир: точную смету считает замерщик."

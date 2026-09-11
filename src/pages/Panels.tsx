@@ -10,6 +10,8 @@ import LeadDialog from '@/components/site/LeadDialog';
 import CalcButton from '@/components/site/CalcButton';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import CrossLinks from '@/components/site/CrossLinks';
+import Pricing from '@/components/site/Pricing';
+import Calculator from '@/components/site/Calculator';
 import { openLead } from '@/lib/lead';
 import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
 
@@ -88,7 +90,7 @@ const PanelsPage = () => {
         <div className="shell flex h-16 items-center justify-between gap-6">
           <Logo to="/" size="sm" />
           <div className="flex items-center gap-3">
-            <CalcButton className="hidden sm:flex" />
+            <CalcButton to="#calc" className="hidden sm:flex" />
             <Link
               to="/"
               className="-my-2 flex min-h-[44px] items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -126,13 +128,13 @@ const PanelsPage = () => {
                 <Icon name="Ruler" size={18} />
                 Вызвать замерщика
               </button>
-              <Link
-                to="/catalog"
+              <a
+                href="#calc"
                 className="flex min-h-[52px] items-center justify-center gap-2 border border-background/30 px-7 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:border-primary hover:text-primary"
               >
-                <Icon name="Palette" size={18} />
-                Посмотреть ткани
-              </Link>
+                <Icon name="Calculator" size={18} />
+                Рассчитать стоимость
+              </a>
             </div>
           </div>
         </section>
@@ -222,6 +224,9 @@ const PanelsPage = () => {
             отличие от модулей, полотно можно вести на потолок единым куском.
           </p>
         </Section>
+
+        <Pricing index="04" />
+        <Calculator index="05" />
 
         <Section tone="dark">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
