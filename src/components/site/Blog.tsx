@@ -50,7 +50,7 @@ const Blog = () => {
 
       <div className="mt-10">
         <Link
-          to="/blog"
+          to="/blog?topic=walls"
           className="inline-flex items-center gap-2 border border-border bg-background px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-foreground hover:text-background"
         >
           Все статьи

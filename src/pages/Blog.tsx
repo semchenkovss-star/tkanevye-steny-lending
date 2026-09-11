@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
 import Footer from '@/components/site/Footer';
@@ -42,7 +42,17 @@ const buildJsonLd = () => {
 };
 
 const BlogPage = () => {
-  const [topic, setTopic] = useState<BlogTopicId>('all');
+  const [params, setParams] = useSearchParams();
+  const fromUrl = params.get('topic');
+  const topic: BlogTopicId = BLOG_TOPICS.some((t) => t.id === fromUrl)
+    ? (fromUrl as BlogTopicId)
+    : 'all';
+
+  const setTopic = (next: BlogTopicId) => {
+    if (next === 'all') setParams({}, { replace: true });
+    else setParams({ topic: next }, { replace: true });
+  };
+
   const posts = postsByTopic(topic);
   const [lead, ...rest] = posts;
 
