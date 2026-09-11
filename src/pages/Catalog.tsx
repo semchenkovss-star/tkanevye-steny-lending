@@ -241,7 +241,7 @@ const CatalogPage = () => {
       <main className="shell py-14 sm:py-16 lg:py-20">
         <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Каталог</div>
         <h1 className="mt-3 max-w-[14em] font-display text-[clamp(2.1rem,8vw,2.75rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.5rem] lg:text-[4.5rem]">
-          Панели для стен из ткани
+          Архитектурный текстиль для стен
         </h1>
         <p className="mt-6 max-w-[42em] text-base leading-[1.6] text-muted-foreground">
           Акустические ткани для стен можно купить под ключ: цена включает каркас, наполнение, полотно,
