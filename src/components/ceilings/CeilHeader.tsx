@@ -10,6 +10,7 @@ const LINKS = [
   { href: '#services', label: 'Услуги' },
   { href: '/', label: 'Стены' },
   { href: '/acoustics', label: 'Акустика' },
+  { href: '/panels', label: 'Панели' },
   { href: '#ceil-what', label: 'Технология' },
   { href: '#ceil-textures', label: 'Полотна' },
   { href: '#ceil-cases', label: 'Проекты' },
