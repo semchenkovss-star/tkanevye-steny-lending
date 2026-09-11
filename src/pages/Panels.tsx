@@ -13,7 +13,13 @@ import CrossLinks from '@/components/site/CrossLinks';
 import Pricing from '@/components/site/Pricing';
 import Calculator from '@/components/site/Calculator';
 import { openLead } from '@/lib/lead';
-import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { breadcrumbsLd, faqLd, organizationLd, websiteLd } from '@/lib/schema';
 
 const HERO_IMG = '/img/293a57f7-0f38-469b-9902-803f225b736f.webp';
 
@@ -49,6 +55,25 @@ const ROOMS = [
   { icon: 'DoorOpen', label: 'Коридор' },
 ];
 
+const PANEL_FAQ = [
+  {
+    q: 'Что происходит с розетками и выключателями?',
+    a: 'Все розетки, выключатели и выводы переносятся на плоскость полотна: в каркасе ставятся закладные, подрозетники выводятся заподлицо с тканью и закрываются штатными рамками. Внешне ничего не меняется — розетка остаётся на том же месте и той же высоте, просто выходит уже из новой стены. Провода при этом идут в пустоте за полотном, штробить ничего не нужно.',
+  },
+  {
+    q: 'Можно ли мыть ткань?',
+    a: 'Ткань не моют, а чистят. Обычный уход — пылесос с мягкой насадкой раз в два-три месяца: полотна идут с грязе- и пылеотталкивающей пропиткой, поэтому пыль не въедается. Пятна выводятся сухой чисткой или слегка влажной губкой с мягким средством, без трения и обильной воды. Если повреждение серьёзное, меняется одно полотнище, а не вся стена.',
+  },
+  {
+    q: 'Как снять полотно при переезде или ремонте?',
+    a: 'Полотно вынимается из замка по периметру — это обратимая операция, стену не ломают. Мастер снимает ткань за пару часов, каркас остаётся на месте и может принять новое полотно. Если нужно демонтировать всё целиком, под панелями остаётся исходная стена: следов, кроме точек крепежа, не будет. Именно поэтому систему часто ставят в съёмное жильё и офисы.',
+  },
+  {
+    q: 'Выдержит ли крепление телевизора?',
+    a: 'Да, но сказать об этом нужно замерщику до монтажа. В местах нагрузки в каркас закладываются платформы — телевизор, полки и кронштейны крепятся к ним, а не к ткани. Такая закладная спокойно держит панель весом до 40 кг и входит в стоимость работ. Кабели и розетка выводятся прямо за телевизором, поэтому проводов на виду не остаётся.',
+  },
+];
+
 const buildJsonLd = () => [
   organizationLd(),
   websiteLd(),
@@ -67,6 +92,7 @@ const buildJsonLd = () => [
       description: 'Бесшовные тканевые стеновые панели под ключ, цена за м²',
     },
   },
+  faqLd(PANEL_FAQ),
 ];
 
 const PanelsPage = () => {
@@ -227,6 +253,31 @@ const PanelsPage = () => {
 
         <Pricing index="04" />
         <Calculator index="05" />
+
+        <Section
+          id="faq"
+          index="06"
+          eyebrow="Частые вопросы"
+          title="Что спрашивают о панелях"
+          tone="surface"
+        >
+          <div className="grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-10 lg:col-start-2">
+              <Accordion type="single" collapsible className="border-t border-border">
+                {PANEL_FAQ.map((item, i) => (
+                  <AccordionItem key={item.q} value={`panel-faq-${i}`} className="border-border">
+                    <AccordionTrigger className="gap-6 py-6 text-left font-display text-xl uppercase leading-tight tracking-wide hover:no-underline sm:text-2xl">
+                      {item.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="max-w-[52em] pb-7 text-[0.95rem] leading-[1.65] text-muted-foreground">
+                      {item.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </Section>
 
         <Section tone="dark">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
