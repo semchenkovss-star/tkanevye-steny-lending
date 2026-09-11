@@ -12,6 +12,7 @@ import SiteSwitch from '@/components/site/SiteSwitch';
 import CrossLinks from '@/components/site/CrossLinks';
 import Pricing from '@/components/site/Pricing';
 import Calculator from '@/components/site/Calculator';
+import { CASES } from '@/components/site/Cases';
 import { openLead } from '@/lib/lead';
 import {
   Accordion,
@@ -54,6 +55,10 @@ const ROOMS = [
   { icon: 'Baby', label: 'Детская' },
   { icon: 'DoorOpen', label: 'Коридор' },
 ];
+
+const GALLERY = ['Спальня с гулким эхом', 'Гостиная в панельном доме', 'Домашний кабинет']
+  .map((t) => CASES.find((c) => c.title === t))
+  .filter((c): c is (typeof CASES)[number] => Boolean(c));
 
 const PANEL_FAQ = [
   {
@@ -251,12 +256,82 @@ const PanelsPage = () => {
           </p>
         </Section>
 
-        <Pricing index="04" />
-        <Calculator index="05" />
+        <Section
+          id="panel-cases"
+          index="04"
+          eyebrow="Готовые объекты"
+          title="Панели в реальных квартирах"
+          lead="Три объекта с разными задачами: шум за стеной, кривая стена под мебель и эхо на созвонах."
+        >
+          <div className="grid gap-px bg-border lg:grid-cols-3">
+            {GALLERY.map((c) => (
+              <article key={c.title} className="flex flex-col bg-card">
+                <div className="overflow-hidden">
+                  <img
+                    src={c.img}
+                    alt={`${c.title} — тканевые стеновые панели на скрытом каркасе, ${c.place}`}
+                    loading="lazy"
+                    className="block aspect-[4/3] w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6 sm:p-7">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Icon name="MapPin" size={15} className="text-primary-ink" />
+                    {c.place}
+                  </div>
+                  <h3 className="mt-3 font-display text-[clamp(1.35rem,4vw,1.6rem)] uppercase leading-[1.05] text-foreground">
+                    {c.title}
+                  </h3>
+
+                  <dl className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <dt className="text-muted-foreground">Площадь</dt>
+                      <dd className="font-display tracking-wide text-foreground">{c.area}</dd>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <dt className="text-muted-foreground">Срок</dt>
+                      <dd className="font-display tracking-wide text-foreground">{c.days}</dd>
+                    </div>
+                  </dl>
+
+                  <div className="mt-6 space-y-4">
+                    <div className="flex gap-3">
+                      <Icon
+                        name="CircleAlert"
+                        size={18}
+                        className="mt-0.5 shrink-0 text-muted-foreground"
+                      />
+                      <p className="text-[0.9rem] leading-[1.6] text-muted-foreground">{c.task}</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <Icon
+                        name="CircleCheck"
+                        size={18}
+                        className="mt-0.5 shrink-0 text-primary-ink"
+                      />
+                      <p className="text-[0.9rem] leading-[1.6] text-foreground">{c.result}</p>
+                    </div>
+                  </div>
+
+                  <Link
+                    to="/#cases"
+                    className="mt-auto flex items-center gap-2 pt-7 font-display text-sm uppercase tracking-[0.06em] text-primary-ink transition-colors hover:text-foreground"
+                  >
+                    Сравнить до и после
+                    <Icon name="ArrowRight" size={16} />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </Section>
+
+        <Pricing index="05" />
+        <Calculator index="06" />
 
         <Section
           id="faq"
-          index="06"
+          index="07"
           eyebrow="Частые вопросы"
           title="Что спрашивают о панелях"
           tone="surface"

@@ -6,7 +6,7 @@ import { CATALOG } from '@/data/catalog';
 
 const fabricSlug = (name: string) => CATALOG.find((i) => i.name === name)?.slug;
 
-interface CaseItem {
+export interface CaseItem {
   title: string;
   place: string;
   img: string;
@@ -19,7 +19,7 @@ interface CaseItem {
   tags: string[];
 }
 
-const CASES: CaseItem[] = [
+export const CASES: CaseItem[] = [
   {
     title: 'Гостиная в панельном доме',
     place: 'Москва, Митино',
