@@ -1237,7 +1237,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '26 июня 2026',
     readTime: '5 мин',
     tag: 'Процесс',
-    img: '/img/c06e5653-12e4-45b2-a7bd-1f2560986623.webp',
+    img: '/img/montazh-brigada-fabric-wall.webp',
     keywords: 'монтаж натяжных стен, сроки ремонта, чистый монтаж, гарантия на работы',
     body: [
       {
