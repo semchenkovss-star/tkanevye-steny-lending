@@ -69,8 +69,8 @@ const AcousticsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Шумоизоляция комнаты под ключ | Fabric Wall"
-        description="Звукоизоляция стен в квартире под ключ: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–3 дня, контрольный замер."
+        title="Тихие стены: шумоизоляция комнаты под ключ | Fabric Wall"
+        description="Тихие стены и звукоизоляция квартиры под ключ: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–3 дня, контрольный замер."
         path="/acoustics"
         image={ACOUSTIC_IMG.hero}
         jsonLd={buildJsonLd()}
