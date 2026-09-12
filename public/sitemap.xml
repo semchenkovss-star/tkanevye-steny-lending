@@ -147,13 +147,23 @@
   </url>
   <url>
     <loc>https://fabricwall.ru/panels</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://fabricwall.ru/img/293a57f7-0f38-469b-9902-803f225b736f.webp</image:loc>
       <image:title>Стеновые панели из ткани — бесшовное полотно на скрытом каркасе</image:title>
       <image:caption>Мягкие тканевые стеновые панели без стыков вместо МДФ и модулей на Z-креплениях</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fabricwall.ru/img/e4a3eb87-e3e1-4576-90f6-44ba3ae3d066.webp</image:loc>
+      <image:title>Спальня с гулким эхом — тканевые стеновые панели на скрытом каркасе</image:title>
+      <image:caption>Химки, ЖК «Парковый». 14 м² за 1 день: речь соседей за стеной перестала различаться словами</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fabricwall.ru/img/389e0d1a-3353-4763-9947-4c241424fa4c.webp</image:loc>
+      <image:title>Домашний кабинет — тканевые стеновые панели на скрытом каркасе</image:title>
+      <image:caption>Москва, Хамовники. 11 м² за 1 день: полотно на двух стенах убрало эхо на созвонах</image:caption>
     </image:image>
   </url>
   <url>
@@ -977,7 +987,7 @@
   </url>
   <url>
     <loc>https://fabricwall.ru/blog/chistyj-montazh</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <image:image>
