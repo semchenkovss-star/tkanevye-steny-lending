@@ -2,6 +2,8 @@ const COUNTER_ID = 112376085;
 
 type YmFn = (id: number, action: string, ...rest: unknown[]) => void;
 
+let lastUrl = typeof window !== 'undefined' ? window.location.href : '';
+
 declare global {
   interface Window {
     ym?: YmFn;
@@ -34,6 +36,21 @@ const socialName = (href: string): string | null => {
 export function reachGoal(goal: string, params?: Record<string, unknown>) {
   if (typeof window === 'undefined' || typeof window.ym !== 'function') return;
   window.ym(COUNTER_ID, 'reachGoal', goal, params);
+}
+
+/**
+ * Просмотр страницы при переходе внутри SPA.
+ * Метрика сама считает только первую загрузку, дальше hit нужен вручную.
+ */
+export function trackPageView(url: string, title?: string) {
+  if (typeof window === 'undefined' || typeof window.ym !== 'function') return;
+  if (url === lastUrl) return;
+  const referer = lastUrl;
+  lastUrl = url;
+  window.ym(COUNTER_ID, 'hit', url, {
+    referer,
+    title: title || document.title,
+  });
 }
 
 /** Клики по телефону и мессенджерам во всех блоках сайта — один слушатель на документ */

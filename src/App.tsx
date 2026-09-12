@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CookieNotice from "@/components/site/CookieNotice";
+import MetrikaPageView from "@/components/MetrikaPageView";
 import { initPhoneTracking } from "@/lib/metrika";
 
 const NotFound = lazy(() => import("./pages/PageNotFound"));
@@ -30,6 +31,7 @@ const App = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <MetrikaPageView />
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
             <Route path="/" element={<Index />} />
