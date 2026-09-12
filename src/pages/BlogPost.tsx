@@ -40,6 +40,7 @@ const BlogPostPage = () => {
   const sameTag = pool.filter((p) => p.tag === post.tag);
   const others = [...sameTag, ...pool.filter((p) => p.tag !== post.tag)].slice(0, 3);
 
+  const isCeilings = post.topic === 'ceilings';
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const wordCount = post.body.reduce(
     (n, b) => n + b.p.reduce((k, t) => k + t.split(/\s+/).length, 0),
@@ -171,31 +172,28 @@ const BlogPostPage = () => {
               ))}
             </div>
 
-            <div className="mt-4 border border-border bg-secondary p-8">
-              <h2 className="font-display text-[1.75rem] uppercase leading-[1.05] tracking-wide">
-                Хотите так же тихо у себя?
-              </h2>
-              <p className="mt-3 max-w-[34em] text-sm leading-[1.6] text-muted-foreground">
-                Приедем с шумомером, замерим эхо и шум в вашей комнате, честно скажем, какой
-                результат достижим, и посчитаем смету за 24 часа. Замер бесплатный.
-              </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <button
-                  type="button"
-                  onClick={() => openLead(`Статья: ${post.title}`)}
-                  className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
-                >
-                  Записаться на замер
-                </button>
-                <Link
-                  to="/acoustics"
-                  className="flex items-center justify-center gap-2 whitespace-nowrap border border-border bg-card px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary"
-                >
-                  Акустические решения
-                  <Icon name="ArrowRight" size={18} />
-                </Link>
+            <aside className="mt-4 flex flex-col gap-5 border border-border bg-secondary p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-7">
+              <div className="flex gap-4">
+                <Icon name="Ruler" size={22} className="mt-0.5 shrink-0 text-primary-ink" />
+                <div>
+                  <h2 className="font-display text-[1.15rem] uppercase leading-[1.15] tracking-wide">
+                    {isCeilings ? 'Замерим ваш потолок бесплатно' : 'Замерим вашу комнату бесплатно'}
+                  </h2>
+                  <p className="mt-2 max-w-[32em] text-sm leading-[1.55] text-muted-foreground">
+                    {isCeilings
+                      ? 'Приедем с лазером, проверим перепады и закладные, посчитаем смету за 24 часа.'
+                      : 'Приедем с шумомером, замерим эхо и шум, посчитаем смету за 24 часа.'}
+                  </p>
+                </div>
               </div>
-            </div>
+              <button
+                type="button"
+                onClick={() => openLead(`Статья: ${post.title}`)}
+                className="shrink-0 whitespace-nowrap bg-primary px-6 py-3.5 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
+              >
+                Записаться на замер
+              </button>
+            </aside>
           </article>
         </div>
 
