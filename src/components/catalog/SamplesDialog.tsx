@@ -5,6 +5,7 @@ import { CATALOG } from '@/data/catalog';
 import PhoneInput from '@/components/ui/phone-input';
 import { isPhoneValid, sendLead } from '@/lib/lead';
 import { SAMPLES_EVENT, SAMPLES_LIMIT } from '@/lib/samples';
+import { GOALS, reachGoal, reachGoalOnce } from '@/lib/metrika';
 
 interface Errors {
   picked?: string;
@@ -36,6 +37,9 @@ const SamplesDialog = () => {
       setQuery('');
       if (slug) setPicked((p) => (p.includes(slug) ? p : [...p, slug].slice(0, SAMPLES_LIMIT)));
       setOpen(true);
+      reachGoalOnce(GOALS.SAMPLES_OPEN, undefined, {
+        fabric: slug ? (CATALOG.find((i) => i.slug === slug)?.name ?? slug) : 'без выбора',
+      });
     };
     window.addEventListener(SAMPLES_EVENT, handler);
     return () => window.removeEventListener(SAMPLES_EVENT, handler);
@@ -87,13 +91,14 @@ const SamplesDialog = () => {
     if (Object.keys(next).length) return;
 
     setSending(true);
+    const names = picked.map((s) => CATALOG.find((i) => i.slug === s)?.name ?? s);
     const ok = await sendLead({
       name: name.trim(),
       phone,
       source: 'Каталог — заказ образцов',
       address: address.trim(),
       comment: comment.trim(),
-      samples: picked.map((s) => CATALOG.find((i) => i.slug === s)?.name ?? s),
+      samples: names,
     });
     setSending(false);
     if (!ok) {
@@ -102,6 +107,10 @@ const SamplesDialog = () => {
     }
     setFailed(false);
     setSent(true);
+    reachGoal(GOALS.SAMPLES_ORDER, {
+      count: names.length,
+      fabrics: names.join(', '),
+    });
   };
 
   const close = () => setOpen(false);

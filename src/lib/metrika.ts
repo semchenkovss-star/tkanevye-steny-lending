@@ -17,6 +17,8 @@ export const GOALS = {
   SOCIAL_CLICK: 'social_click',
   CATALOG_VIEW: 'catalog_view',
   FABRIC_VIEW: 'fabric_view',
+  SAMPLES_OPEN: 'samples_open',
+  SAMPLES_ORDER: 'samples_order',
 } as const;
 
 /** Цели, которые считаем один раз за визит — чтобы не накручивать конверсию */
