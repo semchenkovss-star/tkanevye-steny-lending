@@ -103,7 +103,7 @@ def _telegram_request(ip: str, path: str, payload: bytes, timeout: float) -> int
             pass
 
 
-def _send_telegram(text: str) -> bool:
+def _send_telegram(text: str, phone_digits: str = '') -> bool:
     token = os.environ.get('TELEGRAM_BOT_TOKEN')
     chat_id = os.environ.get('TELEGRAM_CHAT_ID')
     if not token or not chat_id:
@@ -114,12 +114,21 @@ def _send_telegram(text: str) -> bool:
     path = f'/bot{token}/sendMessage'
     sent = False
 
+    fields = {
+        'text': text,
+        'parse_mode': 'HTML',
+        'disable_web_page_preview': 'true',
+    }
+    if phone_digits:
+        fields['reply_markup'] = json.dumps({
+            'inline_keyboard': [[
+                {'text': '💬 WhatsApp', 'url': f'https://wa.me/{phone_digits}'},
+                {'text': '✈️ Telegram', 'url': f'https://t.me/+{phone_digits}'},
+            ]]
+        })
+
     for cid in chat_ids:
-        payload = urllib.parse.urlencode({
-            'chat_id': cid,
-            'text': text,
-            'disable_web_page_preview': 'true',
-        }).encode()
+        payload = urllib.parse.urlencode({'chat_id': cid, **fields}).encode()
         for ip in TELEGRAM_IPS:
             try:
                 if _telegram_request(ip, path, payload, 2.5) == 200:
@@ -243,11 +252,36 @@ def handler(event: dict, context) -> dict:
 
     text = '\n'.join(lines)
 
+    def esc(v: str) -> str:
+        return str(v).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+    tg_lines = [
+        '<b>Новая заявка с сайта Fabric Wall</b>',
+        '',
+        f'Имя: <b>{esc(name)}</b>',
+        f'Телефон: <a href="tel:+{digits}"><b>{esc(phone)}</b></a>',
+        f'Источник: {esc(source)}',
+    ]
+    if summary:
+        tg_lines.append(f'Расчёт: {esc(summary)}')
+    if address:
+        tg_lines.append(f'Адрес: {esc(address)}')
+    if samples:
+        tg_lines.append(f'Образцы: {esc(samples)}')
+    if comment:
+        tg_lines.append(f'Комментарий: {esc(comment)}')
+    tg_lines.append('')
+    tg_lines.append(f'<code>+{digits}</code> — нажмите, чтобы скопировать')
+    if lead_id:
+        tg_lines.append(f'Заявка №{lead_id}')
+
+    tg_text = '\n'.join(tg_lines)
+
     tg_ok = False
     mail_ok = False
 
     try:
-        tg_ok = _send_telegram(text)
+        tg_ok = _send_telegram(tg_text, digits)
     except Exception as e:
         errors.append(f'telegram: {e}')
         print('telegram error:', e)
