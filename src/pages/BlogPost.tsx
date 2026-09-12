@@ -4,6 +4,7 @@ import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
 import Footer from '@/components/site/Footer';
 import LeadDialog from '@/components/site/LeadDialog';
+import MeasureCta from '@/components/site/MeasureCta';
 import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
@@ -46,6 +47,8 @@ const BlogPostPage = () => {
     (n, b) => n + b.p.reduce((k, t) => k + t.split(/\s+/).length, 0),
     0,
   );
+  const midCtaAfter =
+    wordCount >= 350 && post.body.length >= 5 ? Math.floor(post.body.length / 2) - 1 : -1;
 
   const jsonLd = [
     organizationLd(),
@@ -157,43 +160,36 @@ const BlogPostPage = () => {
 
             <div className="mt-12 max-w-[42em]">
               {post.body.map((block, i) => (
-                <div key={i} className="mb-10">
-                  {block.h && (
-                    <h2 className="mb-4 font-display text-[1.75rem] uppercase leading-[1.05] tracking-wide">
-                      {block.h}
-                    </h2>
+                <div key={i}>
+                  <div className="mb-10">
+                    {block.h && (
+                      <h2 className="mb-4 font-display text-[1.75rem] uppercase leading-[1.05] tracking-wide">
+                        {block.h}
+                      </h2>
+                    )}
+                    {block.p.map((text, k) => (
+                      <p key={k} className="mb-4 text-base leading-[1.75] text-muted-foreground">
+                        {text}
+                      </p>
+                    ))}
+                  </div>
+                  {i === midCtaAfter && (
+                    <MeasureCta
+                      isCeilings={isCeilings}
+                      source={`Статья (середина): ${post.title}`}
+                      heading="span"
+                      className="mb-12"
+                    />
                   )}
-                  {block.p.map((text, k) => (
-                    <p key={k} className="mb-4 text-base leading-[1.75] text-muted-foreground">
-                      {text}
-                    </p>
-                  ))}
                 </div>
               ))}
             </div>
 
-            <aside className="mt-4 flex flex-col gap-5 border border-border bg-secondary p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-7">
-              <div className="flex gap-4">
-                <Icon name="Ruler" size={22} className="mt-0.5 shrink-0 text-primary-ink" />
-                <div>
-                  <h2 className="font-display text-[1.15rem] uppercase leading-[1.15] tracking-wide">
-                    {isCeilings ? 'Замерим ваш потолок бесплатно' : 'Замерим вашу комнату бесплатно'}
-                  </h2>
-                  <p className="mt-2 max-w-[32em] text-sm leading-[1.55] text-muted-foreground">
-                    {isCeilings
-                      ? 'Приедем с лазером, проверим перепады и закладные, посчитаем смету за 24 часа.'
-                      : 'Приедем с шумомером, замерим эхо и шум, посчитаем смету за 24 часа.'}
-                  </p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => openLead(`Статья: ${post.title}`)}
-                className="shrink-0 whitespace-nowrap bg-primary px-6 py-3.5 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
-              >
-                Записаться на замер
-              </button>
-            </aside>
+            <MeasureCta
+              isCeilings={isCeilings}
+              source={`Статья: ${post.title}`}
+              className="mt-4"
+            />
           </article>
         </div>
 
