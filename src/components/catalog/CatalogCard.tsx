@@ -4,10 +4,20 @@ import { openLead } from '@/lib/lead';
 import { openSamples } from '@/lib/samples';
 import { CONCEPTS, CatalogItem } from '@/data/catalog';
 import ImageZoom from '@/components/catalog/ImageZoom';
+import { GOALS, reachGoalOnce } from '@/lib/metrika';
 
 const CatalogCard = ({ item }: { item: CatalogItem }) => {
   const concept = CONCEPTS.find((c) => c.id === item.concept)?.label ?? '';
   const [zoom, setZoom] = useState(false);
+
+  const openZoom = () => {
+    setZoom(true);
+    reachGoalOnce(GOALS.FABRIC_VIEW, item.slug, {
+      fabric: item.name,
+      material: item.material,
+      price: item.price,
+    });
+  };
 
   return (
     <article
@@ -17,7 +27,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
         <button
           type="button"
-          onClick={() => setZoom(true)}
+          onClick={openZoom}
           aria-label={`Рассмотреть фактуру ткани ${item.name}`}
           className="block h-full w-full cursor-zoom-in"
         >

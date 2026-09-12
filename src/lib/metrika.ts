@@ -15,7 +15,19 @@ export const GOALS = {
   LEAD: 'lead',
   PHONE_CLICK: 'phone_click',
   SOCIAL_CLICK: 'social_click',
+  CATALOG_VIEW: 'catalog_view',
+  FABRIC_VIEW: 'fabric_view',
 } as const;
+
+/** Цели, которые считаем один раз за визит — чтобы не накручивать конверсию */
+const firedOnce = new Set<string>();
+
+export function reachGoalOnce(goal: string, key?: string, params?: Record<string, unknown>) {
+  const id = key ? `${goal}:${key}` : goal;
+  if (firedOnce.has(id)) return;
+  firedOnce.add(id);
+  reachGoal(goal, params);
+}
 
 const SOCIAL_HOSTS: Record<string, string> = {
   't.me': 'Telegram',

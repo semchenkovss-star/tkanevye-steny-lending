@@ -11,6 +11,7 @@ import CatalogCard from '@/components/catalog/CatalogCard';
 import SamplesDialog from '@/components/catalog/SamplesDialog';
 import AcousticGuide from '@/components/catalog/AcousticGuide';
 import { openSamples } from '@/lib/samples';
+import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
 import CatalogFilters, { EMPTY_FILTERS, Filters } from '@/components/catalog/CatalogFilters';
 import {
@@ -54,8 +55,21 @@ const CatalogPage = () => {
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    reachGoalOnce(GOALS.CATALOG_VIEW);
+  }, []);
+
+  useEffect(() => {
     const hash = window.location.hash;
     if (hash.startsWith('#fabric-')) {
+      const slug = hash.replace('#fabric-', '');
+      const item = CATALOG.find((c) => c.slug === slug);
+      if (item) {
+        reachGoalOnce(GOALS.FABRIC_VIEW, item.slug, {
+          fabric: item.name,
+          material: item.material,
+          price: item.price,
+        });
+      }
       const t = window.setTimeout(() => {
         document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 250);
