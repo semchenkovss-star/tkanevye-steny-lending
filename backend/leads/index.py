@@ -1,6 +1,10 @@
+import http.client
 import json
 import os
 import smtplib
+import socket
+import ssl
+import urllib.error
 import urllib.parse
 import urllib.request
 from email.mime.text import MIMEText
@@ -63,20 +67,66 @@ def _mark_delivered(lead_id: int, email_ok: bool, tg_ok: bool, error: str) -> No
     conn.close()
 
 
+TELEGRAM_IPS = ['149.154.167.220', '149.154.167.197', '149.154.175.50']
+
+
+def _telegram_request(ip: str, path: str, payload: bytes, timeout: float) -> int:
+    """Запрос к api.telegram.org по конкретному IP: часть адресов недоступна с сервера"""
+    ctx = ssl.create_default_context()
+    raw = socket.create_connection((ip, 443), timeout=timeout)
+    try:
+        sock = ctx.wrap_socket(raw, server_hostname='api.telegram.org')
+        conn = http.client.HTTPSConnection(ip, 443, timeout=timeout, context=ctx)
+        conn.sock = sock
+        conn.request(
+            'POST',
+            path,
+            body=payload,
+            headers={
+                'Host': 'api.telegram.org',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Length': str(len(payload)),
+            },
+        )
+        resp = conn.getresponse()
+        status = resp.status
+        body = resp.read()[:300]
+        conn.close()
+        if status != 200:
+            print(f'telegram HTTP {status}: {body}')
+        return status
+    finally:
+        try:
+            raw.close()
+        except Exception:
+            pass
+
+
 def _send_telegram(text: str) -> bool:
     token = os.environ.get('TELEGRAM_BOT_TOKEN')
     chat_id = os.environ.get('TELEGRAM_CHAT_ID')
     if not token or not chat_id:
+        print('telegram: no token or chat_id')
         return False
-    url = f'https://api.telegram.org/bot{token}/sendMessage'
-    data = urllib.parse.urlencode({
-        'chat_id': chat_id,
-        'text': text,
-        'disable_web_page_preview': 'true',
-    }).encode()
-    req = urllib.request.Request(url, data=data)
-    with urllib.request.urlopen(req, timeout=3) as resp:
-        return resp.status == 200
+
+    chat_ids = [c.strip() for c in str(chat_id).split(',') if c.strip()]
+    path = f'/bot{token}/sendMessage'
+    sent = False
+
+    for cid in chat_ids:
+        payload = urllib.parse.urlencode({
+            'chat_id': cid,
+            'text': text,
+            'disable_web_page_preview': 'true',
+        }).encode()
+        for ip in TELEGRAM_IPS:
+            try:
+                if _telegram_request(ip, path, payload, 1.5) == 200:
+                    sent = True
+                    break
+            except Exception as e:
+                print(f'telegram {ip} for chat {cid}: {type(e).__name__} {e}')
+    return sent
 
 
 def _send_email(subject: str, text: str) -> bool:
@@ -196,16 +246,16 @@ def handler(event: dict, context) -> dict:
     mail_ok = False
 
     try:
-        mail_ok = _send_email(f'Заявка с сайта — {name}, {phone}', text)
-    except Exception as e:
-        errors.append(f'email: {e}')
-        print('email error:', e)
-
-    try:
         tg_ok = _send_telegram(text)
     except Exception as e:
         errors.append(f'telegram: {e}')
         print('telegram error:', e)
+
+    try:
+        mail_ok = _send_email(f'Заявка с сайта — {name}, {phone}', text)
+    except Exception as e:
+        errors.append(f'email: {e}')
+        print('email error:', e)
 
     if lead_id:
         try:
