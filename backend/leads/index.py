@@ -4,6 +4,7 @@ import os
 import smtplib
 import socket
 import ssl
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -67,7 +68,7 @@ def _mark_delivered(lead_id: int, email_ok: bool, tg_ok: bool, error: str) -> No
     conn.close()
 
 
-TELEGRAM_IPS = ['149.154.167.220', '149.154.167.197', '149.154.175.50']
+TELEGRAM_IPS = ['149.154.167.220', '149.154.167.99', '149.154.167.51']
 
 
 def _telegram_request(ip: str, path: str, payload: bytes, timeout: float) -> int:
@@ -121,7 +122,7 @@ def _send_telegram(text: str) -> bool:
         }).encode()
         for ip in TELEGRAM_IPS:
             try:
-                if _telegram_request(ip, path, payload, 1.5) == 200:
+                if _telegram_request(ip, path, payload, 2.5) == 200:
                     sent = True
                     break
             except Exception as e:
