@@ -103,7 +103,7 @@ def _telegram_request(ip: str, path: str, payload: bytes, timeout: float) -> int
             pass
 
 
-def _send_telegram(text: str, phone_digits: str = '') -> bool:
+def _send_telegram(text: str) -> bool:
     token = os.environ.get('TELEGRAM_BOT_TOKEN')
     chat_id = os.environ.get('TELEGRAM_CHAT_ID')
     if not token or not chat_id:
@@ -119,13 +119,6 @@ def _send_telegram(text: str, phone_digits: str = '') -> bool:
         'parse_mode': 'HTML',
         'disable_web_page_preview': 'true',
     }
-    if phone_digits:
-        fields['reply_markup'] = json.dumps({
-            'inline_keyboard': [[
-                {'text': '💬 WhatsApp', 'url': f'https://wa.me/{phone_digits}'},
-                {'text': '✈️ Telegram', 'url': f'https://t.me/+{phone_digits}'},
-            ]]
-        })
 
     for cid in chat_ids:
         payload = urllib.parse.urlencode({'chat_id': cid, **fields}).encode()
@@ -281,7 +274,7 @@ def handler(event: dict, context) -> dict:
     mail_ok = False
 
     try:
-        tg_ok = _send_telegram(tg_text, digits)
+        tg_ok = _send_telegram(tg_text)
     except Exception as e:
         errors.append(f'telegram: {e}')
         print('telegram error:', e)
