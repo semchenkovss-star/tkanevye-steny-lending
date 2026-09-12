@@ -252,7 +252,7 @@ def handler(event: dict, context) -> dict:
         '<b>Новая заявка с сайта Fabric Wall</b>',
         '',
         f'Имя: <b>{esc(name)}</b>',
-        f'Телефон: <a href="tel:+{digits}"><b>{esc(phone)}</b></a>',
+        f'Телефон: +{digits}',
         f'Источник: {esc(source)}',
     ]
     if summary:
@@ -264,7 +264,7 @@ def handler(event: dict, context) -> dict:
     if comment:
         tg_lines.append(f'Комментарий: {esc(comment)}')
     tg_lines.append('')
-    tg_lines.append(f'<code>+{digits}</code> — нажмите, чтобы скопировать')
+    tg_lines.append(f'<code>+{digits}</code>')
     if lead_id:
         tg_lines.append(f'Заявка №{lead_id}')
 
