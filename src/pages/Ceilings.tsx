@@ -56,7 +56,7 @@ const CeilingsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Натяжные тканевые потолки под ключ за 1 день | Fabric Wall"
+        title="Тканевый потолок Descor и Clipso: цена и монтаж | Fabric Wall"
         description="Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа."
         path="/ceilings"
         image={CEIL_IMG.hero}
