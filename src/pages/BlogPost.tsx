@@ -10,7 +10,6 @@ import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, getPost } from '@/data/blog';
 import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
-import { openLead } from '@/lib/lead';
 import Logo from '@/components/site/Logo';
 
 const BlogPostPage = () => {
@@ -24,6 +23,12 @@ const BlogPostPage = () => {
   if (!post) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background px-6 text-center">
+        <Seo
+          title="Статья не найдена — 404 | Fabric Wall"
+          description="Такой статьи нет. Вернитесь в блог и выберите материал из списка."
+          path={`/blog/${slug ?? ''}`}
+          noindex
+        />
         <h1 className="font-display text-[2.5rem] uppercase leading-none">Статья не найдена</h1>
         <Link
           to="/blog"
