@@ -59,6 +59,7 @@ const CeilingsPage = () => {
         title="Тканевый потолок Descor и Clipso: цена и монтаж | Fabric Wall"
         description="Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа."
         path="/ceilings"
+        keywords="тканевый натяжной потолок, бесшовный натяжной потолок, потолок descor, clipso потолки, натяжной потолок цена, теневой потолок"
         image={CEIL_IMG.hero}
         jsonLd={buildJsonLd()}
       />
