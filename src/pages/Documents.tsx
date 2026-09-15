@@ -6,7 +6,7 @@ import Logo from '@/components/site/Logo';
 import CalcButton from '@/components/site/CalcButton';
 import Footer from '@/components/site/Footer';
 import CertCard from '@/components/docs/CertCard';
-import { CERT_DOCS } from '@/data/documents';
+import { CERT_DOCS, DOC_GROUPS } from '@/data/documents';
 import { breadcrumbsLd } from '@/lib/schema';
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
 
@@ -18,10 +18,10 @@ const DocumentsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Сертификаты на ткани и полотна: пожарная безопасность | Fabric Wall"
-        description="Сертификаты пожарной безопасности на архитектурный текстиль Trevira CS и полотна Descor: трудновоспламеняемые материалы, слабогорючие Г1, соответствие 123-ФЗ."
+        title="Сертификаты на ткани и полотна: пожарная и санитарная безопасность | Fabric Wall"
+        description="Сертификаты на архитектурный текстиль и полотна Descor: пожарная безопасность Г1, санитарное заключение для детских и медицинских учреждений, стойкость окраски 5 из 5."
         path="/documents"
-        keywords="сертификат пожарной безопасности ткань, сертификат descor, трудновоспламеняемая ткань, документы на материалы"
+        keywords="сертификат пожарной безопасности ткань, сертификат descor, санитарное заключение ткань, трудновоспламеняемая ткань, документы на материалы"
         jsonLd={[breadcrumbsLd([{ name: 'Документы и сертификаты', path: '/documents' }])]}
       />
 
@@ -48,13 +48,26 @@ const DocumentsPage = () => {
         </h1>
         <p className="mt-6 max-w-[42em] text-base leading-[1.6] text-muted-foreground">
           Работаем только с сертифицированными материалами: ткани и полотна прошли испытания на
-          пожарную безопасность. Ниже — действующие сертификаты с номерами и сроками. Заверенные
-          копии передаём на объект по запросу — они часто нужны для сдачи помещения.
+          пожарную безопасность, санитарную безопасность и стойкость. Ниже — действующие документы
+          с номерами и датами. Заверенные копии передаём на объект по запросу — они часто нужны для
+          сдачи помещения.
         </p>
 
-        <div className="mt-10 grid gap-5 lg:mt-14">
-          {CERT_DOCS.map((doc) => (
-            <CertCard key={doc.id} doc={doc} />
+        <div className="mt-12 space-y-14 lg:mt-16">
+          {DOC_GROUPS.map((g) => (
+            <section key={g.id}>
+              <h2 className="font-display text-2xl uppercase leading-[1.05] tracking-wide text-foreground sm:text-3xl">
+                {g.title}
+              </h2>
+              <p className="mt-3 max-w-[44em] text-sm leading-[1.6] text-muted-foreground">
+                {g.lead}
+              </p>
+              <div className="mt-6 grid gap-5">
+                {CERT_DOCS.filter((d) => d.group === g.id).map((doc) => (
+                  <CertCard key={doc.id} doc={doc} />
+                ))}
+              </div>
+            </section>
           ))}
         </div>
 

@@ -35,10 +35,18 @@ const CertCard = ({ doc }: { doc: CertDoc }) => (
           <dt className="text-muted-foreground">Номер:</dt>
           <dd className="font-medium text-foreground">{doc.number}</dd>
         </div>
-        <div className="flex flex-wrap gap-x-2">
-          <dt className="text-muted-foreground">Действует до:</dt>
-          <dd className="font-medium text-foreground">{doc.validUntil}</dd>
-        </div>
+        {doc.validUntil && (
+          <div className="flex flex-wrap gap-x-2">
+            <dt className="text-muted-foreground">Действует до:</dt>
+            <dd className="font-medium text-foreground">{doc.validUntil}</dd>
+          </div>
+        )}
+        {doc.issued && (
+          <div className="flex flex-wrap gap-x-2">
+            <dt className="text-muted-foreground">Дата выдачи:</dt>
+            <dd className="font-medium text-foreground">{doc.issued}</dd>
+          </div>
+        )}
         <div className="flex flex-wrap gap-x-2">
           <dt className="text-muted-foreground">Кем выдан:</dt>
           <dd className="text-foreground">{doc.issuer}</dd>
