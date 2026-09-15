@@ -458,7 +458,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'svetovye-linii-vmesto-lyustry',
     seoDescription: 'Сколько метров ленты нужно на комнату 20 м², какая мощность даёт комфортный свет и как выбрать рассеиватель без точек и полос.',
-    seoTitle: 'Световые линии вместо люстры',
+    seoTitle: 'Световые линии на натяжном потолке',
     topic: 'ceilings',
     title: 'Световые линии вместо люстры: расчёт освещения для комнаты',
     excerpt:
@@ -847,7 +847,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'tihie-steny-2026-gaid',
-    seoTitle: 'Ткань, ПВХ или акустические панели',
+    seoTitle: 'Тихие стены: ткань, ПВХ или панели',
     topic: 'walls',
     title: 'Тихие стены 2026: гайд по выбору между тканью, ПВХ и акустическими панелями',
     excerpt:
@@ -980,7 +980,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'akustika-domashnego-kinoteatra',
-    seoTitle: 'Акустика домашнего кинотеатра',
+    seoTitle: 'Акустика комнаты для домашнего кинотеатра',
     topic: 'walls',
     title: 'Акустика домашнего кинотеатра: тканевые стены вместо обоев',
     excerpt:
@@ -1022,7 +1022,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'elektrika-za-polotnom',
-    seoTitle: 'Электрика и крепление ТВ за полотном',
+    seoTitle: 'Розетки и крепление ТВ на натяжной стене',
     topic: 'walls',
     title: 'Скрытая жизнь за полотном: электрика, розетки и крепление ТВ',
     excerpt:
@@ -1104,7 +1104,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'spalnya-shum-lifta',
-    seoTitle: 'Тканевые стены в спальне: шум лифта',
+    seoTitle: 'Шумоизоляция спальни от шума лифта',
     topic: 'walls',
     title: 'Натяжные стены в спальне: тест-драйв снижения шума от лифта',
     excerpt:
@@ -1269,7 +1269,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'smeta-studiya-25m',
-    seoTitle: 'Смета на тихие стены для студии 25 м²',
+    seoTitle: 'Цена тихих стен: смета на студию 25 м²',
     topic: 'walls',
     title: 'Сколько стоят тихие стены в 2026 году: расчёт сметы для студии 25 м²',
     excerpt:
@@ -1311,7 +1311,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'tkan-ili-vojlok',
-    seoTitle: 'Ткань или войлок для отделки стен',
+    seoTitle: 'Акустические панели: ткань или войлок',
     topic: 'walls',
     title: 'Ткань или войлок: сравниваем акустические панели для отделки',
     excerpt:
@@ -1393,7 +1393,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'effekt-barabana-novostrojka',
-    seoTitle: 'Эффект барабана в новостройке',
+    seoTitle: 'Гулкая комната в новостройке',
     topic: 'walls',
     title: 'Эффект барабана: почему пустая бетонная коробка звучит ужасно',
     excerpt:
@@ -1434,7 +1434,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'faq-pered-montazhom',
-    seoTitle: 'Вопросы перед монтажом тканевых стен',
+    seoTitle: 'Тканевые стены: провисание, запах, плесень',
     topic: 'walls',
     title: 'Частые вопросы перед монтажом: провисание, запах, плесень',
     excerpt:
@@ -1444,7 +1444,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '6 мин',
     tag: 'FAQ',
     img: '/img/b75a2e97-2a25-4175-9591-f70770cce68f.webp',
-    keywords: 'FAQ натяжные стены, запах материала, плесень за стеной, срок службы',
+    keywords: 'тканевые стены отзывы, провисает ли ткань на стене, запах от натяжных стен, плесень за тканевой стеной, срок службы тканевых стен',
     body: [
       {
         p: [
@@ -1481,7 +1481,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'tihie-steny-2026',
-    seoTitle: 'Как победить шум от соседей',
+    seoTitle: 'Звукоизоляция стен в квартире от соседей',
     topic: 'walls',
     title: 'Эпоха глухих стен: как победить шум от соседей в 2026 году',
     excerpt:
@@ -1491,6 +1491,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '8 мин',
     tag: 'Акустика',
     img: '/img/ae75988c-034c-4034-9907-7ecaea00199b.webp',
+    keywords: 'звукоизоляция стен в квартире, шумоизоляция стен от соседей, тихие стены, как избавиться от шума соседей, шумоизоляция квартиры под ключ',
     body: [
       {
         p: [
@@ -1544,7 +1545,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'steny-za-odin-den',
-    seoTitle: 'Тканевая стена за один день',
+    seoTitle: 'Монтаж тканевой стены за один день',
     topic: 'walls',
     title: 'Почему тканевая стена делается за один день',
     excerpt:
@@ -1554,6 +1555,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '4 мин',
     tag: 'Технология',
     img: '/img/480a4f0c-d22e-493f-82ea-78305902d47c.webp',
+    keywords: 'монтаж тканевых стен, натяжные стены за один день, отделка стен тканью, ремонт без пыли, монтаж натяжной стены',
     body: [
       {
         p: [
@@ -1588,6 +1590,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '5 мин',
     tag: 'Акустика',
     img: '/img/d01a16cf-63e7-4aa5-a7fb-a5789d779a26.webp',
+    keywords: 'как убрать эхо в комнате, эхо в квартире, гулкая комната что делать, звукопоглощение стен, акустический войлок',
     body: [
       {
         p: [
@@ -1611,7 +1614,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'vybor-tkani',
-    seoTitle: 'Как выбрать ткань: лён или фетр',
+    seoTitle: 'Какую ткань выбрать для стен: лён или фетр',
     topic: 'walls',
     title: 'Как выбрать ткань: лён, рогожка или акустический фетр',
     excerpt:
@@ -1621,6 +1624,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '4 мин',
     tag: 'Материалы',
     img: '/img/c8a6ab77-99e3-41aa-8446-bf8992503a5b.webp',
+    keywords: 'ткань для стен, акустический фетр, рогожка для стен, лен для отделки стен, какую ткань выбрать для стен',
     body: [
       {
         p: [
@@ -1654,7 +1658,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'skolko-stoit',
-    seoTitle: 'Смета на тканевую стену',
+    seoTitle: 'Сколько стоит тканевая стена: смета',
     topic: 'walls',
     title: 'Из чего складывается смета на тканевую стену',
     excerpt:
@@ -1664,6 +1668,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '3 мин',
     tag: 'Деньги',
     img: '/img/480a4f0c-d22e-493f-82ea-78305902d47c.webp',
+    keywords: 'сколько стоит тканевая стена, цена тканевых стен за м2, стоимость отделки стен тканью, смета на тканевые стены',
     body: [
       {
         p: [
