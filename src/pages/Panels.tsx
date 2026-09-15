@@ -20,7 +20,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { breadcrumbsLd, faqLd } from '@/lib/schema';
+import { breadcrumbsLd, faqLd, serviceLd } from '@/lib/schema';
+import { PLANS } from '@/lib/pricing';
 
 const HERO_IMG = '/img/293a57f7-0f38-469b-9902-803f225b736f.webp';
 
@@ -81,20 +82,14 @@ const PANEL_FAQ = [
 
 const buildJsonLd = () => [
   breadcrumbsLd([{ name: 'Стеновые панели из ткани', path: '/panels' }]),
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  serviceLd({
     name: 'Стеновые панели из ткани под ключ',
     serviceType: 'Монтаж тканевых стеновых панелей на скрытом каркасе',
-    provider: { '@id': `${window.location.origin}/#organization` },
-    areaServed: { '@type': 'Country', name: 'Россия' },
-    offers: {
-      '@type': 'Offer',
-      price: '1750',
-      priceCurrency: 'RUB',
-      description: 'Бесшовные тканевые стеновые панели под ключ, цена за м²',
-    },
-  },
+    description:
+      'Бесшовные тканевые стеновые панели на скрытом каркасе: стена от пола до потолка за 1–2 дня, без пыли и штукатурки.',
+    path: '/panels',
+    tiers: PLANS.map((p) => ({ name: p.name, price: p.rate, description: p.for })),
+  }),
   faqLd(PANEL_FAQ),
 ];
 

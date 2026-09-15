@@ -17,26 +17,24 @@ import CeilCalculator from '@/components/ceilings/CeilCalculator';
 import { CeilCta, CeilFaq } from '@/components/ceilings/CeilFaqCta';
 import CeilBlog from '@/components/ceilings/CeilBlog';
 import Services from '@/components/site/Services';
-import { CEIL_FAQ, CEIL_IMG, CEIL_STEPS } from '@/lib/ceilings';
-import { breadcrumbsLd, faqLd, howToLd } from '@/lib/schema';
+import { CEIL_FAQ, CEIL_IMG, CEIL_PLANS, CEIL_STEPS } from '@/lib/ceilings';
+import { breadcrumbsLd, faqLd, howToLd, serviceLd } from '@/lib/schema';
 import CrossLinks from '@/components/site/CrossLinks';
 
 const buildJsonLd = () => [
   breadcrumbsLd([{ name: 'Натяжные потолки', path: '/ceilings' }]),
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  serviceLd({
     name: 'Натяжные потолки под ключ',
     serviceType: 'Монтаж натяжных тканевых потолков',
-    provider: { '@id': `${window.location.origin}/#organization` },
-    areaServed: { '@type': 'Country', name: 'Россия' },
-    offers: {
-      '@type': 'Offer',
-      price: '1200',
-      priceCurrency: 'RUB',
-      description: 'Бесшовный натяжной потолок под ключ за один день, цена за м²',
-    },
-  },
+    description:
+      'Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за один день без пыли.',
+    path: '/ceilings',
+    tiers: CEIL_PLANS.map((p) => ({
+      name: p.name,
+      price: p.rate,
+      description: p.for,
+    })),
+  }),
   howToLd(
     'Как проходит монтаж натяжного потолка',
     'Четыре шага до готового потолка: заявка, замер и смета, подготовка полотна и монтаж за один день.',

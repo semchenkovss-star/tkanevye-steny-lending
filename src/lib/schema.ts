@@ -148,6 +148,64 @@ export const howToLd = (
   })),
 });
 
+export interface ServiceTier {
+  name: string;
+  price: number;
+  description: string;
+}
+
+/**
+ * Услуга с тарифами: Яндекс показывает «от … ₽» прямо в выдаче.
+ * Диапазон берётся из тарифов, каждый тариф — отдельное предложение.
+ */
+export const serviceLd = (opts: {
+  name: string;
+  serviceType: string;
+  description: string;
+  path: string;
+  tiers: ServiceTier[];
+  unitText?: string;
+}) => {
+  const prices = opts.tiers.map((t) => t.price);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${origin()}${opts.path}#service`,
+    name: opts.name,
+    serviceType: opts.serviceType,
+    description: opts.description,
+    url: `${origin()}${opts.path}`,
+    provider: { '@id': `${origin()}/#organization` },
+    areaServed: { '@type': 'Country', name: 'Россия' },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'RUB',
+      lowPrice: Math.min(...prices),
+      highPrice: Math.max(...prices),
+      offerCount: opts.tiers.length,
+      availability: 'https://schema.org/InStock',
+      seller: { '@id': `${origin()}/#organization` },
+      offers: opts.tiers.map((t) => ({
+        '@type': 'Offer',
+        name: t.name,
+        price: t.price,
+        priceCurrency: 'RUB',
+        description: t.description,
+        url: `${origin()}${opts.path}`,
+        priceValidUntil: '2027-12-31',
+        availability: 'https://schema.org/InStock',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: t.price,
+          priceCurrency: 'RUB',
+          unitCode: 'MTK',
+          unitText: opts.unitText ?? 'м²',
+        },
+      })),
+    },
+  };
+};
+
 export const faqLd = (items: { q: string; a: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',

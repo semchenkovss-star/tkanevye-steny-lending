@@ -2,28 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
-import { ACOUSTIC_PLACES } from '@/lib/acoustics';
+import { ACOUSTIC_GOALS, ACOUSTIC_PLACES } from '@/lib/acoustics';
 
 const money = (v: number) => Math.round(v).toLocaleString('ru-RU') + ' ₽';
 
-const GOALS = [
-  {
-    id: 'echo',
-    name: 'Убрать эхо',
-    rate: 5900,
-    coverage: 0.55,
-    hint: 'Гулкий звук внутри комнаты, плохая разборчивость на созвонах',
-    detail: 'Хватает одной-двух стен: обрабатываем зоны первых отражений.',
-  },
-  {
-    id: 'noise',
-    name: 'Защита от соседей',
-    rate: 8900,
-    coverage: 1,
-    hint: 'Слышно речь, телевизор и шаги за стеной',
-    detail: 'Нужен полный слой по стене-источнику: каркас, плита и мембрана.',
-  },
-] as const;
+const GOALS = ACOUSTIC_GOALS;
 
 const EXTRAS = [
   { id: 'ceiling', label: 'Акустический потолок', hint: 'Шум сверху, гул под потолком', rate: 1900 },

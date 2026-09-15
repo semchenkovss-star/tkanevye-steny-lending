@@ -23,6 +23,7 @@ import { openLead } from '@/lib/lead';
 import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
 import {
   ACOUSTIC_CASES,
+  ACOUSTIC_GOALS,
   ACOUSTIC_PLACES,
   ACOUSTIC_FAQ,
   ACOUSTIC_IMG,
@@ -30,26 +31,23 @@ import {
   ACOUSTIC_RESULTS,
   ACOUSTIC_STEPS,
 } from '@/lib/acoustics';
-import { breadcrumbsLd, faqLd, howToLd } from '@/lib/schema';
+import { breadcrumbsLd, faqLd, howToLd, serviceLd } from '@/lib/schema';
 import CrossLinks from '@/components/site/CrossLinks';
 
 const buildJsonLd = () => [
   breadcrumbsLd([{ name: 'Акустика под ключ', path: '/acoustics' }]),
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  serviceLd({
     name: 'Шумоизоляция комнаты под ключ',
     serviceType: 'Шумоизоляция и акустическая обработка помещения под ключ',
-    provider: { '@id': `${window.location.origin}/#organization` },
-    areaServed: { '@type': 'Country', name: 'Россия' },
-    offers: {
-      '@type': 'Offer',
-      price: '5900',
-      priceCurrency: 'RUB',
-      description:
-        'Звукоизоляция стен в квартире и акустическая обработка помещения под ключ, цена за м²',
-    },
-  },
+    description:
+      'Звукоизоляция стен в квартире и акустическая обработка помещения под ключ: замер шумомером, каркас, звукопоглощающий слой, полотно и монтаж.',
+    path: '/acoustics',
+    tiers: ACOUSTIC_GOALS.map((g) => ({
+      name: g.name,
+      price: g.rate,
+      description: g.detail,
+    })),
+  }),
   howToLd(
     'Как проходит акустическая обработка помещения',
     'Четыре шага: замер шумомером, подбор состава, смета с гарантией результата и монтаж стен и потолка.',
