@@ -35,6 +35,7 @@ const COLUMNS = [
       { href: '#reviews', label: 'Отзывы' },
       { href: '#blog', label: 'Блог' },
       { href: '#about', label: 'О компании' },
+      { href: '/documents', label: 'Сертификаты' },
     ],
   },
 ];

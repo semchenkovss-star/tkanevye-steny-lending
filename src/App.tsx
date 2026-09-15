@@ -17,6 +17,7 @@ const CeilingsPage = lazy(() => import("./pages/Ceilings"));
 const PanelsPage = lazy(() => import("./pages/Panels"));
 const BlogPostPage = lazy(() => import("./pages/BlogPost"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const DocumentsPage = lazy(() => import("./pages/Documents"));
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/documents" element={<DocumentsPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
