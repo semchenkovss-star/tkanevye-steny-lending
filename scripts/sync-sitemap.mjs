@@ -1,9 +1,12 @@
 /**
- * Пересчитывает <lastmod> в public/sitemap.xml.
+ * Пересчитывает <lastmod> в public/sitemap.xml и заново собирает robots.txt.
  *
  * Даты берутся из двух источников, вручную ничего указывать не нужно:
  *  - статьи блога — поле date в src/data/blog.ts;
  *  - разделы сайта — дата последнего коммита, тронувшего файлы раздела.
+ *
+ * robots.txt строится из карты сайта: реальные адреса разрешены поимённо,
+ * всё остальное закрыто — несуществующие страницы не попадут в индекс.
  *
  * Запуск: node scripts/sync-sitemap.mjs
  */
@@ -14,7 +17,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SITEMAP = resolve(root, 'public/sitemap.xml');
+const ROBOTS = resolve(root, 'public/robots.txt');
 const ORIGIN = 'https://fabricwall.ru';
+const CLEAN_PARAM = 'utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid&from';
 
 /** Дата последнего изменения любого из файлов, ГГГГ-ММ-ДД */
 const lastCommit = (files) => {
@@ -65,6 +70,58 @@ const buildDateMap = () => {
   return map;
 };
 
+/** Файлы в public/, которые роботу нужно оставить доступными */
+const ALLOWED_FILES = [
+  '/sitemap.xml',
+  '/robots.txt',
+  '/favicon.ico',
+  '/favicon.svg',
+  '/site.webmanifest',
+  '/img/',
+  '/*.png$',
+  '/*.webp$',
+  '/*.svg$',
+  '/yandex_*.html$',
+];
+
+/**
+ * robots.txt по принципу «разрешено только перечисленное».
+ * Любой адрес с опечаткой не совпадёт ни с одним Allow и будет закрыт —
+ * робот узнает об этом до обращения к странице.
+ */
+const buildRobots = (paths) => {
+  // Для каждого адреса два правила: сам адрес и он же с параметрами
+  // (?utm_source=…, ?yclid=… из рекламы) — иначе такие ссылки закроются.
+  const allow = [...new Set(paths)]
+    .sort()
+    .flatMap((p) => [`Allow: ${p}$`, `Allow: ${p}?*`]);
+  const files = ALLOWED_FILES.map((p) => `Allow: ${p}`);
+
+  const rules = [
+    ...allow,
+    ...files,
+    '',
+    '# Всё, что не перечислено выше, — несуществующие адреса и опечатки',
+    'Disallow: /',
+  ];
+
+  return [
+    '# Файл собирается автоматически: scripts/sync-sitemap.mjs',
+    '# Править вручную не нужно — список берётся из sitemap.xml',
+    '',
+    'User-agent: Yandex',
+    ...rules,
+    `Clean-param: ${CLEAN_PARAM}`,
+    '',
+    'User-agent: *',
+    ...rules,
+    '',
+    `Host: ${ORIGIN}`,
+    `Sitemap: ${ORIGIN}/sitemap.xml`,
+    '',
+  ].join('\n');
+};
+
 const run = () => {
   const map = buildDateMap();
   const xml = readFileSync(SITEMAP, 'utf8');
@@ -98,6 +155,18 @@ const run = () => {
   if (unknown.length) {
     console.log(`\nНет данных о дате (оставлено как было): ${unknown.length}`);
     unknown.forEach((p) => console.log(`  ${p}`));
+  }
+
+  const paths = [...out.matchAll(/<loc>(.*?)<\/loc>/g)].map(
+    (m) => m[1].replace(ORIGIN, '') || '/',
+  );
+  const robots = buildRobots(paths);
+  const before = readFileSync(ROBOTS, 'utf8');
+  if (before !== robots) {
+    writeFileSync(ROBOTS, robots);
+    console.log(`\nrobots.txt пересобран: разрешено ${paths.length} адресов, остальное закрыто`);
+  } else {
+    console.log('\nrobots.txt без изменений');
   }
 };
 
