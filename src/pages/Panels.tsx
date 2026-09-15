@@ -139,7 +139,7 @@ const PanelsPage = () => {
           <img
             src={HERO_IMG}
             alt="Стеновые панели из ткани — бесшовное полотно на скрытом каркасе в гостиной"
-            fetchPriority="high"
+            {...{ fetchpriority: 'high' }}
             className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
           <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">

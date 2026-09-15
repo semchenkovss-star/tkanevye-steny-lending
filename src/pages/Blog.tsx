@@ -123,7 +123,7 @@ const BlogPage = () => {
             <img
               src={lead.img}
               alt={`${lead.title} — главная статья блога о тканевых стенах и потолках`}
-              fetchPriority="high"
+              {...{ fetchpriority: 'high' }}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
           </div>
