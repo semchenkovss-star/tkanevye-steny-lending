@@ -54,7 +54,7 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
-const Services = ({ index = '11' }: { index?: string }) => (
+const Services = ({ index = '12' }: { index?: string }) => (
   <Section
     id="services"
     index={index}

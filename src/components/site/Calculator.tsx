@@ -65,7 +65,7 @@ const NumberField = ({
   </div>
 );
 
-const Calculator = ({ index = '08' }: { index?: string }) => {
+const Calculator = ({ index = '09' }: { index?: string }) => {
   const [length, setLength] = useState(4.2);
   const [height, setHeight] = useState(2.7);
   const [planId, setPlanId] = useState('quiet');

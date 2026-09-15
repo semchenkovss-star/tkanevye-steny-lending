@@ -16,7 +16,7 @@ const About = () => {
   return (
     <Section
       id="about"
-      index="10"
+      index="11"
       eyebrow="О компании"
       title={
         <>

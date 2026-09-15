@@ -11,6 +11,7 @@ import Benefits from '@/components/site/Benefits';
 import HowItWorks from '@/components/site/HowItWorks';
 import Fabrics from '@/components/site/Fabrics';
 import Cases from '@/components/site/Cases';
+import Certificates from '@/components/site/Certificates';
 import Pricing from '@/components/site/Pricing';
 import Calculator from '@/components/site/Calculator';
 import Reviews from '@/components/site/Reviews';
@@ -77,6 +78,7 @@ const Index = () => {
         <Benefits />
         <HowItWorks />
         <Fabrics />
+        <Certificates />
         <Cases />
         <Pricing />
         <Calculator />

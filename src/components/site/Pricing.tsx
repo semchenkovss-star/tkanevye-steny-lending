@@ -3,7 +3,7 @@ import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { PLANS } from '@/lib/pricing';
 
-const Pricing = ({ index = '07' }: { index?: string }) => {
+const Pricing = ({ index = '08' }: { index?: string }) => {
   return (
     <Section
       id="price"
