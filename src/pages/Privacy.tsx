@@ -5,7 +5,7 @@ import CalcButton from '@/components/site/CalcButton';
 import Seo from '@/components/Seo';
 import Footer from '@/components/site/Footer';
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
-import { breadcrumbsLd, organizationLd } from '@/lib/schema';
+import { breadcrumbsLd } from '@/lib/schema';
 import Logo from '@/components/site/Logo';
 
 const linkify = (text: string) => {
@@ -119,10 +119,7 @@ const Privacy = () => {
         title="Политика обработки персональных данных | Fabric Wall"
         description="Как мы собираем, используем и защищаем персональные данные пользователей сайта: цели обработки, сроки хранения, права пользователя и контакты для обращений."
         path="/privacy"
-        jsonLd={[
-          organizationLd(),
-          breadcrumbsLd([{ name: 'Политика конфиденциальности', path: '/privacy' }]),
-        ]}
+        jsonLd={[breadcrumbsLd([{ name: 'Политика конфиденциальности', path: '/privacy' }])]}
       />
 
       <header className="border-b border-border">

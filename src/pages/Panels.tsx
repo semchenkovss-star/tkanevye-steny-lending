@@ -20,7 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { breadcrumbsLd, faqLd, organizationLd, websiteLd } from '@/lib/schema';
+import { breadcrumbsLd, faqLd } from '@/lib/schema';
 
 const HERO_IMG = '/img/293a57f7-0f38-469b-9902-803f225b736f.webp';
 
@@ -80,8 +80,6 @@ const PANEL_FAQ = [
 ];
 
 const buildJsonLd = () => [
-  organizationLd(),
-  websiteLd(),
   breadcrumbsLd([{ name: 'Стеновые панели из ткани', path: '/panels' }]),
   {
     '@context': 'https://schema.org',

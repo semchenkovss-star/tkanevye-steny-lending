@@ -8,15 +8,13 @@ import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, BLOG_TOPICS, BlogTopicId, postsByTopic } from '@/data/blog';
-import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
+import { breadcrumbsLd } from '@/lib/schema';
 import { openLead } from '@/lib/lead';
 import Logo from '@/components/site/Logo';
 
 const buildJsonLd = () => {
   const origin = window.location.origin;
   return [
-    organizationLd(),
-    websiteLd(),
     breadcrumbsLd([{ name: 'Блог', path: '/blog' }]),
     {
       '@context': 'https://schema.org',

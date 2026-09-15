@@ -30,12 +30,10 @@ import {
   ACOUSTIC_RESULTS,
   ACOUSTIC_STEPS,
 } from '@/lib/acoustics';
-import { breadcrumbsLd, faqLd, howToLd, organizationLd, websiteLd } from '@/lib/schema';
+import { breadcrumbsLd, faqLd, howToLd } from '@/lib/schema';
 import CrossLinks from '@/components/site/CrossLinks';
 
 const buildJsonLd = () => [
-  organizationLd(),
-  websiteLd(),
   breadcrumbsLd([{ name: 'Акустика под ключ', path: '/acoustics' }]),
   {
     '@context': 'https://schema.org',

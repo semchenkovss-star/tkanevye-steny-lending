@@ -9,7 +9,7 @@ import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, getPost } from '@/data/blog';
-import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
+import { breadcrumbsLd } from '@/lib/schema';
 import Logo from '@/components/site/Logo';
 
 const BlogPostPage = () => {
@@ -56,8 +56,6 @@ const BlogPostPage = () => {
     wordCount >= 350 && post.body.length >= 5 ? Math.floor(post.body.length / 2) - 1 : -1;
 
   const jsonLd = [
-    organizationLd(),
-    websiteLd(),
     {
       '@context': 'https://schema.org',
       '@type': 'Article',

@@ -12,7 +12,7 @@ import SamplesDialog from '@/components/catalog/SamplesDialog';
 import AcousticGuide from '@/components/catalog/AcousticGuide';
 import { openSamples } from '@/lib/samples';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
-import { breadcrumbsLd, organizationLd, websiteLd } from '@/lib/schema';
+import { breadcrumbsLd } from '@/lib/schema';
 import CatalogFilters, { EMPTY_FILTERS, Filters } from '@/components/catalog/CatalogFilters';
 import {
   CATALOG,
@@ -155,8 +155,6 @@ const CatalogPage = () => {
 
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const jsonLd = [
-    organizationLd(),
-    websiteLd(),
     breadcrumbsLd([{ name: 'Каталог тканей', path: '/catalog' }]),
     {
       '@context': 'https://schema.org',

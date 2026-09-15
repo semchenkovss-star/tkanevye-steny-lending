@@ -23,17 +23,9 @@ import FloatingCta from '@/components/site/FloatingCta';
 import LeadDialog from '@/components/site/LeadDialog';
 import { STEPS } from '@/components/site/HowItWorks';
 import CrossLinks from '@/components/site/CrossLinks';
-import {
-  faqLd,
-  howToLd,
-  localBusinessLd,
-  organizationLd,
-  websiteLd,
-} from '@/lib/schema';
+import { faqLd, howToLd, localBusinessLd } from '@/lib/schema';
 
 const buildJsonLd = () => [
-  organizationLd(),
-  websiteLd(),
   localBusinessLd(),
   {
     '@context': 'https://schema.org',

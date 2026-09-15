@@ -18,12 +18,10 @@ import { CeilCta, CeilFaq } from '@/components/ceilings/CeilFaqCta';
 import CeilBlog from '@/components/ceilings/CeilBlog';
 import Services from '@/components/site/Services';
 import { CEIL_FAQ, CEIL_IMG, CEIL_STEPS } from '@/lib/ceilings';
-import { breadcrumbsLd, faqLd, howToLd, organizationLd, websiteLd } from '@/lib/schema';
+import { breadcrumbsLd, faqLd, howToLd } from '@/lib/schema';
 import CrossLinks from '@/components/site/CrossLinks';
 
 const buildJsonLd = () => [
-  organizationLd(),
-  websiteLd(),
   breadcrumbsLd([{ name: 'Натяжные потолки', path: '/ceilings' }]),
   {
     '@context': 'https://schema.org',
