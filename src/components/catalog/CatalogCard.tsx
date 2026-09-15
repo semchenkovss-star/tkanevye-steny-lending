@@ -99,6 +99,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
               {item.price.toLocaleString('ru-RU')} ₽
               <span className="ml-1 text-sm text-muted-foreground">/ м²</span>
             </div>
+            <div className="mt-1 text-xs text-muted-foreground">за полотно, без монтажа</div>
           </div>
           <button
             type="button"

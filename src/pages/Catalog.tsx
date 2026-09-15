@@ -205,12 +205,21 @@ const CatalogPage = () => {
             '@type': 'Offer',
             price: i.price,
             priceCurrency: 'RUB',
+            description: 'Цена за полотно, без каркаса и монтажа',
             url: `${origin}/catalog#fabric-${i.slug}`,
             priceValidUntil: '2027-12-31',
             availability: i.inStock
               ? 'https://schema.org/InStock'
               : 'https://schema.org/PreOrder',
             seller: { '@id': `${origin}/#organization` },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: i.price,
+              priceCurrency: 'RUB',
+              unitCode: 'MTK',
+              unitText: 'м²',
+              valueAddedTaxIncluded: true,
+            },
             eligibleQuantity: {
               '@type': 'QuantitativeValue',
               unitCode: 'MTK',
@@ -257,9 +266,9 @@ const CatalogPage = () => {
           Архитектурный текстиль для стен
         </h1>
         <p className="mt-6 max-w-[42em] text-base leading-[1.6] text-muted-foreground">
-          Акустические ткани для стен можно купить под ключ: цена включает каркас, наполнение, полотно,
-          монтаж и уборку. Подберите вариант по стилю интерьера и бюджету — точную смету посчитает
-          замерщик.
+          Цены указаны за само полотно — каркас, наполнение, монтаж и уборка считаются отдельно,
+          под ключ от 3 900 ₽ / м². Подберите вариант по стилю интерьера и бюджету — точную смету
+          посчитает замерщик.
         </p>
 
         <div className="mt-10 grid min-w-0 gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-10">
