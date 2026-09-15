@@ -43,6 +43,10 @@ const setLink = (rel: string, href: string) => {
   el.setAttribute('href', href);
 };
 
+const removeLink = (rel: string) => {
+  document.head.querySelector(`link[rel="${rel}"]`)?.remove();
+};
+
 const Seo = ({
   title,
   description,
@@ -67,7 +71,10 @@ const Seo = ({
       'robots',
       noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large',
     );
-    setLink('canonical', url);
+    // Закрытая страница не должна объявлять себя канонической:
+    // иначе робот считает несуществующий адрес полноценной страницей.
+    if (noindex) removeLink('canonical');
+    else setLink('canonical', url);
 
     setMeta('property', 'og:site_name', SITE_NAME);
     setMeta('property', 'og:locale', 'ru_RU');
