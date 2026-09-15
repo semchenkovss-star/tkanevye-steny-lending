@@ -6,6 +6,9 @@ import { CONCEPTS, CatalogItem } from '@/data/catalog';
 import ImageZoom from '@/components/catalog/ImageZoom';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
 
+/** Лёгкая копия 600px для сетки: полноразмерный файл нужен только при увеличении */
+const thumb = (src: string) => src.replace('/img/', '/img/thumb/');
+
 const CatalogCard = ({ item }: { item: CatalogItem }) => {
   const concept = CONCEPTS.find((c) => c.id === item.concept)?.label ?? '';
   const [zoom, setZoom] = useState(false);
@@ -32,9 +35,11 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
           className="block h-full w-full cursor-zoom-in"
         >
           <img
-            src={item.img}
+            src={thumb(item.img)}
             alt={`Ткань для стен ${item.name} — ${item.material}, цвет ${item.colorName}`}
             loading="lazy"
+            width={600}
+            height={450}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
           <span className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center bg-background/90 text-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">

@@ -211,9 +211,11 @@ const SamplesDialog = () => {
                       } ${disabled ? 'cursor-not-allowed opacity-40' : ''}`}
                     >
                       <img
-                        src={i.img}
+                        src={i.img.replace('/img/', '/img/thumb/')}
                         alt={`Образец ткани ${i.name} — ${i.material}, цвет ${i.colorName}`}
                         loading="lazy"
+                        width={48}
+                        height={48}
                         className="h-12 w-12 shrink-0 object-cover"
                       />
                       <span className="min-w-0 flex-1">
