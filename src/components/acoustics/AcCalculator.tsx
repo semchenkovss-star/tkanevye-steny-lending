@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
+import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { ACOUSTIC_GOALS, ACOUSTIC_PLACES } from '@/lib/acoustics';
@@ -328,6 +329,8 @@ const AcCalculator = () => {
           >
             Отправить расчёт и получить смету
           </button>
+
+          <OfferNote tone="dark" className="mt-5" />
         </div>
       </div>
     </Section>

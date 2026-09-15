@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
+import OfferNote from '@/components/site/OfferNote';
 import Footer from '@/components/site/Footer';
 import LeadDialog from '@/components/site/LeadDialog';
 import FloatingCta from '@/components/site/FloatingCta';
@@ -377,6 +378,8 @@ const CatalogPage = () => {
                 ))}
               </div>
             )}
+
+            <OfferNote className="mt-6" />
 
             <AcousticGuide />
 

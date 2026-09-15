@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
+import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { EXTRAS, PLANS, formatMoney } from '@/lib/pricing';
@@ -287,6 +288,8 @@ const Calculator = ({ index = '09' }: { index?: string }) => {
           >
             Отправить расчёт и получить смету
           </button>
+
+          <OfferNote tone="dark" className="mt-5" />
         </div>
       </div>
     </Section>

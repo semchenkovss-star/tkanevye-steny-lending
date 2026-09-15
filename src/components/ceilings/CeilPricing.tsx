@@ -1,4 +1,5 @@
 import Section from '@/components/site/Section';
+import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { CEIL_PLANS } from '@/lib/ceilings';
@@ -79,6 +80,8 @@ const CeilPricing = () => (
         К калькулятору
       </a>
     </div>
+
+    <OfferNote className="mt-6" />
   </Section>
 );
 

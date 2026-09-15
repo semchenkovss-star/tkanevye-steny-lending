@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
+import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { CEIL_EXTRAS, CEIL_FABRICS, CEIL_PLANS, ceilMoney } from '@/lib/ceilings';
@@ -280,6 +281,8 @@ const CeilCalculator = () => {
           >
             Отправить расчёт и получить смету
           </button>
+
+          <OfferNote tone="dark" className="mt-5" />
         </div>
       </div>
     </Section>

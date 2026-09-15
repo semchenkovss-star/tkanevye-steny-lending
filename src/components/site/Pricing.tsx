@@ -1,4 +1,5 @@
 import Section from '@/components/site/Section';
+import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { PLANS } from '@/lib/pricing';
@@ -89,6 +90,7 @@ const Pricing = ({ index = '08' }: { index?: string }) => {
         </a>
       </div>
 
+      <OfferNote className="mt-6" />
     </Section>
   );
 };
