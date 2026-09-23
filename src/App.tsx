@@ -9,6 +9,7 @@ import MetrikaPageView from "@/components/MetrikaPageView";
 import { initPhoneTracking } from "@/lib/metrika";
 import { ROUTES, NOT_FOUND } from "@/routes";
 import { CityProvider } from "@/lib/city";
+import CityHint from "@/components/site/CityHint";
 import { CITIES } from "@/data/cities";
 
 /** Города, живущие в папке: у основного slug пустой, он уже на корне */
@@ -29,6 +30,7 @@ const App = () => {
       <BrowserRouter>
         <CityProvider>
           <MetrikaPageView />
+          <CityHint />
           <Suspense fallback={<div className="min-h-screen bg-background" />}>
             <Routes>
               {/* Список страниц — в src/routes.tsx: он общий для браузера и пререндера */}
