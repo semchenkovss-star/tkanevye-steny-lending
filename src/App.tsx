@@ -1,23 +1,13 @@
-import { lazy, Suspense, useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
 import CookieNotice from "@/components/site/CookieNotice";
 import MetrikaPageView from "@/components/MetrikaPageView";
 import { initPhoneTracking } from "@/lib/metrika";
-
-const NotFound = lazy(() => import("./pages/PageNotFound"));
-const BlogPage = lazy(() => import("./pages/Blog"));
-const CatalogPage = lazy(() => import("./pages/Catalog"));
-const AcousticsPage = lazy(() => import("./pages/Acoustics"));
-const CeilingsPage = lazy(() => import("./pages/Ceilings"));
-const PanelsPage = lazy(() => import("./pages/Panels"));
-const BlogPostPage = lazy(() => import("./pages/BlogPost"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const DocumentsPage = lazy(() => import("./pages/Documents"));
+import { ROUTES, NOT_FOUND } from "@/routes";
 
 const queryClient = new QueryClient();
 
@@ -35,17 +25,11 @@ const App = () => {
         <MetrikaPageView />
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/acoustics" element={<AcousticsPage />} />
-            <Route path="/panels" element={<PanelsPage />} />
-            <Route path="/ceilings" element={<CeilingsPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/documents" element={<DocumentsPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            {/* Список страниц — в src/routes.tsx: он общий для браузера и пререндера */}
+            {ROUTES.map(({ path, Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+            <Route path="*" element={<NOT_FOUND.Component />} />
           </Routes>
         </Suspense>
         <CookieNotice />
