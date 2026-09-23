@@ -7,6 +7,7 @@ import {
   SOCIALS,
   WORK_HOURS,
 } from '@/lib/contacts';
+import { DEFAULT_CITY, type City } from '@/data/cities';
 
 export const SITE_NAME = 'Fabric Wall';
 export const LEGAL_DESCRIPTION =
@@ -28,7 +29,7 @@ export const logoLd = () => ({
   inLanguage: 'ru-RU',
 });
 
-export const organizationLd = () => ({
+export const organizationLd = (city: City = DEFAULT_CITY) => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${origin()}/#organization`,
@@ -38,24 +39,24 @@ export const organizationLd = () => ({
   url: `${origin()}/`,
   logo: logoLd(),
   image: logoLd(),
-  telephone: PHONE_DISPLAY,
+  telephone: city.phoneDisplay,
   email: EMAIL,
   taxID: LEGAL_INN,
   vatID: LEGAL_OGRN,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Переведеновский пер., д. 3',
-    addressLocality: 'Москва',
-    addressRegion: 'Москва',
+    streetAddress: city.street,
+    addressLocality: city.name,
+    addressRegion: city.region,
     addressCountry: 'RU',
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: PHONE_DISPLAY,
+    telephone: city.phoneDisplay,
     contactType: 'sales',
     areaServed: 'RU',
     availableLanguage: 'Russian',
-    hoursAvailable: WORK_HOURS,
+    hoursAvailable: city.workHours,
   },
   sameAs: SOCIALS.map((s) => s.href),
 });
@@ -78,24 +79,25 @@ export const websiteLd = () => ({
   },
 });
 
-export const localBusinessLd = () => ({
+export const localBusinessLd = (city: City = DEFAULT_CITY) => ({
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
   '@id': `${origin()}/#business`,
   name: SITE_NAME,
   description: LEGAL_DESCRIPTION,
   url: `${origin()}/`,
-  telephone: PHONE_DISPLAY,
+  telephone: city.phoneDisplay,
   email: EMAIL,
   logo: logoLd(),
   image: [abs('/img/og-cover.jpg'), abs('/logo.png')],
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Переведеновский пер., д. 3',
-    addressLocality: 'Москва',
+    streetAddress: city.street,
+    addressLocality: city.name,
+    addressRegion: city.region,
     addressCountry: 'RU',
   },
-  areaServed: { '@type': 'Country', name: 'Россия' },
+  areaServed: { '@type': 'City', name: city.name },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

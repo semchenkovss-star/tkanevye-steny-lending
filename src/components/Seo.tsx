@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { stripCity } from '@/data/cities';
 
 interface SeoProps {
   title: string;
@@ -27,10 +28,22 @@ const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
 
 const CANONICAL_ORIGIN = 'https://fabricwall.ru';
 
+/**
+ * Адрес страницы с учётом города. Страницы передают путь без города
+ * ('/catalog'), а город берётся из адреса в браузере — иначе на
+ * /spb/catalog канонической считалась бы московская версия.
+ */
 const canonicalUrl = (path: string) => {
   const clean = path.split('?')[0].split('#')[0];
   const normalized = clean.length > 1 ? clean.replace(/\/+$/, '') : '/';
-  return CANONICAL_ORIGIN + normalized;
+
+  // Если путь уже содержит город — оставляем как есть
+  if (stripCity(normalized).slug) return CANONICAL_ORIGIN + normalized;
+
+  const slug =
+    typeof window !== 'undefined' ? stripCity(window.location.pathname).slug : '';
+  const withCity = slug ? `/${slug}${normalized === '/' ? '' : normalized}` : normalized;
+  return CANONICAL_ORIGIN + withCity;
 };
 
 const setLink = (rel: string, href: string) => {

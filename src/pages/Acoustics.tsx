@@ -20,7 +20,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { openLead } from '@/lib/lead';
-import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 import {
   ACOUSTIC_CASES,
   ACOUSTIC_GOALS,
@@ -58,6 +58,7 @@ const buildJsonLd = () => [
 ];
 
 const AcousticsPage = () => {
+  const { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } = useContacts();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
-import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 
 const FloatingCta = () => {
+  const { PHONE_DISPLAY, PHONE_HREF } = useContacts();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

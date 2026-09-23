@@ -2,16 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import SocialLinks from '@/components/site/SocialLinks';
-import {
-  ADDRESS,
-  EMAIL,
-  EMAIL_HREF,
-  LEGAL_INN,
-  LEGAL_NAME,
-  LEGAL_OGRN,
-  PHONE_DISPLAY,
-  PHONE_HREF,
-} from '@/lib/contacts';
+import { LEGAL_INN, LEGAL_NAME, LEGAL_OGRN } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 import Logo from '@/components/site/Logo';
 
 const COLUMNS = [
@@ -41,6 +33,7 @@ const COLUMNS = [
 ];
 
 const Footer = () => {
+  const { ADDRESS, EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } = useContacts();
   const { pathname } = useLocation();
   const prefix = pathname === '/' ? '' : '/';
 

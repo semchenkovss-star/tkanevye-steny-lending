@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
-import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 import { CEIL_IMG } from '@/lib/ceilings';
 import Logo from '@/components/site/Logo';
 
@@ -10,7 +10,10 @@ const NAV = [
   { href: '#ceil-price', label: 'Цены' },
 ];
 
-const CeilHero = () => (
+const CeilHero = () => {
+  const { PHONE_DISPLAY, PHONE_HREF } = useContacts();
+
+  return (
   <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-background">
     <div
       className="absolute inset-y-0 right-0 hidden w-[43%] overflow-hidden md:block"
@@ -112,6 +115,7 @@ const CeilHero = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default CeilHero;

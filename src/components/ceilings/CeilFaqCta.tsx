@@ -2,7 +2,7 @@ import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import LeadForm from '@/components/site/LeadForm';
 import useReveal from '@/hooks/use-reveal';
-import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 import { CEIL_FAQ } from '@/lib/ceilings';
 import {
   Accordion,
@@ -46,6 +46,7 @@ export const CeilFaq = () => (
 );
 
 export const CeilCta = () => {
+  const { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } = useContacts();
   const { ref, shown } = useReveal<HTMLElement>();
 
   return (

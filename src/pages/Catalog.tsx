@@ -29,6 +29,7 @@ import {
   toneOf,
 } from '@/data/catalog';
 import Logo from '@/components/site/Logo';
+import CitySwitch from '@/components/site/CitySwitch';
 
 type Sort = 'popular' | 'price-asc' | 'price-desc' | 'noise';
 
@@ -249,6 +250,7 @@ const CatalogPage = () => {
         <div className="shell flex h-16 items-center justify-between gap-6">
           <Logo to="/" size="sm" />
           <div className="flex items-center gap-3">
+            <CitySwitch className="hidden md:block" />
             <CalcButton className="hidden sm:flex" />
             <Link
             to="/"

@@ -25,9 +25,11 @@ import LeadDialog from '@/components/site/LeadDialog';
 import { STEPS } from '@/components/site/HowItWorks';
 import CrossLinks from '@/components/site/CrossLinks';
 import { faqLd, howToLd, localBusinessLd } from '@/lib/schema';
+import { useCity } from '@/lib/city';
+import type { City } from '@/data/cities';
 
-const buildJsonLd = () => [
-  localBusinessLd(),
+const buildJsonLd = (city: City) => [
+  localBusinessLd(city),
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -51,6 +53,7 @@ const buildJsonLd = () => [
 ];
 
 const Index = () => {
+  const city = useCity();
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
@@ -63,11 +66,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Тканевые натяжные стены под ключ за 1 день | Fabric Wall"
-        description="Натяжные тканевые стены на скрытом каркасе: ровная стена за 1–2 дня без пыли и штукатурки. Шумоизоляция, гарантия 5 лет, бесплатный замер."
+        title={`Тканевые натяжные стены под ключ за 1 день ${city.inName} | Fabric Wall`}
+        description={`Натяжные тканевые стены на скрытом каркасе ${city.inName}: ровная стена за 1–2 дня без пыли и штукатурки. Шумоизоляция, гарантия 5 лет, бесплатный замер.`}
         path="/"
         keywords="тканевые стены, натяжные стены, отделка стен тканью, шумоизоляция стен в квартире, тканевые стены под ключ, тихие стены"
-        jsonLd={buildJsonLd()}
+        jsonLd={buildJsonLd(city)}
       />
       <StickyHeader />
       <SiteSwitch />

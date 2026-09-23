@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import CalcButton from '@/components/site/CalcButton';
-import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
+import CitySwitch from '@/components/site/CitySwitch';
+import { useContacts } from '@/lib/useContacts';
 import Logo from '@/components/site/Logo';
 
 const LINKS = [
@@ -22,6 +23,7 @@ const LINKS = [
 ];
 
 const CeilHeader = () => {
+  const { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } = useContacts();
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -74,6 +76,7 @@ const CeilHeader = () => {
           </nav>
 
           <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+            <CitySwitch className="hidden lg:block" />
             <a
               href={PHONE_HREF}
               className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary-ink md:flex"

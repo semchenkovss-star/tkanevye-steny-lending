@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import CalcButton from '@/components/site/CalcButton';
-import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 import Logo from '@/components/site/Logo';
+import CitySwitch from '@/components/site/CitySwitch';
 
 const LINKS = [
   { href: '#services', label: 'Услуги' },
@@ -22,6 +23,7 @@ const LINKS = [
 ];
 
 const StickyHeader = () => {
+  const { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } = useContacts();
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -74,6 +76,7 @@ const StickyHeader = () => {
           </nav>
 
           <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+            <CitySwitch className="hidden lg:block" />
             <a
               href={PHONE_HREF}
               className="hidden items-center gap-2 font-display text-lg uppercase tracking-[0.02em] text-foreground transition-colors hover:text-primary-ink md:flex"
@@ -169,6 +172,9 @@ const StickyHeader = () => {
               {PHONE_DISPLAY}
             </a>
             <span className="mt-3 text-center text-xs text-muted-foreground">{WORK_HOURS}</span>
+            <div className="mt-6 flex justify-center border-t border-border pt-5">
+              <CitySwitch />
+            </div>
           </nav>
         </div>
       )}

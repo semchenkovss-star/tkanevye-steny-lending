@@ -1,3 +1,4 @@
+import { DEFAULT_CITY, cityBySlug, stripCity } from '@/data/cities';
 import { GOALS, reachGoal } from '@/lib/metrika';
 
 export const LEAD_EVENT = 'polotno:lead';
@@ -27,12 +28,20 @@ export function formatPhone(raw: string): string {
 export function isPhoneValid(masked: string): boolean {
   return masked.replace(/\D/g, '').length === 11;
 }
+/** Город текущей страницы: '/spb/catalog' -> 'Санкт-Петербург' */
+const currentCityName = () => {
+  if (typeof window === 'undefined') return DEFAULT_CITY.name;
+  return cityBySlug(stripCity(window.location.pathname).slug).name;
+};
+
 const LEADS_URL = 'https://functions.poehali.dev/5590f489-efb2-4d67-be9a-f87d8efe230a';
 
 export interface LeadPayload {
   name: string;
   phone: string;
   source: string;
+  /** Город из адреса страницы — менеджеру видно, куда ехать на замер */
+  city?: string;
   summary?: string;
   address?: string;
   comment?: string;
@@ -45,7 +54,7 @@ export async function sendLead(payload: LeadPayload): Promise<boolean> {
     const res = await fetch(LEADS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ city: currentCityName(), ...payload }),
     });
     if (res.ok) reachGoal(GOALS.LEAD, { source: payload.source });
     return res.ok;

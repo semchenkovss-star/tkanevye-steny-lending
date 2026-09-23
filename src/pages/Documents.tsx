@@ -8,9 +8,10 @@ import Footer from '@/components/site/Footer';
 import CertCard from '@/components/docs/CertCard';
 import { CERT_DOCS, DOC_GROUPS } from '@/data/documents';
 import { breadcrumbsLd } from '@/lib/schema';
-import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 
 const DocumentsPage = () => {
+  const { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } = useContacts();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

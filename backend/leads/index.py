@@ -195,6 +195,7 @@ def handler(event: dict, context) -> dict:
     name = str(body.get('name', '')).strip()
     phone = str(body.get('phone', '')).strip()
     source = str(body.get('source', 'Сайт')).strip()
+    city = str(body.get('city', '')).strip()
     summary = str(body.get('summary', '')).strip()
     address = str(body.get('address', '')).strip()
     comment = str(body.get('comment', '')).strip()
@@ -208,7 +209,7 @@ def handler(event: dict, context) -> dict:
     data = {
         'name': name[:200],
         'phone': phone[:50],
-        'source': source[:200],
+        'source': (f'{source} · {city}' if city else source)[:200],
         'summary': summary,
         'address': address,
         'comment': comment,
@@ -231,6 +232,8 @@ def handler(event: dict, context) -> dict:
         f'Телефон: {phone}',
         f'Источник: {source}',
     ]
+    if city:
+        lines.append(f'Город: {city}')
     if summary:
         lines.append(f'Расчёт: {summary}')
     if address:
@@ -255,6 +258,8 @@ def handler(event: dict, context) -> dict:
         f'Телефон: +{digits}',
         f'Источник: {esc(source)}',
     ]
+    if city:
+        tg_lines.append(f'Город: {esc(city)}')
     if summary:
         tg_lines.append(f'Расчёт: {esc(summary)}')
     if address:

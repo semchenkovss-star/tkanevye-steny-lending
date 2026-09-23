@@ -1,5 +1,5 @@
 import Icon from '@/components/ui/icon';
-import { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 
 const NAV = [
   { href: '#services', label: 'Услуги' },
@@ -9,6 +9,7 @@ const NAV = [
 ];
 
 const Hero = () => {
+  const { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } = useContacts();
   return (
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-background">
       {/* правая плоскость: ткань */}

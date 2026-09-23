@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import Seo from '@/components/Seo';
 import Footer from '@/components/site/Footer';
-import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/contacts';
+import { useContacts } from '@/lib/useContacts';
 
 const LINKS = [
   { to: '/', label: 'Главная', icon: 'Home' },
@@ -14,6 +14,7 @@ const LINKS = [
 ];
 
 const PageNotFound = () => {
+  const { PHONE_DISPLAY, PHONE_HREF } = useContacts();
   const location = useLocation();
 
   useEffect(() => {
