@@ -47,6 +47,7 @@ const SECTIONS = {
   '/catalog': ['src/pages/Catalog.tsx', 'src/components/catalog', 'src/data/catalog.ts'],
   '/blog': ['src/pages/Blog.tsx', 'src/data/blog.ts'],
   '/privacy': ['src/pages/Privacy.tsx'],
+  '/documents': ['src/pages/Documents.tsx'],
 };
 
 const buildDateMap = () => {
@@ -70,17 +71,27 @@ const buildDateMap = () => {
   return map;
 };
 
-/** Файлы в public/, которые роботу нужно оставить доступными */
+/**
+ * Файлы, которые роботу нужно оставить доступными.
+ *
+ * /assets/ — обязательно: сайт собран как SPA, и весь текст страницы
+ * рисует JavaScript. Закрыв скрипты и стили, мы показываем роботу пустую
+ * страницу — он не увидит ни текста, ни вёрстки.
+ */
 const ALLOWED_FILES = [
+  '/assets/',
   '/sitemap.xml',
   '/robots.txt',
   '/favicon.ico',
   '/favicon.svg',
   '/site.webmanifest',
   '/img/',
+  '/*.js$',
+  '/*.css$',
   '/*.png$',
   '/*.webp$',
   '/*.svg$',
+  '/*.woff2$',
   '/yandex_*.html$',
 ];
 
@@ -90,11 +101,15 @@ const ALLOWED_FILES = [
  * робот узнает об этом до обращения к странице.
  */
 const buildRobots = (paths) => {
-  // Для каждого адреса два правила: сам адрес и он же с параметрами
-  // (?utm_source=…, ?yclid=… из рекламы) — иначе такие ссылки закроются.
-  const allow = [...new Set(paths)]
-    .sort()
-    .flatMap((p) => [`Allow: ${p}$`, `Allow: ${p}?*`]);
+  // Для каждого адреса три правила: сам адрес, он же со слэшем на конце
+  // и он же с параметрами (?utm_source=…, ?yclid=… из рекламы).
+  // Без варианта со слэшем /blog/ упирается в общий Disallow: / —
+  // Google Search Console отвечает «Заблокировано в файле robots.txt».
+  const allow = [...new Set(paths)].sort().flatMap((p) =>
+    p === '/'
+      ? ['Allow: /$', 'Allow: /?*']
+      : [`Allow: ${p}$`, `Allow: ${p}/$`, `Allow: ${p}?*`, `Allow: ${p}/?*`],
+  );
   const files = ALLOWED_FILES.map((p) => `Allow: ${p}`);
 
   const rules = [
