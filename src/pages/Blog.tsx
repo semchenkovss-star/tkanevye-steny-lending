@@ -31,6 +31,7 @@ const buildJsonLd = () => {
         headline: p.seoTitle ?? p.title,
         description: p.excerpt,
         datePublished: p.date,
+        dateModified: p.updated ?? p.date,
         image: p.img.startsWith('http') ? p.img : origin + p.img,
         url: `${origin}/blog/${p.slug}`,
         author: { '@id': `${origin}/#organization` },

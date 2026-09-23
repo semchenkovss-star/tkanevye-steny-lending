@@ -58,15 +58,19 @@ const buildDateMap = () => {
     if (d) map[path] = d;
   }
 
+  // Для статьи берём updated (дата переработки), иначе date (дата публикации).
+  // Так robots видят свежесть текста, а дата публикации на странице не меняется.
   const blog = readFileSync(resolve(root, 'src/data/blog.ts'), 'utf8');
-  const slugs = [...blog.matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]);
-  const dates = [...blog.matchAll(/\n {4}date:\s*'([^']+)'/g)].map((m) => m[1]);
-  if (slugs.length !== dates.length) {
-    throw new Error(`blog.ts: ${slugs.length} статей, но ${dates.length} дат — проверьте формат`);
+  const posts = [...blog.matchAll(/\n {2}\{\n {4}slug: '([^']+)',([\s\S]*?)\n {2}\},/g)];
+  if (!posts.length) {
+    throw new Error('blog.ts: не найдено ни одной статьи — проверьте формат');
   }
-  slugs.forEach((s, i) => {
-    map[`/blog/${s}`] = dates[i];
-  });
+  for (const [, slug, block] of posts) {
+    const date = /\n {4}date:\s*'([^']+)'/.exec(block)?.[1];
+    const updated = /\n {4}updated:\s*'([^']+)'/.exec(block)?.[1];
+    if (!date) throw new Error(`blog.ts: у статьи ${slug} нет поля date`);
+    map[`/blog/${slug}`] = updated || date;
+  }
 
   return map;
 };

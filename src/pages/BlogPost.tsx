@@ -12,6 +12,15 @@ import { BLOG_POSTS, getPost } from '@/data/blog';
 import { breadcrumbsLd } from '@/lib/schema';
 import Logo from '@/components/site/Logo';
 
+const MONTHS = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+
+/** '2026-09-23' -> '23 сентября 2026' */
+const formatUpdated = (iso: string) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+};
+
+
 const BlogPostPage = () => {
   const { slug } = useParams();
   const post = getPost(slug);
@@ -65,7 +74,7 @@ const BlogPostPage = () => {
       description: post.seoDescription ?? post.excerpt,
       image: post.img.startsWith('http') ? post.img : origin + post.img,
       datePublished: post.date,
-      dateModified: post.date,
+      dateModified: post.updated ?? post.date,
       wordCount,
       inLanguage: 'ru-RU',
       author: { '@id': `${origin}/#organization` },
@@ -141,6 +150,11 @@ const BlogPostPage = () => {
               <div className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
                 {post.dateLabel} · {post.readTime}
               </div>
+              {post.updated && (
+                <div className="mt-1 text-xs uppercase tracking-[0.14em] text-muted-foreground/70">
+                  Обновлено {formatUpdated(post.updated)}
+                </div>
+              )}
             </div>
           </div>
 
