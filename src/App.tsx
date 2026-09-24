@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CookieNotice from "@/components/site/CookieNotice";
 import MetrikaPageView from "@/components/MetrikaPageView";
 import { initPhoneTracking } from "@/lib/metrika";
+import { captureAdSource } from "@/lib/adSource";
 import { ROUTES, NOT_FOUND } from "@/routes";
 import { CityProvider } from "@/lib/city";
 import CityHint from "@/components/site/CityHint";
@@ -19,6 +20,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
+    captureAdSource();
     initPhoneTracking();
   }, []);
 

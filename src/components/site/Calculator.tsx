@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import { EXTRAS, PLANS, formatMoney } from '@/lib/pricing';
 import { CATALOG, MATERIALS, PRICE_MIN } from '@/data/catalog';
 
@@ -85,6 +86,12 @@ const Calculator = ({ index = '09' }: { index?: string }) => {
 
   const toggleExtra = (id: string) =>
     setExtras((prev) => (prev.includes(id) ? prev.filter((e) => e !== id) : [...prev, id]));
+
+  // Посетитель менял параметры — расчёт осознанный, а не значения по умолчанию
+  const touched = length !== 4.2 || height !== 2.7 || planId !== 'quiet' || extras.length > 0;
+  useEffect(() => {
+    if (touched) reachGoalOnce(GOALS.CALC_DONE, undefined, { total: Math.round(total) });
+  }, [touched, total]);
 
   const summary = `${length} × ${height} м (${area} м²), тариф «${plan.name}», ткань «${fabric.name}»${
     extras.length ? ', допы: ' + EXTRAS.filter((e) => extras.includes(e.id)).map((e) => e.label).join(', ') : ''

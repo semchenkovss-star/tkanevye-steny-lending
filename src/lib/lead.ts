@@ -1,10 +1,12 @@
 import { DEFAULT_CITY, cityBySlug, stripCity } from '@/data/cities';
 import { GOALS, reachGoal } from '@/lib/metrika';
+import { adSourceLabel } from '@/lib/adSource';
 
 export const LEAD_EVENT = 'polotno:lead';
 
 /** Открыть модальное окно заявки из любой точки страницы */
 export function openLead(source = 'Кнопка', summary?: string) {
+  reachGoal(GOALS.LEAD_OPEN, { source });
   window.dispatchEvent(new CustomEvent(LEAD_EVENT, { detail: { source, summary } }));
 }
 
@@ -42,6 +44,8 @@ export interface LeadPayload {
   source: string;
   /** Город из адреса страницы — менеджеру видно, куда ехать на замер */
   city?: string;
+  /** Откуда пришёл посетитель: «Яндекс.Директ, кампания ...» */
+  adSource?: string;
   summary?: string;
   address?: string;
   comment?: string;
@@ -54,11 +58,16 @@ export async function sendLead(payload: LeadPayload): Promise<boolean> {
     const res = await fetch(LEADS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ city: currentCityName(), ...payload }),
+      body: JSON.stringify({ city: currentCityName(), adSource: adSourceLabel(), ...payload }),
     });
-    if (res.ok) reachGoal(GOALS.LEAD, { source: payload.source });
+    if (res.ok) {
+      reachGoal(GOALS.LEAD, { source: payload.source, city: currentCityName() });
+    } else {
+      reachGoal(GOALS.LEAD_ERROR, { source: payload.source, status: res.status });
+    }
     return res.ok;
   } catch {
+    reachGoal(GOALS.LEAD_ERROR, { source: payload.source, status: 'network' });
     return false;
   }
 }

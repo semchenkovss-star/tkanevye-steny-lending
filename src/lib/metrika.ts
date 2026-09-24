@@ -11,9 +11,26 @@ declare global {
   }
 }
 
+/**
+ * Цели для Яндекс.Метрики и Директа.
+ *
+ * Ключевые (по ним настраивается оптимизация рекламы):
+ *   lead           — заявка отправлена, главная цель
+ *   samples_order  — заказ образцов, тоже готовый контакт
+ *   phone_click    — клик по телефону, для мобильных = звонок
+ *   messenger_click — переход в Telegram или MAX
+ *
+ * Вспомогательные (для анализа воронки, не для оптимизации):
+ *   lead_open, calc_done, catalog_view, fabric_view, samples_open
+ *   lead_error — отправка сорвалась, сигнал о проблеме
+ */
 export const GOALS = {
   LEAD: 'lead',
+  LEAD_OPEN: 'lead_open',
+  LEAD_ERROR: 'lead_error',
+  CALC_DONE: 'calc_done',
   PHONE_CLICK: 'phone_click',
+  MESSENGER_CLICK: 'messenger_click',
   SOCIAL_CLICK: 'social_click',
   CATALOG_VIEW: 'catalog_view',
   FABRIC_VIEW: 'fabric_view',
@@ -31,20 +48,29 @@ export function reachGoalOnce(goal: string, key?: string, params?: Record<string
   reachGoal(goal, params);
 }
 
-const SOCIAL_HOSTS: Record<string, string> = {
+/** Мессенджеры — это обращение к менеджеру, считаем отдельной целью */
+const MESSENGER_HOSTS: Record<string, string> = {
   't.me': 'Telegram',
   'telegram.me': 'Telegram',
+  'max.ru': 'MAX',
+  'wa.me': 'WhatsApp',
+  'api.whatsapp.com': 'WhatsApp',
+};
+
+/** Соцсети — это интерес, но не обращение */
+const SOCIAL_HOSTS: Record<string, string> = {
   'vk.ru': 'ВКонтакте',
   'vk.com': 'ВКонтакте',
-  'max.ru': 'MAX',
   'youtube.com': 'YouTube',
   'rutube.ru': 'Rutube',
 };
 
-const socialName = (href: string): string | null => {
-  const host = href.replace(/^https?:\/\//, '').split('/')[0].replace(/^www\./, '');
-  return SOCIAL_HOSTS[host] || null;
-};
+const hostOf = (href: string) =>
+  href.replace(/^https?:\/\//, '').split('/')[0].replace(/^www\./, '');
+
+const messengerName = (href: string): string | null => MESSENGER_HOSTS[hostOf(href)] || null;
+
+const socialName = (href: string): string | null => SOCIAL_HOSTS[hostOf(href)] || null;
 
 /** Отправка цели в Яндекс.Метрику */
 export function reachGoal(goal: string, params?: Record<string, unknown>) {
@@ -78,6 +104,17 @@ export function initPhoneTracking() {
 
     if (href.startsWith('tel:')) {
       reachGoal(GOALS.PHONE_CLICK, { place: link.getAttribute('data-goal-place') || 'сайт' });
+      return;
+    }
+
+    if (href.startsWith('mailto:')) {
+      reachGoal(GOALS.MESSENGER_CLICK, { channel: 'Почта' });
+      return;
+    }
+
+    const messenger = messengerName(href);
+    if (messenger) {
+      reachGoal(GOALS.MESSENGER_CLICK, { channel: messenger });
       return;
     }
 

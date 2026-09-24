@@ -103,7 +103,8 @@ def _telegram_request(ip: str, path: str, payload: bytes, timeout: float) -> int
             pass
 
 
-def _send_telegram(text: str) -> bool:
+def _send_telegram(text: str, deadline: float = 0.0) -> bool:
+    """deadline — момент (time.monotonic), после которого перебор прекращается"""
     token = os.environ.get('TELEGRAM_BOT_TOKEN')
     chat_id = os.environ.get('TELEGRAM_CHAT_ID')
     if not token or not chat_id:
@@ -123,8 +124,12 @@ def _send_telegram(text: str) -> bool:
     for cid in chat_ids:
         payload = urllib.parse.urlencode({'chat_id': cid, **fields}).encode()
         for ip in TELEGRAM_IPS:
+            left = deadline - time.monotonic() if deadline else 1.5
+            if left <= 0.3:
+                print('telegram: время вышло, пропускаем остальные адреса')
+                return sent
             try:
-                if _telegram_request(ip, path, payload, 2.5) == 200:
+                if _telegram_request(ip, path, payload, min(1.5, left)) == 200:
                     sent = True
                     break
             except Exception as e:
@@ -152,12 +157,12 @@ def _send_email(subject: str, text: str) -> bool:
     msg['Reply-To'] = user
 
     if port == 587:
-        server = smtplib.SMTP(host, port, timeout=8)
+        server = smtplib.SMTP(host, port, timeout=2)
         server.ehlo()
         server.starttls()
         server.ehlo()
     else:
-        server = smtplib.SMTP_SSL(host, port, timeout=8)
+        server = smtplib.SMTP_SSL(host, port, timeout=2)
 
     try:
         server.login(user, password)
@@ -196,6 +201,7 @@ def handler(event: dict, context) -> dict:
     phone = str(body.get('phone', '')).strip()
     source = str(body.get('source', 'Сайт')).strip()
     city = str(body.get('city', '')).strip()
+    ad_source = str(body.get('adSource', '')).strip()
     summary = str(body.get('summary', '')).strip()
     address = str(body.get('address', '')).strip()
     comment = str(body.get('comment', '')).strip()
@@ -234,6 +240,8 @@ def handler(event: dict, context) -> dict:
     ]
     if city:
         lines.append(f'Город: {city}')
+    if ad_source:
+        lines.append(f'Реклама: {ad_source}')
     if summary:
         lines.append(f'Расчёт: {summary}')
     if address:
@@ -260,6 +268,8 @@ def handler(event: dict, context) -> dict:
     ]
     if city:
         tg_lines.append(f'Город: {esc(city)}')
+    if ad_source:
+        tg_lines.append(f'Реклама: {esc(ad_source)}')
     if summary:
         tg_lines.append(f'Расчёт: {esc(summary)}')
     if address:
@@ -278,8 +288,12 @@ def handler(event: dict, context) -> dict:
     tg_ok = False
     mail_ok = False
 
+    # Лимит функции — 5 секунд. Заявка уже в базе, поэтому уведомления
+    # отправляем в оставшееся время и не рискуем ответом клиенту.
+    tg_deadline = time.monotonic() + 2.0
+
     try:
-        tg_ok = _send_telegram(tg_text)
+        tg_ok = _send_telegram(tg_text, tg_deadline)
     except Exception as e:
         errors.append(f'telegram: {e}')
         print('telegram error:', e)
