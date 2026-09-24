@@ -26,7 +26,7 @@ const COLUMNS = [
       { href: '#faq', label: 'Частые вопросы' },
       { href: '#reviews', label: 'Отзывы' },
       { href: '#blog', label: 'Блог' },
-      { href: '#about', label: 'О компании' },
+      { href: '/about', label: 'О компании' },
       { href: '/documents', label: 'Сертификаты' },
     ],
   },

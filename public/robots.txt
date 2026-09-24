@@ -4,6 +4,10 @@
 User-agent: Yandex
 Allow: /$
 Allow: /?*
+Allow: /about$
+Allow: /about/$
+Allow: /about?*
+Allow: /about/?*
 Allow: /acoustics$
 Allow: /acoustics/$
 Allow: /acoustics?*
@@ -186,6 +190,10 @@ Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid
 User-agent: *
 Allow: /$
 Allow: /?*
+Allow: /about$
+Allow: /about/$
+Allow: /about?*
+Allow: /about/?*
 Allow: /acoustics$
 Allow: /acoustics/$
 Allow: /acoustics?*

@@ -40,6 +40,11 @@ export const ROUTES: RouteDef[] = [
     load: () => import('./pages/Ceilings'),
   },
   {
+    path: '/about',
+    Component: lazy(() => import('./pages/About')),
+    load: () => import('./pages/About'),
+  },
+  {
     path: '/blog',
     Component: lazy(() => import('./pages/Blog')),
     load: () => import('./pages/Blog'),

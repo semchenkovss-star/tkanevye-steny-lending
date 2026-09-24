@@ -48,6 +48,7 @@ const SECTIONS = {
   '/blog': ['src/pages/Blog.tsx', 'src/data/blog.ts'],
   '/privacy': ['src/pages/Privacy.tsx'],
   '/documents': ['src/pages/Documents.tsx'],
+  '/about': ['src/pages/About.tsx', 'src/data/about.ts'],
 };
 
 const buildDateMap = () => {
