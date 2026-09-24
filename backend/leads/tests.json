@@ -10,9 +10,15 @@
       "name": "Валидация телефона",
       "method": "POST",
       "path": "/",
-      "body": { "name": "Иван", "phone": "+7 (999) 1", "source": "Тест" },
+      "body": {
+        "name": "Иван",
+        "phone": "+7 (999) 1",
+        "source": "Тест"
+      },
       "expectedStatus": 400,
-      "expectedBody": { "error": "string" },
+      "expectedBody": {
+        "error": "string"
+      },
       "bodyMatcher": "partial"
     },
     {
@@ -25,9 +31,31 @@
       "name": "Принимает корректную заявку",
       "method": "POST",
       "path": "/",
-      "body": { "name": "Тест Проверка", "phone": "+7 900 000-00-00", "source": "Автотест" },
+      "body": {
+        "name": "Тест Проверка",
+        "phone": "+7 900 000-00-00",
+        "source": "Автотест"
+      },
       "expectedStatus": 200,
-      "expectedBody": { "ok": true },
+      "expectedBody": {
+        "ok": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Заявка с удобным временем звонка",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест Время",
+        "phone": "+7 (999) 222-33-44",
+        "source": "Автотест",
+        "callTime": "Вечером, 17:00–20:00"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "ok": true
+      },
       "bodyMatcher": "partial"
     }
   ]

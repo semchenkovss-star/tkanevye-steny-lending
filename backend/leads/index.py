@@ -41,9 +41,10 @@ def _save_lead(data: dict) -> int:
     with conn:
         with conn.cursor() as cur:
             cur.execute(
-                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples) "
+                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples, call_time) "
                 f"VALUES ({_q(data['name'])}, {_q(data['phone'])}, {_q(data['source'])}, "
-                f"{_q(data['summary'])}, {_q(data['address'])}, {_q(data['comment'])}, {_q(data['samples'])}) "
+                f"{_q(data['summary'])}, {_q(data['address'])}, {_q(data['comment'])}, {_q(data['samples'])}, "
+                f"{_q(data.get('call_time', ''))}) "
                 f"RETURNING id"
             )
             lead_id = cur.fetchone()[0]
@@ -124,12 +125,12 @@ def _send_telegram(text: str, deadline: float = 0.0) -> bool:
     for cid in chat_ids:
         payload = urllib.parse.urlencode({'chat_id': cid, **fields}).encode()
         for ip in TELEGRAM_IPS:
-            left = deadline - time.monotonic() if deadline else 1.5
-            if left <= 0.3:
+            left = deadline - time.monotonic() if deadline else 1.0
+            if left <= 0.2:
                 print('telegram: время вышло, пропускаем остальные адреса')
                 return sent
             try:
-                if _telegram_request(ip, path, payload, min(1.5, left)) == 200:
+                if _telegram_request(ip, path, payload, min(1.0, left)) == 200:
                     sent = True
                     break
             except Exception as e:
@@ -202,6 +203,7 @@ def handler(event: dict, context) -> dict:
     source = str(body.get('source', 'Сайт')).strip()
     city = str(body.get('city', '')).strip()
     ad_source = str(body.get('adSource', '')).strip()
+    call_time = str(body.get('callTime', '')).strip()[:60]
     summary = str(body.get('summary', '')).strip()
     address = str(body.get('address', '')).strip()
     comment = str(body.get('comment', '')).strip()
@@ -220,6 +222,7 @@ def handler(event: dict, context) -> dict:
         'address': address,
         'comment': comment,
         'samples': samples,
+        'call_time': call_time,
     }
 
     lead_id = 0
@@ -238,6 +241,8 @@ def handler(event: dict, context) -> dict:
         f'Телефон: {phone}',
         f'Источник: {source}',
     ]
+    if call_time:
+        lines.append(f'Удобное время звонка: {call_time}')
     if city:
         lines.append(f'Город: {city}')
     if ad_source:
@@ -266,6 +271,8 @@ def handler(event: dict, context) -> dict:
         f'Телефон: +{digits}',
         f'Источник: {esc(source)}',
     ]
+    if call_time:
+        tg_lines.append(f'Удобное время: {esc(call_time)}')
     if city:
         tg_lines.append(f'Город: {esc(city)}')
     if ad_source:
@@ -290,7 +297,7 @@ def handler(event: dict, context) -> dict:
 
     # Лимит функции — 5 секунд. Заявка уже в базе, поэтому уведомления
     # отправляем в оставшееся время и не рискуем ответом клиенту.
-    tg_deadline = time.monotonic() + 2.0
+    tg_deadline = time.monotonic() + 3.2
 
     try:
         tg_ok = _send_telegram(tg_text, tg_deadline)

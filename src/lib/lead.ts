@@ -46,11 +46,25 @@ export interface LeadPayload {
   city?: string;
   /** Откуда пришёл посетитель: «Яндекс.Директ, кампания ...» */
   adSource?: string;
+  /** Когда посетителю удобно принять звонок */
+  callTime?: string;
   summary?: string;
   address?: string;
   comment?: string;
   samples?: string[];
 }
+
+/**
+ * Варианты времени звонка.
+ * Границы совпадают с графиком работы (Пн–Сб, 9:00–20:00), поэтому
+ * менеджер не получит просьбу перезвонить, когда офис закрыт.
+ */
+export const CALL_TIMES = [
+  { id: 'asap', label: 'Как можно скорее' },
+  { id: 'morning', label: 'Утром, 9:00–12:00' },
+  { id: 'day', label: 'Днём, 12:00–17:00' },
+  { id: 'evening', label: 'Вечером, 17:00–20:00' },
+] as const;
 
 /** Отправка заявки на почту и в Telegram */
 export async function sendLead(payload: LeadPayload): Promise<boolean> {

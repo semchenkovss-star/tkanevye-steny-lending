@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import PhoneInput from '@/components/ui/phone-input';
-import { isPhoneValid, sendLead } from '@/lib/lead';
+import { CALL_TIMES, isPhoneValid, sendLead } from '@/lib/lead';
 
 interface LeadFormProps {
   source?: string;
@@ -19,6 +19,8 @@ const LeadForm = ({
 }: LeadFormProps) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  // По умолчанию — как можно скорее: большинству это и нужно
+  const [callTime, setCallTime] = useState<string>(CALL_TIMES[0].id);
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState<{ name?: string; phone?: string; agree?: string }>({});
   const [sent, setSent] = useState(false);
@@ -35,7 +37,13 @@ const LeadForm = ({
     if (Object.keys(next).length) return;
 
     setSending(true);
-    const ok = await sendLead({ name: name.trim(), phone, source, summary });
+    const ok = await sendLead({
+      name: name.trim(),
+      phone,
+      source,
+      summary,
+      callTime: CALL_TIMES.find((t) => t.id === callTime)?.label,
+    });
     setSending(false);
     if (!ok) {
       setFailed(true);
@@ -58,8 +66,12 @@ const LeadForm = ({
           Заявка принята
         </h3>
         <p className="text-[0.95rem] leading-[1.6] text-muted-foreground">
-          {name.trim()}, спасибо. Перезвоним на {phone} в течение 15 минут в рабочее время и
-          согласуем дату замера.
+          {name.trim()}, спасибо.{' '}
+          {callTime === 'asap'
+            ? `Перезвоним на ${phone} в течение 15 минут в рабочее время и согласуем дату замера.`
+            : `Перезвоним на ${phone} в выбранное время — ${CALL_TIMES.find(
+                (t) => t.id === callTime,
+              )?.label.toLowerCase()} — и согласуем дату замера.`}
         </p>
       </div>
     );
@@ -106,6 +118,32 @@ const LeadForm = ({
         </div>
       </div>
 
+      <fieldset className="mt-6">
+        <legend className="mb-2 block text-sm text-muted-foreground">
+          Когда удобно принять звонок
+        </legend>
+        <div className="flex flex-wrap gap-2">
+          {CALL_TIMES.map((t) => {
+            const active = callTime === t.id;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setCallTime(t.id)}
+                aria-pressed={active}
+                className={`min-h-[44px] border px-4 py-2 text-sm transition-colors ${
+                  active
+                    ? 'border-primary bg-primary text-primary-foreground'
+                    : 'border-border bg-card text-muted-foreground hover:border-foreground hover:text-foreground'
+                }`}
+              >
+                {t.label}
+              </button>
+            );
+          })}
+        </div>
+      </fieldset>
+
       <div className="mt-6">
         <label
           htmlFor={`agree-${source}`}
@@ -133,7 +171,7 @@ const LeadForm = ({
             >
               политику конфиденциальности
             </Link>
-            . Только два поля — имя и телефон, ничего лишнего не спрашиваем.
+            . Имя, телефон и удобное время — ничего лишнего не спрашиваем.
           </span>
         </label>
         {errors.agree && <p className="mt-2 text-sm text-destructive">{errors.agree}</p>}
