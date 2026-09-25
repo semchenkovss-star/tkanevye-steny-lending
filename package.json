@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && (vite-node scripts/prerender.mjs || echo \"Предгенерация пропущена\") && (node scripts/notify-search.mjs || echo \"Уведомление пропущено\")",
+    "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "prerender": "vite-node scripts/prerender.mjs",
-    "notify-search": "node scripts/notify-search.mjs"
+    "notify-search": "node scripts/notify-search.mjs",
+    "postbuild": "node scripts/after-build.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

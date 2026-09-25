@@ -22,7 +22,10 @@ import { renderToString } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const DIST = resolve(root, 'dist');
+// Папку сборки может задать платформа (--outDir), иначе обычная dist
+const DIST = process.env.BUILD_OUT_DIR
+  ? resolve(root, process.env.BUILD_OUT_DIR)
+  : resolve(root, 'dist');
 const TEMPLATE = resolve(DIST, 'index.html');
 
 /**
