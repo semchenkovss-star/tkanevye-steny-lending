@@ -28,7 +28,13 @@ from datetime import datetime, timedelta, timezone
 SITE = 'https://fabricwall.ru'
 SITEMAP_URL = f'{SITE}/sitemap.xml'
 INDEXNOW_KEY = '8028d3ca22c76f5e50942b4e55294902'
-INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
+# Несколько точек: общая иногда ещё проверяет ключ и отвечает 403,
+# тогда как поисковик напрямую уже принимает страницы.
+INDEXNOW_ENDPOINTS = [
+    'https://yandex.com/indexnow',
+    'https://api.indexnow.org/indexnow',
+    'https://www.bing.com/indexnow',
+]
 WEBMASTER_API = 'https://api.webmaster.yandex.net/v4/user'
 
 # Вебмастер принимает ограниченное число адресов в сутки: шлём самое важное
@@ -92,20 +98,22 @@ def _send_indexnow(urls: list) -> dict:
         'urlList': urls,
     }).encode()
 
-    status, text = _fetch(
-        INDEXNOW_ENDPOINT,
-        data=payload,
-        headers={'Content-Type': 'application/json; charset=utf-8'},
-        method='POST',
-        timeout=10,
-    )
-    # 200 — принято, 202 — принято, ключ проверяется отдельно
-    return {
-        'sent': len(urls) if status in (200, 202) else 0,
-        'status': status,
-        'ok': status in (200, 202),
-        'answer': text[:200] if status not in (200, 202) else '',
-    }
+    tried = []
+    for endpoint in INDEXNOW_ENDPOINTS:
+        status, text = _fetch(
+            endpoint,
+            data=payload,
+            headers={'Content-Type': 'application/json; charset=utf-8'},
+            method='POST',
+            timeout=10,
+        )
+        name = endpoint.split('/')[2]
+        # 200 и 202 — принято; ключ поисковик проверяет у себя позже
+        if status in (200, 202):
+            return {'sent': len(urls), 'status': status, 'ok': True, 'via': name}
+        tried.append(f'{name}: {status}')
+
+    return {'sent': 0, 'status': 403, 'ok': False, 'tried': tried}
 
 
 def _host_id(token: str, user_id: str) -> str:
