@@ -182,6 +182,7 @@ Allow: /*.webp$
 Allow: /*.svg$
 Allow: /*.woff2$
 Allow: /yandex_*.html$
+Allow: /8028d3ca22c76f5e50942b4e55294902.txt
 
 # Всё, что не перечислено выше, — несуществующие адреса и опечатки
 Disallow: /
@@ -368,6 +369,7 @@ Allow: /*.webp$
 Allow: /*.svg$
 Allow: /*.woff2$
 Allow: /yandex_*.html$
+Allow: /8028d3ca22c76f5e50942b4e55294902.txt
 
 # Всё, что не перечислено выше, — несуществующие адреса и опечатки
 Disallow: /

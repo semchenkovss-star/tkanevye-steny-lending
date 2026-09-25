@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Метод не разрешён",
+      "method": "DELETE",
+      "path": "/",
+      "expectedStatus": 405
+    },
+    {
+      "name": "Отправка конкретных адресов",
+      "method": "POST",
+      "path": "/",
+      "body": { "urls": ["/about"] },
+      "expectedStatus": 200,
+      "expectedBody": { "ok": true, "urls": 1 },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Автоподбор изменённых страниц",
+      "method": "POST",
+      "path": "/",
+      "body": { "days": 30 },
+      "expectedStatus": 200,
+      "expectedBody": { "ok": true },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite-node scripts/prerender.mjs",
+    "build": "vite build && vite-node scripts/prerender.mjs && node scripts/notify-search.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prerender": "vite-node scripts/prerender.mjs"
+    "prerender": "vite-node scripts/prerender.mjs",
+    "notify-search": "node scripts/notify-search.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

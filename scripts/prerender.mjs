@@ -131,7 +131,14 @@ const run = async () => {
 
   const paths = await collectPaths();
 
-  for (const p of paths) {
+  // Достаточно по одному представителю каждого вида страницы: React кеширует
+  // загруженный код, и остальные адреса того же вида рисуются сразу.
+  // Прогонять все 42 адреса дважды — лишние минуты сборки.
+  const warmup = [...new Set(paths.map((p) => (p.startsWith('/blog/') ? '/blog/*' : p)))].map(
+    (p) => (p === '/blog/*' ? paths.find((x) => x.startsWith('/blog/')) : p),
+  );
+
+  for (const p of warmup) {
     try {
       renderToString(
         createElement(MemoryRouter, { initialEntries: [p] }, createElement(AppRoutes)),
@@ -143,6 +150,7 @@ const run = async () => {
   await new Promise((r) => setTimeout(r, 200));
   let ok = 0;
   const failed = [];
+
 
   for (const path of paths) {
     try {
@@ -178,6 +186,10 @@ const run = async () => {
     for (const f of failed) console.error('  ' + f);
     process.exit(1);
   }
+
+  // Работа сделана. Выходим сами: загруженный код приложения держит
+  // открытые таймеры, и без этого процесс висел бы ещё минуты.
+  process.exit(0);
 };
 
 run();
