@@ -33,15 +33,17 @@ const CANONICAL_ORIGIN = 'https://fabricwall.ru';
  * ('/catalog'), а город берётся из адреса в браузере — иначе на
  * /spb/catalog канонической считалась бы московская версия.
  */
-const canonicalUrl = (path: string) => {
+export const canonicalUrl = (path: string, currentPath?: string) => {
   const clean = path.split('?')[0].split('#')[0];
   const normalized = clean.length > 1 ? clean.replace(/\/+$/, '') : '/';
 
   // Если путь уже содержит город — оставляем как есть
   if (stripCity(normalized).slug) return CANONICAL_ORIGIN + normalized;
 
-  const slug =
-    typeof window !== 'undefined' ? stripCity(window.location.pathname).slug : '';
+  // В браузере город берём из адресной строки, при сборке — из аргумента
+  const here =
+    currentPath ?? (typeof window !== 'undefined' ? window.location.pathname : '');
+  const slug = here ? stripCity(here).slug : '';
   const withCity = slug ? `/${slug}${normalized === '/' ? '' : normalized}` : normalized;
   return CANONICAL_ORIGIN + withCity;
 };
@@ -60,6 +62,17 @@ const removeLink = (rel: string) => {
   document.head.querySelector(`link[rel="${rel}"]`)?.remove();
 };
 
+/**
+ * Сборщик страниц (scripts/prerender.mjs) не умеет выполнять эффекты:
+ * они работают только в браузере. Поэтому при сборке компонент складывает
+ * мета-теги сюда, а сборщик забирает их и вписывает в готовый HTML.
+ */
+export const seoCollector: { current: (SeoProps & { currentPath?: string }) | null } = {
+  current: null,
+};
+
+const isBrowser = typeof window !== 'undefined';
+
 const Seo = ({
   title,
   description,
@@ -71,6 +84,20 @@ const Seo = ({
   noindex = false,
   jsonLd,
 }: SeoProps) => {
+  if (!isBrowser) {
+    seoCollector.current = {
+      title,
+      description,
+      path,
+      image,
+      type,
+      publishedAt,
+      keywords,
+      noindex,
+      jsonLd,
+    };
+  }
+
   useEffect(() => {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
     const url = canonicalUrl(path);

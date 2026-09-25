@@ -24,7 +24,7 @@ import FloatingCta from '@/components/site/FloatingCta';
 import LeadDialog from '@/components/site/LeadDialog';
 import { STEPS } from '@/components/site/HowItWorks';
 import CrossLinks from '@/components/site/CrossLinks';
-import { faqLd, howToLd, localBusinessLd } from '@/lib/schema';
+import { faqLd, howToLd, localBusinessLd, origin } from '@/lib/schema';
 import { useCity } from '@/lib/city';
 import type { City } from '@/data/cities';
 
@@ -35,7 +35,7 @@ const buildJsonLd = (city: City) => [
     '@type': 'Service',
     name: 'Натяжные тканевые стены на скрытом каркасе',
     serviceType: 'Установка натяжных тканевых стен на скрытом каркасе',
-    provider: { '@id': `${window.location.origin}/#organization` },
+    provider: { '@id': `${origin()}/#organization` },
     areaServed: { '@type': 'Country', name: 'Россия' },
     offers: {
       '@type': 'Offer',

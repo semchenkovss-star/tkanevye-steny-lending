@@ -8,33 +8,33 @@ import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, BLOG_TOPICS, BlogTopicId, postsByTopic } from '@/data/blog';
-import { breadcrumbsLd } from '@/lib/schema';
+import { breadcrumbsLd, origin } from '@/lib/schema';
 import { openLead } from '@/lib/lead';
 import Logo from '@/components/site/Logo';
 
 const buildJsonLd = () => {
-  const origin = window.location.origin;
+  const site = origin();
   return [
     breadcrumbsLd([{ name: 'Блог', path: '/blog' }]),
     {
       '@context': 'https://schema.org',
       '@type': 'Blog',
-      '@id': `${origin}/blog#blog`,
+      '@id': `${site}/blog#blog`,
       name: 'Блог о тканевых стенах и потолках',
       description:
         'Статьи о тканевых стенах, натяжных потолках и акустике: технология, материалы и стоимость.',
-      url: `${origin}/blog`,
+      url: `${site}/blog`,
       inLanguage: 'ru-RU',
-      publisher: { '@id': `${origin}/#organization` },
+      publisher: { '@id': `${site}/#organization` },
       blogPost: BLOG_POSTS.map((p) => ({
         '@type': 'BlogPosting',
         headline: p.seoTitle ?? p.title,
         description: p.excerpt,
         datePublished: p.date,
         dateModified: p.updated ?? p.date,
-        image: p.img.startsWith('http') ? p.img : origin + p.img,
-        url: `${origin}/blog/${p.slug}`,
-        author: { '@id': `${origin}/#organization` },
+        image: p.img.startsWith('http') ? p.img : site + p.img,
+        url: `${site}/blog/${p.slug}`,
+        author: { '@id': `${site}/#organization` },
       })),
     },
   ];

@@ -40,7 +40,7 @@ const CityHint = () => {
   };
 
   // Та же страница, но в папке предложенного города
-  const { rest } = stripCity(window.location.pathname);
+  const { rest } = stripCity(typeof window !== 'undefined' ? window.location.pathname : '/');
   const href = suggested.slug ? `/${suggested.slug}${rest === '/' ? '' : rest}` : rest;
 
   return (

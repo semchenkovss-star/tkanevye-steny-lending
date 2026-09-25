@@ -13,7 +13,15 @@ export const SITE_NAME = 'Fabric Wall';
 export const LEGAL_DESCRIPTION =
   'Установка натяжных тканевых стен и потолков на скрытом каркасе. Тихие стены со звукопоглощением, монтаж за 1–2 дня без пыли и мокрых работ. Работаем по России.';
 
-export const origin = () => (typeof window !== 'undefined' ? window.location.origin : '');
+/**
+ * Адрес сайта для разметки поисковиков.
+ * При сборке страниц (scripts/prerender.mjs) браузера нет, поэтому
+ * подставляем боевой домен — иначе в разметке окажутся пустые ссылки.
+ */
+export const SITE_ORIGIN = 'https://fabricwall.ru';
+
+export const origin = () =>
+  typeof window !== 'undefined' ? window.location.origin : SITE_ORIGIN;
 
 const abs = (path: string) => (path.startsWith('http') ? path : origin() + path);
 
