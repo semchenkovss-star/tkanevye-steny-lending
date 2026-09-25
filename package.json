@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite-node scripts/prerender.mjs && node scripts/notify-search.mjs",
+    "build": "vite build && (vite-node scripts/prerender.mjs || echo \"Предгенерация пропущена\") && (node scripts/notify-search.mjs || echo \"Уведомление пропущено\")",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
