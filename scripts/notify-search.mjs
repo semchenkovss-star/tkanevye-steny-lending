@@ -31,8 +31,15 @@ const run = async () => {
     }
 
     const parts = [`Переобход: страниц ${data.urls}`];
-    if (data.indexnow?.ok) parts.push(`IndexNow — принято (${data.indexnow.sent})`);
-    else parts.push(`IndexNow — ошибка ${data.indexnow?.status || '?'}`);
+    if (data.indexnow?.ok) {
+      parts.push(`IndexNow — принято (${data.indexnow.sent})`);
+    } else if (data.indexnow?.status === 403) {
+      // Ключ проверяется по файлу на сайте. Сразу после первой сборки его
+      // ещё нет в сети — заявки начнут проходить после публикации.
+      parts.push('IndexNow — ждёт публикации файла-ключа (это нормально)');
+    } else {
+      parts.push(`IndexNow — не принято, код ${data.indexnow?.status || '?'}`);
+    }
 
     if (data.webmaster?.enabled) parts.push(`Вебмастер — отправлено ${data.webmaster.sent}`);
     else parts.push('Вебмастер — выключен (нет токена)');
@@ -42,6 +49,9 @@ const run = async () => {
     console.warn('Переобход: уведомить поисковики не удалось —', e.message);
   } finally {
     clearTimeout(timer);
+    // Уведомление поисковиков — необязательный шаг. Что бы здесь ни
+    // случилось, сайт уже собран: публикацию из-за этого не роняем.
+    process.exit(0);
   }
 };
 

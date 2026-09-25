@@ -25,6 +25,20 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = resolve(root, 'dist');
 const TEMPLATE = resolve(DIST, 'index.html');
 
+/**
+ * React предупреждает, что useLayoutEffect не работает при рендере вне
+ * браузера. Для нас это норма: такие эффекты отрабатывают позже, у посетителя.
+ * Но библиотеки вызывают его сотни раз, и лог сборки распухал до 17 тысяч
+ * строк — на этом сборка падала. Глушим только это предупреждение,
+ * настоящие ошибки по-прежнему видны.
+ */
+const realError = console.error;
+console.error = (...args) => {
+  const first = typeof args[0] === 'string' ? args[0] : '';
+  if (first.includes('useLayoutEffect does nothing on the server')) return;
+  realError(...args);
+};
+
 const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
