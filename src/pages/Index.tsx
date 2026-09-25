@@ -24,26 +24,27 @@ import FloatingCta from '@/components/site/FloatingCta';
 import LeadDialog from '@/components/site/LeadDialog';
 import { STEPS } from '@/components/site/HowItWorks';
 import CrossLinks from '@/components/site/CrossLinks';
-import { faqLd, howToLd, localBusinessLd, origin } from '@/lib/schema';
+import { faqLd, howToLd, localBusinessLd, serviceLd } from '@/lib/schema';
+import { PLANS } from '@/lib/pricing';
 import { useCity } from '@/lib/city';
 import type { City } from '@/data/cities';
 
 const buildJsonLd = (city: City) => [
   localBusinessLd(city),
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  // Цены берём из тарифов, показанных на странице: в разметке не должно
+  // быть суммы, которой пользователь на сайте не видит.
+  serviceLd({
     name: 'Натяжные тканевые стены на скрытом каркасе',
     serviceType: 'Установка натяжных тканевых стен на скрытом каркасе',
-    provider: { '@id': `${origin()}/#organization` },
-    areaServed: { '@type': 'Country', name: 'Россия' },
-    offers: {
-      '@type': 'Offer',
-      price: '1750',
-      priceCurrency: 'RUB',
-      description: 'Натяжная тканевая стена под ключ, цена за м²',
-    },
-  },
+    description:
+      'Натяжная тканевая стена под ключ: скрытый каркас, полотно, монтаж за 1–2 дня и уборка. Цена за м² зафиксирована в смете после замера.',
+    path: '/',
+    tiers: PLANS.map((p) => ({
+      name: p.name,
+      price: p.rate,
+      description: p.for,
+    })),
+  }),
   howToLd(
     'Как проходит монтаж тканевой стены',
     'Четыре шага от заявки до готовой стены: звонок, замер и смета, раскрой полотна и монтаж с уборкой.',
