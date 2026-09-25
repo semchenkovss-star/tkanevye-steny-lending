@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { stripCity } from '@/data/cities';
 
 interface SeoProps {
@@ -84,6 +85,10 @@ const Seo = ({
   noindex = false,
   jsonLd,
 }: SeoProps) => {
+  // Текущий адрес берём из роутера: он один источник правды и при
+  // сборке страниц, и в браузере при переходах между разделами.
+  const { pathname } = useLocation();
+
   if (!isBrowser) {
     seoCollector.current = {
       title,
@@ -95,12 +100,13 @@ const Seo = ({
       keywords,
       noindex,
       jsonLd,
+      currentPath: pathname,
     };
   }
 
   useEffect(() => {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
-    const url = canonicalUrl(path);
+    const url = canonicalUrl(path, pathname);
     const imageUrl = image.startsWith('http') ? image : origin + image;
 
     document.title = title;
@@ -147,7 +153,7 @@ const Seo = ({
     return () => {
       if (jsonLd && script.parentNode) script.parentNode.removeChild(script);
     };
-  }, [title, description, path, image, type, publishedAt, keywords, noindex, jsonLd]);
+  }, [title, description, path, pathname, image, type, publishedAt, keywords, noindex, jsonLd]);
 
   return null;
 };
