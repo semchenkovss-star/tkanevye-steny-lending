@@ -21,8 +21,8 @@ const CeilPricing = () => (
             p.accent ? 'bg-foreground text-background' : 'bg-card text-foreground'
           }`}
         >
-          <div className="flex items-center justify-between gap-4">
-            <h3 className="font-display text-4xl uppercase leading-none tracking-wide">{p.name}</h3>
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+            <h3 className="font-display text-3xl uppercase leading-[1.05] tracking-wide sm:text-4xl sm:leading-none">{p.name}</h3>
             {p.accent && (
               <span className="bg-primary px-3 py-1 text-[0.7rem] uppercase tracking-[0.12em] text-primary-foreground">
                 Выбирают чаще

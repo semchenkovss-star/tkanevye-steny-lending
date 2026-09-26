@@ -103,7 +103,7 @@ const AcousticsPage = () => {
             <button
               type="button"
               onClick={() => openLead('Акустика — первый экран')}
-              className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-background hover:text-foreground"
+              className="bg-primary px-7 py-4 text-center font-display text-lg sm:whitespace-nowrap uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-background hover:text-foreground"
             >
               Записаться на замер шума
             </button>

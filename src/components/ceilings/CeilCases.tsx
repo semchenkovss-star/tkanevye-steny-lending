@@ -156,7 +156,7 @@ const CeilCases = () => {
               <Icon name="MapPin" size={16} className="text-primary-ink" />
               {item.place}
             </div>
-            <h3 className="mt-3 font-display text-3xl uppercase leading-none tracking-wide sm:text-4xl">
+            <h3 className="mt-3 font-display text-2xl uppercase leading-[1.05] tracking-wide sm:text-4xl sm:leading-none">
               {item.title}
             </h3>
 

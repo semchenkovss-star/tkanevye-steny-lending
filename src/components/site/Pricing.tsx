@@ -22,7 +22,7 @@ const Pricing = ({ index = '08' }: { index?: string }) => {
               p.accent ? 'bg-foreground text-background' : 'bg-card text-foreground'
             }`}
           >
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
               <h3 className="font-display text-4xl uppercase leading-none tracking-wide">
                 {p.name}
               </h3>

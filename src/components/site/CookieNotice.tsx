@@ -34,7 +34,7 @@ const CookieNotice = () => {
         <button
           type="button"
           onClick={accept}
-          className="whitespace-nowrap bg-primary px-7 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
+          className="bg-primary px-7 py-3 text-center font-display text-base sm:whitespace-nowrap uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
         >
           Хорошо
         </button>

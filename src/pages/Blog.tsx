@@ -192,7 +192,7 @@ const BlogPage = () => {
             <button
               type="button"
               onClick={() => openLead('Блог')}
-              className="whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
+              className="bg-primary px-7 py-4 text-center font-display text-lg sm:whitespace-nowrap uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               Записаться на замер
             </button>

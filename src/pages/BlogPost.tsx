@@ -159,7 +159,7 @@ const BlogPostPage = () => {
           </div>
 
           <article className="lg:col-span-8">
-            <h1 className="max-w-[15em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
+            <h1 className="max-w-[15em] font-display text-[clamp(1.6rem,7vw,2.5rem)] uppercase leading-[1.04] tracking-[0.005em] sm:text-[3.25rem] sm:leading-[0.98]">
               {post.title}
             </h1>
             <p className="mt-6 max-w-[38em] text-lg leading-[1.6] text-muted-foreground">
@@ -180,7 +180,7 @@ const BlogPostPage = () => {
                 <div key={i}>
                   <div className="mb-10">
                     {block.h && (
-                      <h2 className="mb-4 font-display text-[1.75rem] uppercase leading-[1.05] tracking-wide">
+                      <h2 className="mb-4 font-display text-[1.45rem] uppercase leading-[1.1] tracking-wide sm:text-[1.75rem] sm:leading-[1.05]">
                         {block.h}
                       </h2>
                     )}
@@ -253,7 +253,7 @@ const BlogPostPage = () => {
             </p>
             <Link
               to="/#calc"
-              className="flex items-center justify-center gap-2 whitespace-nowrap bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
+              className="flex items-center justify-center gap-2 bg-primary px-7 py-4 text-center font-display text-lg sm:whitespace-nowrap uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               Рассчитать стоимость
               <Icon name="Calculator" size={18} />

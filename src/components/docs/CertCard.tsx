@@ -26,7 +26,7 @@ const CertCard = ({ doc }: { doc: CertDoc }) => (
     </div>
 
     <div className="min-w-0 flex-1">
-      <h3 className="font-display text-xl uppercase leading-[1.1] tracking-wide text-foreground sm:text-2xl">
+      <h3 className="font-display text-base uppercase leading-[1.2] tracking-wide text-foreground sm:text-2xl sm:leading-[1.1]">
         {doc.title}
       </h3>
 

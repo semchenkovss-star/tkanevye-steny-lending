@@ -44,7 +44,7 @@ const DocumentsPage = () => {
 
       <main className="shell py-14 sm:py-16 lg:py-20">
         <span className="font-display text-sm tracking-[0.2em] text-primary-ink">Документы</span>
-        <h1 className="mt-3 max-w-[15em] font-display text-[clamp(2.1rem,8vw,2.75rem)] uppercase leading-[0.98] sm:text-[3.5rem] lg:text-[4rem]">
+        <h1 className="mt-3 max-w-[15em] font-display text-[clamp(1.6rem,7vw,2.75rem)] uppercase leading-[1.04] sm:text-[3.5rem] sm:leading-[0.98] lg:text-[4rem]">
           Сертификаты на материалы
         </h1>
         <p className="mt-6 max-w-[42em] text-base leading-[1.6] text-muted-foreground">
@@ -57,7 +57,7 @@ const DocumentsPage = () => {
         <div className="mt-12 space-y-14 lg:mt-16">
           {DOC_GROUPS.map((g) => (
             <section key={g.id}>
-              <h2 className="font-display text-2xl uppercase leading-[1.05] tracking-wide text-foreground sm:text-3xl">
+              <h2 className="font-display text-lg uppercase leading-[1.15] tracking-wide text-foreground sm:text-3xl sm:leading-[1.05]">
                 {g.title}
               </h2>
               <p className="mt-3 max-w-[44em] text-sm leading-[1.6] text-muted-foreground">

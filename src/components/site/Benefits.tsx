@@ -66,7 +66,7 @@ const Benefits = () => {
               size={26}
               className="text-primary transition-colors group-hover:text-primary-foreground"
             />
-            <h3 className="mt-7 font-display text-2xl uppercase leading-none tracking-wide text-background">
+            <h3 className="mt-7 font-display text-xl uppercase leading-[1.05] tracking-wide text-background sm:text-2xl sm:leading-none">
               {b.title}
             </h3>
             <p className="mt-3 text-[0.95rem] leading-[1.6] text-background/60 transition-colors group-hover:text-primary-foreground/85">

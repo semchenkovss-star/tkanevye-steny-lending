@@ -404,7 +404,7 @@ const CatalogPage = () => {
                 </button>
                 <Link
                   to="/#calc"
-                  className="whitespace-nowrap border border-background/40 px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-background hover:text-foreground"
+                  className="border border-background/40 px-6 py-4 text-center font-display text-lg sm:whitespace-nowrap uppercase tracking-[0.04em] text-background transition-colors hover:bg-background hover:text-foreground"
                 >
                   Рассчитать стоимость
                 </Link>
