@@ -62,10 +62,8 @@ const LeadDialog = () => {
         </div>
 
         <div className="px-7 pb-7 pt-1 sm:px-10 sm:pb-10">
-          <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
-            {source}
-          </span>
-          <h3 className="mt-3 max-w-[10em] font-display text-3xl uppercase leading-[1.05] tracking-wide sm:text-4xl sm:leading-none">
+          {/* Источник заявки не показываем: он нужен только в уведомлении менеджеру */}
+          <h3 className="max-w-[10em] font-display text-3xl uppercase leading-[1.05] tracking-wide sm:text-4xl sm:leading-none">
             Замер и смета за 24 часа
           </h3>
           <p className="mt-4 text-[0.95rem] leading-[1.6] text-muted-foreground">
