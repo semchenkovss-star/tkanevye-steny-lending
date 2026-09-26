@@ -44,39 +44,49 @@ const LeadDialog = () => {
         aria-modal="true"
         aria-label="Заявка на замер"
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[560px] border border-border bg-card p-7 animate-scale-in sm:p-10"
+        className="relative flex max-h-[92dvh] w-full max-w-[560px] flex-col overflow-y-auto overscroll-contain border border-border bg-card animate-scale-in sm:max-h-[90dvh]"
       >
-        <button
-          type="button"
-          aria-label="Закрыть"
-          onClick={() => setOpen(false)}
-          className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Icon name="X" size={20} />
-        </button>
+        {/*
+         * Кнопка закрытия липнет к верху окна: на невысоких экранах
+         * форма прокручивается внутри, и крестик всегда остаётся виден.
+         */}
+        <div className="sticky top-0 z-10 flex justify-end bg-card/95 px-3 pt-3 backdrop-blur-sm">
+          <button
+            type="button"
+            aria-label="Закрыть"
+            onClick={() => setOpen(false)}
+            className="flex h-11 w-11 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <Icon name="X" size={22} />
+          </button>
+        </div>
 
-        <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{source}</span>
-        <h3 className="mt-3 max-w-[10em] font-display text-4xl uppercase leading-none tracking-wide">
-          Замер и смета за 24 часа
-        </h3>
-        <p className="mt-4 text-[0.95rem] leading-[1.6] text-muted-foreground">
-          Оставьте имя и телефон — перезвоним в течение 15 минут и подберём удобное время.
-        </p>
+        <div className="px-7 pb-7 pt-1 sm:px-10 sm:pb-10">
+          <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+            {source}
+          </span>
+          <h3 className="mt-3 max-w-[10em] font-display text-3xl uppercase leading-[1.05] tracking-wide sm:text-4xl sm:leading-none">
+            Замер и смета за 24 часа
+          </h3>
+          <p className="mt-4 text-[0.95rem] leading-[1.6] text-muted-foreground">
+            Оставьте имя и телефон — перезвоним в течение 15 минут и подберём удобное время.
+          </p>
 
-        {summary && (
-          <div className="mt-5 flex gap-3 border border-border bg-secondary p-4">
-            <Icon name="Calculator" size={18} className="mt-0.5 shrink-0 text-primary-ink" />
-            <p className="text-sm leading-[1.5] text-foreground">
-              <span className="block text-xs uppercase tracking-[0.12em] text-muted-foreground">
-                Ваш расчёт
-              </span>
-              {summary}
-            </p>
+          {summary && (
+            <div className="mt-5 flex gap-3 border border-border bg-secondary p-4">
+              <Icon name="Calculator" size={18} className="mt-0.5 shrink-0 text-primary-ink" />
+              <p className="text-sm leading-[1.5] text-foreground">
+                <span className="block text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                  Ваш расчёт
+                </span>
+                {summary}
+              </p>
+            </div>
+          )}
+
+          <div className="mt-7">
+            <LeadForm source={source} summary={summary} compact />
           </div>
-        )}
-
-        <div className="mt-7">
-          <LeadForm source={source} summary={summary} compact />
         </div>
       </div>
     </div>
