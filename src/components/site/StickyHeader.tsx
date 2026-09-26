@@ -112,8 +112,8 @@ const StickyHeader = () => {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-background animate-fade-in xl:hidden">
-          <div className="flex h-16 items-center justify-between border-b border-border px-5 sm:px-8">
+        <div className="fixed inset-0 z-[70] flex flex-col bg-background animate-fade-in xl:hidden">
+          <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-5 sm:px-8">
             <Logo to="#top" size="sm" />
             <button
               type="button"
@@ -124,7 +124,8 @@ const StickyHeader = () => {
               <Icon name="X" size={20} />
             </button>
           </div>
-          <nav className="flex flex-col px-5 py-4 sm:px-8">
+          {/* Список длиннее экрана — прокручиваем его, а не обрезаем */}
+          <nav className="flex flex-1 flex-col overflow-y-auto overscroll-contain px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4 sm:px-8">
             {LINKS.map((l) =>
               l.href.startsWith('/') ? (
                 <Link
