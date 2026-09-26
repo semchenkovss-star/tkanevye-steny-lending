@@ -13,6 +13,7 @@ const LINKS = [
   { href: '/acoustics', label: 'Акустика' },
   { href: '/panels', label: 'Панели' },
   { href: '/catalog', label: 'Каталог' },
+  { href: '#quiz', label: 'Подбор ткани' },
   { href: '#what', label: 'Что это' },
   { href: '#how', label: 'Монтаж' },
   { href: '#cases', label: 'Проекты' },
