@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import Icon from '@/components/ui/icon';
 import LeadForm from '@/components/site/LeadForm';
 import { LEAD_EVENT } from '@/lib/lead';
+import { useContacts } from '@/lib/useContacts';
 
 const LeadDialog = () => {
+  const { PHONE_DISPLAY, PHONE_HREF, WORK_HOURS } = useContacts();
   const [open, setOpen] = useState(false);
   const [source, setSource] = useState('Кнопка');
   const [summary, setSummary] = useState<string | undefined>();
@@ -85,6 +87,26 @@ const LeadDialog = () => {
           <div className="mt-7">
             <LeadForm source={source} summary={summary} compact />
           </div>
+
+          {/* Быстрая связь для тех, кому проще позвонить, чем заполнять поля */}
+          <div className="mt-6 flex items-center gap-3">
+            <span className="h-px flex-1 bg-border" />
+            <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+              или
+            </span>
+            <span className="h-px flex-1 bg-border" />
+          </div>
+
+          <a
+            href={PHONE_HREF}
+            className="mt-6 flex min-h-[56px] items-center justify-center gap-3 border border-foreground px-6 py-4 text-center font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-foreground hover:text-background"
+          >
+            <Icon name="Phone" size={20} className="shrink-0" />
+            {PHONE_DISPLAY}
+          </a>
+          <p className="mt-3 text-center text-xs leading-[1.5] text-muted-foreground">
+            {WORK_HOURS}
+          </p>
         </div>
       </div>
     </div>
