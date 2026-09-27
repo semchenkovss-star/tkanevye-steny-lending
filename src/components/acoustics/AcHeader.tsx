@@ -105,8 +105,8 @@ const AcHeader = () => {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-background animate-fade-in xl:hidden">
-          <div className="flex h-16 items-center justify-between border-b border-border px-5 sm:px-8">
+        <div className="fixed inset-0 z-[70] flex flex-col bg-background animate-fade-in xl:hidden">
+          <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-5 sm:px-8">
             <Logo to="#top" size="sm" />
             <button
               type="button"
@@ -117,7 +117,8 @@ const AcHeader = () => {
               <Icon name="X" size={20} />
             </button>
           </div>
-          <nav className="flex flex-col overflow-y-auto px-5 py-4 sm:px-8">
+          {/* Список длиннее экрана — прокручиваем его, а не обрезаем */}
+          <nav className="flex flex-1 flex-col overflow-y-auto overscroll-contain px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4 sm:px-8">
             {LINKS.map((l) =>
               l.href.startsWith('/') ? (
                 <Link
@@ -150,15 +151,24 @@ const AcHeader = () => {
               Замер
             </button>
             <a
+              href="#ac-calc"
+              onClick={() => setOpen(false)}
+              className="mt-4 flex items-center justify-center gap-2 border border-border py-4 font-display text-2xl uppercase tracking-[0.04em] text-foreground"
+            >
+              <Icon name="Calculator" size={20} className="text-primary" />
+              Рассчитать
+            </a>
+            <a
               href={PHONE_HREF}
               className="mt-6 flex items-center justify-center gap-2 border border-border py-4 font-display text-2xl uppercase tracking-[0.02em] text-foreground"
             >
               <Icon name="Phone" size={20} className="text-primary" />
               {PHONE_DISPLAY}
             </a>
-            <span className="mt-3 pb-8 text-center text-xs text-muted-foreground">
-              {WORK_HOURS}
-            </span>
+            <span className="mt-3 text-center text-xs text-muted-foreground">{WORK_HOURS}</span>
+            <div className="mt-6 flex justify-center border-t border-border pt-5">
+              <CitySwitch />
+            </div>
           </nav>
         </div>
       )}
