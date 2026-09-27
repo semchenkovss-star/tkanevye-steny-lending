@@ -2,19 +2,38 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
-import { CATALOG, CONCEPTS, ROOMS, type CatalogItem, type Concept, type Room } from '@/data/catalog';
+import {
+  CATALOG,
+  CONCEPTS,
+  PRICE_MIN,
+  ROOMS,
+  type CatalogItem,
+  type Concept,
+  type Room,
+} from '@/data/catalog';
+import { PLANS, formatMoney } from '@/lib/pricing';
 import { openLead } from '@/lib/lead';
 import { GOALS, reachGoal } from '@/lib/metrika';
 
 type Priority = 'quiet' | 'walls' | 'style';
 type Budget = 'low' | 'mid' | 'any';
+type Size = 'one' | 'two' | 'big' | 'unknown';
 
 interface Answers {
   room?: Room;
   priority?: Priority;
   concept?: Concept;
   budget?: Budget;
+  size?: Size;
 }
+
+/** Типовые площади: считаем по средней высоте 2,7 м */
+const SIZES: { id: Size; label: string; hint: string; area: number | null }[] = [
+  { id: 'one', label: 'Одна стена', hint: 'примерно 10 м²', area: 10 },
+  { id: 'two', label: 'Две стены', hint: 'примерно 20 м²', area: 20 },
+  { id: 'big', label: 'Вся комната', hint: 'примерно 35 м²', area: 35 },
+  { id: 'unknown', label: 'Пока не знаю', hint: 'посчитаем на замере', area: null },
+];
 
 const PRIORITIES: { id: Priority; label: string; hint: string }[] = [
   { id: 'quiet', label: 'Тишина', hint: 'Глушим эхо и шум от соседей' },
@@ -70,6 +89,8 @@ const scoreFabric = (item: CatalogItem, a: Answers) => {
   return score;
 };
 
+const TOTAL_STEPS = 5;
+
 const FabricQuiz = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
@@ -77,9 +98,10 @@ const FabricQuiz = () => {
   const budget = BUDGETS.find((b) => b.id === answers.budget);
   const conceptLabel = CONCEPTS.find((c) => c.id === answers.concept)?.label ?? '';
   const priorityLabel = PRIORITIES.find((p) => p.id === answers.priority)?.label ?? '';
+  const size = SIZES.find((s) => s.id === answers.size);
 
   const matches = useMemo(() => {
-    if (step < 4) return [];
+    if (step < TOTAL_STEPS) return [];
 
     /* Бюджет — жёсткое ограничение: дороже названной суммы не предлагаем */
     const max = budget?.max ?? Infinity;
@@ -106,9 +128,20 @@ const FabricQuiz = () => {
     return picked;
   }, [step, answers, budget]);
 
+  /* Считаем по формуле калькулятора: тариф + доплата за ткань сверх базовой */
+  const estimate = useMemo(() => {
+    const best = matches[0];
+    if (!best || !size?.area) return null;
+    const plan = PLANS.find((p) => p.id === (answers.priority === 'quiet' ? 'quiet' : 'base'))!;
+    const rate = plan.rate + (best.price - PRICE_MIN);
+    return { plan, rate, area: size.area, total: rate * size.area };
+  }, [matches, size, answers.priority]);
+
   const summary = `Подбор по квизу: ${answers.room}, приоритет «${priorityLabel}», стиль «${conceptLabel}», бюджет ${
     budget?.id === 'any' ? 'не ограничен' : budget?.label.toLowerCase()
-  } — подошли: ${matches.map((m) => m.name).join(', ')}`;
+  }, площадь ${size?.area ? `~${size.area} м²` : 'уточняется'} — подошли: ${matches
+    .map((m) => m.name)
+    .join(', ')}${estimate ? `. Ориентир: ${formatMoney(estimate.total)} («${estimate.plan.name}»)` : ''}`;
 
   const catalogHref = useMemo(() => {
     const p = new URLSearchParams();
@@ -122,7 +155,7 @@ const FabricQuiz = () => {
     setAnswers((prev) => ({ ...prev, [key]: value }));
     setStep((s) => {
       const next = s + 1;
-      if (next === 4) reachGoal(GOALS.CALC_DONE, { source: 'Квиз подбора ткани' });
+      if (next === TOTAL_STEPS) reachGoal(GOALS.CALC_DONE, { source: 'Квиз подбора ткани' });
       return next;
     });
   };
@@ -153,6 +186,11 @@ const FabricQuiz = () => {
       options: BUDGETS,
       onPick: (id: string) => pick('budget', id as Budget),
     },
+    {
+      title: 'Сколько примерно зашиваем?',
+      options: SIZES,
+      onPick: (id: string) => pick('size', id as Size),
+    },
   ];
 
   const current = QUESTIONS[step];
@@ -162,12 +200,12 @@ const FabricQuiz = () => {
       id="quiz"
       eyebrow="Подбор за минуту"
       title={<>Какая ткань подойдёт вам</>}
-      lead="Четыре вопроса — и мы покажем подходящие варианты из наличия. Без регистрации и без звонка: результат сразу на экране."
+      lead="Пять вопросов — покажем подходящие ткани из наличия и посчитаем ориентировочную стоимость. Без регистрации и без звонка: результат сразу на экране."
     >
       <div className="border border-border bg-card">
         {/* Полоса прогресса: видно, сколько шагов осталось */}
         <div className="flex gap-1 border-b border-border p-4 sm:p-6">
-          {[0, 1, 2, 3].map((i) => (
+          {Array.from({ length: TOTAL_STEPS }, (_, i) => i).map((i) => (
             <span
               key={i}
               className={`h-1 flex-1 transition-colors ${
@@ -177,11 +215,11 @@ const FabricQuiz = () => {
           ))}
         </div>
 
-        {step < 4 ? (
+        {step < TOTAL_STEPS ? (
           <div className="p-6 sm:p-10">
             <div className="flex items-baseline gap-3">
               <span className="font-display text-sm tracking-[0.2em] text-primary-ink">
-                {String(step + 1).padStart(2, '0')} / 04
+                {String(step + 1).padStart(2, '0')} / {String(TOTAL_STEPS).padStart(2, '0')}
               </span>
               {step > 0 && (
                 <button
@@ -243,6 +281,40 @@ const FabricQuiz = () => {
               Образцы этих тканей замерщик привезёт с собой — посмотрите их при своём свете.
             </p>
 
+            {estimate ? (
+              <div className="mt-8 border border-border bg-secondary p-6 sm:p-8">
+                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Ориентировочная стоимость
+                </div>
+                <div className="mt-2 font-display text-[clamp(2rem,9vw,2.75rem)] leading-none tracking-wide text-primary sm:text-5xl">
+                  {formatMoney(estimate.total)}
+                </div>
+                <p className="mt-3 text-sm leading-[1.55] text-muted-foreground">
+                  {estimate.area} м² × {estimate.rate.toLocaleString('ru-RU')} ₽/м² — тариф «
+                  {estimate.plan.name}» с тканью «{matches[0].name}». Каркас, наполнение и монтаж
+                  уже внутри.
+                </p>
+                <Link
+                  to="/#calc"
+                  className="mt-4 inline-flex items-center gap-2 font-display text-base uppercase tracking-[0.04em] text-foreground underline-offset-4 hover:underline"
+                >
+                  Уточнить в калькуляторе
+                  <Icon name="ArrowRight" size={16} />
+                </Link>
+              </div>
+            ) : (
+              <div className="mt-8 border border-border bg-secondary p-6 sm:p-8">
+                <p className="text-sm leading-[1.55] text-muted-foreground">
+                  Площадь пока не известна — стоимость посчитает замерщик. Работы «под ключ» с
+                  подходящей тканью начинаются от{' '}
+                  <b className="text-foreground">
+                    {(PLANS[0].rate + (matches[0].price - PRICE_MIN)).toLocaleString('ru-RU')} ₽/м²
+                  </b>
+                  .
+                </p>
+              </div>
+            )}
+
             <div className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-3">
               {matches.map((f, i) => (
                 <div key={f.slug} className="flex flex-col bg-card">
@@ -297,8 +369,8 @@ const FabricQuiz = () => {
             </div>
 
             <p className="mt-4 text-xs leading-[1.5] text-muted-foreground">
-              Подбор носит рекомендательный характер: точную ткань и смету замерщик подтвердит на
-              месте.
+              Расчёт предварительный: он сделан по типовой высоте 2,7 м и не учитывает обход окон,
+              дверей и ниш. Точную смету замерщик подтвердит на месте — замер бесплатный.
             </p>
           </div>
         )}
