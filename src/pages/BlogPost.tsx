@@ -11,6 +11,7 @@ import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, getPost } from '@/data/blog';
 import { breadcrumbsLd } from '@/lib/schema';
 import Logo from '@/components/site/Logo';
+import { openLead } from '@/lib/lead';
 
 const MONTHS = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 
@@ -215,7 +216,7 @@ const BlogPostPage = () => {
             Читайте также
           </h2>
           <p className="mt-3 text-sm text-muted-foreground">
-            Ещё материалы в рубрике «{post.tag}»
+            {isCeilings ? 'Ещё статьи о натяжных потолках' : 'Ещё статьи о тканевых стенах и тишине'}
           </p>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             {others.map((p) => (
@@ -246,18 +247,35 @@ const BlogPostPage = () => {
             ))}
           </div>
 
-          <div className="mt-12 flex flex-col items-start gap-4 border border-border bg-secondary p-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-[30em] text-sm leading-[1.6] text-muted-foreground">
-              Прикиньте бюджет своей комнаты за минуту — калькулятор считает по площади, ткани и
-              наполнению.
-            </p>
-            <Link
-              to="/#calc"
-              className="flex items-center justify-center gap-2 bg-primary px-7 py-4 text-center font-display text-lg sm:whitespace-nowrap uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
-            >
-              Рассчитать стоимость
-              <Icon name="Calculator" size={18} />
-            </Link>
+          <div className="mt-12 flex flex-col gap-6 border border-border bg-secondary p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex gap-4">
+              <Icon name="Ruler" size={22} className="mt-0.5 shrink-0 text-primary-ink" />
+              <div>
+                <span className="block font-display text-[1.25rem] uppercase leading-[1.15] tracking-wide">
+                  {isCeilings ? 'Готовы к новому потолку?' : 'Готовы к тихим ровным стенам?'}
+                </span>
+                <p className="mt-2 max-w-[32em] text-sm leading-[1.6] text-muted-foreground">
+                  Бесплатно приедем на замер, проверим комнату и посчитаем точную смету за 24 часа.
+                  Или прикиньте бюджет сами в калькуляторе.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+              <button
+                type="button"
+                onClick={() => openLead(`Статья, «Читайте также»: ${post.title}`)}
+                className="flex items-center justify-center gap-2 bg-primary px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover sm:whitespace-nowrap"
+              >
+                Записаться на замер
+              </button>
+              <Link
+                to={isCeilings ? '/ceilings#ceil-calc' : '/#calc'}
+                className="flex items-center justify-center gap-2 border border-border bg-background px-7 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary sm:whitespace-nowrap"
+              >
+                <Icon name="Calculator" size={18} className="text-primary-ink" />
+                Рассчитать
+              </Link>
+            </div>
           </div>
         </div>
       </main>
