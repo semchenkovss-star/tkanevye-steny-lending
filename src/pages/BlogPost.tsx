@@ -9,7 +9,9 @@ import FloatingCta from '@/components/site/FloatingCta';
 import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, getPost } from '@/data/blog';
-import { breadcrumbsLd } from '@/lib/schema';
+import { BLOG_FAQ } from '@/data/blogFaq';
+import { breadcrumbsLd, faqLd } from '@/lib/schema';
+import PostFaq from '@/components/site/PostFaq';
 import Logo from '@/components/site/Logo';
 import { openLead } from '@/lib/lead';
 
@@ -65,7 +67,10 @@ const BlogPostPage = () => {
   const midCtaAfter =
     wordCount >= 350 && post.body.length >= 5 ? Math.floor(post.body.length / 2) - 1 : -1;
 
+  const faq = BLOG_FAQ[post.slug] ?? [];
+
   const jsonLd = [
+    ...(faq.length ? [faqLd(faq)] : []),
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
@@ -202,6 +207,8 @@ const BlogPostPage = () => {
                 </div>
               ))}
             </div>
+
+            <PostFaq items={faq} className="mt-4 mb-12 max-w-[42em]" />
 
             <MeasureCta
               isCeilings={isCeilings}
