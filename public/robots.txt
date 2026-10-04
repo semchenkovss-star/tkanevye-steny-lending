@@ -12,6 +12,10 @@ Allow: /acoustics$
 Allow: /acoustics/$
 Allow: /acoustics?*
 Allow: /acoustics/?*
+Allow: /arhitekturnyj-tekstil$
+Allow: /arhitekturnyj-tekstil/$
+Allow: /arhitekturnyj-tekstil?*
+Allow: /arhitekturnyj-tekstil/?*
 Allow: /blog$
 Allow: /blog/$
 Allow: /blog?*
@@ -199,6 +203,10 @@ Allow: /acoustics$
 Allow: /acoustics/$
 Allow: /acoustics?*
 Allow: /acoustics/?*
+Allow: /arhitekturnyj-tekstil$
+Allow: /arhitekturnyj-tekstil/$
+Allow: /arhitekturnyj-tekstil?*
+Allow: /arhitekturnyj-tekstil/?*
 Allow: /blog$
 Allow: /blog/$
 Allow: /blog?*

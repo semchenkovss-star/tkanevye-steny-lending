@@ -35,6 +35,11 @@ export const ROUTES: RouteDef[] = [
     load: () => import('./pages/Panels'),
   },
   {
+    path: '/arhitekturnyj-tekstil',
+    Component: lazy(() => import('./pages/Textile')),
+    load: () => import('./pages/Textile'),
+  },
+  {
     path: '/ceilings',
     Component: lazy(() => import('./pages/Ceilings')),
     load: () => import('./pages/Ceilings'),

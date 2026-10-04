@@ -16,6 +16,7 @@ const COLUMNS = [
       { href: '#what', label: 'Что это такое' },
       { href: '#how', label: 'Как проходит монтаж' },
       { href: '/catalog', label: 'Каталог' },
+      { href: '/arhitekturnyj-tekstil', label: 'Архитектурный текстиль' },
       { href: '#cases', label: 'Проекты' },
     ],
   },

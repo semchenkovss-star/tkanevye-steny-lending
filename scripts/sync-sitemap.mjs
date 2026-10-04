@@ -44,6 +44,7 @@ const SECTIONS = {
   '/ceilings': ['src/pages/Ceilings.tsx', 'src/components/ceilings', 'src/lib/ceilings.ts'],
   '/acoustics': ['src/pages/Acoustics.tsx', 'src/components/acoustics', 'src/lib/acoustics.ts'],
   '/panels': ['src/pages/Panels.tsx'],
+  '/arhitekturnyj-tekstil': ['src/pages/Textile.tsx'],
   '/catalog': ['src/pages/Catalog.tsx', 'src/components/catalog', 'src/data/catalog.ts'],
   '/blog': ['src/pages/Blog.tsx', 'src/data/blog.ts'],
   '/privacy': ['src/pages/Privacy.tsx'],
