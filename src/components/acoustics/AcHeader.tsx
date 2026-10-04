@@ -12,6 +12,7 @@ const LINKS = [
   { href: '/', label: 'Стены' },
   { href: '/ceilings', label: 'Потолки' },
   { href: '/panels', label: 'Панели' },
+  { href: '/arhitekturnyj-tekstil', label: 'Текстиль' },
   { href: '/catalog', label: 'Каталог' },
   { href: '#ac-pain', label: 'Задачи' },
   { href: '#ac-how', label: 'Как работаем' },
