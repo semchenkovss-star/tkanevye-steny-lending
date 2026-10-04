@@ -382,5 +382,4 @@ Allow: /8028d3ca22c76f5e50942b4e55294902.txt
 # Всё, что не перечислено выше, — несуществующие адреса и опечатки
 Disallow: /
 
-Host: https://fabricwall.ru
 Sitemap: https://fabricwall.ru/sitemap.xml

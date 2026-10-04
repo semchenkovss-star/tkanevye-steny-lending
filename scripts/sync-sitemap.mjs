@@ -139,7 +139,6 @@ const buildRobots = (paths) => {
     'User-agent: *',
     ...rules,
     '',
-    `Host: ${ORIGIN}`,
     `Sitemap: ${ORIGIN}/sitemap.xml`,
     '',
   ].join('\n');
