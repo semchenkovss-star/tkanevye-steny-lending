@@ -34,45 +34,68 @@ const FACTS = [
   { value: 'КМ1', label: 'класс пожарной безопасности' },
 ];
 
-const LAYERS = [
-  {
-    icon: 'Frame',
-    title: 'Алюминиевый каркас',
-    text: 'Профиль по периметру стены выставляется по лазеру и крепится через демпферную ленту. Он выводит ровную плоскость даже на кривом основании — штукатурка не нужна.',
-  },
-  {
-    icon: 'Layers',
-    title: 'Акустическое наполнение',
-    text: 'Внутри каркаса — минеральная плита и, при необходимости, тяжёлая каучуковая мембрана. От толщины слоя зависит задача: убрать эхо или закрыться от соседей.',
-  },
-  {
-    icon: 'Scan',
-    title: 'Текстильное полотно',
-    text: 'Ткань из полиэстера с грязе- и пылеотталкивающей пропиткой заводится в замок профиля и натягивается без складок. Полотно дышит: конденсат за ним не запирается.',
-  },
+const PROPERTIES = [
+  { icon: 'Scan', text: 'Изготовлен из 100% полиэстера' },
+  { icon: 'Leaf', text: 'Экологичен и гипоаллергенен' },
+  { icon: 'HeartPulse', text: 'Безопасен для здоровья — не содержит клея' },
+  { icon: 'ShieldCheck', text: 'Не подвержен горению' },
+  { icon: 'Wind', text: 'Антистатический эффект предотвращает оседание пыли' },
+  { icon: 'Shield', text: 'Устойчив к повреждениям' },
 ];
 
-const BENEFITS = [
+const FEATURES = [
   {
-    icon: 'Grid2x2X',
-    title: 'Ни одного стыка',
-    text: 'Обои и панели всегда дают швы, которые видны при боковом свете. Текстильное полотно шириной до 5 метров закрывает типовую стену целиком.',
+    icon: 'Timer',
+    title: 'Быстрая установка',
+    text: 'Для монтажа достаточно черновой подготовки стен.',
   },
   {
     icon: 'Volume1',
-    title: 'Тише в комнате',
-    text: 'Ткань с наполнением гасит эхо и снижает шум от соседей. Звукопоглощение полотен в нашем каталоге — от 7 до 11 дБ, в зависимости от коллекции.',
+    title: 'Акустический комфорт',
+    text: 'Текстиль эффективно поглощает звуковые волны, улучшая разборчивость речи и снижая уровень шума в помещении.',
   },
   {
-    icon: 'Cable',
-    title: 'Проводка и стояки — под тканью',
-    text: 'Кабели, трубы и перепады основания уходят за полотно. Розетки и выключатели выводятся заподлицо, под телевизор и полки ставятся закладные.',
+    icon: 'Lamp',
+    title: 'Светильники, полки и телевизоры',
+    text: 'В конструкцию можно встроить различные светильники и закрепить тяжёлые навесные предметы.',
   },
   {
-    icon: 'Sparkles',
-    title: 'Чисто и быстро',
-    text: 'Сухой монтаж без шпаклёвки и просушки. Сверление идёт с пылесосом, жить в квартире можно всё время работ.',
+    icon: 'Image',
+    title: 'Фотопечать и роспись',
+    text: 'На архитектурный текстиль можно наносить любые изображения.',
   },
+  {
+    icon: 'Box',
+    title: 'Объединение стен и потолка',
+    text: 'Системы монтажа позволяют легко объединить стены и потолок в единое конструктивное решение.',
+  },
+];
+
+const STEPS = [
+  {
+    title: 'Монтаж профиля',
+    text: 'Алюминиевый профиль крепится по периметру стены и выставляется по лазеру — он задаёт ровную плоскость.',
+  },
+  {
+    title: 'Установка мембраны',
+    text: 'Внутри каркаса укладывается звукопоглощающий слой: от него зависит, насколько тише станет в комнате.',
+  },
+  {
+    title: 'Натяжка ткани',
+    text: 'Полотно заводится в замок профиля и натягивается без складок и швов.',
+  },
+  {
+    title: 'Подрезка и дозаправка',
+    text: 'Излишки ткани подрезаются, края заправляются в профиль — стена готова.',
+  },
+];
+
+const DESIGN = [
+  'Варианты драпировки и форм (волны, складки, геометрия)',
+  'Подсветка (задняя, контурная, скрытая)',
+  'Печать изображений и паттернов',
+  'Сочетание с другими материалами (дерево, металл, камень)',
+  'Тканевые светильники',
 ];
 
 const COLLECTIONS = [
@@ -98,7 +121,7 @@ const COMPARE = {
 const TEXTILE_FAQ = [
   {
     q: 'Что такое архитектурный текстиль?',
-    a: 'Это отделка стен и потолков тканью, натянутой на скрытый алюминиевый каркас. Полотно не клеится к стене, как обои, а держится в замке профиля по периметру. За тканью можно разместить звукопоглощающий слой и спрятать проводку, а саму ткань при необходимости снять и поставить обратно.',
+    a: 'Это современное решение для отделки стен и потолков в жилых и общественных помещениях. Ткань из 100% полиэстера натягивается на скрытый алюминиевый каркас и держится в замке профиля без клея. За полотном можно разместить звукопоглощающую мембрану, встроить светильники и закладные под полки и телевизор.',
   },
   {
     q: 'Сколько стоят текстильные стены?',
@@ -221,26 +244,21 @@ const TextilePage = () => {
           index="01"
           eyebrow="Что это"
           title="Что такое архитектурный текстиль"
-          lead="Не обои и не декоративная обивка, а инженерная система: ткань натягивается на каркас и становится новой поверхностью стены."
+          lead="Архитектурный текстиль — это современное решение для отделки стен и потолков в жилых и общественных помещениях."
         >
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-            <div className="space-y-px bg-border lg:col-span-7">
-              {LAYERS.map((l, i) => (
-                <div key={l.title} className="flex gap-5 bg-card p-6 sm:p-8">
-                  <div className="font-display text-sm text-muted-foreground">0{i + 1}</div>
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <Icon name={l.icon} size={22} className="text-primary-ink" />
-                      <h3 className="font-display text-[clamp(1.25rem,4vw,1.5rem)] uppercase leading-[1.05] text-foreground">
-                        {l.title}
-                      </h3>
-                    </div>
-                    <p className="mt-3 text-[0.95rem] leading-[1.65] text-muted-foreground">
-                      {l.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="lg:col-span-7">
+              <h3 className="font-display text-[clamp(1.25rem,4vw,1.5rem)] uppercase leading-[1.05] text-foreground">
+                Основные характеристики архитектурного текстиля
+              </h3>
+              <ul className="mt-6 grid gap-px bg-border sm:grid-cols-2">
+                {PROPERTIES.map((p) => (
+                  <li key={p.text} className="flex items-start gap-4 bg-card p-5 sm:p-6">
+                    <Icon name={p.icon} size={22} className="mt-0.5 shrink-0 text-primary-ink" />
+                    <span className="text-[0.95rem] leading-[1.55] text-foreground">{p.text}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             <figure className="lg:col-span-5">
               <img
@@ -256,22 +274,73 @@ const TextilePage = () => {
           </div>
         </Section>
 
-        <Section index="02" eyebrow="Зачем" title="Почему выбирают текстильные стены" tone="surface">
-          <div className="grid gap-px bg-border sm:grid-cols-2">
-            {BENEFITS.map((b) => (
-              <div key={b.title} className="flex flex-col bg-card p-7 sm:p-9">
-                <Icon name={b.icon} size={26} className="text-primary-ink" />
-                <h3 className="mt-5 font-display text-[clamp(1.4rem,4.5vw,1.75rem)] uppercase leading-[1.05] text-foreground">
-                  {b.title}
-                </h3>
-                <p className="mt-4 text-[0.95rem] leading-[1.65] text-muted-foreground">{b.text}</p>
+        <Section
+          index="02"
+          eyebrow="Особенности"
+          title="Особенности архитектурного текстиля"
+          tone="surface"
+        >
+          <dl className="border-t border-border">
+            {FEATURES.map((f) => (
+              <div
+                key={f.title}
+                className="grid gap-3 border-b border-border py-6 sm:grid-cols-12 sm:gap-8 sm:py-8"
+              >
+                <dt className="flex items-start gap-3 sm:col-span-5">
+                  <Icon name={f.icon} size={22} className="mt-1 shrink-0 text-primary-ink" />
+                  <span className="font-display text-[clamp(1.2rem,4vw,1.45rem)] uppercase leading-[1.1] text-foreground">
+                    {f.title}
+                  </span>
+                </dt>
+                <dd className="text-[0.95rem] leading-[1.65] text-muted-foreground sm:col-span-7">
+                  {f.text}
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
         </Section>
 
         <Section
           index="03"
+          eyebrow="Монтаж"
+          title="Как монтируют текстильные стены"
+          lead="Четыре этапа сухого монтажа — без штукатурки, клея и просушки."
+        >
+          <ol className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map((s, i) => (
+              <li key={s.title} className="flex flex-col bg-card p-6 sm:p-7">
+                <div className="font-display text-4xl text-primary-ink">0{i + 1}</div>
+                <h3 className="mt-4 font-display text-[clamp(1.2rem,4vw,1.4rem)] uppercase leading-[1.1] text-foreground">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-[0.95rem] leading-[1.6] text-muted-foreground">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </Section>
+
+        <Section
+          index="04"
+          eyebrow="Дизайн"
+          title="Дизайнерские возможности"
+          tone="surface"
+          lead="Архитектурный текстиль — это не только ровная стена, но и материал для выразительного интерьера."
+        >
+          <ol className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
+            {DESIGN.map((d, i) => (
+              <li
+                key={d}
+                className="flex gap-5 bg-card p-6 sm:flex-col sm:gap-4 sm:p-7 sm:last:col-span-2 lg:last:col-span-1"
+              >
+                <div className="shrink-0 font-display text-3xl text-primary-ink">0{i + 1}</div>
+                <p className="text-base leading-[1.55] text-foreground">{d}</p>
+              </li>
+            ))}
+          </ol>
+        </Section>
+
+        <Section
+          index="05"
           eyebrow="Сравнение"
           title="Текстиль, обои и покраска"
           lead="Сравниваем по тому, что важно в готовой комнате: швы, подготовка, тишина и сроки."
@@ -318,7 +387,7 @@ const TextilePage = () => {
         </Section>
 
         <Section
-          index="04"
+          index="06"
           eyebrow="Коллекции"
           title="Ткани для текстильных стен"
           tone="surface"
@@ -346,12 +415,12 @@ const TextilePage = () => {
           </Link>
         </Section>
 
-        <Pricing index="05" />
-        <Calculator index="06" />
+        <Pricing index="07" />
+        <Calculator index="08" />
 
         <Section
           id="faq"
-          index="07"
+          index="09"
           eyebrow="Частые вопросы"
           title="Что спрашивают об архитектурном текстиле"
           tone="surface"
