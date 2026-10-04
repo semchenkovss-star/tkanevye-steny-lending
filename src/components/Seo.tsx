@@ -63,17 +63,6 @@ const removeLink = (rel: string) => {
   document.head.querySelector(`link[rel="${rel}"]`)?.remove();
 };
 
-/**
- * Сборщик страниц (scripts/prerender.mjs) не умеет выполнять эффекты:
- * они работают только в браузере. Поэтому при сборке компонент складывает
- * мета-теги сюда, а сборщик забирает их и вписывает в готовый HTML.
- */
-export const seoCollector: { current: (SeoProps & { currentPath?: string }) | null } = {
-  current: null,
-};
-
-const isBrowser = typeof window !== 'undefined';
-
 const Seo = ({
   title,
   description,
@@ -85,24 +74,9 @@ const Seo = ({
   noindex = false,
   jsonLd,
 }: SeoProps) => {
-  // Текущий адрес берём из роутера: он один источник правды и при
-  // сборке страниц, и в браузере при переходах между разделами.
+  // Текущий адрес берём из роутера: так мета-теги обновляются
+  // и при переходах между разделами без перезагрузки страницы.
   const { pathname } = useLocation();
-
-  if (!isBrowser) {
-    seoCollector.current = {
-      title,
-      description,
-      path,
-      image,
-      type,
-      publishedAt,
-      keywords,
-      noindex,
-      jsonLd,
-      currentPath: pathname,
-    };
-  }
 
   useEffect(() => {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';

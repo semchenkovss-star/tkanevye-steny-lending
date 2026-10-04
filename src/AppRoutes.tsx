@@ -21,9 +21,7 @@ const queryClient = new QueryClient();
 /**
  * Содержимое приложения без маршрутизатора.
  *
- * Маршрутизатор подключается снаружи: в браузере — BrowserRouter (App.tsx),
- * при сборке страниц — StaticRouter (scripts/prerender.mjs). Так один и тот же
- * код даёт одинаковую разметку и на сервере, и у посетителя.
+ * Маршрутизатор (BrowserRouter) подключается снаружи, в App.tsx.
  */
 const AppRoutes = () => {
   useEffect(() => {
