@@ -3,6 +3,7 @@ import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { GOALS as METRIKA_GOALS, reachGoalOnce } from '@/lib/metrika';
 import { ACOUSTIC_GOALS, ACOUSTIC_PLACES } from '@/lib/acoustics';
 
 const money = (v: number) => Math.round(v).toLocaleString('ru-RU') + ' ₽';
@@ -68,6 +69,12 @@ const AcCalculator = () => {
     window.addEventListener('ac-place', onPick);
     return () => window.removeEventListener('ac-place', onPick);
   }, []);
+
+  const touched =
+    placeId !== 'flat' || area !== 18 || height !== 2.7 || goalId !== 'noise' || extras.length > 0;
+  useEffect(() => {
+    if (touched) reachGoalOnce(METRIKA_GOALS.CALC_DONE, 'acoustics', { calc: 'Акустика', total: Math.round(total) });
+  }, [touched, total]);
 
   const toggle = (id: string) =>
     setExtras((p) => (p.includes(id) ? p.filter((e) => e !== id) : [...p, id]));

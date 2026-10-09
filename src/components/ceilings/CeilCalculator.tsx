@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import { CEIL_EXTRAS, CEIL_FABRICS, CEIL_PLANS, ceilMoney } from '@/lib/ceilings';
 
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
@@ -82,6 +83,12 @@ const CeilCalculator = () => {
 
   const toggleExtra = (id: string) =>
     setExtras((prev) => (prev.includes(id) ? prev.filter((e) => e !== id) : [...prev, id]));
+
+  const touched =
+    length !== 4.2 || width !== 3.4 || planId !== 'shadow' || fabricId !== 'descor' || extras.length > 0;
+  useEffect(() => {
+    if (touched) reachGoalOnce(GOALS.CALC_DONE, 'ceilings', { calc: 'Потолки', total: Math.round(total) });
+  }, [touched, total]);
 
   const summary = `Потолок ${length} × ${width} м (${area} м²), тариф «${plan.name}», полотно «${fabric.name}»${
     extras.length
