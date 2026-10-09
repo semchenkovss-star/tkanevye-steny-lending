@@ -65,6 +65,36 @@ const currentPage = (): string => {
   return title ? `${title} — ${url}` : url;
 };
 
+export type LeadDirection = 'Потолки' | 'Стены' | 'Акустика';
+
+const directionByText = (text: string): LeadDirection | null => {
+  const t = text.toLowerCase();
+  if (/потол/.test(t)) return 'Потолки';
+  if (/акусти|эхо|звукоизол|шумоизол/.test(t)) return 'Акустика';
+  return null;
+};
+
+/**
+ * Направление заявки — кому из менеджеров её передать.
+ * Сначала кнопка и расчёт, затем раздел сайта, затем тема статьи и последний расчёт.
+ * Всё остальное — тканевые стены, основное направление.
+ */
+const leadDirection = (payload: LeadPayload): LeadDirection => {
+  const own = directionByText(`${payload.source} ${payload.summary || ''}`);
+  if (own) return own;
+  const path = stripCity(window.location.pathname).rest;
+  if (path.startsWith('/ceilings')) return 'Потолки';
+  if (path.startsWith('/acoustics')) return 'Акустика';
+  if (path.startsWith('/blog/')) {
+    const fromPost = directionByText(document.title.split('|')[0]);
+    if (fromPost) return fromPost;
+  }
+  if (path === '/' || path.startsWith('/catalog') || path.startsWith('/panels') || path.startsWith('/arhitekturnyj-tekstil')) {
+    return 'Стены';
+  }
+  return directionByText(lastCalc()) ?? 'Стены';
+};
+
 export interface LeadPayload {
   name: string;
   phone: string;
@@ -104,6 +134,7 @@ export async function sendLead(payload: LeadPayload): Promise<boolean> {
         adSource: adSourceLabel(),
         page: currentPage(),
         calc: lastCalc(),
+        direction: leadDirection(payload),
         ...payload,
       }),
     });

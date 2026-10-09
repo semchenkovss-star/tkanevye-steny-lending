@@ -15,6 +15,9 @@ from email.utils import formataddr
 import psycopg2
 
 
+DIRECTIONS = {'Потолки': '🔵', 'Стены': '🟢', 'Акустика': '🟠'}
+
+
 def _cors(status: int, body: dict) -> dict:
     return {
         'statusCode': status,
@@ -41,10 +44,10 @@ def _save_lead(data: dict) -> int:
     with conn:
         with conn.cursor() as cur:
             cur.execute(
-                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples, call_time, page, calc) "
+                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples, call_time, page, calc, direction) "
                 f"VALUES ({_q(data['name'])}, {_q(data['phone'])}, {_q(data['source'])}, "
                 f"{_q(data['summary'])}, {_q(data['address'])}, {_q(data['comment'])}, {_q(data['samples'])}, "
-                f"{_q(data.get('call_time', ''))}, {_q(data.get('page', ''))}, {_q(data.get('calc', ''))}) "
+                f"{_q(data.get('call_time', ''))}, {_q(data.get('page', ''))}, {_q(data.get('calc', ''))}, {_q(data.get('direction', ''))}) "
                 f"RETURNING id"
             )
             lead_id = cur.fetchone()[0]
@@ -207,6 +210,9 @@ def handler(event: dict, context) -> dict:
     summary = str(body.get('summary', '')).strip()
     page = str(body.get('page', '')).strip()[:500]
     calc = str(body.get('calc', '')).strip()[:2000]
+    direction = str(body.get('direction', '')).strip()
+    if direction not in DIRECTIONS:
+        direction = 'Стены'
     address = str(body.get('address', '')).strip()
     comment = str(body.get('comment', '')).strip()
     samples_list = body.get('samples') or []
@@ -227,6 +233,7 @@ def handler(event: dict, context) -> dict:
         'call_time': call_time,
         'page': page,
         'calc': calc,
+        'direction': direction,
     }
     # Расчёт уже передан кнопкой калькулятора — не дублируем его
     extra_calc = calc if calc and (not summary or summary not in calc) else ''
@@ -241,7 +248,7 @@ def handler(event: dict, context) -> dict:
         print('lead save error:', e)
 
     lines = [
-        'Новая заявка с сайта Fabric Wall',
+        f'[{direction.upper()}] Новая заявка с сайта Fabric Wall',
         '',
         f'Имя: {name}',
         f'Телефон: {phone}',
@@ -275,6 +282,7 @@ def handler(event: dict, context) -> dict:
         return str(v).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
     tg_lines = [
+        f'{DIRECTIONS[direction]} <b>{direction.upper()}</b>',
         '<b>Новая заявка с сайта Fabric Wall</b>',
         '',
         f'Имя: <b>{esc(name)}</b>',
@@ -320,7 +328,7 @@ def handler(event: dict, context) -> dict:
         print('telegram error:', e)
 
     try:
-        mail_ok = _send_email(f'Заявка с сайта — {name}, {phone}', text)
+        mail_ok = _send_email(f'[{direction}] Заявка с сайта — {name}, {phone}', text)
     except Exception as e:
         errors.append(f'email: {e}')
         print('email error:', e)
