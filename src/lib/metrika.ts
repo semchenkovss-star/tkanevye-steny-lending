@@ -1,4 +1,43 @@
+import { stripCity } from '@/data/cities';
+
 const COUNTER_ID = 112376085;
+
+/** Отдельные счётчики для ключевых страниц (работают вместе с общим) */
+const PAGE_COUNTERS: Record<string, number> = {
+  '/': 112531578,
+  '/ceilings': 113589077,
+  '/acoustics': 113589145,
+};
+
+const initedPageCounters = new Set<number>();
+let lastPageCounterUrl = '';
+
+const pageCounterFor = (pathname: string): number | null => {
+  const rest = stripCity(pathname).rest.replace(/\/+$/, '') || '/';
+  return PAGE_COUNTERS[rest] ?? null;
+};
+
+/** Просмотр в отдельный счётчик страницы: при первом заходе — init, дальше — hit */
+export function trackPageCounter(url: string, pathname: string, referer?: string) {
+  if (typeof window === 'undefined' || typeof window.ym !== 'function') return;
+  const id = pageCounterFor(pathname);
+  if (!id || url === lastPageCounterUrl) return;
+  lastPageCounterUrl = url;
+  if (!initedPageCounters.has(id)) {
+    initedPageCounters.add(id);
+    window.ym(id, 'init', {
+      defer: false,
+      webvisor: true,
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      url,
+      referrer: referer || document.referrer,
+    });
+    return;
+  }
+  window.ym(id, 'hit', url, { referer, title: document.title });
+}
 
 type YmFn = (id: number, action: string, ...rest: unknown[]) => void;
 
@@ -76,6 +115,10 @@ const socialName = (href: string): string | null => SOCIAL_HOSTS[hostOf(href)] |
 export function reachGoal(goal: string, params?: Record<string, unknown>) {
   if (typeof window === 'undefined' || typeof window.ym !== 'function') return;
   window.ym(COUNTER_ID, 'reachGoal', goal, params);
+  const pageId = pageCounterFor(window.location.pathname);
+  if (pageId && initedPageCounters.has(pageId)) {
+    window.ym(pageId, 'reachGoal', goal, params);
+  }
 }
 
 /**
