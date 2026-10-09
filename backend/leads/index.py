@@ -41,10 +41,10 @@ def _save_lead(data: dict) -> int:
     with conn:
         with conn.cursor() as cur:
             cur.execute(
-                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples, call_time) "
+                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples, call_time, page, calc) "
                 f"VALUES ({_q(data['name'])}, {_q(data['phone'])}, {_q(data['source'])}, "
                 f"{_q(data['summary'])}, {_q(data['address'])}, {_q(data['comment'])}, {_q(data['samples'])}, "
-                f"{_q(data.get('call_time', ''))}) "
+                f"{_q(data.get('call_time', ''))}, {_q(data.get('page', ''))}, {_q(data.get('calc', ''))}) "
                 f"RETURNING id"
             )
             lead_id = cur.fetchone()[0]
@@ -205,6 +205,8 @@ def handler(event: dict, context) -> dict:
     ad_source = str(body.get('adSource', '')).strip()
     call_time = str(body.get('callTime', '')).strip()[:60]
     summary = str(body.get('summary', '')).strip()
+    page = str(body.get('page', '')).strip()[:500]
+    calc = str(body.get('calc', '')).strip()[:2000]
     address = str(body.get('address', '')).strip()
     comment = str(body.get('comment', '')).strip()
     samples_list = body.get('samples') or []
@@ -223,7 +225,11 @@ def handler(event: dict, context) -> dict:
         'comment': comment,
         'samples': samples,
         'call_time': call_time,
+        'page': page,
+        'calc': calc,
     }
+    # Расчёт уже передан кнопкой калькулятора — не дублируем его
+    extra_calc = calc if calc and (not summary or summary not in calc) else ''
 
     lead_id = 0
     errors = []
@@ -241,6 +247,8 @@ def handler(event: dict, context) -> dict:
         f'Телефон: {phone}',
         f'Источник: {source}',
     ]
+    if page:
+        lines.append(f'Страница: {page}')
     if call_time:
         lines.append(f'Удобное время звонка: {call_time}')
     if city:
@@ -249,6 +257,8 @@ def handler(event: dict, context) -> dict:
         lines.append(f'Реклама: {ad_source}')
     if summary:
         lines.append(f'Расчёт: {summary}')
+    if extra_calc:
+        lines.append(f'Последний расчёт на сайте: {extra_calc}')
     if address:
         lines.append(f'Адрес: {address}')
     if samples:
@@ -271,6 +281,8 @@ def handler(event: dict, context) -> dict:
         f'Телефон: +{digits}',
         f'Источник: {esc(source)}',
     ]
+    if page:
+        tg_lines.append(f'Страница: {esc(page)}')
     if call_time:
         tg_lines.append(f'Удобное время: {esc(call_time)}')
     if city:
@@ -279,6 +291,8 @@ def handler(event: dict, context) -> dict:
         tg_lines.append(f'Реклама: {esc(ad_source)}')
     if summary:
         tg_lines.append(f'Расчёт: {esc(summary)}')
+    if extra_calc:
+        tg_lines.append(f'Последний расчёт на сайте: {esc(extra_calc)}')
     if address:
         tg_lines.append(f'Адрес: {esc(address)}')
     if samples:

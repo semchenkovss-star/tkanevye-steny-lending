@@ -38,6 +38,33 @@ const currentCityName = () => {
 
 const LEADS_URL = 'https://functions.poehali.dev/5590f489-efb2-4d67-be9a-f87d8efe230a';
 
+const CALC_KEY = 'fw:last-calc';
+
+/** Запомнить последний расчёт в калькуляторе — он уйдёт с любой заявкой за визит */
+export function rememberCalc(name: string, summary: string) {
+  try {
+    sessionStorage.setItem(CALC_KEY, `${name}: ${summary}`);
+  } catch {
+    /* хранилище недоступно — просто не запоминаем */
+  }
+}
+
+const lastCalc = (): string => {
+  try {
+    return sessionStorage.getItem(CALC_KEY) || '';
+  } catch {
+    return '';
+  }
+};
+
+/** Страница, с которой отправлена заявка: «Потолки — fabricwall.ru/ceilings» */
+const currentPage = (): string => {
+  if (typeof window === 'undefined') return '';
+  const title = document.title.split('|')[0].trim();
+  const url = window.location.host + window.location.pathname;
+  return title ? `${title} — ${url}` : url;
+};
+
 export interface LeadPayload {
   name: string;
   phone: string;
@@ -72,7 +99,13 @@ export async function sendLead(payload: LeadPayload): Promise<boolean> {
     const res = await fetch(LEADS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ city: currentCityName(), adSource: adSourceLabel(), ...payload }),
+      body: JSON.stringify({
+        city: currentCityName(),
+        adSource: adSourceLabel(),
+        page: currentPage(),
+        calc: lastCalc(),
+        ...payload,
+      }),
     });
     if (res.ok) {
       reachGoal(GOALS.LEAD, { source: payload.source, city: currentCityName() });

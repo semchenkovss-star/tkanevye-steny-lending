@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
-import { openLead } from '@/lib/lead';
+import { openLead, rememberCalc } from '@/lib/lead';
 import { GOALS as METRIKA_GOALS, reachGoalOnce } from '@/lib/metrika';
 import { ACOUSTIC_GOALS, ACOUSTIC_PLACES } from '@/lib/acoustics';
 
@@ -82,6 +82,10 @@ const AcCalculator = () => {
   const summary = `Акустика: ${place.title}, ${area} м², высота ${height} м, задача «${goal.name}», обработка ${wallArea} м² стен${
     extras.includes('ceiling') ? ' + потолок' : ''
   }${extras.includes('door') ? ' + дверь' : ''} — от ${money(total)}, срок ${days} дн.`;
+
+  useEffect(() => {
+    if (touched) rememberCalc('Калькулятор акустики', summary);
+  }, [touched, summary]);
 
   return (
     <Section

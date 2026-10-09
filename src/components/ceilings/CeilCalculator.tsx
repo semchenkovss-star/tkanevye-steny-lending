@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
-import { openLead } from '@/lib/lead';
+import { openLead, rememberCalc } from '@/lib/lead';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import { CEIL_EXTRAS, CEIL_FABRICS, CEIL_PLANS, ceilMoney } from '@/lib/ceilings';
 
@@ -98,6 +98,10 @@ const CeilCalculator = () => {
           .join(', ')
       : ''
   } — ${ceilMoney(total)}`;
+
+  useEffect(() => {
+    if (touched) rememberCalc('Калькулятор потолков', summary);
+  }, [touched, summary]);
 
   return (
     <Section

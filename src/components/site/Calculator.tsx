@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
-import { openLead } from '@/lib/lead';
+import { openLead, rememberCalc } from '@/lib/lead';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import { EXTRAS, PLANS, formatMoney } from '@/lib/pricing';
 import { CATALOG, MATERIALS, PRICE_MIN } from '@/data/catalog';
@@ -96,6 +96,10 @@ const Calculator = ({ index = '09' }: { index?: string }) => {
   const summary = `${length} × ${height} м (${area} м²), тариф «${plan.name}», ткань «${fabric.name}»${
     extras.length ? ', допы: ' + EXTRAS.filter((e) => extras.includes(e.id)).map((e) => e.label).join(', ') : ''
   } — ${formatMoney(total)}`;
+
+  useEffect(() => {
+    if (touched) rememberCalc('Калькулятор стен', summary);
+  }, [touched, summary]);
 
   return (
     <Section

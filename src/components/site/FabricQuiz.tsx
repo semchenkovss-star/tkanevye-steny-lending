@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
@@ -12,7 +12,7 @@ import {
   type Room,
 } from '@/data/catalog';
 import { PLANS, formatMoney } from '@/lib/pricing';
-import { openLead } from '@/lib/lead';
+import { openLead, rememberCalc } from '@/lib/lead';
 import { GOALS, reachGoal } from '@/lib/metrika';
 
 type Priority = 'quiet' | 'walls' | 'style';
@@ -142,6 +142,11 @@ const FabricQuiz = () => {
   }, площадь ${size?.area ? `~${size.area} м²` : 'уточняется'} — подошли: ${matches
     .map((m) => m.name)
     .join(', ')}${estimate ? `. Ориентир: ${formatMoney(estimate.total)} («${estimate.plan.name}»)` : ''}`;
+
+  const quizDone = step >= TOTAL_STEPS;
+  useEffect(() => {
+    if (quizDone) rememberCalc('Квиз подбора ткани', summary);
+  }, [quizDone, summary]);
 
   const catalogHref = useMemo(() => {
     const p = new URLSearchParams();
