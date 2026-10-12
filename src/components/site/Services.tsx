@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
@@ -54,13 +55,24 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
-const Services = ({ index = '12' }: { index?: string }) => (
+interface ServicesProps {
+  index?: string;
+  /** Свой заголовок и подводка — чтобы блок не дублировал главную слово в слово */
+  title?: ReactNode;
+  lead?: ReactNode;
+}
+
+const Services = ({
+  index = '12',
+  title = <>Три услуги — один подрядчик</>,
+  lead = 'Делаем только текстильные поверхности — стены и потолки. Можно заказать по отдельности или вместе, одной бригадой и одним счётом.',
+}: ServicesProps) => (
   <Section
     id="services"
     index={index}
     eyebrow="Услуги"
-    title={<>Три услуги — один подрядчик</>}
-    lead="Делаем только текстильные поверхности — стены и потолки. Можно заказать по отдельности или вместе, одной бригадой и одним счётом."
+    title={title}
+    lead={lead}
     tone="surface"
   >
     <div className="grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
