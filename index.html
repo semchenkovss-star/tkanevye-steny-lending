@@ -15,6 +15,43 @@
          Здесь его быть не должно: этот файл общий для всех адресов,
          и жёсткая ссылка на главную заставляла Яндекс считать
          все страницы копиями главной (статус NOT_CANONICAL). -->
+    <!-- Ранний canonical: ставится до загрузки основного скрипта, чтобы робот,
+         прервавший отрисовку, не принял страницу за копию главной.
+         Компонент Seo потом уточнит его или уберёт для 404. -->
+    <script>
+      (function () {
+        var p = location.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '') || '/';
+        var url = 'https://fabricwall.ru' + p;
+        var l = document.createElement('link');
+        l.rel = 'canonical';
+        l.href = url;
+        document.head.appendChild(l);
+        var m = document.createElement('meta');
+        m.setAttribute('property', 'og:url');
+        m.content = url;
+        document.head.appendChild(m);
+        var pages = {
+          '/ceilings': ['Тканевый потолок Descor и Clipso: цена и монтаж | Fabric Wall', 'Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа.'],
+          '/acoustics': ['Тихие стены: звукоизоляция комнаты под ключ | Fabric Wall', 'Тихие стены и звукоизоляция квартиры под ключ: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–3 дня, контрольный замер.'],
+          '/panels': ['Мягкие стеновые панели из ткани: цена и монтаж | Fabric Wall', 'Тканевые стеновые панели без стыков: бесшовное полотно на скрытом каркасе вместо МДФ и мягких модулей. Выравнивают стену, шумоизоляция до −11 дБ, монтаж за 1–2 дня.'],
+          '/arhitekturnyj-tekstil': ['Архитектурный текстиль для стен: текстильные стены под ключ | Fabric Wall', 'Текстильные стены из архитектурного текстиля на скрытом каркасе: бесшовное полотно до 5 м, звукопоглощение до 11 дБ, без штукатурки и пыли.'],
+          '/catalog': ['Акустические ткани для стен: каталог и цены за м² | Fabric Wall', 'Архитектурный текстиль для стен и потолков: 7 коллекций, фильтр по стилю и цене, шумоизоляция до −11 дБ, образцы на дом.'],
+          '/blog': ['Статьи о шумоизоляции и отделке стен тканью | Fabric Wall', 'Как устроена тканевая стена и натяжной потолок, как убрать эхо, чем отличаются ткани и из чего складывается смета — статьи по делу.'],
+          '/about': ['О компании Fabric Wall: тканевые стены и потолки с 2016 года', 'Fabric Wall — натяжные тканевые стены и потолки на скрытом каркасе с 2016 года. Свой раскрой, штатные бригады, фиксированная смета.'],
+          '/documents': ['Сертификаты на ткани: пожарная безопасность | Fabric Wall', 'Сертификаты на архитектурный текстиль и полотна Descor: пожарная безопасность Г1, санитарное заключение, стойкость окраски 5 из 5.']
+        };
+        var page = pages[p];
+        if (page) {
+          document.title = page[0];
+          var d = document.querySelector('meta[name="description"]');
+          if (d) d.setAttribute('content', page[1]);
+          var ot = document.querySelector('meta[property="og:title"]');
+          if (ot) ot.setAttribute('content', page[0]);
+          var od = document.querySelector('meta[property="og:description"]');
+          if (od) od.setAttribute('content', page[1]);
+        }
+      })();
+    </script>
     <link rel="icon" href="https://fabricwall.ru/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="https://fabricwall.ru/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="32x32" href="https://fabricwall.ru/favicon-32x32.png">
@@ -123,7 +160,7 @@
     <meta name="pp-name" value="tkanevye-steny-lending">
       <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
       <script src="https://cdn.poehali.dev/intertnal/js/ve-2.0.0-rc.2.min.js" defer=""></script>
-      <script src="https://cdn.poehali.dev/intertnal/js/pp-min-4.js"></script>
+      <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
   </head>
 
 <body>
