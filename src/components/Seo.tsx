@@ -104,6 +104,8 @@ const Seo = ({
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', imageUrl);
     setMeta('property', 'og:image:secure_url', imageUrl);
+    const ext = imageUrl.split('?')[0].split('.').pop()?.toLowerCase();
+    setMeta('property', 'og:image:type', ext === 'webp' ? 'image/webp' : ext === 'png' ? 'image/png' : 'image/jpeg');
     setMeta('property', 'og:image:width', '1200');
     setMeta('property', 'og:image:height', '630');
     setMeta('property', 'og:image:alt', title);

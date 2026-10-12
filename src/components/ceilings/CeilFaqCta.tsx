@@ -62,7 +62,7 @@ export const CeilCta = () => {
       >
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <span className="font-display text-sm tracking-[0.2em] text-primary-ink">09</span>
+            <span className="font-display text-sm tracking-[0.2em] text-primary-ink">13</span>
             <h2 className="mt-4 max-w-[12em] font-display text-[clamp(2rem,7.5vw,2.5rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.25rem]">
               Замер потолка и смета за 24 часа
             </h2>
