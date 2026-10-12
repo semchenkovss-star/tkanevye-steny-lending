@@ -1,17 +1,29 @@
+import type { ReactNode } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { PLANS } from '@/lib/pricing';
 
-const Pricing = ({ index = '08' }: { index?: string }) => {
+interface PricingProps {
+  index?: string;
+  /** Свой заголовок и подводка — чтобы блок не дублировал главную слово в слово */
+  title?: ReactNode;
+  lead?: ReactNode;
+}
+
+const Pricing = ({
+  index = '08',
+  title = <>Цена за квадратный метр под ключ</>,
+  lead = 'В стоимость входит материал, каркас, работа и уборка. Итог фиксируется в смете после замера и больше не меняется.',
+}: PricingProps) => {
   return (
     <Section
       id="price"
       index={index}
       eyebrow="Тарифы"
-      title={<>Цена за квадратный метр под ключ</>}
-      lead="В стоимость входит материал, каркас, работа и уборка. Итог фиксируется в смете после замера и больше не меняется."
+      title={title}
+      lead={lead}
       tone="surface"
     >
       <div className="grid gap-px border border-border bg-border lg:grid-cols-3">

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
@@ -67,7 +68,18 @@ const NumberField = ({
   </div>
 );
 
-const Calculator = ({ index = '09' }: { index?: string }) => {
+interface CalculatorProps {
+  index?: string;
+  /** Свой заголовок и подводка — чтобы блок не дублировал главную слово в слово */
+  title?: ReactNode;
+  lead?: ReactNode;
+}
+
+const Calculator = ({
+  index = '09',
+  title = <>Посчитайте стоимость своей стены</>,
+  lead = 'Введите размеры стены, выберите тариф — расчёт появится сразу. Это ориентир: точную смету считает замерщик.',
+}: CalculatorProps) => {
   const [length, setLength] = useState(4.2);
   const [height, setHeight] = useState(2.7);
   const [planId, setPlanId] = useState('quiet');
@@ -106,8 +118,8 @@ const Calculator = ({ index = '09' }: { index?: string }) => {
       id="calc"
       index={index}
       eyebrow="Калькулятор"
-      title={<>Посчитайте стоимость своей стены</>}
-      lead="Введите размеры стены, выберите тариф — расчёт появится сразу. Это ориентир: точную смету считает замерщик."
+      title={title}
+      lead={lead}
     >
       <div className="grid min-w-0 gap-px border border-border bg-border lg:grid-cols-12">
         <div className="min-w-0 bg-card p-5 sm:p-8 lg:col-span-7 lg:p-10">
