@@ -72,7 +72,11 @@ const CeilingsPage = () => {
         <CeilGuide />
         <CeilPricing />
         <CeilCalculator />
-        <Services index="10" />
+        <Services
+          index="10"
+          title={<>Потолок, стены и акустика одним подрядчиком</>}
+          lead="Натяжной потолок удобно ставить вместе с тканевыми стенами или акустикой: одна бригада, один замер, одна смета и один счёт. Без стыковки разных подрядчиков на объекте."
+        />
         <CeilBlog />
         <CrossLinks current="/ceilings" />
         <CeilFaq />
