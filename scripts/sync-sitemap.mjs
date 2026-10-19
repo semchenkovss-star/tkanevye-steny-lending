@@ -18,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SITEMAP = resolve(root, 'public/sitemap.xml');
 const ROBOTS = resolve(root, 'public/robots.txt');
+const INDEX = resolve(root, 'index.html');
 const ORIGIN = 'https://fabricwall.ru';
 const CLEAN_PARAM = 'utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid&from';
 
@@ -189,6 +190,47 @@ const run = () => {
     console.log(`\nrobots.txt пересобран: разрешено ${paths.length} адресов, остальное закрыто`);
   } else {
     console.log('\nrobots.txt без изменений');
+  }
+
+  syncBlogMeta();
+};
+
+/** Вытаскивает строковое поле статьи: 'текст', "текст" или `текст` */
+const field = (block, key) => {
+  const m = new RegExp(`\\n {4}${key}:\\s*(['"\`])((?:(?!\\1)[^\\\\]|\\\\.)*)\\1`).exec(block);
+  return m ? m[2].replace(/\\(.)/g, '$1') : '';
+};
+
+/**
+ * Вписывает заголовок и описание каждой статьи в ранний скрипт index.html.
+ * Он ставит их до загрузки сайта, как у разделов: робот, не дождавшийся
+ * отрисовки, иначе видит у статьи заголовок главной и считает её копией.
+ */
+const syncBlogMeta = () => {
+  const blog = readFileSync(resolve(root, 'src/data/blog.ts'), 'utf8');
+  const posts = [...blog.matchAll(/\n {2}\{\n {4}slug: '([^']+)',([\s\S]*?)\n {2}\},/g)];
+  const map = {};
+  for (const [, slug, block] of posts) {
+    const title = field(block, 'seoTitle') || field(block, 'title');
+    const description = field(block, 'seoDescription') || field(block, 'excerpt');
+    if (!title || !description) throw new Error(`blog.ts: у статьи ${slug} нет заголовка или описания`);
+    map[`/blog/${slug}`] = [`${title} | Fabric Wall`, description];
+  }
+
+  const json = JSON.stringify(map, null, 2)
+    .replace(/</g, '\\u003c')
+    .split('\n')
+    .map((line, i) => (i ? `        ${line}` : line))
+    .join('\n');
+  const html = readFileSync(INDEX, 'utf8');
+  const marker = /\/\*blog:start\*\/[\s\S]*?\/\*blog:end\*\//;
+  if (!marker.test(html)) throw new Error('index.html: не найдена метка /*blog:start*/');
+  const next = html.replace(marker, () => `/*blog:start*/${json}/*blog:end*/`);
+  if (next !== html) {
+    writeFileSync(INDEX, next);
+    console.log(`index.html: заголовки ${posts.length} статей обновлены`);
+  } else {
+    console.log('index.html: заголовки статей без изменений');
   }
 };
 
