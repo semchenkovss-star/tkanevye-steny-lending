@@ -105,11 +105,20 @@ const ALLOWED_FILES = [
 ];
 
 /**
+ * Разделы, открытые целиком, а не поимённо. Новая статья блога доступна
+ * роботу сразу после публикации — не нужно ждать, пока Google перечитает
+ * robots.txt. Несуществующие адреса внутри раздела в индекс не попадут:
+ * страница 404 помечается noindex.
+ */
+const OPEN_PREFIXES = ['/blog/'];
+
+/**
  * robots.txt по принципу «разрешено только перечисленное».
  * Любой адрес с опечаткой не совпадёт ни с одним Allow и будет закрыт —
  * робот узнает об этом до обращения к странице.
  */
-const buildRobots = (paths) => {
+const buildRobots = (allPaths) => {
+  const paths = allPaths.filter((p) => !OPEN_PREFIXES.some((pre) => p.startsWith(pre)));
   // Для каждого адреса три правила: сам адрес, он же со слэшем на конце
   // и он же с параметрами (?utm_source=…, ?yclid=… из рекламы).
   // Без варианта со слэшем /blog/ упирается в общий Disallow: / —
@@ -119,10 +128,12 @@ const buildRobots = (paths) => {
       ? ['Allow: /$', 'Allow: /?*']
       : [`Allow: ${p}$`, `Allow: ${p}/$`, `Allow: ${p}?*`, `Allow: ${p}/?*`],
   );
+  const open = OPEN_PREFIXES.map((p) => `Allow: ${p}`);
   const files = ALLOWED_FILES.map((p) => `Allow: ${p}`);
 
   const rules = [
     ...allow,
+    ...open,
     ...files,
     '',
     '# Всё, что не перечислено выше, — несуществующие адреса и опечатки',
