@@ -55,7 +55,16 @@ export const ACOUSTIC_STEPS = [
   },
 ];
 
-export const ACOUSTIC_CASES = [
+export interface AcousticCase {
+  title: string;
+  img: string;
+  text: string;
+  facts: string[];
+  /** ссылка на статью блога по теме карточки */
+  article?: { to: string; label: string };
+}
+
+export const ACOUSTIC_CASES: AcousticCase[] = [
   {
     title: 'Переговорная и офис',
     img: ACOUSTIC_IMG.office,
@@ -67,6 +76,10 @@ export const ACOUSTIC_CASES = [
     img: ACOUSTIC_IMG.bedroom,
     text: 'Соседей за стеной перестаёт быть слышно словами, комната становится тихой и мягкой.',
     facts: ['Стена за изголовьем', 'Мягкая безопасная поверхность', 'Монтаж за 1 день'],
+    article: {
+      to: '/blog/tkanevye-steny-v-spalne',
+      label: 'Тканевые стены в спальне: цены и сроки',
+    },
   },
   {
     title: 'Студия и подкаст',

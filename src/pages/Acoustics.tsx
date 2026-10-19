@@ -206,6 +206,15 @@ const AcousticsPage = () => {
                       </li>
                     ))}
                   </ul>
+                  {c.article && (
+                    <Link
+                      to={c.article.to}
+                      className="-my-2 mt-auto inline-flex min-h-[44px] items-center gap-2 self-start pt-8 font-display text-base uppercase tracking-[0.04em] text-primary-ink transition-colors hover:text-foreground"
+                    >
+                      {c.article.label}
+                      <Icon name="ArrowRight" size={16} />
+                    </Link>
+                  )}
                 </div>
               </article>
             ))}
