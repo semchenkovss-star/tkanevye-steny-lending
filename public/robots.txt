@@ -132,6 +132,10 @@ Allow: /blog/tkan-ili-vojlok$
 Allow: /blog/tkan-ili-vojlok/$
 Allow: /blog/tkan-ili-vojlok?*
 Allow: /blog/tkan-ili-vojlok/?*
+Allow: /blog/tkanevye-steny-v-spalne$
+Allow: /blog/tkanevye-steny-v-spalne/$
+Allow: /blog/tkanevye-steny-v-spalne?*
+Allow: /blog/tkanevye-steny-v-spalne/?*
 Allow: /blog/tkanevyj-natyazhnoj-potolok-descor$
 Allow: /blog/tkanevyj-natyazhnoj-potolok-descor/$
 Allow: /blog/tkanevyj-natyazhnoj-potolok-descor?*
@@ -323,6 +327,10 @@ Allow: /blog/tkan-ili-vojlok$
 Allow: /blog/tkan-ili-vojlok/$
 Allow: /blog/tkan-ili-vojlok?*
 Allow: /blog/tkan-ili-vojlok/?*
+Allow: /blog/tkanevye-steny-v-spalne$
+Allow: /blog/tkanevye-steny-v-spalne/$
+Allow: /blog/tkanevye-steny-v-spalne?*
+Allow: /blog/tkanevye-steny-v-spalne/?*
 Allow: /blog/tkanevyj-natyazhnoj-potolok-descor$
 Allow: /blog/tkanevyj-natyazhnoj-potolok-descor/$
 Allow: /blog/tkanevyj-natyazhnoj-potolok-descor?*

@@ -644,7 +644,7 @@
   </url>
   <url>
     <loc>https://fabricwall.ru/blog</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -778,6 +778,16 @@
     <image:image>
       <image:loc>https://fabricwall.ru/img/480a4f0c-d22e-493f-82ea-78305902d47c.webp</image:loc>
       <image:title>Из чего складывается смета на тканевую стену</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://fabricwall.ru/blog/tkanevye-steny-v-spalne</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://fabricwall.ru/img/tkanevye-steny-v-spalne.webp</image:loc>
+      <image:title>Тканевые стены в спальне: тишина, мягкая акустика и монтаж за день</image:title>
     </image:image>
   </url>
   <url>
