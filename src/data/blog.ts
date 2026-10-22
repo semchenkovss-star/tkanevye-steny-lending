@@ -31,7 +31,7 @@ export const BLOG_POSTS: BlogPost[] = [
     dateLabel: '19 октября 2026',
     readTime: '6 мин',
     tag: 'Акустика',
-    img: '/img/tkanevye-steny-v-spalne.webp',
+    img: '/img/tkanevye-steny-v-spalne-v2.webp',
     keywords:
       'тканевые стены в спальне, шумоизоляция спальни, стена за изголовьем кровати, эхо в спальне, звукоизоляция спальни от соседей, тканевые стены цена',
     body: [
