@@ -215,6 +215,33 @@ export const serviceLd = (opts: {
   };
 };
 
+/** С какой даты действуют текущие цены каталога — менять при пересмотре прайса */
+export const PRICE_VALID_FROM = '2026-09-23';
+
+/**
+ * Доставка по всей России за 3–7 дней. Стоимость считает менеджер,
+ * поэтому сумма не указывается — нулевая цена означала бы «бесплатно».
+ */
+export const shippingDetailsLd = () => ({
+  '@type': 'OfferShippingDetails',
+  shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'RU' },
+  deliveryTime: {
+    '@type': 'ShippingDeliveryTime',
+    handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 0, unitCode: 'DAY' },
+    transitTime: { '@type': 'QuantitativeValue', minValue: 3, maxValue: 7, unitCode: 'DAY' },
+  },
+  description: 'Доставка по всей России за 3–7 дней, стоимость рассчитывает менеджер',
+});
+
+/** Возврат не принимается: ткань режется под размер заказа */
+export const returnPolicyLd = () => ({
+  '@type': 'MerchantReturnPolicy',
+  applicableCountry: 'RU',
+  returnPolicyCountry: 'RU',
+  returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+  description: 'Возврат не принимается: ткань режется под размер заказа',
+});
+
 export const faqLd = (items: { q: string; a: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',

@@ -13,7 +13,12 @@ import SamplesDialog from '@/components/catalog/SamplesDialog';
 import AcousticGuide from '@/components/catalog/AcousticGuide';
 import { openSamples } from '@/lib/samples';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
-import { breadcrumbsLd } from '@/lib/schema';
+import {
+  breadcrumbsLd,
+  PRICE_VALID_FROM,
+  returnPolicyLd,
+  shippingDetailsLd,
+} from '@/lib/schema';
 import CatalogFilters, { EMPTY_FILTERS, Filters } from '@/components/catalog/CatalogFilters';
 import {
   CATALOG,
@@ -209,11 +214,14 @@ const CatalogPage = () => {
             priceCurrency: 'RUB',
             description: 'Цена за полотно, без каркаса и монтажа',
             url: `${origin}/catalog#fabric-${i.slug}`,
+            validFrom: PRICE_VALID_FROM,
             priceValidUntil: '2027-12-31',
             availability: i.inStock
               ? 'https://schema.org/InStock'
               : 'https://schema.org/PreOrder',
             seller: { '@id': `${origin}/#organization` },
+            shippingDetails: shippingDetailsLd(),
+            hasMerchantReturnPolicy: returnPolicyLd(),
             priceSpecification: {
               '@type': 'UnitPriceSpecification',
               price: i.price,
