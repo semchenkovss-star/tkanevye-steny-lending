@@ -149,12 +149,22 @@ const AboutPage = () => {
 
             <div className="mt-10 grid gap-px border border-background/15 bg-background/15 sm:grid-cols-2 lg:grid-cols-4">
               {ABOUT_FACTS.map((f) => (
-                <article key={f.title} className="bg-ink p-8">
-                  <Icon name={f.icon} fallback="Building2" size={26} className="text-primary" />
-                  <h3 className="mt-6 font-display text-2xl uppercase leading-none tracking-wide text-background">
+                <article
+                  key={f.title}
+                  className="group relative overflow-hidden bg-ink p-8 transition-colors duration-300 before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 after:pointer-events-none after:absolute after:inset-0 after:bg-primary/[0.08] after:opacity-0 after:transition-opacity after:duration-300 hover:before:scale-x-100 hover:after:opacity-100"
+                >
+                  <Icon
+                    name={f.icon}
+                    fallback="Building2"
+                    size={26}
+                    className="relative z-10 text-primary transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"
+                  />
+                  <h3 className="relative z-10 mt-6 font-display text-2xl uppercase leading-none tracking-wide text-background transition-colors duration-300 group-hover:text-primary">
                     {f.title}
                   </h3>
-                  <p className="mt-3 text-[0.95rem] leading-[1.6] text-background/60">{f.text}</p>
+                  <p className="relative z-10 mt-3 text-[0.95rem] leading-[1.6] text-background/60 transition-colors duration-300 group-hover:text-background/85">
+                    {f.text}
+                  </p>
                 </article>
               ))}
             </div>
