@@ -33,26 +33,26 @@ const About = () => {
         </>
       }
       lead="Мы делаем только натяжные тканевые стены и потолки. Не берём общестрой, не разводим бригады по объектам — за счёт этого держим срок в один-два дня и отвечаем за результат."
-      tone="dark"
+      tone="default"
     >
-      <div className="mb-16 grid gap-10 border-t border-background/15 pt-12 lg:mb-20 lg:grid-cols-12 lg:gap-6">
+      <div className="mb-16 grid gap-10 border-t border-border pt-12 lg:mb-20 lg:grid-cols-12 lg:gap-6">
         <div className="lg:col-span-4">
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-primary">
+          <span className="font-display text-sm uppercase tracking-[0.2em] text-primary-ink">
             Команда FabricWall
           </span>
-          <ul className="mt-6 space-y-px border border-background/15 bg-background/15 lg:max-w-[20rem]">
+          <ul className="mt-6 space-y-px border border-border bg-border lg:max-w-[20rem]">
             {HELP.map((h) => (
               <li
                 key={h.label}
-                className="group relative flex items-center gap-4 overflow-hidden bg-foreground px-5 py-4 transition-colors duration-300 before:absolute before:inset-y-0 before:left-0 before:w-[3px] before:origin-top before:scale-y-0 before:bg-primary before:transition-transform before:duration-300 after:pointer-events-none after:absolute after:inset-0 after:bg-primary/[0.07] after:opacity-0 after:transition-opacity after:duration-300 hover:before:scale-y-100 hover:after:opacity-100"
+                className="group relative flex items-center gap-4 overflow-hidden bg-card px-5 py-4 transition-colors duration-300 before:absolute before:inset-y-0 before:left-0 before:w-[3px] before:origin-top before:scale-y-0 before:bg-primary before:transition-transform before:duration-300 after:pointer-events-none after:absolute after:inset-0 after:bg-primary/[0.08] after:opacity-0 after:transition-opacity after:duration-300 hover:before:scale-y-100 hover:after:opacity-100"
               >
                 <Icon
                   name={h.icon}
                   fallback="Check"
                   size={20}
-                  className="relative z-10 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110"
+                  className="relative z-10 shrink-0 text-primary-ink transition-transform duration-300 group-hover:scale-110"
                 />
-                <span className="relative z-10 text-[0.95rem] text-background/85 transition-all duration-300 group-hover:translate-x-1 group-hover:text-background">
+                <span className="relative z-10 text-[0.95rem] text-foreground/85 transition-all duration-300 group-hover:translate-x-1 group-hover:text-foreground">
                   {h.label}
                 </span>
               </li>
@@ -60,11 +60,11 @@ const About = () => {
           </ul>
         </div>
         <div className="lg:col-span-8">
-          <p className="max-w-[30em] font-display text-[clamp(1.4rem,4.5vw,1.75rem)] uppercase leading-[1.15] tracking-wide text-background sm:text-[2rem]">
+          <p className="max-w-[30em] font-display text-[clamp(1.4rem,4.5vw,1.75rem)] uppercase leading-[1.15] tracking-wide text-foreground sm:text-[2rem]">
             Мы предоставляем инновационные продукты и услуги для проектно-строительного
             сообщества, создавая индивидуальные решения для уникальных задач.
           </p>
-          <div className="mt-8 grid gap-6 text-[0.95rem] leading-[1.65] text-background/65 md:grid-cols-2 md:gap-10">
+          <div className="mt-8 grid gap-6 text-[0.95rem] leading-[1.65] text-muted-foreground md:grid-cols-2 md:gap-10">
             <p>
               Руководствуясь стремлением к совершенству, мы имеем возможность оказывать поддержку
               нашим клиентам и партнерам, выстраивая долгосрочные отношения. Наша опытная команда
@@ -87,22 +87,22 @@ const About = () => {
         </div>
       </div>
 
-      <div className="grid gap-px border border-background/15 bg-background/15 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         {FACTS.map((f) => (
           <article
             key={f.title}
-            className="group relative overflow-hidden bg-foreground p-8 transition-colors duration-300 before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 after:pointer-events-none after:absolute after:inset-0 after:bg-primary/[0.07] after:opacity-0 after:transition-opacity after:duration-300 hover:before:scale-x-100 hover:after:opacity-100"
+            className="group relative overflow-hidden bg-card p-8 transition-colors duration-300 before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 after:pointer-events-none after:absolute after:inset-0 after:bg-primary/[0.08] after:opacity-0 after:transition-opacity after:duration-300 hover:before:scale-x-100 hover:after:opacity-100"
           >
             <Icon
               name={f.icon}
               fallback="Building2"
               size={26}
-              className="relative z-10 text-primary transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"
+              className="relative z-10 text-primary-ink transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"
             />
-            <h3 className="relative z-10 mt-6 font-display text-2xl uppercase leading-none tracking-wide text-background transition-colors duration-300 group-hover:text-primary">
+            <h3 className="relative z-10 mt-6 font-display text-2xl uppercase leading-none tracking-wide text-foreground transition-colors duration-300 group-hover:text-primary-ink">
               {f.title}
             </h3>
-            <p className="relative z-10 mt-3 text-[0.95rem] leading-[1.6] text-background/60 transition-colors duration-300 group-hover:text-background/85">
+            <p className="relative z-10 mt-3 text-[0.95rem] leading-[1.6] text-muted-foreground transition-colors duration-300 group-hover:text-foreground/85">
               {f.text}
             </p>
           </article>
