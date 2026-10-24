@@ -58,7 +58,7 @@ const CityHint = () => {
           <Link
             to={href}
             onClick={dismiss}
-            className="inline-flex min-h-[40px] items-center bg-foreground px-5 py-2 font-display text-sm uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+            className="inline-flex min-h-[40px] items-center bg-ink px-5 py-2 font-display text-sm uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             Да, мой город
           </Link>

@@ -85,7 +85,7 @@ const Services = ({
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
-            <span className="absolute left-4 top-4 bg-foreground px-3 py-1.5 font-display text-sm uppercase tracking-[0.14em] text-background">
+            <span className="absolute left-4 top-4 bg-ink px-3 py-1.5 font-display text-sm uppercase tracking-[0.14em] text-background">
               {s.price}
             </span>
           </div>

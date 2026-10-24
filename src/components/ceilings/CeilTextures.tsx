@@ -101,7 +101,7 @@ const CeilTextures = () => {
             loading="lazy"
             className="block aspect-[16/10] w-full object-cover lg:aspect-auto lg:h-full"
           />
-          <span className="absolute left-4 top-4 bg-foreground px-3 py-1.5 font-display text-sm uppercase tracking-[0.14em] text-background">
+          <span className="absolute left-4 top-4 bg-ink px-3 py-1.5 font-display text-sm uppercase tracking-[0.14em] text-background">
             {t.price}
           </span>
         </div>

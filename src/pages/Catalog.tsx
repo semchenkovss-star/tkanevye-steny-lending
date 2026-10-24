@@ -393,7 +393,7 @@ const CatalogPage = () => {
 
             <AcousticGuide />
 
-            <div className="mt-10 flex flex-col items-start justify-between gap-6 border border-border bg-foreground p-6 text-background sm:flex-row sm:items-center sm:p-8">
+            <div className="mt-10 flex flex-col items-start justify-between gap-6 border border-border bg-ink p-6 text-background sm:flex-row sm:items-center sm:p-8">
               <div>
                 <h2 className="font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl">
                   Не нашли нужный оттенок?

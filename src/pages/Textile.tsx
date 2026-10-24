@@ -189,7 +189,7 @@ const TextilePage = () => {
       </header>
 
       <main>
-        <section id="top" className="relative w-full overflow-hidden bg-foreground text-background">
+        <section id="top" className="relative w-full overflow-hidden bg-ink text-background">
           <img
             src={HERO_IMG}
             alt="Архитектурный текстиль в гостиной — текстильная стена от пола до потолка без швов"
@@ -348,7 +348,7 @@ const TextilePage = () => {
           <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
             <table className="w-full min-w-[40rem] border-collapse bg-card text-left">
               <thead>
-                <tr className="bg-foreground text-background">
+                <tr className="bg-ink text-background">
                   {COMPARE.head.map((h, i) => (
                     <th
                       key={h || 'empty'}

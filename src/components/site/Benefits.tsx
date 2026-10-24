@@ -58,7 +58,7 @@ const Benefits = () => {
         {BENEFITS.map((b) => (
           <article
             key={b.title}
-            className="group flex flex-col bg-foreground p-7 transition-colors duration-300 hover:bg-primary lg:p-8"
+            className="group flex flex-col bg-ink p-7 transition-colors duration-300 hover:bg-primary lg:p-8"
           >
             <Icon
               name={b.icon}

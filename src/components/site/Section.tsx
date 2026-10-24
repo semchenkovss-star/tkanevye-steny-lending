@@ -15,7 +15,7 @@ interface SectionProps {
 const toneMap = {
   default: 'bg-background text-foreground',
   surface: 'bg-secondary text-foreground',
-  dark: 'bg-foreground text-background',
+  dark: 'bg-ink text-background',
 };
 
 const Section = ({

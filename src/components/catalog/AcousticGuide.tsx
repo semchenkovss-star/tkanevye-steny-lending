@@ -56,7 +56,7 @@ const AcousticGuide = () => (
       onClick={() =>
         openLead('Каталог: подбор акустики', 'Нужна помощь с выбором акустической ткани')
       }
-      className="mt-7 flex items-center gap-2 bg-foreground px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+      className="mt-7 flex items-center gap-2 bg-ink px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
     >
       <Icon name="Ruler" size={18} />
       Записаться на замер

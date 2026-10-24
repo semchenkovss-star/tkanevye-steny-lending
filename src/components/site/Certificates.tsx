@@ -48,7 +48,7 @@ const Certificates = () => (
       </p>
       <Link
         to="/documents"
-        className="inline-flex min-h-[44px] shrink-0 items-center gap-2 bg-foreground px-6 py-3 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+        className="inline-flex min-h-[44px] shrink-0 items-center gap-2 bg-ink px-6 py-3 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
       >
         <Icon name="FileCheck2" size={18} />
         Смотреть сертификаты

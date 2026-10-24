@@ -17,6 +17,7 @@
 
     --background: 34 30% 95%;
     --foreground: 13 11% 15%;
+    --ink: 12 9% 21%;
 
     --card: 0 0% 100%;
     --card-foreground: 13 11% 15%;
@@ -87,6 +88,7 @@
   .dark {
     --background: 13 11% 10%;
     --foreground: 34 30% 95%;
+    --ink: 13 11% 14%;
 
     --card: 13 11% 14%;
     --card-foreground: 34 30% 95%;

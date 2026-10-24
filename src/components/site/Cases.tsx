@@ -126,7 +126,7 @@ const Cases = () => {
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
               />
-              <span className="absolute left-4 top-4 bg-foreground px-3 py-1.5 font-display text-sm uppercase tracking-[0.14em] text-background">
+              <span className="absolute left-4 top-4 bg-ink px-3 py-1.5 font-display text-sm uppercase tracking-[0.14em] text-background">
                 До
               </span>
             </div>
@@ -227,7 +227,7 @@ const Cases = () => {
             type="button"
             onClick={() => select(i)}
             className={`group relative flex min-w-0 items-center gap-3 p-4 text-left transition-colors sm:gap-4 ${
-              i === active ? 'bg-foreground text-background' : 'bg-card hover:bg-secondary'
+              i === active ? 'bg-ink text-background' : 'bg-card hover:bg-secondary'
             }`}
           >
             <span className="relative h-16 w-20 shrink-0 overflow-hidden">

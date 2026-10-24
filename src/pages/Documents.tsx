@@ -83,7 +83,7 @@ const DocumentsPage = () => {
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a
               href={PHONE_HREF}
-              className="inline-flex min-h-[44px] items-center justify-center gap-2 bg-foreground px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 bg-ink px-5 py-3 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               <Icon name="Phone" size={16} />
               {PHONE_DISPLAY}

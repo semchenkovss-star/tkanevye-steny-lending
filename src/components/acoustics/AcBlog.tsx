@@ -48,7 +48,7 @@ const AcBlog = () => (
     <div className="mt-10">
       <Link
         to="/blog?topic=acoustics"
-        className="inline-flex items-center gap-2 border border-border bg-background px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-foreground hover:text-background"
+        className="inline-flex items-center gap-2 border border-border bg-background px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-ink hover:text-background"
       >
         Все статьи блога
         <Icon name="ArrowRight" size={18} />

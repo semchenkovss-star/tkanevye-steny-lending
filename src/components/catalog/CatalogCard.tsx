@@ -57,7 +57,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
           </span>
         )}
         {!item.inStock && (
-          <span className="pointer-events-none absolute right-3 top-3 bg-foreground px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
+          <span className="pointer-events-none absolute right-3 top-3 bg-ink px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
             Под заказ
           </span>
         )}
@@ -104,7 +104,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
           <button
             type="button"
             onClick={() => openLead(`Каталог: ${item.name}`, `${item.name} — ${item.material}, ${item.price.toLocaleString('ru-RU')} ₽/м²`)}
-            className="flex items-center gap-2 bg-foreground px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+            className="flex items-center gap-2 bg-ink px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             <Icon name="Ruler" size={16} />
             Замер

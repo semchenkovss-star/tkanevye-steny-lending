@@ -138,7 +138,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <section className="border-t border-border bg-foreground py-14 text-background sm:py-16 lg:py-20">
+        <section className="border-t border-border bg-ink py-14 text-background sm:py-16 lg:py-20">
           <div className="shell">
             <h2 className="font-display text-3xl uppercase leading-[1.05] tracking-wide sm:text-4xl">
               Почему к нам возвращаются
@@ -149,7 +149,7 @@ const AboutPage = () => {
 
             <div className="mt-10 grid gap-px border border-background/15 bg-background/15 sm:grid-cols-2 lg:grid-cols-4">
               {ABOUT_FACTS.map((f) => (
-                <article key={f.title} className="bg-foreground p-8">
+                <article key={f.title} className="bg-ink p-8">
                   <Icon name={f.icon} fallback="Building2" size={26} className="text-primary" />
                   <h3 className="mt-6 font-display text-2xl uppercase leading-none tracking-wide text-background">
                     {f.title}

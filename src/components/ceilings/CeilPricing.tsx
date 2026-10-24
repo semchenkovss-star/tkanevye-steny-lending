@@ -18,7 +18,7 @@ const CeilPricing = () => (
         <article
           key={p.name}
           className={`flex min-w-0 flex-col p-5 sm:p-8 lg:p-10 ${
-            p.accent ? 'bg-foreground text-background' : 'bg-card text-foreground'
+            p.accent ? 'bg-ink text-background' : 'bg-card text-foreground'
           }`}
         >
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
@@ -55,7 +55,7 @@ const CeilPricing = () => (
             className={`mt-10 w-full px-6 py-4 font-display text-lg uppercase tracking-[0.04em] transition-colors ${
               p.accent
                 ? 'bg-primary text-primary-foreground hover:bg-background hover:text-foreground'
-                : 'bg-foreground text-background hover:bg-primary hover:text-primary-foreground'
+                : 'bg-ink text-background hover:bg-primary hover:text-primary-foreground'
             }`}
           >
             Рассчитать тариф
@@ -75,7 +75,7 @@ const CeilPricing = () => (
       </div>
       <a
         href="#ceil-calc"
-        className="whitespace-nowrap bg-foreground px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+        className="whitespace-nowrap bg-ink px-6 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
       >
         К калькулятору
       </a>

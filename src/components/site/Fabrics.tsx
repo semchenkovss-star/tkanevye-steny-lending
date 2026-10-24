@@ -62,7 +62,7 @@ const Fabrics = () => {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />
-              <span className="absolute right-3 top-3 bg-foreground px-2 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
+              <span className="absolute right-3 top-3 bg-ink px-2 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
                 {f.material}
               </span>
             </div>
@@ -88,7 +88,7 @@ const Fabrics = () => {
         <p className="flex items-center gap-3 text-sm text-muted-foreground">* ВНИМАНИЕ! Цены указаны за квадратный метр ткани, без учета стоимости каркаса, мембраны и работ.</p>
         <Link
           to="/catalog"
-          className="flex items-center justify-center gap-2 bg-foreground px-6 py-4 text-center font-display text-lg sm:shrink-0 sm:whitespace-nowrap uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+          className="flex items-center justify-center gap-2 bg-ink px-6 py-4 text-center font-display text-lg sm:shrink-0 sm:whitespace-nowrap uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
         >
           Открыть каталог
           <Icon name="ArrowRight" size={18} />

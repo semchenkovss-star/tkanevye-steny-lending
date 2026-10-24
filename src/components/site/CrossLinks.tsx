@@ -77,7 +77,7 @@ const CrossLinks = ({ current }: { current: '/' | '/ceilings' | '/acoustics' }) 
                   loading="lazy"
                   className="block aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
-                <span className="absolute left-4 top-4 flex items-center gap-2 bg-foreground px-3 py-1.5 font-display text-sm uppercase tracking-[0.12em] text-background">
+                <span className="absolute left-4 top-4 flex items-center gap-2 bg-ink px-3 py-1.5 font-display text-sm uppercase tracking-[0.12em] text-background">
                   <Icon name={d.icon} size={14} className="text-primary" />
                   {d.eyebrow}
                 </span>

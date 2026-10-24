@@ -33,7 +33,7 @@ const Pain = () => {
         {PAINS.map((p) => (
           <article
             key={p.title}
-            className="group bg-card p-8 transition-colors duration-300 hover:bg-foreground lg:p-10"
+            className="group bg-card p-8 transition-colors duration-300 hover:bg-ink lg:p-10"
           >
             <Icon
               name={p.icon}

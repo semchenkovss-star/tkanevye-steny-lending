@@ -366,7 +366,7 @@ const FabricQuiz = () => {
               </button>
               <Link
                 to={catalogHref}
-                className="flex min-h-[56px] items-center justify-center gap-2 border border-foreground px-6 py-4 text-center font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-foreground hover:text-background"
+                className="flex min-h-[56px] items-center justify-center gap-2 border border-foreground px-6 py-4 text-center font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-ink hover:text-background"
               >
                 Смотреть все похожие
                 <Icon name="ArrowRight" size={18} />

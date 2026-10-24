@@ -99,7 +99,7 @@ const LeadDialog = () => {
 
           <a
             href={PHONE_HREF}
-            className="mt-6 flex min-h-[56px] items-center justify-center gap-3 border border-foreground px-6 py-4 text-center font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-foreground hover:text-background"
+            className="mt-6 flex min-h-[56px] items-center justify-center gap-3 border border-foreground px-6 py-4 text-center font-display text-lg uppercase tracking-[0.04em] text-foreground transition-colors hover:bg-ink hover:text-background"
           >
             <Icon name="Phone" size={20} className="shrink-0" />
             {PHONE_DISPLAY}

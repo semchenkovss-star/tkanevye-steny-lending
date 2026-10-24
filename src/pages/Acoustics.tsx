@@ -77,7 +77,7 @@ const AcousticsPage = () => {
       <AcHeader />
       <SiteSwitch />
 
-      <section id="top" className="relative w-full overflow-hidden bg-foreground text-background">
+      <section id="top" className="relative w-full overflow-hidden bg-ink text-background">
         <img
           src={ACOUSTIC_IMG.hero}
           alt="Акустические тканевые панели на стене — шумоизоляция комнаты под ключ"
@@ -118,7 +118,7 @@ const AcousticsPage = () => {
 
           <dl className="mt-14 grid gap-px border border-background/20 bg-background/20 sm:grid-cols-2 lg:grid-cols-4">
             {ACOUSTIC_RESULTS.map((r) => (
-              <div key={r.label} className="bg-foreground p-6">
+              <div key={r.label} className="bg-ink p-6">
                 <dt className="font-display text-3xl leading-none tracking-wide text-primary">
                   {r.value}
                 </dt>

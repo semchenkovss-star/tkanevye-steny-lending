@@ -52,7 +52,7 @@ const CeilHow = () => {
           <button
             type="button"
             onClick={() => openLead('Потолки — как это работает')}
-            className="bg-foreground px-8 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+            className="bg-ink px-8 py-4 font-display text-lg uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             Начать с замера
           </button>

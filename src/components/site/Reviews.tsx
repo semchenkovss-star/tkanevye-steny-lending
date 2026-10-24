@@ -63,7 +63,7 @@ const Reviews = () => {
               type="button"
               aria-label="Предыдущий отзыв"
               onClick={() => move(-1)}
-              className="flex h-12 w-12 items-center justify-center border border-border transition-colors hover:bg-foreground hover:text-background"
+              className="flex h-12 w-12 items-center justify-center border border-border transition-colors hover:bg-ink hover:text-background"
             >
               <Icon name="ArrowLeft" size={18} />
             </button>
@@ -71,7 +71,7 @@ const Reviews = () => {
               type="button"
               aria-label="Следующий отзыв"
               onClick={() => move(1)}
-              className="flex h-12 w-12 items-center justify-center border border-border transition-colors hover:bg-foreground hover:text-background"
+              className="flex h-12 w-12 items-center justify-center border border-border transition-colors hover:bg-ink hover:text-background"
             >
               <Icon name="ArrowRight" size={18} />
             </button>

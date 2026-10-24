@@ -272,7 +272,7 @@ const Calculator = ({
           </div>
         </div>
 
-        <div className="flex flex-col bg-foreground p-6 text-background sm:p-8 lg:col-span-5 lg:p-10">
+        <div className="flex flex-col bg-ink p-6 text-background sm:p-8 lg:col-span-5 lg:p-10">
           <span className="text-xs uppercase tracking-[0.14em] text-background/55">
             Ориентировочная стоимость
           </span>
