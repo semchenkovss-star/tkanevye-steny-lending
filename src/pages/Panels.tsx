@@ -173,7 +173,7 @@ const PanelsPage = () => {
         >
           <div className="grid gap-px bg-border sm:grid-cols-2">
             {DIFFERENCES.map((d) => (
-              <div key={d.title} className="flex flex-col bg-card p-7 sm:p-9">
+              <div key={d.title} className="hover-card flex flex-col bg-card p-7 sm:p-9">
                 <Icon name={d.icon} size={26} className="text-primary-ink" />
                 <h3 className="mt-5 font-display text-[clamp(1.4rem,4.5vw,1.75rem)] uppercase leading-[1.05] text-foreground">
                   {d.title}
@@ -235,7 +235,7 @@ const PanelsPage = () => {
         <Section index="03" eyebrow="Где ставят" title="Комнаты под мягкие панели">
           <ul className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
             {ROOMS.map((r) => (
-              <li key={r.label} className="flex items-center gap-3 bg-card p-6 sm:p-7">
+              <li key={r.label} className="hover-card flex items-center gap-3 bg-card p-6 sm:p-7">
                 <Icon name={r.icon} size={22} className="shrink-0 text-primary-ink" />
                 <span className="font-display text-base uppercase tracking-[0.03em] text-foreground sm:text-lg">
                   {r.label}
@@ -260,7 +260,7 @@ const PanelsPage = () => {
         >
           <div className="grid gap-px bg-border lg:grid-cols-3">
             {GALLERY.map((c) => (
-              <article key={c.title} className="flex flex-col bg-card">
+              <article key={c.title} className="hover-card flex flex-col bg-card">
                 <div className="overflow-hidden">
                   <img
                     src={c.img}

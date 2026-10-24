@@ -15,13 +15,13 @@ export const CeilPain = () => (
       {CEIL_PAINS.map((p) => (
         <article
           key={p.title}
-          className="group bg-card p-8 transition-colors duration-300 hover:bg-ink lg:p-10"
+          className="hover-card bg-card p-8 lg:p-10"
         >
           <Icon name={p.icon} fallback="TriangleAlert" size={30} className="text-primary" />
-          <h3 className="mt-8 font-display text-3xl uppercase leading-none tracking-wide text-foreground transition-colors group-hover:text-background">
+          <h3 className="mt-8 font-display text-3xl uppercase leading-none tracking-wide text-foreground">
             {p.title}
           </h3>
-          <p className="mt-4 text-[0.95rem] leading-[1.6] text-muted-foreground transition-colors group-hover:text-background/70">
+          <p className="mt-4 text-[0.95rem] leading-[1.6] text-muted-foreground">
             {p.text}
           </p>
         </article>

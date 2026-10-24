@@ -200,6 +200,67 @@
 }
 
 @layer components {
+  .hover-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .hover-card::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    z-index: 2;
+    height: 3px;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .hover-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: hsl(var(--primary) / 0.08);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .hover-card:hover::before,
+  .hover-card:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .hover-card:hover::after,
+  .hover-card:focus-visible::after {
+    opacity: 1;
+  }
+
+  .hover-card :is(h3, h4) {
+    transition: color 0.3s ease;
+  }
+
+  .hover-card:hover :is(h3, h4) {
+    color: hsl(var(--primary-ink));
+  }
+
+  .hover-card-dark:hover :is(h3, h4) {
+    color: hsl(var(--primary));
+  }
+
+  .hover-card > svg:first-child {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-card:hover > svg:first-child {
+    transform: translateY(-4px) scale(1.1);
+  }
+
   /* Единая сетка полей: одинаковые края у всех блоков сайта */
   .shell {
     width: 100%;

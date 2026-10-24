@@ -77,7 +77,7 @@ const Services = ({
   >
     <div className="grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
       {SERVICES.map((s) => (
-        <Link key={s.title} to={s.to} className="group flex flex-col bg-card">
+        <Link key={s.title} to={s.to} className="hover-card group flex flex-col bg-card">
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
             <img
               src={s.img}

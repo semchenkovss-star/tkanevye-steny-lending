@@ -25,7 +25,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
   return (
     <article
       id={`fabric-${item.slug}`}
-      className="group flex flex-col scroll-mt-28 bg-card animate-scale-in target:ring-2 target:ring-primary"
+      className="hover-card group flex flex-col scroll-mt-28 bg-card animate-scale-in target:ring-2 target:ring-primary"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
         <button

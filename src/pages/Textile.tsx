@@ -253,7 +253,7 @@ const TextilePage = () => {
               </h3>
               <ul className="mt-6 grid gap-px bg-border sm:grid-cols-2">
                 {PROPERTIES.map((p) => (
-                  <li key={p.text} className="flex items-start gap-4 bg-card p-5 sm:p-6">
+                  <li key={p.text} className="hover-card flex items-start gap-4 bg-card p-5 sm:p-6">
                     <Icon name={p.icon} size={22} className="mt-0.5 shrink-0 text-primary-ink" />
                     <span className="text-[0.95rem] leading-[1.55] text-foreground">{p.text}</span>
                   </li>
@@ -308,7 +308,7 @@ const TextilePage = () => {
         >
           <ol className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s, i) => (
-              <li key={s.title} className="flex flex-col bg-card p-6 sm:p-7">
+              <li key={s.title} className="hover-card flex flex-col bg-card p-6 sm:p-7">
                 <div className="font-display text-4xl text-primary-ink">0{i + 1}</div>
                 <h3 className="mt-4 font-display text-[clamp(1.2rem,4vw,1.4rem)] uppercase leading-[1.1] text-foreground">
                   {s.title}
@@ -330,7 +330,7 @@ const TextilePage = () => {
             {DESIGN.map((d, i) => (
               <li
                 key={d}
-                className="flex gap-5 bg-card p-6 sm:flex-col sm:gap-4 sm:p-7 sm:last:col-span-2 lg:last:col-span-1"
+                className="hover-card flex gap-5 bg-card p-6 sm:flex-col sm:gap-4 sm:p-7 sm:last:col-span-2 lg:last:col-span-1"
               >
                 <div className="shrink-0 font-display text-3xl text-primary-ink">0{i + 1}</div>
                 <p className="text-base leading-[1.55] text-foreground">{d}</p>
@@ -395,7 +395,7 @@ const TextilePage = () => {
         >
           <ul className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
             {COLLECTIONS.map((c) => (
-              <li key={c.name} className="flex flex-col bg-card p-6 sm:p-7">
+              <li key={c.name} className="hover-card flex flex-col bg-card p-6 sm:p-7">
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="font-display text-xl uppercase tracking-[0.03em] text-foreground">
                     {c.name}

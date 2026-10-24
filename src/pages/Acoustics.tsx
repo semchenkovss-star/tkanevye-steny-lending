@@ -139,7 +139,7 @@ const AcousticsPage = () => {
         >
           <div className="grid gap-px border border-border bg-border md:grid-cols-3">
             {ACOUSTIC_PAINS.map((p) => (
-              <div key={p.title} className="bg-card p-7 sm:p-9">
+              <div key={p.title} className="hover-card bg-card p-7 sm:p-9">
                 <Icon name={p.icon} size={26} className="text-primary-ink" />
                 <h3 className="mt-6 font-display text-2xl uppercase leading-tight tracking-wide">
                   {p.title}
@@ -160,7 +160,7 @@ const AcousticsPage = () => {
         >
           <div className="grid gap-px border border-border bg-border sm:grid-cols-2 xl:grid-cols-5">
             {ACOUSTIC_STEPS.map((s) => (
-              <div key={s.n} className="bg-card p-6">
+              <div key={s.n} className="hover-card bg-card p-6">
                 <span className="font-display text-sm tracking-[0.2em] text-primary-ink">{s.n}</span>
                 <h3 className="mt-4 font-display text-xl uppercase leading-tight tracking-wide">
                   {s.title}
@@ -182,7 +182,7 @@ const AcousticsPage = () => {
         >
           <div className="grid gap-px border border-border bg-border sm:grid-cols-2">
             {ACOUSTIC_CASES.map((c) => (
-              <article key={c.title} className="flex flex-col bg-card">
+              <article key={c.title} className="hover-card flex flex-col bg-card">
                 <div className="aspect-[16/10] w-full overflow-hidden bg-secondary">
                   <img
                     src={c.img}
@@ -238,7 +238,7 @@ const AcousticsPage = () => {
                     window.dispatchEvent(new CustomEvent('ac-place', { detail: p.id }));
                     document.getElementById('ac-calc')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="group flex flex-col bg-card p-6 text-left transition-colors hover:bg-secondary sm:p-7"
+                  className="hover-card group flex flex-col bg-card p-6 text-left sm:p-7"
                 >
                   <Icon name={p.icon} size={24} className="shrink-0 text-primary-ink" />
                   <h4 className="mt-4 font-display text-lg uppercase leading-tight tracking-wide text-foreground sm:text-xl">

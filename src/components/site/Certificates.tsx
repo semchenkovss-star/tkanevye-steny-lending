@@ -31,7 +31,7 @@ const Certificates = () => (
   >
     <div className="grid gap-px border border-border bg-border sm:grid-cols-3">
       {FACTS.map((f) => (
-        <article key={f.title} className="bg-background p-6 sm:p-7">
+        <article key={f.title} className="hover-card bg-background p-6 sm:p-7">
           <Icon name={f.icon} size={26} className="text-primary" />
           <h3 className="mt-4 font-display text-xl uppercase leading-[1.1] tracking-wide text-foreground">
             {f.title}

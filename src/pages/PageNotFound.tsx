@@ -45,7 +45,7 @@ const PageNotFound = () => {
             <Link
               key={l.to}
               to={l.to}
-              className="group flex items-center gap-4 bg-card p-6 transition-colors hover:bg-secondary"
+              className="hover-card group flex items-center gap-4 bg-card p-6"
             >
               <Icon name={l.icon} size={22} className="shrink-0 text-primary-ink" />
               <span className="flex-1 font-display text-xl uppercase tracking-wide">{l.label}</span>

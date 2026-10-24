@@ -7,7 +7,7 @@ const block = (e: React.SyntheticEvent) => {
 };
 
 const CertCard = ({ doc }: { doc: CertDoc }) => (
-  <article className="flex flex-col gap-6 border border-border bg-background p-5 sm:flex-row sm:p-7">
+  <article className="hover-card flex flex-col gap-6 border border-border bg-background p-5 sm:flex-row sm:p-7">
     <div
       className="relative mx-auto w-[210px] shrink-0 select-none overflow-hidden border border-border bg-secondary sm:mx-0"
       onContextMenu={block}

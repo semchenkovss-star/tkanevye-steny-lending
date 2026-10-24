@@ -53,7 +53,7 @@ const Fabrics = () => {
           <Link
             key={f.slug}
             to={`/catalog?material[]=${encodeURIComponent(f.material)}`}
-            className="group block bg-card animate-scale-in"
+            className="hover-card group block bg-card animate-scale-in"
           >
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
               <img

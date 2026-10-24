@@ -68,7 +68,7 @@ const CrossLinks = ({ current }: { current: '/' | '/ceilings' | '/acoustics' }) 
             <Link
               key={d.to}
               to={d.to}
-              className="group flex flex-col bg-card transition-colors hover:bg-card/60"
+              className="hover-card group flex flex-col bg-card"
             >
               <div className="relative overflow-hidden">
                 <img

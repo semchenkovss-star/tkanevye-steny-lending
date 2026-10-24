@@ -89,7 +89,7 @@ const AboutPage = () => {
 
             <ol className="mt-10 grid gap-px border border-border bg-border lg:grid-cols-5">
               {ABOUT_HISTORY.map((h) => (
-                <li key={h.year} className="bg-card p-7">
+                <li key={h.year} className="hover-card bg-card p-7">
                   <span className="font-display text-sm tracking-[0.18em] text-primary-ink">
                     {h.year}
                   </span>
@@ -191,7 +191,7 @@ const AboutPage = () => {
 
             <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2">
               {ABOUT_PRINCIPLES.map((p) => (
-                <article key={p.title} className="bg-card p-7 sm:p-9">
+                <article key={p.title} className="hover-card bg-card p-7 sm:p-9">
                   <h3 className="font-display text-2xl uppercase leading-tight tracking-wide">
                     {p.title}
                   </h3>

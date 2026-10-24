@@ -18,7 +18,7 @@ const CeilPricing = () => (
         <article
           key={p.name}
           className={`flex min-w-0 flex-col p-5 sm:p-8 lg:p-10 ${
-            p.accent ? 'bg-ink text-background' : 'bg-card text-foreground'
+            p.accent ? 'hover-card hover-card-dark bg-ink text-background' : 'hover-card bg-card text-foreground'
           }`}
         >
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">

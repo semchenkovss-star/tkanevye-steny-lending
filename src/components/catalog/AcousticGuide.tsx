@@ -41,7 +41,7 @@ const AcousticGuide = () => (
 
     <div className="mt-7 grid gap-px border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
       {CRITERIA.map((c) => (
-        <div key={c.title} className="bg-card p-5">
+        <div key={c.title} className="hover-card bg-card p-5">
           <Icon name={c.icon} size={22} className="text-primary-ink" />
           <h3 className="mt-4 font-display text-lg uppercase leading-tight tracking-wide">
             {c.title}
