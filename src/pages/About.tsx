@@ -114,23 +114,35 @@ const AboutPage = () => {
 
             <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-3">
               {ABOUT_SERVICES.map((s) => (
-                <article key={s.title} className="flex flex-col bg-card p-7 sm:p-9">
-                  <Icon name={s.icon} fallback="Layers" size={26} className="text-primary-ink" />
-                  <h3 className="mt-6 font-display text-2xl uppercase leading-none tracking-wide">
+                <article
+                  key={s.title}
+                  className="group relative flex flex-col overflow-hidden bg-card p-7 transition-colors duration-300 before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 after:pointer-events-none after:absolute after:inset-0 after:bg-primary/[0.08] after:opacity-0 after:transition-opacity after:duration-300 hover:before:scale-x-100 hover:after:opacity-100 sm:p-9"
+                >
+                  <Icon
+                    name={s.icon}
+                    fallback="Layers"
+                    size={26}
+                    className="relative z-10 text-primary-ink transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"
+                  />
+                  <h3 className="relative z-10 mt-6 font-display text-2xl uppercase leading-none tracking-wide transition-colors duration-300 group-hover:text-primary-ink">
                     {s.title}
                   </h3>
-                  <p className="mt-2 font-display text-lg tracking-wide text-primary-ink">
+                  <p className="relative z-10 mt-2 font-display text-lg tracking-wide text-primary-ink">
                     {s.price}
                   </p>
-                  <p className="mt-4 flex-1 text-[0.95rem] leading-[1.6] text-muted-foreground">
+                  <p className="relative z-10 mt-4 flex-1 text-[0.95rem] leading-[1.6] text-muted-foreground transition-colors duration-300 group-hover:text-foreground/85">
                     {s.text}
                   </p>
                   <Link
                     to={s.to}
-                    className="-my-2 mt-5 inline-flex min-h-[44px] items-center gap-2 py-2 font-display text-sm uppercase tracking-[0.04em] text-foreground transition-colors hover:text-primary-ink"
+                    className="relative z-10 -my-2 mt-5 inline-flex min-h-[44px] items-center gap-2 py-2 font-display text-sm uppercase tracking-[0.04em] text-foreground transition-colors hover:text-primary-ink"
                   >
                     {s.linkLabel}
-                    <Icon name="ArrowRight" size={16} />
+                    <Icon
+                      name="ArrowRight"
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
                   </Link>
                 </article>
               ))}
