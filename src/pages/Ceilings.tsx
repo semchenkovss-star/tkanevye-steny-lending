@@ -17,7 +17,7 @@ import CeilCalculator from '@/components/ceilings/CeilCalculator';
 import { CeilCta, CeilFaq } from '@/components/ceilings/CeilFaqCta';
 import CeilBlog from '@/components/ceilings/CeilBlog';
 import Services from '@/components/site/Services';
-import { CEIL_FAQ, CEIL_IMG, CEIL_PLANS, CEIL_STEPS } from '@/lib/ceilings';
+import { CEIL_FAQ, CEIL_PLANS, CEIL_STEPS } from '@/lib/ceilings';
 import { breadcrumbsLd, faqLd, howToLd, serviceLd } from '@/lib/schema';
 import CrossLinks from '@/components/site/CrossLinks';
 
@@ -56,7 +56,7 @@ const CeilingsPage = () => {
         description="Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа."
         path="/ceilings"
         keywords="тканевый натяжной потолок, бесшовный натяжной потолок, потолок descor, clipso потолки, натяжной потолок цена, теневой потолок"
-        image={CEIL_IMG.hero}
+        image="/img/tkanevye-potolki-og.jpg"
         jsonLd={buildJsonLd()}
       />
       <CeilHeader />
