@@ -1,4 +1,4 @@
-import { ChangeEvent, DragEvent, FormEvent, useRef, useState } from 'react';
+import { ChangeEvent, DragEvent, FormEvent, ReactNode, useRef, useState } from 'react';
 import { Link } from '@/lib/router-compat';
 import Icon from '@/components/ui/icon';
 import PhoneInput from '@/components/ui/phone-input';
@@ -24,7 +24,17 @@ interface Errors {
   agree?: string;
 }
 
-const OBJECT_TYPES = ['Квартира', 'Дом', 'Офис', 'Ресторан или кафе', 'Отель', 'Другое'];
+const DEFAULT_TYPES = ['Квартира', 'Дом', 'Офис', 'Ресторан или кафе', 'Отель', 'Другое'];
+
+interface ProjectFormProps {
+  index?: string;
+  source?: string;
+  title?: ReactNode;
+  lead?: string;
+  objectTypes?: string[];
+  companyLabel?: string;
+  commentPlaceholder?: string;
+}
 
 const ALLOWED = FILE_ACCEPT.split(',');
 
@@ -36,7 +46,16 @@ const fieldCls = (bad?: string) =>
     bad ? 'border-destructive' : 'border-border'
   }`;
 
-const ProjectForm = ({ index }: { index?: string }) => {
+const ProjectForm = ({
+  index,
+  source = 'Дизайнерам — заявка с проектом',
+  title = <>Пришлите план или чертёж объекта</>,
+  lead = 'Приложите планировку, развёртки стен или рабочий проект — посчитаем текстиль по чертежам и пришлём предварительную смету ещё до выезда на объект.',
+  objectTypes = DEFAULT_TYPES,
+  companyLabel = 'Студия или компания',
+  commentPlaceholder = 'Какие стены, ткань или узлы нужны, сроки объекта',
+}: ProjectFormProps) => {
+  const OBJECT_TYPES = objectTypes;
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
@@ -123,11 +142,11 @@ const ProjectForm = ({ index }: { index?: string }) => {
     const ok = await sendLead({
       name: name.trim(),
       phone,
-      source: 'Дизайнерам — заявка с проектом',
+      source,
       summary: [
         `Объект: ${objectType}`,
         area.trim() ? `площадь стен ${area.trim()} м²` : '',
-        company.trim() ? `студия: ${company.trim()}` : '',
+        company.trim() ? `компания: ${company.trim()}` : '',
       ]
         .filter(Boolean)
         .join(', '),
@@ -148,8 +167,8 @@ const ProjectForm = ({ index }: { index?: string }) => {
       id="project-form"
       index={index}
       eyebrow="Расчёт по проекту"
-      title={<>Пришлите план или чертёж объекта</>}
-      lead="Приложите планировку, развёртки стен или рабочий проект — посчитаем текстиль по чертежам и пришлём предварительную смету ещё до выезда на объект."
+      title={title}
+      lead={lead}
     >
       {sent ? (
         <div className="flex max-w-[44em] flex-col items-start gap-4 border border-primary bg-card p-8 lg:p-10">
@@ -198,7 +217,7 @@ const ProjectForm = ({ index }: { index?: string }) => {
               </div>
               <div>
                 <label htmlFor="pf-company" className="mb-2 block text-sm text-muted-foreground">
-                  Студия или компания <span className="text-muted-foreground/70">— необязательно</span>
+                  {companyLabel} <span className="text-muted-foreground/70">— необязательно</span>
                 </label>
                 <input
                   id="pf-company"
@@ -256,7 +275,7 @@ const ProjectForm = ({ index }: { index?: string }) => {
                 value={comment}
                 onChange={(e) => setComment(e.target.value.slice(0, 2000))}
                 rows={4}
-                placeholder="Какие стены, ткань или узлы нужны, сроки объекта"
+                placeholder={commentPlaceholder}
                 className="w-full resize-y border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary"
               />
             </div>
