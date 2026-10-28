@@ -178,6 +178,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://fabricwall.ru/dlya-gostinoj</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://fabricwall.ru/img/dlya-gostinoj.webp</image:loc>
+      <image:title>Тканевая стена в гостиной с нишей под телевизор</image:title>
+      <image:caption>ТВ-зона без проводов на виду, монтаж за 1–2 дня</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://fabricwall.ru/dlya-spalni</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>

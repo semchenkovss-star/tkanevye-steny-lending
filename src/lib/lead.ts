@@ -95,6 +95,7 @@ const leadDirection = (payload: LeadPayload): LeadDirection => {
     '/arhitekturnyj-tekstil',
     '/dizayneram',
     '/dlya-spalni',
+    '/dlya-gostinoj',
     '/dlya-detskoj',
     '/dlya-ofisa',
     '/domashnij-kinoteatr',

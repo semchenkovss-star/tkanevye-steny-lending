@@ -17,6 +17,7 @@ import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as CeilingsRouteImport } from './routes/ceilings'
 import { Route as DizayneramRouteImport } from './routes/dizayneram'
 import { Route as DlyaDetskojRouteImport } from './routes/dlya-detskoj'
+import { Route as DlyaGostinojRouteImport } from './routes/dlya-gostinoj'
 import { Route as DlyaOfisaRouteImport } from './routes/dlya-ofisa'
 import { Route as DlyaSpalniRouteImport } from './routes/dlya-spalni'
 import { Route as DocumentsRouteImport } from './routes/documents'
@@ -64,6 +65,11 @@ const DizayneramRoute = DizayneramRouteImport.update({
 const DlyaDetskojRoute = DlyaDetskojRouteImport.update({
   id: '/dlya-detskoj',
   path: '/dlya-detskoj',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DlyaGostinojRoute = DlyaGostinojRouteImport.update({
+  id: '/dlya-gostinoj',
+  path: '/dlya-gostinoj',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DlyaOfisaRoute = DlyaOfisaRouteImport.update({
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/ceilings': typeof CeilingsRoute
   '/dizayneram': typeof DizayneramRoute
   '/dlya-detskoj': typeof DlyaDetskojRoute
+  '/dlya-gostinoj': typeof DlyaGostinojRoute
   '/dlya-ofisa': typeof DlyaOfisaRoute
   '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
@@ -134,6 +141,7 @@ export interface FileRoutesByTo {
   '/ceilings': typeof CeilingsRoute
   '/dizayneram': typeof DizayneramRoute
   '/dlya-detskoj': typeof DlyaDetskojRoute
+  '/dlya-gostinoj': typeof DlyaGostinojRoute
   '/dlya-ofisa': typeof DlyaOfisaRoute
   '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
@@ -153,6 +161,7 @@ export interface FileRoutesById {
   '/ceilings': typeof CeilingsRoute
   '/dizayneram': typeof DizayneramRoute
   '/dlya-detskoj': typeof DlyaDetskojRoute
+  '/dlya-gostinoj': typeof DlyaGostinojRoute
   '/dlya-ofisa': typeof DlyaOfisaRoute
   '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
@@ -173,6 +182,7 @@ export interface FileRouteTypes {
     | '/ceilings'
     | '/dizayneram'
     | '/dlya-detskoj'
+    | '/dlya-gostinoj'
     | '/dlya-ofisa'
     | '/dlya-spalni'
     | '/documents'
@@ -191,6 +201,7 @@ export interface FileRouteTypes {
     | '/ceilings'
     | '/dizayneram'
     | '/dlya-detskoj'
+    | '/dlya-gostinoj'
     | '/dlya-ofisa'
     | '/dlya-spalni'
     | '/documents'
@@ -209,6 +220,7 @@ export interface FileRouteTypes {
     | '/ceilings'
     | '/dizayneram'
     | '/dlya-detskoj'
+    | '/dlya-gostinoj'
     | '/dlya-ofisa'
     | '/dlya-spalni'
     | '/documents'
@@ -228,6 +240,7 @@ export interface RootRouteChildren {
   CeilingsRoute: typeof CeilingsRoute
   DizayneramRoute: typeof DizayneramRoute
   DlyaDetskojRoute: typeof DlyaDetskojRoute
+  DlyaGostinojRoute: typeof DlyaGostinojRoute
   DlyaOfisaRoute: typeof DlyaOfisaRoute
   DlyaSpalniRoute: typeof DlyaSpalniRoute
   DocumentsRoute: typeof DocumentsRoute
@@ -294,6 +307,13 @@ declare module '@tanstack/react-router' {
       path: '/dlya-detskoj'
       fullPath: '/dlya-detskoj'
       preLoaderRoute: typeof DlyaDetskojRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dlya-gostinoj': {
+      id: '/dlya-gostinoj'
+      path: '/dlya-gostinoj'
+      fullPath: '/dlya-gostinoj'
+      preLoaderRoute: typeof DlyaGostinojRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dlya-ofisa': {
@@ -364,6 +384,7 @@ const rootRouteChildren: RootRouteChildren = {
   CeilingsRoute: CeilingsRoute,
   DizayneramRoute: DizayneramRoute,
   DlyaDetskojRoute: DlyaDetskojRoute,
+  DlyaGostinojRoute: DlyaGostinojRoute,
   DlyaOfisaRoute: DlyaOfisaRoute,
   DlyaSpalniRoute: DlyaSpalniRoute,
   DocumentsRoute: DocumentsRoute,

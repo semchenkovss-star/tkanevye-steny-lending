@@ -49,6 +49,7 @@ const DIRECTIONS: Record<string, Direction> = {
 const ORDER = ['/', '/ceilings', '/acoustics'];
 
 const ROOMS = [
+  { to: '/dlya-gostinoj', label: 'Гостиная', icon: 'Sofa' },
   { to: '/dlya-spalni', label: 'Спальня', icon: 'BedDouble' },
   { to: '/dlya-detskoj', label: 'Детская', icon: 'Baby' },
   { to: '/dlya-ofisa', label: 'Офис и переговорная', icon: 'Briefcase' },

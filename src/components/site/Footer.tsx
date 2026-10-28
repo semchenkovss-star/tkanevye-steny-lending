@@ -35,6 +35,7 @@ const COLUMNS = [
   {
     title: 'По помещениям',
     links: [
+      { href: '/dlya-gostinoj', label: 'Гостиная' },
       { href: '/dlya-spalni', label: 'Спальня' },
       { href: '/dlya-detskoj', label: 'Детская' },
       { href: '/dlya-ofisa', label: 'Офис и переговорная' },
