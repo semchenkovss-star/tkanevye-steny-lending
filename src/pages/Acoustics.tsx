@@ -33,6 +33,7 @@ import {
 } from '@/lib/acoustics';
 import { breadcrumbsLd, faqLd, howToLd, serviceLd } from '@/lib/schema';
 import CrossLinks from '@/components/site/CrossLinks';
+import ProjectForm from '@/components/site/ProjectForm';
 
 const buildJsonLd = () => [
   breadcrumbsLd([{ name: 'Акустика под ключ', path: '/acoustics' }]),
@@ -278,8 +279,20 @@ const AcousticsPage = () => {
 
         <AcCalculator />
 
-        <Services
+        <ProjectForm
           index="06"
+          source="Акустика — заявка с фото помещения"
+          title={<>Опишите проблему и пришлите фото помещения</>}
+          lead="Сфотографируйте комнату или приложите план с размерами, расскажите, что мешает, — подберём толщину и наполнитель и пришлём предварительный расчёт до замера."
+          objectTypes={['Эхо в комнате', 'Шум от соседей', 'Домашний кинотеатр', 'Студия или музыкальная комната', 'Переговорная или офис', 'Ресторан или кафе', 'Другое']}
+          companyLabel="Город или район"
+          areaLabel="Площадь стен или размеры комнаты"
+          areaPlaceholder="Например, 25 м² или 4 × 5 м"
+          commentPlaceholder="Что слышно и когда: эхо при разговоре, голоса или телевизор соседей, топот, гул. Какие стены граничат с соседями, высота потолка, что в комнате — мебель, ковры, техника"
+        />
+
+        <Services
+          index="07"
           title={<>Звукоизоляция стен и потолка одной бригадой</>}
           lead="Тишина в комнате редко решается одной стеной: часто нужен и акустический потолок, а иногда — ровная тканевая стена рядом. Делаем всё вместе, по одной смете и одним счётом."
         />
@@ -288,7 +301,7 @@ const AcousticsPage = () => {
 
         <Section
           id="ac-faq"
-          index="08"
+          index="09"
           eyebrow="Частые вопросы"
           title={<>Что спрашивают перед замером</>}
           tone="surface"
