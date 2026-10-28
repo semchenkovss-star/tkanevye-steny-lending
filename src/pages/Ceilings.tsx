@@ -20,6 +20,7 @@ import Services from '@/components/site/Services';
 import { CEIL_FAQ, CEIL_PLANS, CEIL_STEPS } from '@/lib/ceilings';
 import { breadcrumbsLd, faqLd, howToLd, serviceLd } from '@/lib/schema';
 import CrossLinks from '@/components/site/CrossLinks';
+import ProjectForm from '@/components/site/ProjectForm';
 
 const buildJsonLd = () => [
   breadcrumbsLd([{ name: 'Натяжные потолки', path: '/ceilings' }]),
@@ -72,8 +73,19 @@ const CeilingsPage = () => {
         <CeilGuide />
         <CeilPricing />
         <CeilCalculator />
-        <Services
+        <ProjectForm
           index="10"
+          source="Потолки — заявка с фото комнаты"
+          title={<>Пришлите фото или план комнаты</>}
+          lead="Сфотографируйте потолок или приложите план с размерами, напишите, какой свет хотите, — продумаем световые линии, контур и точки и пришлём предварительный расчёт до замера."
+          objectTypes={['Гостиная', 'Спальня', 'Кухня', 'Детская', 'Ванная или санузел', 'Коридор', 'Вся квартира или дом', 'Офис или коммерция']}
+          companyLabel="Город или район"
+          areaLabel="Площадь потолка или размеры комнаты"
+          areaPlaceholder="Например, 18 м² или 4 × 4,5 м"
+          commentPlaceholder="Пожелания по свету: световые линии, теневой или парящий контур, точечные светильники, трек, люстра, подсветка штор. Фактура — матовый, сатин, глянец. Высота потолка, сроки"
+        />
+        <Services
+          index="11"
           title={<>Потолок, стены и акустика одним подрядчиком</>}
           lead="Натяжной потолок удобно ставить вместе с тканевыми стенами или акустикой: одна бригада, один замер, одна смета и один счёт. Без стыковки разных подрядчиков на объекте."
         />
