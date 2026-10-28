@@ -1,5 +1,6 @@
 import { Link } from '@/lib/router-compat';
 import RoomLanding, { type LandingBlock, type LandingFaq } from '@/components/site/RoomLanding';
+import ProjectForm from '@/components/site/ProjectForm';
 
 const HERO_IMG = '/img/domashnij-kinoteatr.webp';
 
@@ -134,10 +135,21 @@ const HomeCinemaPage = () => (
           дня.
         </>
       ),
-      primary: { label: 'Рассчитать кинозал', icon: 'Clapperboard', source: 'Кинотеатр — первый экран' },
+      primary: { label: 'Прислать план комнаты', icon: 'FileUp', href: '#project-form' },
       secondary: { label: 'Калькулятор', icon: 'Calculator', href: '#calc' },
     }}
     blocks={BLOCKS}
+    extra={(index) => (
+      <ProjectForm
+        index={index}
+        source="Кинотеатр — заявка с планом комнаты"
+        title={<>Пришлите план комнаты с расстановкой техники</>}
+        lead="Приложите план или фото комнаты с местом экрана, колонок, сабвуфера и дивана — подберём ткань и состав акустического слоя под вашу расстановку и пришлём предварительный расчёт."
+        objectTypes={['Отдельный кинозал', 'Гостиная с кинозоной', 'Комната в доме', 'Подвал или мансарда', 'Другое']}
+        companyLabel="Монтажник или студия техники"
+        commentPlaceholder="Экран или телевизор и его размер, проектор, акустика (5.1, 7.1, Atmos), что мешает сейчас — эхо, гул, звук к соседям"
+      />
+    )}
     pricing={{
       title: <>Цена отделки кинозала</>,
       lead: 'Для кинотеатра нужен минимум «Тихо» с акустической мембраной. «Проект» добавляет ниши под технику и подсветку. Итог фиксируется в смете после замера.',
