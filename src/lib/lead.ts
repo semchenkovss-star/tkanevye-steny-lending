@@ -89,7 +89,17 @@ const leadDirection = (payload: LeadPayload): LeadDirection => {
     const fromPost = directionByText(document.title.split('|')[0]);
     if (fromPost) return fromPost;
   }
-  if (path === '/' || path.startsWith('/catalog') || path.startsWith('/panels') || path.startsWith('/arhitekturnyj-tekstil')) {
+  const wallPaths = [
+    '/catalog',
+    '/panels',
+    '/arhitekturnyj-tekstil',
+    '/dizayneram',
+    '/dlya-spalni',
+    '/dlya-detskoj',
+    '/dlya-ofisa',
+    '/domashnij-kinoteatr',
+  ];
+  if (path === '/' || wallPaths.some((p) => path.startsWith(p))) {
     return 'Стены';
   }
   return directionByText(lastCalc()) ?? 'Стены';

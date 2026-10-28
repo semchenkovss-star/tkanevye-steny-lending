@@ -36,7 +36,7 @@ const SIZES: { id: Size; label: string; hint: string; area: number | null }[] = 
 ];
 
 const PRIORITIES: { id: Priority; label: string; hint: string }[] = [
-  { id: 'quiet', label: 'Тишина', hint: 'Глушим эхо и шум от соседей' },
+  { id: 'quiet', label: 'Тишина', hint: 'Глушим эхо, приглушаем шум из-за стены' },
   { id: 'walls', label: 'Скрыть стены', hint: 'Прячем неровности и старую отделку' },
   { id: 'style', label: 'Внешний вид', hint: 'Главное — фактура и цвет в интерьере' },
 ];

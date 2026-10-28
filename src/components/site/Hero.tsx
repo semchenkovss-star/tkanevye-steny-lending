@@ -1,5 +1,7 @@
 import Icon from '@/components/ui/icon';
 import { useContacts } from '@/lib/useContacts';
+import { openSamples } from '@/lib/samples';
+import { PLANS } from '@/lib/pricing';
 
 const NAV = [
   { href: '#services', label: 'Услуги' },
@@ -93,15 +95,31 @@ const Hero = () => {
         </div>
 
         <div
-          className="rule-top flex flex-col items-start gap-5 pt-6 animate-fade-in sm:flex-row sm:items-end sm:gap-8"
+          className="rule-top flex flex-col items-start gap-5 pt-6 animate-fade-in sm:flex-row sm:flex-wrap sm:items-end sm:gap-x-8 sm:gap-y-5"
           style={{ animationDelay: '360ms' }}
         >
-          <a
-            href="#calc"
-            className="bg-primary px-6 py-4 text-center font-display text-base uppercase leading-tight tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover sm:whitespace-nowrap sm:px-[30px] sm:py-[17px] sm:text-lg"
-          >
-            Рассчитать стену по размерам
-          </a>
+          <div className="w-full sm:w-auto">
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#calc"
+                className="bg-primary px-6 py-4 text-center font-display text-base uppercase leading-tight tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover sm:whitespace-nowrap sm:px-[26px] sm:py-[17px] sm:text-lg"
+              >
+                Рассчитать стоимость
+              </a>
+              <button
+                type="button"
+                onClick={() => openSamples()}
+                className="flex items-center justify-center gap-2 border border-foreground/25 px-6 py-4 font-display text-base uppercase leading-tight tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary-ink sm:whitespace-nowrap sm:py-[17px] sm:text-lg"
+              >
+                <Icon name="SwatchBook" fallback="Palette" size={18} />
+                Получить образцы
+              </button>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              <b className="font-semibold text-foreground">{PLANS[0].priceLabel} ₽/м² под ключ</b>{' '}
+              — каркас, ткань и монтаж
+            </p>
+          </div>
           <div className="max-w-[22em]">
             <a
               href={PHONE_HREF}
@@ -110,7 +128,7 @@ const Hero = () => {
               <Icon name="Phone" size={20} className="text-primary" />
               {PHONE_DISPLAY}
             </a>
-            <p className="mt-2 text-sm leading-[1.45] text-muted-foreground">Пн–Сб, 9:00–20:00. Замер и расчёт — смета в течение 24 часа</p>
+            <p className="mt-2 text-sm leading-[1.45] text-muted-foreground">Пн–Сб, 9:00–20:00. Замер и расчёт — смета в течение 24 часов</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
-import { Link } from "@/lib/router-compat";
+import { Link, useLocation } from "@/lib/router-compat";
+import { stripCity } from '@/data/cities';
 import Icon from '@/components/ui/icon';
 
 interface Direction {
@@ -47,8 +48,19 @@ const DIRECTIONS: Record<string, Direction> = {
 
 const ORDER = ['/', '/ceilings', '/acoustics'];
 
+const ROOMS = [
+  { to: '/dlya-spalni', label: 'Спальня', icon: 'BedDouble' },
+  { to: '/dlya-detskoj', label: 'Детская', icon: 'Baby' },
+  { to: '/dlya-ofisa', label: 'Офис и переговорная', icon: 'Briefcase' },
+  { to: '/domashnij-kinoteatr', label: 'Домашний кинотеатр', icon: 'Clapperboard' },
+  { to: '/dizayneram', label: 'Дизайнерам и архитекторам', icon: 'PenTool' },
+];
+
 const CrossLinks = ({ current }: { current: '/' | '/ceilings' | '/acoustics' }) => {
   const others = ORDER.filter((k) => k !== current).map((k) => DIRECTIONS[k]);
+  const { pathname } = useLocation();
+  const here = stripCity(pathname).rest.replace(/\/+$/, '');
+  const rooms = ROOMS.filter((r) => r.to !== here);
 
   return (
     <section className="w-full border-t border-border bg-secondary">
@@ -102,6 +114,25 @@ const CrossLinks = ({ current }: { current: '/' | '/ceilings' | '/acoustics' }) 
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10 sm:mt-12">
+          <h3 className="font-display text-xl uppercase tracking-wide text-foreground">
+            По помещениям
+          </h3>
+          <ul className="mt-5 flex flex-wrap gap-3">
+            {rooms.map((r) => (
+              <li key={r.to}>
+                <Link
+                  to={r.to}
+                  className="inline-flex min-h-[44px] items-center gap-2 border border-border bg-card px-4 py-2 font-display text-sm uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary-ink"
+                >
+                  <Icon name={r.icon} size={16} className="text-primary-ink" />
+                  {r.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

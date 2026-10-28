@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
+import CalcMessengers from '@/components/site/CalcMessengers';
 import { openLead, rememberCalc } from '@/lib/lead';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import { EXTRAS, PLANS, formatMoney } from '@/lib/pricing';
@@ -311,6 +312,8 @@ const Calculator = ({
           >
             Отправить расчёт и получить смету
           </button>
+
+          <CalcMessengers calc="Калькулятор стен" summary={summary} />
 
           <OfferNote tone="dark" className="mt-5" />
         </div>

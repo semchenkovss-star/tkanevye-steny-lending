@@ -110,7 +110,7 @@ const CeilHero = () => {
             <Icon name="Phone" size={20} className="text-primary" />
             {PHONE_DISPLAY}
           </a>
-          <p className="mt-2 text-sm leading-[1.45] text-muted-foreground">Пн–Сб, 9:00–20:00. Замер и расчёт — смета в течение 24 часа</p>
+          <p className="mt-2 text-sm leading-[1.45] text-muted-foreground">Пн–Сб, 9:00–20:00. Замер и расчёт — смета в течение 24 часов</p>
         </div>
       </div>
     </div>

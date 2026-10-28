@@ -23,6 +23,7 @@ import CtaForm from '@/components/site/CtaForm';
 import Footer from '@/components/site/Footer';
 import FloatingCta from '@/components/site/FloatingCta';
 import LeadDialog from '@/components/site/LeadDialog';
+import SamplesDialog from '@/components/catalog/SamplesDialog';
 import { STEPS } from '@/components/site/HowItWorks';
 import CrossLinks from '@/components/site/CrossLinks';
 import { faqLd, howToLd, localBusinessLd, serviceLd } from '@/lib/schema';
@@ -99,6 +100,7 @@ const Index = () => {
       <Footer />
       <FloatingCta />
       <LeadDialog />
+      <SamplesDialog />
     </div>
   );
 };

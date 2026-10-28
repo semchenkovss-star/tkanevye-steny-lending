@@ -15,7 +15,12 @@ import { Route as AcousticsRouteImport } from './routes/acoustics'
 import { Route as ArhitekturnyjTekstilRouteImport } from './routes/arhitekturnyj-tekstil'
 import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as CeilingsRouteImport } from './routes/ceilings'
+import { Route as DizayneramRouteImport } from './routes/dizayneram'
+import { Route as DlyaDetskojRouteImport } from './routes/dlya-detskoj'
+import { Route as DlyaOfisaRouteImport } from './routes/dlya-ofisa'
+import { Route as DlyaSpalniRouteImport } from './routes/dlya-spalni'
 import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as DomashnijKinoteatrRouteImport } from './routes/domashnij-kinoteatr'
 import { Route as PanelsRouteImport } from './routes/panels'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -51,9 +56,34 @@ const CeilingsRoute = CeilingsRouteImport.update({
   path: '/ceilings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DizayneramRoute = DizayneramRouteImport.update({
+  id: '/dizayneram',
+  path: '/dizayneram',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DlyaDetskojRoute = DlyaDetskojRouteImport.update({
+  id: '/dlya-detskoj',
+  path: '/dlya-detskoj',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DlyaOfisaRoute = DlyaOfisaRouteImport.update({
+  id: '/dlya-ofisa',
+  path: '/dlya-ofisa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DlyaSpalniRoute = DlyaSpalniRouteImport.update({
+  id: '/dlya-spalni',
+  path: '/dlya-spalni',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DocumentsRoute = DocumentsRouteImport.update({
   id: '/documents',
   path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomashnijKinoteatrRoute = DomashnijKinoteatrRouteImport.update({
+  id: '/domashnij-kinoteatr',
+  path: '/domashnij-kinoteatr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PanelsRoute = PanelsRouteImport.update({
@@ -84,7 +114,12 @@ export interface FileRoutesByFullPath {
   '/arhitekturnyj-tekstil': typeof ArhitekturnyjTekstilRoute
   '/catalog': typeof CatalogRoute
   '/ceilings': typeof CeilingsRoute
+  '/dizayneram': typeof DizayneramRoute
+  '/dlya-detskoj': typeof DlyaDetskojRoute
+  '/dlya-ofisa': typeof DlyaOfisaRoute
+  '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
+  '/domashnij-kinoteatr': typeof DomashnijKinoteatrRoute
   '/panels': typeof PanelsRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -97,7 +132,12 @@ export interface FileRoutesByTo {
   '/arhitekturnyj-tekstil': typeof ArhitekturnyjTekstilRoute
   '/catalog': typeof CatalogRoute
   '/ceilings': typeof CeilingsRoute
+  '/dizayneram': typeof DizayneramRoute
+  '/dlya-detskoj': typeof DlyaDetskojRoute
+  '/dlya-ofisa': typeof DlyaOfisaRoute
+  '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
+  '/domashnij-kinoteatr': typeof DomashnijKinoteatrRoute
   '/panels': typeof PanelsRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -111,7 +151,12 @@ export interface FileRoutesById {
   '/arhitekturnyj-tekstil': typeof ArhitekturnyjTekstilRoute
   '/catalog': typeof CatalogRoute
   '/ceilings': typeof CeilingsRoute
+  '/dizayneram': typeof DizayneramRoute
+  '/dlya-detskoj': typeof DlyaDetskojRoute
+  '/dlya-ofisa': typeof DlyaOfisaRoute
+  '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
+  '/domashnij-kinoteatr': typeof DomashnijKinoteatrRoute
   '/panels': typeof PanelsRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -126,7 +171,12 @@ export interface FileRouteTypes {
     | '/arhitekturnyj-tekstil'
     | '/catalog'
     | '/ceilings'
+    | '/dizayneram'
+    | '/dlya-detskoj'
+    | '/dlya-ofisa'
+    | '/dlya-spalni'
     | '/documents'
+    | '/domashnij-kinoteatr'
     | '/panels'
     | '/privacy'
     | '/blog/$slug'
@@ -139,7 +189,12 @@ export interface FileRouteTypes {
     | '/arhitekturnyj-tekstil'
     | '/catalog'
     | '/ceilings'
+    | '/dizayneram'
+    | '/dlya-detskoj'
+    | '/dlya-ofisa'
+    | '/dlya-spalni'
     | '/documents'
+    | '/domashnij-kinoteatr'
     | '/panels'
     | '/privacy'
     | '/blog/$slug'
@@ -152,7 +207,12 @@ export interface FileRouteTypes {
     | '/arhitekturnyj-tekstil'
     | '/catalog'
     | '/ceilings'
+    | '/dizayneram'
+    | '/dlya-detskoj'
+    | '/dlya-ofisa'
+    | '/dlya-spalni'
     | '/documents'
+    | '/domashnij-kinoteatr'
     | '/panels'
     | '/privacy'
     | '/blog/$slug'
@@ -166,7 +226,12 @@ export interface RootRouteChildren {
   ArhitekturnyjTekstilRoute: typeof ArhitekturnyjTekstilRoute
   CatalogRoute: typeof CatalogRoute
   CeilingsRoute: typeof CeilingsRoute
+  DizayneramRoute: typeof DizayneramRoute
+  DlyaDetskojRoute: typeof DlyaDetskojRoute
+  DlyaOfisaRoute: typeof DlyaOfisaRoute
+  DlyaSpalniRoute: typeof DlyaSpalniRoute
   DocumentsRoute: typeof DocumentsRoute
+  DomashnijKinoteatrRoute: typeof DomashnijKinoteatrRoute
   PanelsRoute: typeof PanelsRoute
   PrivacyRoute: typeof PrivacyRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -217,11 +282,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CeilingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dizayneram': {
+      id: '/dizayneram'
+      path: '/dizayneram'
+      fullPath: '/dizayneram'
+      preLoaderRoute: typeof DizayneramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dlya-detskoj': {
+      id: '/dlya-detskoj'
+      path: '/dlya-detskoj'
+      fullPath: '/dlya-detskoj'
+      preLoaderRoute: typeof DlyaDetskojRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dlya-ofisa': {
+      id: '/dlya-ofisa'
+      path: '/dlya-ofisa'
+      fullPath: '/dlya-ofisa'
+      preLoaderRoute: typeof DlyaOfisaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dlya-spalni': {
+      id: '/dlya-spalni'
+      path: '/dlya-spalni'
+      fullPath: '/dlya-spalni'
+      preLoaderRoute: typeof DlyaSpalniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/documents': {
       id: '/documents'
       path: '/documents'
       fullPath: '/documents'
       preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/domashnij-kinoteatr': {
+      id: '/domashnij-kinoteatr'
+      path: '/domashnij-kinoteatr'
+      fullPath: '/domashnij-kinoteatr'
+      preLoaderRoute: typeof DomashnijKinoteatrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/panels': {
@@ -262,7 +362,12 @@ const rootRouteChildren: RootRouteChildren = {
   ArhitekturnyjTekstilRoute: ArhitekturnyjTekstilRoute,
   CatalogRoute: CatalogRoute,
   CeilingsRoute: CeilingsRoute,
+  DizayneramRoute: DizayneramRoute,
+  DlyaDetskojRoute: DlyaDetskojRoute,
+  DlyaOfisaRoute: DlyaOfisaRoute,
+  DlyaSpalniRoute: DlyaSpalniRoute,
   DocumentsRoute: DocumentsRoute,
+  DomashnijKinoteatrRoute: DomashnijKinoteatrRoute,
   PanelsRoute: PanelsRoute,
   PrivacyRoute: PrivacyRoute,
   BlogSlugRoute: BlogSlugRoute,

@@ -119,7 +119,7 @@ export const ACOUSTIC_PLACES: AcousticPlace[] = [
     id: 'flat',
     title: 'Квартира',
     icon: 'Building2',
-    text: 'Тихая спальня и гостиная: соседей не слышно словами, эхо в пустых комнатах уходит.',
+    text: 'Тихая спальня и гостиная: эхо в пустых комнатах уходит, а шум из-за стены заметно приглушается.',
     factor: 1,
     extraRate: 0,
     area: 18,
@@ -227,7 +227,7 @@ export const ACOUSTIC_PLACES: AcousticPlace[] = [
 
 export const ACOUSTIC_RESULTS = [
   { value: 'до 0,85', label: 'коэффициент поглощения αw' },
-  { value: 'до 12 дБ', label: 'снижение шума от соседей' },
+  { value: 'до 12 дБ', label: 'снижение шума из-за стены с полным слоем' },
   { value: '−60%', label: 'время реверберации' },
   { value: '1–3 дня', label: 'срок монтажа комнаты' },
 ];

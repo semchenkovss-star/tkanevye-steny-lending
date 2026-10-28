@@ -29,6 +29,16 @@ const COLUMNS = [
       { href: '#blog', label: 'Блог' },
       { href: '/about', label: 'О компании' },
       { href: '/documents', label: 'Сертификаты' },
+      { href: '/dizayneram', label: 'Дизайнерам' },
+    ],
+  },
+  {
+    title: 'По помещениям',
+    links: [
+      { href: '/dlya-spalni', label: 'Спальня' },
+      { href: '/dlya-detskoj', label: 'Детская' },
+      { href: '/dlya-ofisa', label: 'Офис и переговорная' },
+      { href: '/domashnij-kinoteatr', label: 'Домашний кинотеатр' },
     ],
   },
 ];
@@ -42,11 +52,11 @@ const Footer = () => {
     <footer className="border-t border-border bg-ink text-background">
       <div className="shell py-14 sm:py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-3">
             <Logo to="/" size="lg" tone="inverted" />
             <p className="mt-4 max-w-[26em] text-[0.95rem] leading-[1.6] text-background/60">
               Натяжные тканевые стены и потолки на скрытом каркасе. Тихие стены, которые гасят эхо и
-              шум соседей. Работаем по России, монтаж за один-два дня без пыли и мокрых работ.
+              приглушают шум из-за стены. Работаем по России, монтаж за один-два дня без пыли и мокрых работ.
             </p>
             <button
               type="button"
