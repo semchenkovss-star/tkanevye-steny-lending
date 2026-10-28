@@ -9,11 +9,14 @@ import CertCard from '@/components/docs/CertCard';
 import { CERT_DOCS, DOC_GROUPS } from '@/data/documents';
 import { breadcrumbsLd } from '@/lib/schema';
 import { useContacts } from '@/lib/useContacts';
+import { GOALS, reachGoalOnce } from '@/lib/metrika';
 
 const DocumentsPage = () => {
   const { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } = useContacts();
   useEffect(() => {
     window.scrollTo(0, 0);
+    const t = window.setTimeout(() => reachGoalOnce(GOALS.CERTIFICATES_VIEW), 3000);
+    return () => window.clearTimeout(t);
   }, []);
 
   return (

@@ -28,33 +28,51 @@
       "expectedStatus": 405
     },
     {
-      "name": "Принимает корректную заявку",
+      "name": "Бот с заполненной ловушкой отсеивается",
       "method": "POST",
       "path": "/",
       "body": {
-        "name": "Тест Проверка",
+        "name": "Bot",
         "phone": "+7 900 000-00-00",
-        "source": "Автотест"
+        "source": "Автотест",
+        "website": "http://spam.example"
       },
       "expectedStatus": 200,
       "expectedBody": {
-        "ok": true
+        "ok": true,
+        "id": 0
       },
       "bodyMatcher": "partial"
     },
     {
-      "name": "Заявка с удобным временем звонка",
+      "name": "Слишком быстрая отправка отсеивается",
       "method": "POST",
       "path": "/",
       "body": {
-        "name": "Тест Время",
-        "phone": "+7 (999) 222-33-44",
+        "name": "Bot",
+        "phone": "+7 900 000-00-00",
         "source": "Автотест",
-        "callTime": "Вечером, 17:00–20:00"
+        "filledMs": 200
       },
       "expectedStatus": 200,
       "expectedBody": {
-        "ok": true
+        "ok": true,
+        "id": 0
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Неверная почта отклоняется",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест",
+        "email": "not-an-email",
+        "source": "Автотест"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
       },
       "bodyMatcher": "partial"
     }

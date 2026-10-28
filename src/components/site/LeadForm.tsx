@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
+import { useAntiSpam } from '@/components/site/useAntiSpam';
 import PhoneInput from '@/components/ui/phone-input';
 import { CALL_TIMES, isPhoneValid, sendLead } from '@/lib/lead';
 
@@ -22,6 +23,7 @@ const LeadForm = ({
   // По умолчанию — как можно скорее: большинству это и нужно
   const [callTime, setCallTime] = useState<string>(CALL_TIMES[0].id);
   const [agree, setAgree] = useState(false);
+  const antiSpam = useAntiSpam();
   const [errors, setErrors] = useState<{ name?: string; phone?: string; agree?: string }>({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -38,6 +40,7 @@ const LeadForm = ({
 
     setSending(true);
     const ok = await sendLead({
+      ...antiSpam.meta(),
       name: name.trim(),
       phone,
       source,
@@ -78,7 +81,8 @@ const LeadForm = ({
   }
 
   return (
-    <form onSubmit={submit} noValidate className="w-full">
+    <form onSubmit={submit} noValidate className="relative w-full">
+      {antiSpam.field}
       <div className={compact ? 'space-y-5' : 'grid gap-5 sm:grid-cols-2'}>
         <div>
           <label htmlFor={`name-${source}`} className="mb-2 block text-sm text-muted-foreground">

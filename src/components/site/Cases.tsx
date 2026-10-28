@@ -3,6 +3,7 @@ import { Link } from "@/lib/router-compat";
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { CATALOG } from '@/data/catalog';
+import { GOALS, reachGoalOnce } from '@/lib/metrika';
 
 const fabricSlug = (name: string) => CATALOG.find((i) => i.name === name)?.slug;
 
@@ -97,6 +98,7 @@ const Cases = () => {
   const select = (i: number) => {
     setActive(i);
     setSplit(50);
+    reachGoalOnce(GOALS.CASE_OPEN, CASES[i].title, { case: CASES[i].title });
   };
 
   return (
@@ -147,7 +149,10 @@ const Cases = () => {
               max={100}
               value={split}
               aria-label="Сравнение до и после"
-              onChange={(e) => setSplit(Number(e.target.value))}
+              onChange={(e) => {
+                setSplit(Number(e.target.value));
+                reachGoalOnce(GOALS.BEFORE_AFTER_USE, item.title, { case: item.title });
+              }}
               className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
             />
           </div>

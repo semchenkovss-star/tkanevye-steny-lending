@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react';
 import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
+import { useAntiSpam } from '@/components/site/useAntiSpam';
 import { CATALOG } from '@/data/catalog';
 import PhoneInput from '@/components/ui/phone-input';
 import { isPhoneValid, sendLead } from '@/lib/lead';
@@ -24,6 +25,7 @@ const SamplesDialog = () => {
   const [address, setAddress] = useState('');
   const [comment, setComment] = useState('');
   const [agree, setAgree] = useState(false);
+  const antiSpam = useAntiSpam();
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -93,6 +95,7 @@ const SamplesDialog = () => {
     setSending(true);
     const names = picked.map((s) => CATALOG.find((i) => i.slug === s)?.name ?? s);
     const ok = await sendLead({
+      ...antiSpam.meta(),
       name: name.trim(),
       phone,
       source: 'Каталог — заказ образцов',
@@ -157,7 +160,8 @@ const SamplesDialog = () => {
             </button>
           </div>
         ) : (
-          <form onSubmit={submit} noValidate className="flex min-h-0 flex-col">
+          <form onSubmit={submit} noValidate className="relative flex min-h-0 flex-col">
+            {antiSpam.field}
             <div className="border-b border-border p-7 pb-6 sm:p-9 sm:pb-6">
               <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
                 Каталог

@@ -1,10 +1,12 @@
 import { ChangeEvent, DragEvent, FormEvent, ReactNode, useRef, useState } from 'react';
 import { Link } from '@/lib/router-compat';
 import Icon from '@/components/ui/icon';
+import { useAntiSpam } from '@/components/site/useAntiSpam';
 import PhoneInput from '@/components/ui/phone-input';
 import Section from '@/components/site/Section';
 import { isPhoneValid, sendLead } from '@/lib/lead';
 import { FILE_ACCEPT, MAX_FILES, MAX_FILE_MB, uploadProjectFile } from '@/lib/projectFiles';
+import { GOALS, reachGoal } from '@/lib/metrika';
 
 type Status = 'wait' | 'loading' | 'done' | 'error';
 
@@ -68,6 +70,7 @@ const ProjectForm = ({
   const [comment, setComment] = useState('');
   const [items, setItems] = useState<Item[]>([]);
   const [agree, setAgree] = useState(false);
+  const antiSpam = useAntiSpam();
   const [errors, setErrors] = useState<Errors>({});
   const [drag, setDrag] = useState(false);
   const [sending, setSending] = useState(false);
@@ -144,6 +147,7 @@ const ProjectForm = ({
 
     setSending(true);
     const ok = await sendLead({
+      ...antiSpam.meta(),
       name: name.trim(),
       phone,
       source,
@@ -164,6 +168,7 @@ const ProjectForm = ({
     }
     setFailed(false);
     setSent(true);
+    if (files.length) reachGoal(GOALS.PROJECT_FILES, { source, count: files.length });
   };
 
   return (
@@ -185,7 +190,8 @@ const ProjectForm = ({
           </p>
         </div>
       ) : (
-        <form onSubmit={submit} noValidate className="grid gap-px border border-border bg-border lg:grid-cols-12">
+        <form onSubmit={submit} noValidate className="relative grid gap-px border border-border bg-border lg:grid-cols-12">
+          {antiSpam.field}
           <div className="bg-card p-6 sm:p-8 lg:col-span-7 lg:p-10">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>

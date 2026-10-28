@@ -3,6 +3,7 @@ import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
+import { GOALS, reachGoal } from '@/lib/metrika';
 import { PLANS } from '@/lib/pricing';
 
 interface PricingProps {
@@ -72,7 +73,10 @@ const Pricing = ({
 
             <button
               type="button"
-              onClick={() => openLead(`Тариф «${p.name}»`)}
+              onClick={() => {
+                reachGoal(GOALS.TARIFF_SELECTED, { tariff: p.name });
+                openLead(`Тариф «${p.name}»`);
+              }}
               className={`mt-10 w-full px-6 py-4 font-display text-lg uppercase tracking-[0.04em] transition-colors ${
                 p.accent
                   ? 'bg-primary text-primary-foreground hover:bg-background hover:text-foreground'

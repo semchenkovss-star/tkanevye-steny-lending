@@ -3,6 +3,7 @@ import Section from '@/components/site/Section';
 import OfferNote from '@/components/site/OfferNote';
 import Icon from '@/components/ui/icon';
 import CalcMessengers from '@/components/site/CalcMessengers';
+import CalcEmail from '@/components/site/CalcEmail';
 import { openLead, rememberCalc } from '@/lib/lead';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import { CEIL_EXTRAS, CEIL_FABRICS, CEIL_PLANS, ceilMoney } from '@/lib/ceilings';
@@ -295,6 +296,7 @@ const CeilCalculator = () => {
           </button>
 
           <CalcMessengers calc="Калькулятор потолков" summary={summary} />
+          <CalcEmail calc="Калькулятор потолков" summary={summary} />
 
           <OfferNote tone="dark" className="mt-5" />
         </div>

@@ -62,6 +62,8 @@ declare global {
  *
  * Вспомогательные (для анализа воронки, не для оптимизации):
  *   lead_open, calc_done, catalog_view, fabric_view, samples_open
+ *   tariff_selected, case_open, before_after_use, certificates_view,
+ *   project_files_attached, estimate_email
  *   lead_error — отправка сорвалась, сигнал о проблеме
  */
 export const GOALS = {
@@ -76,6 +78,12 @@ export const GOALS = {
   FABRIC_VIEW: 'fabric_view',
   SAMPLES_OPEN: 'samples_open',
   SAMPLES_ORDER: 'samples_order',
+  TARIFF_SELECTED: 'tariff_selected',
+  CASE_OPEN: 'case_open',
+  BEFORE_AFTER_USE: 'before_after_use',
+  CERTIFICATES_VIEW: 'certificates_view',
+  PROJECT_FILES: 'project_files_attached',
+  ESTIMATE_EMAIL: 'estimate_email',
 } as const;
 
 /** Цели, которые считаем один раз за визит — чтобы не накручивать конверсию */

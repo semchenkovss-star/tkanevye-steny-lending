@@ -1,0 +1,1 @@
+ALTER TABLE t_p58209960_tkanevye_steny_lendi.leads ADD COLUMN email varchar(200) NULL;
