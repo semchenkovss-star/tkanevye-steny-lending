@@ -1,5 +1,6 @@
 import { Link } from '@/lib/router-compat';
 import RoomLanding, { type LandingBlock, type LandingFaq } from '@/components/site/RoomLanding';
+import ProjectForm from '@/components/site/ProjectForm';
 
 const HERO_IMG = '/img/e3d4ef71-1b7b-4481-8b45-9c62a39f89f1.webp';
 
@@ -139,6 +140,19 @@ const BedroomPage = () => (
       secondary: { label: 'Рассчитать стоимость', icon: 'Calculator', href: '#calc' },
     }}
     blocks={BLOCKS}
+    extra={(index) => (
+      <ProjectForm
+        index={index}
+        source="Спальня — заявка с фото комнаты"
+        title={<>Пришлите фото или план спальни</>}
+        lead="Сфотографируйте стену за кроватью или приложите план с размерами — подберём ткань и тариф и пришлём предварительный расчёт до замера."
+        objectTypes={['Стена за изголовьем', 'Вся спальня', 'Спальня с гардеробной', 'Гостевая спальня', 'Другое']}
+        companyLabel="Город или район"
+        areaLabel="Размеры стены или площадь, м²"
+        areaPlaceholder="Например, 3,6 × 2,7 м"
+        commentPlaceholder="Какую стену затянуть, любимые оттенки, нужны ли бра, розетки у кровати, подсветка, мешает ли эхо или шум из-за стены"
+      />
+    )}
     cases={['Спальня с гулким эхом']}
     casesTitle={<>Спальня после монтажа</>}
     casesLead="Комната 14 м² в Химках: стену за кроватью затянули акустическим полотном за один день."

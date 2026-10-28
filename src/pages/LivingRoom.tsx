@@ -1,5 +1,6 @@
 import { Link } from '@/lib/router-compat';
 import RoomLanding, { type LandingBlock, type LandingFaq } from '@/components/site/RoomLanding';
+import ProjectForm from '@/components/site/ProjectForm';
 
 const HERO_IMG = '/img/dlya-gostinoj.webp';
 
@@ -142,6 +143,19 @@ const LivingRoomPage = () => (
       secondary: { label: 'Рассчитать стоимость', icon: 'Calculator', href: '#calc' },
     }}
     blocks={BLOCKS}
+    extra={(index) => (
+      <ProjectForm
+        index={index}
+        source="Гостиная — заявка с фото комнаты"
+        title={<>Пришлите фото или план гостиной</>}
+        lead="Сфотографируйте стену под телевизор или приложите план с размерами — продумаем нишу, вывод кабелей и подсветку и пришлём предварительный расчёт до замера."
+        objectTypes={['Стена под телевизор', 'Стена за диваном', 'Гостиная целиком', 'Кухня-гостиная', 'Другое']}
+        companyLabel="Город или район"
+        areaLabel="Размеры стены или площадь, м²"
+        areaPlaceholder="Например, 4 × 2,7 м"
+        commentPlaceholder="Диагональ и модель телевизора, нужна ли ниша и подсветка, какие кабели спрятать, любимые оттенки"
+      />
+    )}
     cases={['Гостиная в панельном доме']}
     casesTitle={<>Гостиная после монтажа</>}
     casesLead="Гостиная 18 м² в Митино: каркас выровнял перепад стены 47 мм и спрятал стояк отопления."
