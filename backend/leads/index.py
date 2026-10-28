@@ -44,10 +44,10 @@ def _save_lead(data: dict) -> int:
     with conn:
         with conn.cursor() as cur:
             cur.execute(
-                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples, call_time, page, calc, direction) "
+                f"INSERT INTO {schema}.leads (name, phone, source, summary, address, comment, samples, call_time, page, calc, direction, files) "
                 f"VALUES ({_q(data['name'])}, {_q(data['phone'])}, {_q(data['source'])}, "
                 f"{_q(data['summary'])}, {_q(data['address'])}, {_q(data['comment'])}, {_q(data['samples'])}, "
-                f"{_q(data.get('call_time', ''))}, {_q(data.get('page', ''))}, {_q(data.get('calc', ''))}, {_q(data.get('direction', ''))}) "
+                f"{_q(data.get('call_time', ''))}, {_q(data.get('page', ''))}, {_q(data.get('calc', ''))}, {_q(data.get('direction', ''))}, {_q(data.get('files', ''))}) "
                 f"RETURNING id"
             )
             lead_id = cur.fetchone()[0]
@@ -217,6 +217,17 @@ def handler(event: dict, context) -> dict:
     comment = str(body.get('comment', '')).strip()
     samples_list = body.get('samples') or []
     samples = ', '.join(str(s) for s in samples_list)
+    files = []
+    cdn_prefix = f"https://cdn.poehali.dev/projects/{os.environ.get('AWS_ACCESS_KEY_ID', '')}/bucket/project-uploads/"
+    for f in (body.get('files') or [])[:5]:
+        if not isinstance(f, dict):
+            continue
+        url = str(f.get('url', ''))
+        if not url.startswith(cdn_prefix):
+            continue
+        fname = str(f.get('name', 'файл'))[:120]
+        size_mb = round(int(f.get('size') or 0) / 1024 / 1024, 1)
+        files.append({'name': fname, 'url': url, 'size': size_mb})
 
     digits = ''.join(ch for ch in phone if ch.isdigit())
     if len(name) < 2 or len(digits) != 11:
@@ -234,6 +245,7 @@ def handler(event: dict, context) -> dict:
         'page': page,
         'calc': calc,
         'direction': direction,
+        'files': '\n'.join(f"{f['name']} — {f['url']}" for f in files),
     }
     # Расчёт уже передан кнопкой калькулятора — не дублируем его
     extra_calc = calc if calc and (not summary or summary not in calc) else ''
@@ -272,6 +284,11 @@ def handler(event: dict, context) -> dict:
         lines.append(f'Образцы: {samples}')
     if comment:
         lines.append(f'Комментарий: {comment}')
+    if files:
+        lines.append('')
+        lines.append('Файлы проекта:')
+        for f in files:
+            lines.append(f"• {f['name']} ({f['size']} МБ): {f['url']}")
     if lead_id:
         lines.append('')
         lines.append(f'Заявка №{lead_id}')
@@ -307,6 +324,11 @@ def handler(event: dict, context) -> dict:
         tg_lines.append(f'Образцы: {esc(samples)}')
     if comment:
         tg_lines.append(f'Комментарий: {esc(comment)}')
+    if files:
+        tg_lines.append('')
+        tg_lines.append('📎 <b>Файлы проекта:</b>')
+        for f in files:
+            tg_lines.append(f"• <a href=\"{esc(f['url'])}\">{esc(f['name'])}</a> ({f['size']} МБ)")
     tg_lines.append('')
     tg_lines.append(f'<code>+{digits}</code>')
     if lead_id:
@@ -328,7 +350,7 @@ def handler(event: dict, context) -> dict:
         print('telegram error:', e)
 
     try:
-        mail_ok = _send_email(f'[{direction}] Заявка с сайта — {name}, {phone}', text)
+        mail_ok = _send_email(f'[{direction}] Заявка с сайта{" + файлы" if files else ""} — {name}, {phone}', text)
     except Exception as e:
         errors.append(f'email: {e}')
         print('email error:', e)

@@ -119,6 +119,7 @@ export interface LeadPayload {
   address?: string;
   comment?: string;
   samples?: string[];
+  files?: { name: string; url: string; size: number }[];
 }
 
 /**

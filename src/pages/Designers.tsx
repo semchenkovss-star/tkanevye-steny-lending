@@ -3,6 +3,7 @@ import Icon from '@/components/ui/icon';
 import Section from '@/components/site/Section';
 import RoomLanding, { type LandingBlock, type LandingFaq } from '@/components/site/RoomLanding';
 import { openLead } from '@/lib/lead';
+import ProjectForm from '@/components/site/ProjectForm';
 
 const HERO_IMG = '/img/dizayneram.webp';
 
@@ -198,12 +199,17 @@ const DesignersPage = () => (
       },
       secondary: {
         label: 'Запросить расчёт по проекту',
-        icon: 'FileSpreadsheet',
-        source: 'Дизайнерам — расчёт по проекту',
+        icon: 'FileUp',
+        href: '#project-form',
       },
     }}
     blocks={BLOCKS}
-    extra={(index) => <Commercial index={index} />}
+    extra={(index) => (
+      <>
+        <Commercial index={index} />
+        <ProjectForm />
+      </>
+    )}
     pricing={{
       title: <>Базовые цены для вашей сметы</>,
       lead: 'Ориентиры за м² под ключ для закладки в бюджет проекта. Точную стоимость считаем по чертежам и фиксируем после замера.',
@@ -215,8 +221,8 @@ const DesignersPage = () => (
       text: 'Отправьте план или развёртки стен: подготовим расчёт, подберём образцы под концепцию и передадим альбом узлов.',
       action: {
         label: 'Запросить расчёт по проекту',
-        icon: 'FileSpreadsheet',
-        source: 'Дизайнерам — финальный блок',
+        icon: 'FileUp',
+        href: '#project-form',
       },
     }}
   />

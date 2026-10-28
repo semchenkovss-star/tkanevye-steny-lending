@@ -314,14 +314,24 @@ const RoomLanding = (props: RoomLandingProps) => {
                 {final.text}
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => openLead(final.action.source)}
-              className="flex min-h-[56px] shrink-0 items-center justify-center gap-2 bg-primary px-8 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              <Icon name={final.action.icon} size={18} />
-              {final.action.label}
-            </button>
+            {final.action.href ? (
+              <a
+                href={final.action.href}
+                className="flex min-h-[56px] shrink-0 items-center justify-center gap-2 bg-primary px-8 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                <Icon name={final.action.icon} size={18} />
+                {final.action.label}
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={() => openLead(final.action.source)}
+                className="flex min-h-[56px] shrink-0 items-center justify-center gap-2 bg-primary px-8 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                <Icon name={final.action.icon} size={18} />
+                {final.action.label}
+              </button>
+            )}
           </div>
         </Section>
 

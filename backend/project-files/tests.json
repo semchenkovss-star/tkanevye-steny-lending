@@ -1,0 +1,9 @@
+{
+  "tests": [
+    {"name": "CORS preflight", "method": "OPTIONS", "path": "/", "expectedStatus": 200},
+    {"name": "Начало загрузки PDF", "method": "POST", "path": "/", "body": {"action": "start", "name": "plan.pdf", "size": 1000}, "expectedStatus": 200, "expectedBody": {"uploadId": "string"}, "bodyMatcher": "partial"},
+    {"name": "Запрещённый формат", "method": "POST", "path": "/", "body": {"action": "start", "name": "virus.exe", "size": 1000}, "expectedStatus": 400},
+    {"name": "Слишком большой файл", "method": "POST", "path": "/", "body": {"action": "start", "name": "plan.pdf", "size": 99999999}, "expectedStatus": 400},
+    {"name": "Метод не разрешён", "method": "GET", "path": "/", "expectedStatus": 405}
+  ]
+}
