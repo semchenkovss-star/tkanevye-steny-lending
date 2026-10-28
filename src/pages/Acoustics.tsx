@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "@/lib/router-compat";
 import Seo from '@/components/Seo';
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
@@ -81,7 +81,7 @@ const AcousticsPage = () => {
         <img
           src={ACOUSTIC_IMG.hero}
           alt="Акустические тканевые панели на стене — шумоизоляция комнаты под ключ"
-          {...{ fetchpriority: 'high' }}
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
         <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">

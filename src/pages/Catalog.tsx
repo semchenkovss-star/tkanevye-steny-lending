@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
 import OfferNote from '@/components/site/OfferNote';
@@ -16,6 +16,7 @@ import { GOALS, reachGoalOnce } from '@/lib/metrika';
 import {
   breadcrumbsLd,
   PRICE_VALID_FROM,
+  SITE_ORIGIN,
   returnPolicyLd,
   shippingDetailsLd,
 } from '@/lib/schema';
@@ -160,7 +161,7 @@ const CatalogPage = () => {
       : []),
   ];
 
-  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const origin = SITE_ORIGIN;
   const jsonLd = [
     breadcrumbsLd([{ name: 'Каталог тканей', path: '/catalog' }]),
     {

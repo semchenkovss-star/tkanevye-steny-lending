@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
 import Footer from '@/components/site/Footer';
@@ -10,7 +10,7 @@ import Seo from '@/components/Seo';
 import SiteSwitch from '@/components/site/SiteSwitch';
 import { BLOG_POSTS, getPost } from '@/data/blog';
 import { BLOG_FAQ } from '@/data/blogFaq';
-import { breadcrumbsLd, faqLd } from '@/lib/schema';
+import { breadcrumbsLd, faqLd, SITE_ORIGIN } from '@/lib/schema';
 import PostFaq from '@/components/site/PostFaq';
 import Logo from '@/components/site/Logo';
 import { openLead } from '@/lib/lead';
@@ -59,7 +59,7 @@ const BlogPostPage = () => {
   const others = [...sameTag, ...pool.filter((p) => p.tag !== post.tag)].slice(0, 3);
 
   const isCeilings = post.topic === 'ceilings';
-  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const origin = SITE_ORIGIN;
   const wordCount = post.body.reduce(
     (n, b) => n + b.p.reduce((k, t) => k + t.split(/\s+/).length, 0),
     0,
@@ -176,7 +176,7 @@ const BlogPostPage = () => {
               <img
             src={post.img}
             alt={`${post.title} — тканевые стены и потолки, статья блога`}
-            {...{ fetchpriority: 'high' }}
+            fetchPriority="high"
             className="h-full w-full object-cover"
           />
             </div>

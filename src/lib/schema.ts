@@ -19,8 +19,7 @@ export const LEGAL_DESCRIPTION =
  */
 export const SITE_ORIGIN = 'https://fabricwall.ru';
 
-export const origin = () =>
-  typeof window !== 'undefined' ? window.location.origin : SITE_ORIGIN;
+export const origin = () => SITE_ORIGIN;
 
 const abs = (path: string) => (path.startsWith('http') ? path : origin() + path);
 

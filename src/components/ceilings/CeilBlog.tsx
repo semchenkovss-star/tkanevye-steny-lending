@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "@/lib/router-compat";
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { CEILING_POSTS } from '@/data/blog';

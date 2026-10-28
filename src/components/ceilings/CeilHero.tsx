@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import { useContacts } from '@/lib/useContacts';
 import { CEIL_IMG } from '@/lib/ceilings';
@@ -21,7 +21,7 @@ const CeilHero = () => {
       <img
         src={CEIL_IMG.hero}
         alt="Натяжной тканевый потолок на скрытом каркасе в интерьере квартиры"
-        {...{ fetchpriority: 'high' }}
+        fetchPriority="high"
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-foreground/45" />

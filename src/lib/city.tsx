@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, type ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "@/lib/router-compat";
 import { CITIES, DEFAULT_CITY, cityBySlug, stripCity, type City } from '@/data/cities';
 
 /**

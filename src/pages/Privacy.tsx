@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import CalcButton from '@/components/site/CalcButton';
 import Seo from '@/components/Seo';

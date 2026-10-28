@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import { useCity, useCityUrls } from '@/lib/city';
 import { CITIES } from '@/data/cities';

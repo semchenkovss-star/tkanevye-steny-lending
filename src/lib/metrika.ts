@@ -41,7 +41,8 @@ export function trackPageCounter(url: string, pathname: string, referer?: string
 
 type YmFn = (id: number, action: string, ...rest: unknown[]) => void;
 
-let lastUrl = typeof window !== 'undefined' ? window.location.href : '';
+// Адрес первой загрузки подставляется при первом вызове в браузере
+let lastUrl: string | null = null;
 
 declare global {
   interface Window {
@@ -127,6 +128,7 @@ export function reachGoal(goal: string, params?: Record<string, unknown>) {
  */
 export function trackPageView(url: string, title?: string) {
   if (typeof window === 'undefined' || typeof window.ym !== 'function') return;
+  if (lastUrl === null) lastUrl = window.location.href;
   if (url === lastUrl) return;
   const referer = lastUrl;
   lastUrl = url;

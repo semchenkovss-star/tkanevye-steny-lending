@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import Seo from '@/components/Seo';
 import Logo from '@/components/site/Logo';
@@ -193,7 +193,7 @@ const TextilePage = () => {
           <img
             src={HERO_IMG}
             alt="Архитектурный текстиль в гостиной — текстильная стена от пола до потолка без швов"
-            {...{ fetchpriority: 'high' }}
+            fetchPriority="high"
             className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
           <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">

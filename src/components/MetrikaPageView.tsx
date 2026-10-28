@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "@/lib/router-compat";
 import { trackPageCounter, trackPageView } from '@/lib/metrika';
 
 /**
@@ -8,13 +8,13 @@ import { trackPageCounter, trackPageView } from '@/lib/metrika';
  */
 const MetrikaPageView = () => {
   const location = useLocation();
-  const prevUrl = useRef(document.referrer);
+  const prevUrl = useRef<string | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
       const url = window.location.href;
       trackPageView(url);
-      trackPageCounter(url, window.location.pathname, prevUrl.current);
+      trackPageCounter(url, window.location.pathname, prevUrl.current ?? document.referrer);
       prevUrl.current = url;
     }, 80);
     return () => window.clearTimeout(id);
