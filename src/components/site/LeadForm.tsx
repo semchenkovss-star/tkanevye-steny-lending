@@ -3,7 +3,7 @@ import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import { useAntiSpam } from '@/components/site/useAntiSpam';
 import PhoneInput from '@/components/ui/phone-input';
-import { CALL_TIMES, isPhoneValid, sendLead } from '@/lib/lead';
+import { CALL_TIMES, callbackPromise, isPhoneValid, sendLead } from '@/lib/lead';
 
 interface LeadFormProps {
   source?: string;
@@ -26,6 +26,7 @@ const LeadForm = ({
   const antiSpam = useAntiSpam();
   const [errors, setErrors] = useState<{ name?: string; phone?: string; agree?: string }>({});
   const [sent, setSent] = useState(false);
+  const [promise, setPromise] = useState('');
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -53,6 +54,7 @@ const LeadForm = ({
       return;
     }
     setFailed(false);
+    setPromise(callbackPromise());
     setSent(true);
     onDone?.();
   };
@@ -71,7 +73,7 @@ const LeadForm = ({
         <p className="text-[0.95rem] leading-[1.6] text-muted-foreground">
           {name.trim()}, спасибо.{' '}
           {callTime === 'asap'
-            ? `Перезвоним на ${phone} в течение 15 минут в рабочее время и согласуем дату замера.`
+            ? `Перезвоним на ${phone} ${promise} и согласуем дату замера.`
             : `Перезвоним на ${phone} в выбранное время — ${CALL_TIMES.find(
                 (t) => t.id === callTime,
               )?.label.toLowerCase()} — и согласуем дату замера.`}

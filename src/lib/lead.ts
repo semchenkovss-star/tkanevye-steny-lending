@@ -127,6 +127,28 @@ export interface LeadPayload {
 }
 
 /**
+ * Когда реально перезвоним: считаем по московскому времени в момент отправки.
+ * Вызывать только в обработчиках событий, не в разметке.
+ */
+export function callbackPromise(): string {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Moscow',
+    weekday: 'short',
+    hour: 'numeric',
+    minute: 'numeric',
+    hourCycle: 'h23',
+  }).formatToParts(new Date());
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? '';
+  const day = get('weekday');
+  const minutes = Number(get('hour')) * 60 + Number(get('minute'));
+  const workday = day !== 'Sun';
+  if (workday && minutes >= 9 * 60 && minutes < 19 * 60 + 45) return 'в течение 15 минут';
+  if (workday && minutes < 9 * 60) return 'сегодня после 9:00';
+  if (day === 'Sat' || day === 'Sun') return 'в понедельник после 9:00';
+  return 'завтра после 9:00';
+}
+
+/**
  * Варианты времени звонка.
  * Границы совпадают с графиком работы (Пн–Сб, 9:00–20:00), поэтому
  * менеджер не получит просьбу перезвонить, когда офис закрыт.
