@@ -69,8 +69,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title={`Тканевые натяжные стены под ключ за 1–2 дня ${city.inName} | Fabric Wall`}
-        description={`Натяжные тканевые стены на скрытом каркасе ${city.inName}: ровная стена за 1–2 дня без пыли и штукатурки. Шумоизоляция, гарантия 5 лет, бесплатный замер.`}
+        title={`Тканевые натяжные стены ${city.inName} под ключ — цены, монтаж за 1–2 дня | Fabric Wall`}
+        description={`Натяжные тканевые стены ${city.inName}: ткань от 1 750 ₽/м², под ключ от 3 900 ₽/м². Ровная стена за 1–2 дня без пыли и штукатурки, гарантия 5 лет, бесплатный замер.`}
         path="/"
         keywords="тканевые стены, натяжные стены, отделка стен тканью, шумоизоляция стен в квартире, тканевые стены под ключ, тихие стены"
         jsonLd={buildJsonLd(city)}
@@ -87,7 +87,7 @@ const Index = () => {
         <FabricQuiz />
         <Certificates />
         <Cases />
-        <Pricing />
+        <Pricing title={<>Цены на тканевые стены под ключ</>} />
         <Calculator />
         <Reviews />
         <About />

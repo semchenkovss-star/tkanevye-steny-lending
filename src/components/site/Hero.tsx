@@ -76,18 +76,22 @@ const Hero = () => {
             className="mb-6 text-xs uppercase tracking-[0.14em] text-muted-foreground animate-fade-in"
             style={{ animationDelay: '80ms' }}
           >
-            Натяжные тканевые стены на скрытом каркасе
+            Отделка стен тканью на скрытом каркасе
           </div>
           <h1
-            className="max-w-[11.2em] font-display text-[clamp(2.4rem,8.5vw,3.25rem)] uppercase leading-[0.98] tracking-[0.005em] text-foreground animate-fade-in sm:text-[4.5rem] lg:text-[5.4rem]"
+            className="max-w-[12em] font-display text-[clamp(2.1rem,7.5vw,3rem)] uppercase leading-[0.98] tracking-[0.005em] text-foreground animate-fade-in sm:text-[3.6rem] lg:text-[4.2rem]"
             style={{ animationDelay: '160ms' }}
           >
-            Ровная стена
+            Натяжные тканевые стены
             <br />
-            за 1–2 дня.
-            <br />
-            <span className="text-muted-foreground">Без пыли и мокрых работ</span>
+            <span className="text-muted-foreground">под ключ <span className="whitespace-nowrap">за 1–2 дня</span></span>
           </h1>
+          <p
+            className="mt-4 max-w-[30em] font-display text-lg uppercase leading-[1.2] tracking-wide text-foreground animate-fade-in sm:text-2xl"
+            style={{ animationDelay: '220ms' }}
+          >
+            Ровная поверхность без пыли и мокрых работ
+          </p>
           <p
             className="max-w-[30em] leading-[1.55] text-muted-foreground animate-fade-in text-base text-left my-3.5 py-0 px-1.5"
             style={{ animationDelay: '260ms' }}

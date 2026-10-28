@@ -66,9 +66,9 @@ const CeilPricing = () => (
 
     <div className="mt-10 flex flex-col items-start justify-between gap-6 border border-border bg-card p-8 sm:flex-row sm:items-center lg:p-10">
       <div>
-        <h3 className="font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl">
+        <p className="font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl">
           Хотите точную цифру по своей комнате?
-        </h3>
+        </p>
         <p className="mt-3 max-w-[34em] text-sm leading-[1.55] text-muted-foreground">
           Введите длину и ширину комнаты в калькуляторе — стоимость посчитается сразу.
         </p>

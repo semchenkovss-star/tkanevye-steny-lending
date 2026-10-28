@@ -70,9 +70,9 @@ const Footer = () => {
 
           {COLUMNS.map((col) => (
             <nav key={col.title} className="lg:col-span-2">
-              <h3 className="font-display text-xl uppercase tracking-wide text-background">
+              <p className="font-display text-xl uppercase tracking-wide text-background">
                 {col.title}
-              </h3>
+              </p>
               <ul className="mt-4 space-y-1">
                 {col.links.map((l) =>
                   l.href.startsWith('/') ? (
@@ -100,7 +100,7 @@ const Footer = () => {
           ))}
 
           <div className="lg:col-span-3">
-            <h3 className="font-display text-xl uppercase tracking-wide">Контакты</h3>
+            <p className="font-display text-xl uppercase tracking-wide">Контакты</p>
             <ul className="mt-5 space-y-4 text-sm text-background/70">
               <li className="flex items-center gap-3">
                 <Icon name="Phone" size={16} className="text-primary" />
