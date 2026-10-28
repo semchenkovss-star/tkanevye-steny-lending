@@ -1,5 +1,6 @@
 import { Link } from '@/lib/router-compat';
 import RoomLanding, { type LandingBlock, type LandingFaq } from '@/components/site/RoomLanding';
+import ProjectForm from '@/components/site/ProjectForm';
 
 const HERO_IMG = '/img/e7e1fe2c-6525-4b17-ad95-c7910ac08485.webp';
 
@@ -138,6 +139,19 @@ const KidsPage = () => (
       secondary: { label: 'Рассчитать стоимость', icon: 'Calculator', href: '#calc' },
     }}
     blocks={BLOCKS}
+    extra={(index) => (
+      <ProjectForm
+        index={index}
+        source="Детская — заявка с фото комнаты"
+        title={<>Пришлите фото или план детской</>}
+        lead="Сфотографируйте стены или приложите план с размерами — подберём ткань под возраст ребёнка и интерьер и пришлём предварительный расчёт до замера."
+        objectTypes={['Детская для малыша', 'Комната школьника', 'Комната подростка', 'Детская на двоих', 'Игровая', 'Другое']}
+        companyLabel="Город или район"
+        areaLabel="Размеры стен или площадь, м²"
+        areaPlaceholder="Например, 3,2 × 2,7 м"
+        commentPlaceholder="Возраст ребёнка, какую стену затянуть, любимые цвета, нужны ли подсветка, полки или мягкая зона у кровати"
+      />
+    )}
     cases={['Детская комната']}
     casesTitle={<>Детская после монтажа</>}
     casesLead="Комната 12 м² в Раменках: одна бригада, один день, мягкая стена вместо оторванных обоев."

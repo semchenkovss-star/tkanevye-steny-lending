@@ -34,6 +34,8 @@ interface ProjectFormProps {
   objectTypes?: string[];
   companyLabel?: string;
   commentPlaceholder?: string;
+  areaLabel?: string;
+  areaPlaceholder?: string;
 }
 
 const ALLOWED = FILE_ACCEPT.split(',');
@@ -54,6 +56,8 @@ const ProjectForm = ({
   objectTypes = DEFAULT_TYPES,
   companyLabel = 'Студия или компания',
   commentPlaceholder = 'Какие стены, ткань или узлы нужны, сроки объекта',
+  areaLabel,
+  areaPlaceholder = 'Например, 45',
 }: ProjectFormProps) => {
   const OBJECT_TYPES = objectTypes;
   const [name, setName] = useState('');
@@ -145,8 +149,8 @@ const ProjectForm = ({
       source,
       summary: [
         `Объект: ${objectType}`,
-        area.trim() ? `площадь стен ${area.trim()} м²` : '',
-        company.trim() ? `компания: ${company.trim()}` : '',
+        area.trim() ? (areaLabel ? `размеры: ${area.trim()}` : `площадь стен ${area.trim()} м²`) : '',
+        company.trim() ? `${companyLabel.toLowerCase()}: ${company.trim()}` : '',
       ]
         .filter(Boolean)
         .join(', '),
@@ -229,14 +233,16 @@ const ProjectForm = ({
               </div>
               <div>
                 <label htmlFor="pf-area" className="mb-2 block text-sm text-muted-foreground">
-                  Площадь стен, м² <span className="text-muted-foreground/70">— если знаете</span>
+                  {areaLabel ?? 'Площадь стен, м²'} <span className="text-muted-foreground/70">— если знаете</span>
                 </label>
                 <input
                   id="pf-area"
-                  inputMode="decimal"
+                  inputMode={areaLabel ? 'text' : 'decimal'}
                   value={area}
-                  onChange={(e) => setArea(e.target.value.replace(/[^\d.,]/g, '').slice(0, 8))}
-                  placeholder="Например, 45"
+                  onChange={(e) =>
+                    setArea(areaLabel ? e.target.value.slice(0, 80) : e.target.value.replace(/[^\d.,]/g, '').slice(0, 8))
+                  }
+                  placeholder={areaPlaceholder}
                   className={fieldCls()}
                 />
               </div>
