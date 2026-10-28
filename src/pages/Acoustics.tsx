@@ -67,8 +67,8 @@ const AcousticsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Тихие стены: звукоизоляция комнаты под ключ | Fabric Wall"
-        description="Тихие стены и звукоизоляция квартиры под ключ: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–3 дня, контрольный замер."
+        title="Звукоизоляция комнаты в Москве под ключ — цены, тихие стены за 1–2 дня | Fabric Wall"
+        description="Звукоизоляция комнаты и квартиры в Москве под ключ от 5 900 ₽/м²: замер шумомером, акустические полотна на стены и потолок. Монтаж за 1–2 дня, контрольный замер."
         path="/acoustics"
         keywords="тихие стены, тихие стены под ключ, звукоизоляция комнаты, шумоизоляция квартиры от соседей, звукоизоляция стен под ключ, замер шума, акустическая обработка помещения"
         image="/img/akustika-og.jpg"
@@ -97,7 +97,8 @@ const AcousticsPage = () => {
           <div className="mt-8 text-xs uppercase tracking-[0.14em] text-primary">
             Акустика под ключ
           </div>
-          <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.3rem,8vw,3rem)] uppercase leading-[0.98] sm:text-[4rem] lg:text-[5rem]">Тихие стены и звукоизоляция комнаты за 1–2 дня</h1>
+          <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.3rem,8vw,3rem)] uppercase leading-[0.98] sm:text-[3.6rem] lg:text-[4.2rem]">Звукоизоляция комнаты под ключ <span className="text-background/60">за 1–2 дня</span></h1>
+          <p className="mt-4 max-w-[30em] font-display text-lg uppercase leading-[1.2] tracking-wide sm:text-2xl">Тихие стены без эха и шума соседей</p>
           <p className="mt-6 max-w-[36em] text-base leading-[1.6] text-background/70">Делаем тихие стены под ключ: замеряем шум, подбираем материалы, считаем смету и монтируем стены и потолок. Звукоизоляция комнаты от 5 900 ₽ / м².</p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">

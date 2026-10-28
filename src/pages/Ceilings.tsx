@@ -53,8 +53,8 @@ const CeilingsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Тканевый потолок Descor и Clipso: цена и монтаж | Fabric Wall"
-        description="Бесшовные натяжные потолки Descor, JM и Clipso: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа."
+        title="Бесшовные натяжные потолки в Москве под ключ — цены, монтаж за 1 день | Fabric Wall"
+        description="Бесшовные натяжные потолки Descor и Clipso в Москве под ключ от 1 200 ₽/м²: теневой и парящий контур, световые линии. Монтаж за день без пыли, смета за 24 часа."
         path="/ceilings"
         keywords="тканевый натяжной потолок, бесшовный натяжной потолок, потолок descor, clipso потолки, натяжной потолок цена, теневой потолок"
         image="/img/tkanevye-potolki-og.jpg"
