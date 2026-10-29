@@ -222,6 +222,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://fabricwall.ru/dlya-gostinicy</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://fabricwall.ru/img/dlya-gostinicy.webp</image:loc>
+      <image:title>Тканевые стены в номере гостиницы</image:title>
+      <image:caption>Тишина в номере, класс горючести Г1, замена полотна без ремонта</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://fabricwall.ru/domashnij-kinoteatr</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>

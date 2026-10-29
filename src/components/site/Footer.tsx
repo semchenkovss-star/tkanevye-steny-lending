@@ -39,6 +39,7 @@ const COLUMNS = [
       { href: '/dlya-spalni', label: 'Спальня' },
       { href: '/dlya-detskoj', label: 'Детская' },
       { href: '/dlya-ofisa', label: 'Офис и переговорная' },
+      { href: '/dlya-gostinicy', label: 'Гостиница и отель' },
       { href: '/domashnij-kinoteatr', label: 'Домашний кинотеатр' },
     ],
   },
