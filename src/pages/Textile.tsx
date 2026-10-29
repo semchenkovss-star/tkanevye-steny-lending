@@ -162,8 +162,8 @@ const TextilePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Архитектурный текстиль для стен: текстильные стены под ключ | Fabric Wall"
-        description="Текстильные стены из архитектурного текстиля на скрытом каркасе: бесшовное полотно до 5 м, звукопоглощение до 11 дБ, без штукатурки и пыли. Ткань от 1 750 ₽/м², монтаж за 1–2 дня, бесплатный замер."
+        title="Архитектурный текстиль для стен под ключ — цены, монтаж за 1–2 дня | Fabric Wall"
+        description="Текстильные стены из архитектурного текстиля в Москве под ключ от 3 900 ₽/м², ткань от 1 750 ₽/м²: бесшовное полотно до 5 м на скрытом каркасе, звукопоглощение до 11 дБ. Монтаж за 1–2 дня, бесплатный замер."
         path={PATH}
         keywords="архитектурный текстиль, текстильные стены, архитектурный текстиль для стен, текстиль на стены, тканевые стены, отделка стен тканью"
         image={OG_IMG}
@@ -200,9 +200,10 @@ const TextilePage = () => {
             <div className="text-xs uppercase tracking-[0.14em] text-primary">
               Текстильные стены
             </div>
-            <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.3rem,8vw,3rem)] uppercase leading-[0.98] sm:text-[4rem] lg:text-[5rem]">
-              Архитектурный текстиль для стен
+            <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.1rem,7.5vw,3rem)] uppercase leading-[0.98] sm:text-[3.6rem] lg:text-[4.2rem]">
+              Архитектурный текстиль для стен <span className="text-background/60">под ключ <span className="whitespace-nowrap">за 1–2 дня</span></span>
             </h1>
+            <p className="mt-4 max-w-[30em] font-display text-lg uppercase leading-[1.2] tracking-wide sm:text-2xl">Бесшовная стена без штукатурки и пыли</p>
             <p className="mt-6 max-w-[38em] text-base leading-[1.6] text-background/70">
               Ткань на скрытом каркасе вместо штукатурки, обоев и панелей. Бесшовная стена от пола
               до потолка, тише в комнате и никакой пыли. Ткань от 1 750 ₽ / м², под ключ — от

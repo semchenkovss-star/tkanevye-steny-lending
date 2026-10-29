@@ -101,8 +101,8 @@ const PanelsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Мягкие стеновые панели из ткани: цена и монтаж | Fabric Wall"
-        description="Тканевые стеновые панели без стыков: бесшовное полотно на скрытом каркасе вместо МДФ и мягких модулей. Выравнивают стену, шумоизоляция до −11 дБ, монтаж за 1–2 дня."
+        title="Мягкие стеновые панели из ткани под ключ — цены, монтаж за 1–2 дня | Fabric Wall"
+        description="Тканевые стеновые панели без стыков в Москве под ключ от 3 900 ₽/м²: бесшовное полотно на скрытом каркасе вместо МДФ и мягких модулей. Шумоизоляция до −11 дБ, монтаж за 1–2 дня, бесплатный замер."
         path="/panels"
         keywords="мягкие стеновые панели, стеновые панели из ткани, тканевые панели для стен, панели на стену цена, декоративные панели"
         image="/img/tkanevye-paneli-og.jpg"
@@ -137,9 +137,10 @@ const PanelsPage = () => {
           />
           <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">
             <div className="text-xs uppercase tracking-[0.14em] text-primary">Панели для стен</div>
-            <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.3rem,8vw,3rem)] uppercase leading-[0.98] sm:text-[4rem] lg:text-[5rem]">
-              Стеновые панели из ткани
+            <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.1rem,7.5vw,3rem)] uppercase leading-[0.98] sm:text-[3.6rem] lg:text-[4.2rem]">
+              Стеновые панели из ткани <span className="text-background/60">под ключ <span className="whitespace-nowrap">за 1–2 дня</span></span>
             </h1>
+            <p className="mt-4 max-w-[30em] font-display text-lg uppercase leading-[1.2] tracking-wide sm:text-2xl">Бесшовно, без стыков между модулями</p>
             <p className="mt-6 max-w-[38em] text-base leading-[1.6] text-background/70">
               Бесшовное тканевое полотно на скрытом каркасе — вместо стыков между модулями. Мягкая
               стена от пола до потолка за 1–2 дня, без пыли и штукатурки. Ткань от 1 750 ₽ / м²,

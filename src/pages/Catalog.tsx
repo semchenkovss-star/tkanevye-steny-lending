@@ -247,8 +247,8 @@ const CatalogPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Акустические ткани для стен: каталог и цены за м² | Fabric Wall"
-        description="Архитектурный текстиль для стен и потолков: 7 коллекций — Комфорт, Луна, Марс, Узор, Штукатурка, Акустик, Модерн. Фильтр по стилю и цене, шумоизоляция до −11 дБ, образцы на дом."
+        title="Каталог тканей для стен и потолков — цены от 1 750 ₽/м² | Fabric Wall"
+        description="Каталог архитектурного текстиля для стен и потолков в Москве: 7 коллекций — Комфорт, Луна, Марс, Узор, Штукатурка, Акустик, Модерн. Ткань от 1 750 ₽/м², под ключ от 3 900 ₽/м², образцы на дом."
         path="/catalog"
         keywords="ткань для стен, акустическая ткань, каталог тканей для стен, цена ткани за м2, образцы ткани, архитектурный текстиль"
         jsonLd={jsonLd}
@@ -275,8 +275,11 @@ const CatalogPage = () => {
       <main className="shell py-14 sm:py-16 lg:py-20">
         <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Каталог</div>
         <h1 className="mt-3 max-w-[14em] font-display text-[clamp(2.1rem,8vw,2.75rem)] uppercase leading-[0.98] tracking-[0.005em] sm:text-[3.5rem] lg:text-[4.5rem]">
-          Архитектурный текстиль для стен
+          Каталог тканей для стен <span className="text-muted-foreground">и потолков</span>
         </h1>
+        <p className="mt-4 max-w-[30em] font-display text-lg uppercase leading-[1.2] tracking-wide sm:text-2xl">
+          7 коллекций и 180 оттенков от 1 750 ₽/м²
+        </p>
         <p className="mt-6 max-w-[42em] text-base leading-[1.6] text-muted-foreground">
           Цены указаны за само полотно — каркас, наполнение, монтаж и уборка считаются отдельно,
           под ключ от 3 900 ₽ / м². Подберите вариант по стилю интерьера и бюджету — точную смету
