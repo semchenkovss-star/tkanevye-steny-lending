@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import { openLead } from '@/lib/lead';
 import { openSamples } from '@/lib/samples';
-import { CONCEPTS, CatalogItem } from '@/data/catalog';
+import { CONCEPTS, CatalogItem, PRICE_MIN } from '@/data/catalog';
+import { PLANS } from '@/lib/pricing';
 import ImageZoom from '@/components/catalog/ImageZoom';
 import { GOALS, reachGoalOnce } from '@/lib/metrika';
 
@@ -12,6 +13,9 @@ const thumb = (src: string) => src.replace('/img/', '/img/thumb/');
 const CatalogCard = ({ item }: { item: CatalogItem }) => {
   const concept = CONCEPTS.find((c) => c.id === item.concept)?.label ?? '';
   const [zoom, setZoom] = useState(false);
+  const plan = PLANS[0];
+  const turnkey = plan.rate + (item.price - PRICE_MIN);
+  const bestFor = item.rooms.map((r) => r.toLowerCase()).join(', ');
 
   const openZoom = () => {
     setZoom(true);
@@ -71,6 +75,14 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
           {item.name}
         </h3>
         <p className="mt-2 text-sm leading-[1.5] text-muted-foreground">{item.description}</p>
+        {bestFor && (
+          <p className="mt-3 flex items-start gap-2 text-sm leading-[1.4] text-foreground">
+            <Icon name="Sofa" fallback="Home" size={16} className="mt-0.5 shrink-0 text-primary-ink" />
+            <span>
+              <span className="text-muted-foreground">Лучше смотрится:</span> {bestFor}
+            </span>
+          </p>
+        )}
 
         <dl className="mt-5 grid grid-cols-2 gap-px border border-border bg-border text-center">
           <div className="bg-card px-2 py-3">
@@ -87,38 +99,50 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
           </div>
         </dl>
 
-        <div className="mt-5 flex flex-1 items-end justify-between gap-4">
-          <div>
-            {item.oldPrice && (
-              <div className="text-sm text-muted-foreground line-through">
-                {item.oldPrice.toLocaleString('ru-RU')} ₽
-              </div>
-            )}
-            <div className="font-display text-3xl leading-none text-foreground">
+        <div className="mt-5 flex flex-1 flex-col justify-end">
+          <div className="border-t border-border pt-4">
+            <div className="text-[0.65rem] uppercase tracking-[0.1em] text-muted-foreground">
+              Под ключ, тариф «{plan.name}»
+            </div>
+            <div className="mt-1 font-display text-3xl leading-none text-foreground">
               <span className="mr-1 text-base text-muted-foreground">от</span>
-              {item.price.toLocaleString('ru-RU')} ₽
+              {turnkey.toLocaleString('ru-RU')} ₽
               <span className="ml-1 text-sm text-muted-foreground">/ м²</span>
             </div>
-            <div className="mt-1 text-xs text-muted-foreground">за полотно, без монтажа</div>
+            <div className="mt-1.5 text-xs text-muted-foreground">
+              Ткань отдельно — от{' '}
+              {item.oldPrice && (
+                <span className="mr-1 line-through">{item.oldPrice.toLocaleString('ru-RU')}</span>
+              )}
+              {item.price.toLocaleString('ru-RU')} ₽/м² без монтажа
+            </div>
           </div>
-          <button
-            type="button"
-            onClick={() => openLead(`Каталог: ${item.name}`, `${item.name} — ${item.material}, ${item.price.toLocaleString('ru-RU')} ₽/м²`)}
-            className="flex items-center gap-2 bg-ink px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-background transition-colors hover:bg-primary hover:text-primary-foreground"
-          >
-            <Icon name="Ruler" size={16} />
-            Замер
-          </button>
-        </div>
 
-        <button
-          type="button"
-          onClick={() => openSamples(item.slug)}
-          className="mt-3 flex w-full items-center justify-center gap-2 border border-border bg-card px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary"
-        >
-          <Icon name="Package" size={16} />
-          Заказать образцы
-        </button>
+          <div className="mt-4 grid grid-cols-[1fr_auto] gap-2">
+            <button
+              type="button"
+              onClick={() => openSamples(item.slug)}
+              className="flex items-center justify-center gap-2 bg-primary px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-primary-foreground transition-colors hover:bg-primary-hover"
+            >
+              <Icon name="Package" size={16} />
+              Получить образец
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                openLead(
+                  `Каталог: ${item.name}`,
+                  `${item.name} — ${item.material}, под ключ от ${turnkey.toLocaleString('ru-RU')} ₽/м² (тариф «${plan.name}»)`,
+                )
+              }
+              aria-label={`Вызвать замерщика: ${item.name}`}
+              className="flex items-center gap-2 border border-foreground/25 px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary-ink"
+            >
+              <Icon name="Ruler" size={16} />
+              Замер
+            </button>
+          </div>
+        </div>
       </div>
 
       {zoom && (
