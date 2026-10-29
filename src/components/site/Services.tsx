@@ -55,21 +55,6 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
-const BUSINESS = [
-  {
-    title: 'Гостиницы и отели',
-    lead: 'Тишина между номерами, замена полотна без ремонта и номер за 1–2 дня без закрытия отеля.',
-    img: '/img/dlya-gostinicy.webp',
-    to: '/dlya-gostinicy',
-  },
-  {
-    title: 'Рестораны и кафе',
-    lead: 'Меньше гула в зале, ткань не держит запахи, монтаж в санитарный день или ночью.',
-    img: '/img/dlya-restorana.webp',
-    to: '/dlya-restorana',
-  },
-];
-
 interface ServicesProps {
   index?: string;
   /** Свой заголовок и подводка — чтобы блок не дублировал главную слово в слово */
@@ -133,37 +118,6 @@ const Services = ({
       ))}
     </div>
 
-    <div className="mt-10">
-      <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Для бизнеса</div>
-      <div className="mt-4 grid gap-px border border-border bg-border md:grid-cols-2">
-        {BUSINESS.map((b) => (
-          <Link key={b.to} to={b.to} className="hover-card group flex bg-card">
-            <div className="relative w-32 shrink-0 overflow-hidden bg-secondary sm:w-48">
-              <img
-                src={b.img}
-                alt={`Тканевые стены: ${b.title.toLowerCase()}`}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-            </div>
-            <div className="flex flex-1 flex-col p-5 sm:p-7">
-              <h3 className="font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl">
-                {b.title}
-              </h3>
-              <p className="mt-3 text-sm leading-[1.55] text-muted-foreground">{b.lead}</p>
-              <span className="mt-5 flex items-center gap-2 font-display text-base uppercase tracking-[0.04em] text-primary-ink">
-                Подробнее
-                <Icon
-                  name="ArrowRight"
-                  size={16}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
   </Section>
 );
 

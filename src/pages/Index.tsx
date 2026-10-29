@@ -6,6 +6,7 @@ import SiteSwitch from '@/components/site/SiteSwitch';
 import Hero from '@/components/site/Hero';
 import Pain from '@/components/site/Pain';
 import Services from '@/components/site/Services';
+import ForBusiness from '@/components/site/ForBusiness';
 import WhatIsIt from '@/components/site/WhatIsIt';
 import Benefits from '@/components/site/Benefits';
 import HowItWorks from '@/components/site/HowItWorks';
@@ -92,6 +93,7 @@ const Index = () => {
         <Reviews />
         <About />
         <Services />
+        <ForBusiness />
         <Faq />
         <Blog />
         <CrossLinks current="/" />
