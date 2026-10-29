@@ -52,7 +52,7 @@ const Footer = () => {
   const prefix = pathname === '/' ? '' : '/';
 
   return (
-    <footer className="border-t border-border bg-ink text-background">
+    <footer className="border-t border-border bg-ink pb-[calc(4.5rem+env(safe-area-inset-bottom))] text-background sm:pb-0">
       <div className="shell py-14 sm:py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-3">

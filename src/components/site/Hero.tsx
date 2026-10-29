@@ -1,6 +1,5 @@
 import Icon from '@/components/ui/icon';
 import { useContacts } from '@/lib/useContacts';
-import { openSamples } from '@/lib/samples';
 import { PLANS } from '@/lib/pricing';
 
 const NAV: { href: string; label: string; wide?: boolean }[] = [
@@ -116,14 +115,13 @@ const Hero = () => {
               >
                 Рассчитать стоимость
               </a>
-              <button
-                type="button"
-                onClick={() => openSamples()}
+              <a
+                href="#fabrics"
                 className="flex items-center justify-center gap-2 border border-foreground/25 px-6 py-4 font-display text-base uppercase leading-tight tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:text-primary-ink sm:whitespace-nowrap sm:py-[17px] sm:text-lg"
               >
                 <Icon name="SwatchBook" fallback="Palette" size={18} />
-                Получить образцы
-              </button>
+                Подобрать ткань
+              </a>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               <b className="font-semibold text-foreground">{PLANS[0].priceLabel} ₽/м² под ключ</b>{' '}

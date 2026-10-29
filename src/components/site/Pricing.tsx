@@ -89,6 +89,14 @@ const Pricing = ({
         ))}
       </div>
 
+      <p className="mt-5 flex items-start gap-2 text-sm leading-[1.5] text-muted-foreground">
+        <Icon name="Info" size={16} className="mt-0.5 shrink-0 text-primary-ink" />
+        <span>
+          <b className="font-semibold text-foreground">Ткань отдельно — от 1 750 ₽/м² без монтажа.</b>{' '}
+          В цену тарифа входят каркас, ткань, монтаж и уборка. Итог фиксируем после замера.
+        </span>
+      </p>
+
       <div className="mt-10 flex flex-col items-start justify-between gap-6 border border-border bg-card p-8 sm:flex-row sm:items-center lg:p-10">
         <div>
           <p className="font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl">
