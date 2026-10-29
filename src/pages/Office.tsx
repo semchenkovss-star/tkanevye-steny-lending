@@ -137,6 +137,7 @@ const OfficePage = () => (
       alt: 'Переговорная в офисе с акустическими тканевыми стенами',
       eyebrow: 'Для офиса',
       title: <>Тканевые стены для офиса и переговорной <span className="text-background/60">под ключ <span className="whitespace-nowrap">за 1–2 дня</span></span></>,
+      compactTitle: true,
       subtitle: 'Без эха на созвонах, монтаж в нерабочие дни',
       text: (
         <>

@@ -61,6 +61,7 @@ export interface RoomLandingProps {
     eyebrow: string;
     title: ReactNode;
     subtitle?: string;
+    compactTitle?: boolean;
     text: ReactNode;
     primary: LandingAction;
     secondary: LandingAction;
@@ -162,7 +163,11 @@ const RoomLanding = (props: RoomLandingProps) => {
           />
           <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">
             <div className="text-xs uppercase tracking-[0.14em] text-primary">{hero.eyebrow}</div>
-            <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.1rem,7.5vw,3rem)] uppercase leading-[0.98] sm:text-[3.6rem] lg:text-[4.2rem]">
+            <h1
+              className={`mt-4 font-display uppercase leading-[0.98] sm:max-w-[13em] sm:text-[3.6rem] lg:text-[4.2rem] ${
+                hero.compactTitle ? 'text-[clamp(1.4rem,6.6vw,2.1rem)]' : 'max-w-[13em] text-[clamp(2.1rem,7.5vw,3rem)]'
+              }`}
+            >
               {hero.title}
             </h1>
             {hero.subtitle && (

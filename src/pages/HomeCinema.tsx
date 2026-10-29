@@ -128,6 +128,7 @@ const HomeCinemaPage = () => (
       alt: 'Домашний кинотеатр с тёмными тканевыми стенами и экраном в нише',
       eyebrow: 'Домашний кинотеатр',
       title: <>Акустические стены для домашнего кинотеатра <span className="text-background/60">под ключ <span className="whitespace-nowrap">за 1–2 дня</span></span></>,
+      compactTitle: true,
       subtitle: 'Чёткие диалоги и бас без гула',
       text: (
         <>

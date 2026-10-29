@@ -185,6 +185,7 @@ const DesignersPage = () => (
       alt: 'Образцы тканей и чертежи интерьерного проекта на столе дизайнера',
       eyebrow: 'Партнёрская программа',
       title: <>Тканевые стены по проекту дизайнера <span className="text-background/60">под ключ</span></>,
+      compactTitle: true,
       subtitle: 'Альбом узлов, образцы и смета по чертежам',
       text: (
         <>
