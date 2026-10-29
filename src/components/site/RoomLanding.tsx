@@ -60,6 +60,7 @@ export interface RoomLandingProps {
     alt: string;
     eyebrow: string;
     title: ReactNode;
+    subtitle?: string;
     text: ReactNode;
     primary: LandingAction;
     secondary: LandingAction;
@@ -161,9 +162,14 @@ const RoomLanding = (props: RoomLandingProps) => {
           />
           <div className="relative z-10 shell py-16 sm:py-24 lg:py-32">
             <div className="text-xs uppercase tracking-[0.14em] text-primary">{hero.eyebrow}</div>
-            <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.3rem,8vw,3rem)] uppercase leading-[0.98] sm:text-[4rem] lg:text-[5rem]">
+            <h1 className="mt-4 max-w-[13em] font-display text-[clamp(2.1rem,7.5vw,3rem)] uppercase leading-[0.98] sm:text-[3.6rem] lg:text-[4.2rem]">
               {hero.title}
             </h1>
+            {hero.subtitle && (
+              <p className="mt-4 max-w-[30em] font-display text-lg uppercase leading-[1.2] tracking-wide sm:text-2xl">
+                {hero.subtitle}
+              </p>
+            )}
             <p className="mt-6 max-w-[38em] text-base leading-[1.6] text-background/70">
               {hero.text}
             </p>
