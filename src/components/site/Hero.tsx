@@ -3,11 +3,12 @@ import { useContacts } from '@/lib/useContacts';
 import { openSamples } from '@/lib/samples';
 import { PLANS } from '@/lib/pricing';
 
-const NAV = [
+const NAV: { href: string; label: string; wide?: boolean }[] = [
   { href: '#services', label: 'Услуги' },
   { href: '#cases', label: 'Проекты' },
   { href: '#how', label: 'Монтаж' },
   { href: '#price', label: 'Цены' },
+  { href: '#business', label: 'Для бизнеса', wide: true },
 ];
 
 const Hero = () => {
@@ -54,9 +55,13 @@ const Hero = () => {
               Тканевые стены
             </span>
           </a>
-          <nav className="hidden gap-7 md:flex">
+          <nav className="hidden gap-5 lg:flex xl:gap-6">
             {NAV.map((item) => (
-              <a key={item.href} href={item.href} className="nav-link">
+              <a
+                key={item.href}
+                href={item.href}
+                className={`nav-link whitespace-nowrap ${item.wide ? 'hidden xl:inline' : ''}`}
+              >
                 {item.label}
               </a>
             ))}
@@ -66,8 +71,9 @@ const Hero = () => {
             className="-my-2 flex min-h-[44px] items-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Icon name="Phone" size={16} />
-            <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
+            <span className="hidden whitespace-nowrap sm:inline lg:hidden 2xl:inline">{PHONE_DISPLAY}</span>
             <span className="sm:hidden">Позвонить</span>
+            <span className="hidden whitespace-nowrap lg:inline 2xl:hidden">Позвонить</span>
           </a>
         </header>
 
