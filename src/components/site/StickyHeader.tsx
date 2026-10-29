@@ -14,6 +14,8 @@ const LINKS = [
   { href: '/panels', label: 'Панели' },
   { href: '/arhitekturnyj-tekstil', label: 'Текстиль' },
   { href: '/catalog', label: 'Каталог' },
+  { href: '/dlya-gostinicy', label: 'Гостиницам' },
+  { href: '/dlya-restorana', label: 'Ресторанам' },
   { href: '#quiz', label: 'Подбор ткани' },
   { href: '#what', label: 'Что это' },
   { href: '#how', label: 'Монтаж' },
