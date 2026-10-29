@@ -233,6 +233,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://fabricwall.ru/dlya-restorana</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://fabricwall.ru/img/dlya-restorana.webp</image:loc>
+      <image:title>Акустические тканевые стены в зале ресторана</image:title>
+      <image:caption>Меньше гула в зале, ткань не держит запахи, монтаж за 1–2 дня</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://fabricwall.ru/domashnij-kinoteatr</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>

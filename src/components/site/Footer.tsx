@@ -40,6 +40,7 @@ const COLUMNS = [
       { href: '/dlya-detskoj', label: 'Детская' },
       { href: '/dlya-ofisa', label: 'Офис и переговорная' },
       { href: '/dlya-gostinicy', label: 'Гостиница и отель' },
+      { href: '/dlya-restorana', label: 'Ресторан и кафе' },
       { href: '/domashnij-kinoteatr', label: 'Домашний кинотеатр' },
     ],
   },

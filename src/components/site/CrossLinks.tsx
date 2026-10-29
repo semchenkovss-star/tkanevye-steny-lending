@@ -54,6 +54,7 @@ const ROOMS = [
   { to: '/dlya-detskoj', label: 'Детская', icon: 'Baby' },
   { to: '/dlya-ofisa', label: 'Офис и переговорная', icon: 'Briefcase' },
   { to: '/dlya-gostinicy', label: 'Гостиница и отель', icon: 'Hotel' },
+  { to: '/dlya-restorana', label: 'Ресторан и кафе', icon: 'UtensilsCrossed' },
   { to: '/domashnij-kinoteatr', label: 'Домашний кинотеатр', icon: 'Clapperboard' },
   { to: '/dizayneram', label: 'Дизайнерам и архитекторам', icon: 'PenTool' },
 ];

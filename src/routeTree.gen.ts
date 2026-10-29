@@ -20,6 +20,7 @@ import { Route as DlyaDetskojRouteImport } from './routes/dlya-detskoj'
 import { Route as DlyaGostinicyRouteImport } from './routes/dlya-gostinicy'
 import { Route as DlyaGostinojRouteImport } from './routes/dlya-gostinoj'
 import { Route as DlyaOfisaRouteImport } from './routes/dlya-ofisa'
+import { Route as DlyaRestoranaRouteImport } from './routes/dlya-restorana'
 import { Route as DlyaSpalniRouteImport } from './routes/dlya-spalni'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as DomashnijKinoteatrRouteImport } from './routes/domashnij-kinoteatr'
@@ -83,6 +84,11 @@ const DlyaOfisaRoute = DlyaOfisaRouteImport.update({
   path: '/dlya-ofisa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DlyaRestoranaRoute = DlyaRestoranaRouteImport.update({
+  id: '/dlya-restorana',
+  path: '/dlya-restorana',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DlyaSpalniRoute = DlyaSpalniRouteImport.update({
   id: '/dlya-spalni',
   path: '/dlya-spalni',
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/dlya-gostinicy': typeof DlyaGostinicyRoute
   '/dlya-gostinoj': typeof DlyaGostinojRoute
   '/dlya-ofisa': typeof DlyaOfisaRoute
+  '/dlya-restorana': typeof DlyaRestoranaRoute
   '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
   '/domashnij-kinoteatr': typeof DomashnijKinoteatrRoute
@@ -151,6 +158,7 @@ export interface FileRoutesByTo {
   '/dlya-gostinicy': typeof DlyaGostinicyRoute
   '/dlya-gostinoj': typeof DlyaGostinojRoute
   '/dlya-ofisa': typeof DlyaOfisaRoute
+  '/dlya-restorana': typeof DlyaRestoranaRoute
   '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
   '/domashnij-kinoteatr': typeof DomashnijKinoteatrRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/dlya-gostinicy': typeof DlyaGostinicyRoute
   '/dlya-gostinoj': typeof DlyaGostinojRoute
   '/dlya-ofisa': typeof DlyaOfisaRoute
+  '/dlya-restorana': typeof DlyaRestoranaRoute
   '/dlya-spalni': typeof DlyaSpalniRoute
   '/documents': typeof DocumentsRoute
   '/domashnij-kinoteatr': typeof DomashnijKinoteatrRoute
@@ -194,6 +203,7 @@ export interface FileRouteTypes {
     | '/dlya-gostinicy'
     | '/dlya-gostinoj'
     | '/dlya-ofisa'
+    | '/dlya-restorana'
     | '/dlya-spalni'
     | '/documents'
     | '/domashnij-kinoteatr'
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/dlya-gostinicy'
     | '/dlya-gostinoj'
     | '/dlya-ofisa'
+    | '/dlya-restorana'
     | '/dlya-spalni'
     | '/documents'
     | '/domashnij-kinoteatr'
@@ -234,6 +245,7 @@ export interface FileRouteTypes {
     | '/dlya-gostinicy'
     | '/dlya-gostinoj'
     | '/dlya-ofisa'
+    | '/dlya-restorana'
     | '/dlya-spalni'
     | '/documents'
     | '/domashnij-kinoteatr'
@@ -255,6 +267,7 @@ export interface RootRouteChildren {
   DlyaGostinicyRoute: typeof DlyaGostinicyRoute
   DlyaGostinojRoute: typeof DlyaGostinojRoute
   DlyaOfisaRoute: typeof DlyaOfisaRoute
+  DlyaRestoranaRoute: typeof DlyaRestoranaRoute
   DlyaSpalniRoute: typeof DlyaSpalniRoute
   DocumentsRoute: typeof DocumentsRoute
   DomashnijKinoteatrRoute: typeof DomashnijKinoteatrRoute
@@ -343,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DlyaOfisaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dlya-restorana': {
+      id: '/dlya-restorana'
+      path: '/dlya-restorana'
+      fullPath: '/dlya-restorana'
+      preLoaderRoute: typeof DlyaRestoranaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dlya-spalni': {
       id: '/dlya-spalni'
       path: '/dlya-spalni'
@@ -407,6 +427,7 @@ const rootRouteChildren: RootRouteChildren = {
   DlyaGostinicyRoute: DlyaGostinicyRoute,
   DlyaGostinojRoute: DlyaGostinojRoute,
   DlyaOfisaRoute: DlyaOfisaRoute,
+  DlyaRestoranaRoute: DlyaRestoranaRoute,
   DlyaSpalniRoute: DlyaSpalniRoute,
   DocumentsRoute: DocumentsRoute,
   DomashnijKinoteatrRoute: DomashnijKinoteatrRoute,

@@ -99,6 +99,7 @@ const leadDirection = (payload: LeadPayload): LeadDirection => {
     '/dlya-detskoj',
     '/dlya-ofisa',
     '/dlya-gostinicy',
+    '/dlya-restorana',
     '/domashnij-kinoteatr',
   ];
   if (path === '/' || wallPaths.some((p) => path.startsWith(p))) {
