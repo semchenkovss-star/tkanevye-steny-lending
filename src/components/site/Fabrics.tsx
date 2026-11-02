@@ -3,6 +3,7 @@ import { Link } from "@/lib/router-compat";
 import Section from '@/components/site/Section';
 import Icon from '@/components/ui/icon';
 import { CATALOG, Material } from '@/data/catalog';
+import { openSamples } from '@/lib/samples';
 
 type Group = 'Все' | Material;
 
@@ -50,37 +51,48 @@ const Fabrics = () => {
 
       <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {list.map((f) => (
-          <Link
-            key={f.slug}
-            to={`/catalog?material[]=${encodeURIComponent(f.material)}`}
-            className="hover-card group block bg-card animate-scale-in"
-          >
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
-              <img
-                src={f.img}
-                alt={`Ткань ${f.name} — ${f.material} для натяжных тканевых стен и потолков`}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-              <span className="absolute right-3 top-3 bg-ink px-2 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
-                {f.material}
-              </span>
-            </div>
-            <div className="p-6">
-              <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
-                {f.name}
-              </h3>
-              <p className="mt-2 text-sm leading-[1.55] text-muted-foreground">{f.description}</p>
-              <p className="mt-4 flex items-center gap-2 font-display text-lg tracking-wide text-primary">
-                от {minPrice(f.material).toLocaleString('ru-RU')} ₽/м²
-                <Icon
-                  name="ArrowRight"
-                  size={16}
-                  className="transition-transform group-hover:translate-x-1"
+          <article key={f.slug} className="hover-card group flex flex-col bg-card animate-scale-in">
+            <Link
+              to={`/catalog?material[]=${encodeURIComponent(f.material)}`}
+              className="block flex-1"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
+                <img
+                  src={f.img}
+                  alt={`Ткань ${f.name} — ${f.material} для натяжных тканевых стен и потолков`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
-              </p>
+                <span className="absolute right-3 top-3 bg-ink px-2 py-1 text-[0.7rem] uppercase tracking-[0.1em] text-background">
+                  {f.material}
+                </span>
+              </div>
+              <div className="px-6 pt-6">
+                <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
+                  {f.name}
+                </h3>
+                <p className="mt-2 text-sm leading-[1.55] text-muted-foreground">{f.description}</p>
+                <p className="mt-4 flex items-center gap-2 font-display text-lg tracking-wide text-primary">
+                  от {minPrice(f.material).toLocaleString('ru-RU')} ₽/м²
+                  <Icon
+                    name="ArrowRight"
+                    size={16}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </p>
+              </div>
+            </Link>
+            <div className="px-6 pb-6 pt-4">
+              <button
+                type="button"
+                onClick={() => openSamples(f.slug)}
+                className="flex w-full items-center justify-center gap-2 border border-foreground/25 px-4 py-3 font-display text-base uppercase tracking-[0.04em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+              >
+                <Icon name="Package" size={16} />
+                Получить образец
+              </button>
             </div>
-          </Link>
+          </article>
         ))}
       </div>
 
