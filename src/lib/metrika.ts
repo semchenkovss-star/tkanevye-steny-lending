@@ -1,4 +1,4 @@
-const COUNTER_ID = 112376085;
+const COUNTER_ID = 112531578;
 
 type YmFn = (id: number, action: string, ...rest: unknown[]) => void;
 

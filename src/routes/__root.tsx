@@ -83,9 +83,9 @@ const METRIKA = `(function(m,e,t,r,i,k,a){
     m[i].l=1*new Date();
     for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112376085', 'ym');
+})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112531578', 'ym');
 
-ym(112376085, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`;
+ym(112531578, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`;
 
 
 export const Route = createRootRoute({
@@ -163,7 +163,7 @@ function RootDocument({children}: { children: ReactNode }) {
         <body>
         {children}
         <noscript>
-            <div><img src="https://mc.yandex.ru/watch/112376085" style={{position: "absolute", left: "-9999px"}} alt=""/></div>
+            <div><img src="https://mc.yandex.ru/watch/112531578" style={{position: "absolute", left: "-9999px"}} alt=""/></div>
         </noscript>
         <Scripts/>
         </body>
