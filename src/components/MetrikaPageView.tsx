@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from "@/lib/router-compat";
-import { trackPageCounter, trackPageView } from '@/lib/metrika';
+import { trackPageView } from '@/lib/metrika';
 
 /**
  * Отправляет просмотр страницы в Метрику при переходах внутри сайта.
@@ -8,14 +8,11 @@ import { trackPageCounter, trackPageView } from '@/lib/metrika';
  */
 const MetrikaPageView = () => {
   const location = useLocation();
-  const prevUrl = useRef<string | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
       const url = window.location.href;
       trackPageView(url);
-      trackPageCounter(url, window.location.pathname, prevUrl.current ?? document.referrer);
-      prevUrl.current = url;
     }, 80);
     return () => window.clearTimeout(id);
   }, [location.pathname, location.search]);
