@@ -78,28 +78,14 @@ const ORG_LD = {
     ],
 };
 
-const METRIKA_1 = `(function (m, e, t, r, i, k, a) {
-    m[i] = m[i] || function () {
-        (m[i].a = m[i].a || []).push(arguments)
-    };
-    m[i].l = 1 * new Date();
-    for (var j = 0; j < document.scripts.length; j++) {
-        if (document.scripts[j].src === r) {
-            return;
-        }
-    }
-    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-})
-(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+const METRIKA = `(function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112376085', 'ym');
 
-ym(101026698, "init", {
-    trustedDomains: ["poehali.dev"],
-    clickmap: true,
-    trackLinks: true,
-    accurateTrackBounce: true,
-    webvisor: true,
-    trackHash: true
-});`;
+ym(112376085, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`;
 
 
 export const Route = createRootRoute({
@@ -139,7 +125,7 @@ export const Route = createRootRoute({
             ...(import.meta.env.DEV ? [{children: HMR_CLIENT}] : []),
             ...PLATFORM_SCRIPTS,
             {type: "application/ld+json", children: JSON.stringify(ORG_LD)},
-            {children: METRIKA_1},
+            {children: METRIKA},
         ],
     }),
     component: RootComponent,
@@ -177,7 +163,7 @@ function RootDocument({children}: { children: ReactNode }) {
         <body>
         {children}
         <noscript>
-            <div><img src="https://mc.yandex.ru/watch/101026698" style={{position: "absolute", left: "-9999px"}} alt=""/></div>
+            <div><img src="https://mc.yandex.ru/watch/112376085" style={{position: "absolute", left: "-9999px"}} alt=""/></div>
         </noscript>
         <Scripts/>
         </body>
